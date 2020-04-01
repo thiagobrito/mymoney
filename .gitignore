@@ -1,1 +1,8 @@
 /db.sqlite3
+/.env
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/mymoney.iml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
