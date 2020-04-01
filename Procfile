@@ -1,1 +1,1 @@
-web: newrelic-admin run-program gunicorn mymoney.wsgi
+web: run-program gunicorn mymoney.wsgi
