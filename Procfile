@@ -1,1 +1,1 @@
-web: run-program gunicorn mymoney.wsgi
+web: gunicorn mymoney.wsgi
