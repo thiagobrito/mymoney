@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from mymoney.core.views import index
+from mymoney.core.views import index, earnings, expenses, nubank
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
+    path('earnings/', earnings, name='earnings'),
+    path('expenses/', expenses, name='expenses'),
+    path('nubank/', expenses, name='nubank'),
 ]
