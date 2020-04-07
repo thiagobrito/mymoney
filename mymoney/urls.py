@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from mymoney.core.views.pages import index, earnings, expenses, nubank
+from mymoney.core.views.pages import index, earnings, expenses, nubank, funds
 from mymoney.core.views import api
 
 urlpatterns = [
@@ -25,6 +25,7 @@ urlpatterns = [
     path('earnings/', earnings, name='earnings'),
     path('expenses/', expenses, name='expenses'),
     path('nubank/', expenses, name='nubank'),
+    path('fund/', funds, name='funds'),
     path('api/v1/earnings/', api.earnings, name='api.earnings'),
     path('api/v1/sources/earnings/', api.sources_earnings, name='api.sources.earnings')
 ]

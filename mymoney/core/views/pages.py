@@ -16,7 +16,7 @@ def index(request):
 
 
 def earnings(request):
-    earnings = Earnings.objects.filter(date__year=2020)
+    earnings = Earnings.objects.filter(date__year=2020).order_by('-date')
 
     return render(request, 'earnings.html',
                   context={'earnings': earnings})
@@ -28,3 +28,7 @@ def expenses(request):
 
 def nubank(request):
     return render(request, 'nubank.html')
+
+
+def funds(request):
+    return render(request, 'funds.html')

@@ -83,16 +83,18 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Update
-        </div>
-
         <!-- Nav Item - Earnings -->
         <li class="nav-item">
             <a class="nav-link" href="{% url 'earnings' %}">
                 <i class="fas fa-fw fa-money-bill-alt"></i>
                 <span>Earnings</span></a>
+        </li>
+
+        <!-- Nav Item - Fund -->
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'funds' %}">
+                <i class="fas fa-fw fa-money-bill-wave"></i>
+                <span>Funds</span></a>
         </li>
 
         <!-- Nav Item - Expenses -->
@@ -102,7 +104,7 @@
                 <span>Expenses</span></a>
         </li>
 
-        <!-- Nav Item - Charts -->
+        <!-- Nav Item - NuBank -->
         <li class="nav-item">
             <a class="nav-link" href="{% url 'nubank' %}">
                 <i class="fas fa-fw fa-credit-card"></i>
