@@ -21,7 +21,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings
                                 (2020)
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">R$ 40,000</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ earnings_total }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-money-bill-alt fa-2x text-gray-300"></i>
@@ -121,7 +121,7 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="chart-area">
-                        <canvas id="myAreaChart"></canvas>
+                        <canvas id="myAreaChart" data-url="{% url 'api.earnings' %}"></canvas>
                     </div>
                 </div>
             </div>
@@ -151,17 +151,17 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="chart-pie pt-4 pb-2">
-                        <canvas id="myPieChart"></canvas>
+                        <canvas id="myPieChart" data-url="{% url 'api.sources.earnings' %}"></canvas>
                     </div>
                     <div class="mt-4 text-center small">
                     <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
+                      <i class="fas fa-circle text-primary"></i> AlgoMania
                     </span>
                         <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
+                      <i class="fas fa-circle text-success"></i> Salario
                     </span>
                         <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
+                      <i class="fas fa-circle text-info"></i> Udemy
                     </span>
                     </div>
                 </div>
