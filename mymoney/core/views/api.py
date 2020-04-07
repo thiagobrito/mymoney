@@ -36,7 +36,7 @@ def earnings(request):
 
 
 def sources_earnings(request):
-    report = Earnings.objects.values('origin').annotate(Sum('value')).order_by()
+    report = Earnings.objects.values('origin').annotate(Sum('value')).order_by('origin')
 
     labels = []
     data = []
