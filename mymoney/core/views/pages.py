@@ -11,12 +11,15 @@ def index(request):
     return render(request, 'index.html',
                   context={
                       'earnings': earnings,
-                      'earnings_total': Money(earnings.aggregate(total=Sum('value'))['total'], currency='BRL')
+                      'earnings_total': Money(earnings.aggregate(total=Sum('value'))['total'] or 0, currency='BRL')
                   })
 
 
 def earnings(request):
-    return render(request, 'earnings.html')
+    earnings = Earnings.objects.filter(date__year=2020)
+
+    return render(request, 'earnings.html',
+                  context={'earnings': earnings})
 
 
 def expenses(request):

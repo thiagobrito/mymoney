@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
 {% block page_content %}
-    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Earnings</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive" style="overflow-x: hidden">
@@ -33,27 +32,23 @@
                                         Value
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Start date: activate to sort column ascending" style="width: 187px;">
+                                        aria-label="Start date: activate to sort column ascending"
+                                        style="width: 187px;">
 
                                         Origin
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-
-
-                                <tr role="row" class="odd">
-                                    <td class="sorting_1">Airi Satou</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>33</td>
-                                </tr>
-                                <tr role="row" class="even">
-                                    <td class="sorting_1">Angelica Ramos</td>
-                                    <td>Chief Executive Officer (CEO)</td>
-                                    <td>London</td>
-                                    <td>47</td>
-                                </tr>
+                                {% for earn in earnings %}
+                                    <tr role="row"
+                                        class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                                        <td class="sorting_1">{{ earn.date }}</td>
+                                        <td>{{ earn.description }}</td>
+                                        <td>{{ earn.value }}</td>
+                                        <td>{{ earn.origin }}</td>
+                                    </tr>
+                                {% endfor %}
                                 </tbody>
                             </table>
                         </div>
