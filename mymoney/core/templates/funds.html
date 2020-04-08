@@ -32,25 +32,25 @@
                                         Value
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Start date: activate to sort column ascending"
-                                        style="width: 187px;">
+                                        aria-label="Office: activate to sort column ascending" style="width: 50px;">
 
-                                        Origin
+                                        Category
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <!--
-                                {% for earn in earnings %}
+
+                                {% for fund in funds %}
                                     <tr role="row"
+                                        style="{% if fund.value.amount < 0 %}color: red{% endif %}"
                                         class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
-                                        <td class="sorting_1">{{ earn.date }}</td>
-                                        <td>{{ earn.description }}</td>
-                                        <td>{{ earn.value }}</td>
-                                        <td>{{ earn.origin }}</td>
+                                        <td class="sorting_1">{{ fund.date }}</td>
+                                        <td>{{ fund.description }}</td>
+                                        <td>{{ fund.value }}</td>
+                                        <td>{{ fund.get_category_display }}</td>
                                     </tr>
                                 {% endfor %}
-                                -->
+
                                 </tbody>
                             </table>
                         </div>

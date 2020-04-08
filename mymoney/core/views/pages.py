@@ -3,6 +3,7 @@ from django.db.models import Sum
 
 from djmoney.money import Money
 from mymoney.core.models.earnings import Earnings
+from mymoney.core.models.funds import Funds
 
 
 def index(request):
@@ -31,4 +32,9 @@ def nubank(request):
 
 
 def funds(request):
-    return render(request, 'funds.html')
+    funds = Funds.objects.filter(date__year=2020).order_by('-date')
+
+    return render(request, 'funds.html',
+                  context={
+                      'funds': funds
+                  })

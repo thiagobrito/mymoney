@@ -42,7 +42,7 @@ def sources_earnings(request):
     data = []
 
     for exp in report:
-        labels.append(exp['origin'])
+        labels.append(Earnings().source_display_name(exp['origin']))
         data.append(exp['value__sum'])
 
     return JsonResponse(data={

@@ -25,3 +25,6 @@ class Earnings(models.Model):
     @property
     def value_display(self):
         return "R$ %s" % self.value
+
+    def source_display_name(self, source):
+        return dict((k, v) for k, v in self.SOURCES)[source]
