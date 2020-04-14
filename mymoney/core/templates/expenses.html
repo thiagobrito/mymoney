@@ -57,8 +57,14 @@
                                         <td>{{ expenses.description }}</td>
                                         <td>{{ expenses.value }}</td>
                                         <td>{{ expenses.get_bank_account_display }}</td>
-                                        <td>{{ expenses.scheduled }}</td>
-                                        <td>{{ expenses.paid }}</td>
+                                        <td style="text-align: center">
+                                            <i class="fas {% if expenses.scheduled %}fa-smile-beam{% else %}fa-meh-rolling-eyes{% endif %}"
+                                               style="color: {% if expenses.scheduled %}#36b9cc{% else %}#e74a3b{% endif %}"></i>
+                                        </td>
+                                        <td style="text-align: center">
+                                            <i class="fas {% if expenses.paid %}fa-smile-beam{% else %}fa-meh-rolling-eyes{% endif %}"
+                                               style="color: {% if expenses.paid %}#36b9cc{% else %}#e74a3b{% endif %}"></i>
+                                        </td>
                                     </tr>
                                 {% endfor %}
 

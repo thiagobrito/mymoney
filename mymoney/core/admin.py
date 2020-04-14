@@ -43,8 +43,8 @@ class ExpensesAdmin(admin.ModelAdmin):
                     date=date,
                     description=description,
                     value=value.amount,
-                    scheduled=True,
-                    paid=False,
+                    scheduled=form.data.get('paid', default='off') == 'on',
+                    paid=form.data.get('paid', default='off') == 'on',
                     bank_account=obj.bank_account
                 )
 
