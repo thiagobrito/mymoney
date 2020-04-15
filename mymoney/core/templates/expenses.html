@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head_content %}
+    <link href="{% static 'vendor/bootstrap4-editable/css/bootstrap-editable.css' %}" rel="stylesheet"/>
+    <script src="{% static 'vendor/bootstrap4-editable/js/bootstrap-editable.js' %}"></script>
+{% endblock %}
 
 {% block page_content %}
 
@@ -54,8 +60,13 @@
                                     <tr role="row"
                                         class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
                                         <td class="sorting_1">{{ expenses.date }}</td>
-                                        <td>{{ expenses.description }}</td>
-                                        <td>{{ expenses.value }}</td>
+                                        <td>
+                                            <a href="#" class="editable" data-type="text" data-pk="{{ expenses.id }}" id="description" data-url="{% url 'api.expenses.update' %}" data-title="Value" data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ expenses.description }}</a>
+                                        </td>
+
+                                        <td>
+                                            <a href="#" class="editable" data-type="text" data-pk="{{ expenses.id }}" id="value" data-url="{% url 'api.expenses.update' %}" data-title="Value" data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ expenses.value }}</a>
+                                        </td>
                                         <td>{{ expenses.get_bank_account_display }}</td>
                                         <td style="text-align: center">
                                             <i class="fas {% if expenses.scheduled %}fa-smile-beam{% else %}fa-meh-rolling-eyes{% endif %}"
@@ -76,4 +87,14 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block end_content %}
+    <script>
+        $.fn.editable.defaults.mode = 'inline';
+
+        $(document).ready(function() {
+            $('.editable').editable();
+        });
+    </script>
 {% endblock %}

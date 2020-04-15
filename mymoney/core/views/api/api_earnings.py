@@ -1,13 +1,12 @@
-from django.db.models import Sum
 from django.http import JsonResponse
 
 from django.db.models.functions import ExtractMonth
-from django.db.models import Sum, Count
+from django.db.models import Sum
 
 from mymoney.core.models.earnings import Earnings
 
 
-def earnings(request):
+def month_chart(request):
     report = Earnings.objects.annotate(month=ExtractMonth('date')) \
         .values('month') \
         .annotate(total=Sum('value')) \
@@ -35,7 +34,7 @@ def earnings(request):
     )
 
 
-def sources_earnings(request):
+def sources_chart(request):
     report = Earnings.objects.values('origin').annotate(Sum('value')).order_by('origin')
 
     labels = []

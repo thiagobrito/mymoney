@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from mymoney.core.views.pages import index, earnings, expenses, nubank, funds
-from mymoney.core.views import api
+from mymoney.core.views.api import api_earnings, api_expenses
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +26,7 @@ urlpatterns = [
     path('expenses/', expenses, name='expenses'),
     path('nubank/', expenses, name='nubank'),
     path('fund/', funds, name='funds'),
-    path('api/v1/earnings/', api.earnings, name='api.earnings'),
-    path('api/v1/sources/earnings/', api.sources_earnings, name='api.sources.earnings')
+    path('api/v1/earnings/month_chart/', api_earnings.month_chart, name='api.earnings.month_chart'),
+    path('api/v1/earnings/sources_chart/', api_earnings.sources_chart, name='api.earnings.sources_chart'),
+    path('api/v1/expenses/update/', api_expenses.update, name='api.expenses.update'),
 ]

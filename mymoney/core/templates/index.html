@@ -121,7 +121,7 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="chart-area">
-                        <canvas id="myAreaChart" data-url="{% url 'api.earnings' %}"></canvas>
+                        <canvas id="myAreaChart" data-url="{% url 'api.earnings.month_chart' %}"></canvas>
                     </div>
                 </div>
             </div>
@@ -151,7 +151,7 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="chart-pie pt-4 pb-2">
-                        <canvas id="myPieChart" data-url="{% url 'api.sources.earnings' %}"></canvas>
+                        <canvas id="myPieChart" data-url="{% url 'api.earnings.sources_chart' %}"></canvas>
                     </div>
                     <div class="mt-4 text-center small">
                     <span class="mr-2">
@@ -169,4 +169,10 @@
         </div>
     </div>
 
+{% endblock %}
+
+{% block end_content %}
+<!-- Page level custom scripts -->
+    <script src="{% static 'js/chart-line.js' %}"></script>
+    <script src="{% static 'js/chart-pie.js' %}"></script>
 {% endblock %}
