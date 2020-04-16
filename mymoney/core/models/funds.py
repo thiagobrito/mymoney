@@ -21,3 +21,6 @@ class Funds(models.Model):
         verbose_name_plural = 'Funds'
         ordering = ['date', 'value']
 
+    @property
+    def value_display(self):
+        return self.value

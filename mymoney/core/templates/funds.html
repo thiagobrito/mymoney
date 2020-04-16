@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head_content %}
+    <link href="{% static 'vendor/bootstrap4-editable/css/bootstrap-editable.css' %}" rel="stylesheet"/>
+    <script src="{% static 'vendor/bootstrap4-editable/js/bootstrap-editable.js' %}"></script>
+{% endblock %}
 
 {% block page_content %}
-
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Funds</h6>
@@ -44,10 +49,18 @@
                                     <tr role="row"
                                         style="{% if fund.value.amount < 0 %}color: red{% endif %}"
                                         class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
-                                        <td class="sorting_1">{{ fund.date }}</td>
-                                        <td>{{ fund.description }}</td>
-                                        <td>{{ fund.value }}</td>
-                                        <td>{{ fund.get_category_display }}</td>
+                                        <td class="sorting_1">
+                                            {{ fund.date }}
+                                        </td>
+                                        <td>
+                                            <a href="#" class="editable" data-type="text" data-pk="{{ fund.id }}" id="description" data-url="{% url 'api.funds.update' %}" data-title="Value" data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ fund.description }}</a>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="editable" data-type="text" data-pk="{{ fund.id }}" id="value" data-url="{% url 'api.funds.update' %}" data-title="Value" data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ fund.value_display }}</a>
+                                        </td>
+                                        <td>
+                                            {{ fund.get_category_display }}
+                                        </td>
                                     </tr>
                                 {% endfor %}
 
@@ -59,4 +72,14 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block end_content %}
+    <script>
+        $.fn.editable.defaults.mode = 'inline';
+
+        $(document).ready(function() {
+            $('.editable').editable();
+        });
+    </script>
 {% endblock %}
