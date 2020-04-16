@@ -65,7 +65,7 @@
                                         </td>
 
                                         <td>
-                                            <a href="#" class="editable" data-type="text" data-pk="{{ expenses.id }}" id="value" data-url="{% url 'api.expenses.update' %}" data-title="Value" data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ expenses.value }}</a>
+                                            <a href="#" class="editable" data-type="text" data-pk="{{ expenses.id }}" id="value" data-url="{% url 'api.expenses.update' %}" data-title="Value" data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ expenses.value_display }}</a>
                                         </td>
                                         <td>{{ expenses.get_bank_account_display }}</td>
                                         <td style="text-align: center">

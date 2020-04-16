@@ -24,5 +24,5 @@ class Expenses(models.Model):
 
     @property
     def value_display(self):
-        return "R$ %s" % self.value
+        return self.value
 
