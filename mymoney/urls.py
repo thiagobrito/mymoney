@@ -29,4 +29,6 @@ urlpatterns = [
     path('api/v1/earnings/month_chart/', api_earnings.month_chart, name='api.earnings.month_chart'),
     path('api/v1/earnings/sources_chart/', api_earnings.sources_chart, name='api.earnings.sources_chart'),
     path('api/v1/expenses/update/', api_expenses.update, name='api.expenses.update'),
+    path('api/v1/expenses/scheduled/<int:pk>/', api_expenses.scheduled, name='api.expenses.scheduled'),
+    path('api/v1/expenses/paid/<int:pk>/', api_expenses.paid, name='api.expenses.paid'),
 ]

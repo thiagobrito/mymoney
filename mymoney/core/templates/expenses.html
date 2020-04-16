@@ -69,12 +69,12 @@
                                         </td>
                                         <td>{{ expenses.get_bank_account_display }}</td>
                                         <td style="text-align: center">
-                                            <i class="fas {% if expenses.scheduled %}fa-smile-beam{% else %}fa-meh-rolling-eyes{% endif %}"
-                                               style="color: {% if expenses.scheduled %}#36b9cc{% else %}#e74a3b{% endif %}"></i>
+                                            <a class="fas {% if expenses.scheduled %}fa-smile-beam{% else %}fa-meh-rolling-eyes{% endif %}" href="{% url 'api.expenses.scheduled' pk=expenses.pk %}"
+                                               style="color: {% if expenses.scheduled %}#36b9cc{% else %}#e74a3b{% endif %}"></a>
                                         </td>
                                         <td style="text-align: center">
-                                            <i class="fas {% if expenses.paid %}fa-smile-beam{% else %}fa-meh-rolling-eyes{% endif %}"
-                                               style="color: {% if expenses.paid %}#36b9cc{% else %}#e74a3b{% endif %}"></i>
+                                            <a class="fas {% if expenses.paid %}fa-smile-beam{% else %}fa-meh-rolling-eyes{% endif %}" href="{% url 'api.expenses.paid' pk=expenses.pk %}"
+                                               style="color: {% if expenses.paid %}#36b9cc{% else %}#e74a3b{% endif %}"></a>
                                         </td>
                                     </tr>
                                 {% endfor %}

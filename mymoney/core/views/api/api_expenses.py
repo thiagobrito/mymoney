@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.http import JsonResponse
 from djmoney.money import Money
 
@@ -18,3 +19,19 @@ def update(request):
     return JsonResponse(data={'msg': 'success'})
 
 
+def scheduled(request, pk):
+    expense = Expenses.objects.get(pk=pk)
+    expense.scheduled = not expense.scheduled
+    expense.save()
+
+    return redirect('/expenses/')
+
+
+def paid(request, pk):
+    expense = Expenses.objects.get(pk=pk)
+    expense.paid = not expense.paid
+    if expense.paid:
+        expense.scheduled = True
+    expense.save()
+
+    return redirect('/expenses/')
