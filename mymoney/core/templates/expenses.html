@@ -63,11 +63,12 @@
                                         <td>
                                             <a href="#" class="editable" data-type="text" data-pk="{{ expenses.id }}" id="description" data-url="{% url 'api.expenses.update' %}" data-title="Value" data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ expenses.description }}</a>
                                         </td>
-
                                         <td>
                                             <a href="#" class="editable" data-type="text" data-pk="{{ expenses.id }}" id="value" data-url="{% url 'api.expenses.update' %}" data-title="Value" data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ expenses.value_display }}</a>
                                         </td>
-                                        <td>{{ expenses.get_bank_account_display }}</td>
+                                        <td>
+                                            {{ expenses.get_bank_account_display }}
+                                        </td>
                                         <td style="text-align: center">
                                             <a class="fas {% if expenses.scheduled %}fa-smile-beam{% else %}fa-meh-rolling-eyes{% endif %}" href="{% url 'api.expenses.scheduled' pk=expenses.pk %}"
                                                style="color: {% if expenses.scheduled %}#36b9cc{% else %}#e74a3b{% endif %}"></a>
