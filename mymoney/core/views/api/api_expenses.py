@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.http import JsonResponse
 
 from mymoney.core.models.expenses import Expenses
 from mymoney.core.views.api import update_from_request
@@ -13,7 +13,7 @@ def scheduled(request, pk):
     expense.scheduled = not expense.scheduled
     expense.save()
 
-    return redirect('/expenses/')
+    return JsonResponse(data={'status': 200})
 
 
 def paid(request, pk):
@@ -23,4 +23,4 @@ def paid(request, pk):
         expense.scheduled = True
     expense.save()
 
-    return redirect('/expenses/')
+    return JsonResponse(data={'status': 200})

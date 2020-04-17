@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block head_content %}
+    <link href="{% static 'vendor/bootstrap4-editable/css/bootstrap-editable.css' %}" rel="stylesheet"/>
+    <script src="{% static 'vendor/bootstrap4-editable/js/bootstrap-editable.js' %}"></script>
+{% endblock %}
+
 {% block page_content %}
 
     <!-- Page Heading -->
@@ -169,10 +174,20 @@
         </div>
     </div>
 
+    {% include "expenses_table.html" with title="Open Expenses for this Month" expenses=unpaid_expenses %}
+
 {% endblock %}
 
 {% block end_content %}
 <!-- Page level custom scripts -->
     <script src="{% static 'js/chart-line.js' %}"></script>
     <script src="{% static 'js/chart-pie.js' %}"></script>
+
+    <script>
+        $.fn.editable.defaults.mode = 'inline';
+
+        $(document).ready(function() {
+            $('.editable').editable();
+        });
+    </script>
 {% endblock %}

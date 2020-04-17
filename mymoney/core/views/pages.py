@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render
 from django.db.models import Sum
 
@@ -12,6 +13,8 @@ def index(request):
     funds = Funds.objects.filter(date__year=2020)
     expenses = Expenses.objects.filter(date__year=2020)
 
+    unpaid_expenses = Expenses.objects.filter(date__year=2020, date__month__lte=datetime.now().month).filter(paid=False)
+
     return render(request, 'index.html',
                   context={
                       'earnings': earnings,
@@ -19,6 +22,7 @@ def index(request):
                       'funds_total': Money(funds.aggregate(total=Sum('value'))['total'] or 0, currency='BRL'),
                       'expenses': expenses,
                       'expenses_total': Money(expenses.aggregate(total=Sum('value'))['total'] or 0, currency='BRL'),
+                      'unpaid_expenses': unpaid_expenses
                   })
 
 

@@ -1,0 +1,124 @@
+<!-- Expenses Table -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">{{ title }}</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive" style="overflow-x: hidden">
+            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
+                               role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                            <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                    colspan="1" aria-sort="ascending"
+                                    aria-label="Name: activate to sort column descending" style="width: 170px;">
+
+                                    Date
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Position: activate to sort column ascending">
+
+                                    Description
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Office: activate to sort column ascending" style="width: 40px;">
+
+                                    Value
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Office: activate to sort column ascending" style="width: 40px;">
+
+                                    Bank
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Office: activate to sort column ascending" style="width: 40px;">
+
+                                    Scheduled
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Office: activate to sort column ascending" style="width: 40px;">
+
+                                    Paid
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for item in expenses %}
+                                <tr role="row"
+                                    class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                                    <td class="sorting_1">{{ item.date }}</td>
+                                    <td>
+                                        <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
+                                           data-url="{% url 'api.expenses.update' %}"
+                                           data-title="Value"
+                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.description }}</a>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
+                                           data-url="{% url 'api.expenses.update' %}" data-title="Value"
+                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.value_display }}</a>
+                                    </td>
+                                    <td>
+                                        {{ item.get_bank_account_display }}
+                                    </td>
+                                    <td style="text-align: center">
+                                        <a class="fas {% if item.scheduled %}fa-smile-beam{% else %}fa-meh-rolling-eyes{% endif %}"
+                                           id="scheduled_{{ item.id }}"
+                                           onclick="onChangeItemStatus('scheduled_{{ item.id }}', '{% url 'api.expenses.scheduled' pk=item.pk %}' )"
+                                           style="color: {% if item.scheduled %}#36b9cc{% else %}#e74a3b{% endif %}"></a>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <a class="fas {% if item.paid %}fa-smile-beam{% else %}fa-meh-rolling-eyes{% endif %}"
+                                           id="paid_{{ item.id }}"
+                                           onclick="onChangeItemStatus('paid_{{ item.id }}', '{% url 'api.expenses.paid' pk=item.pk %}' )"
+                                           style="color: {% if item.paid %}#36b9cc{% else %}#e74a3b{% endif %}"></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block end_content %}
+    <script>
+        function onChangeItemStatus(name, current_url) {
+            var element = document.getElementById(name);
+            var item_to_remove = 'fa-meh-rolling-eyes';
+            var item_to_add = 'fa-smile-beam';
+            var item_color = '#36b9cc';
+
+            if (element.classList.contains('fa-smile-beam')) {
+                item_to_remove = 'fa-smile-beam';
+                item_to_add = 'fa-meh-rolling-eyes';
+                item_color = '#e74a3b';
+            }
+
+            var updating_icon = 'fa-hourglass-start';
+            element.classList.remove(item_to_remove);
+            element.classList.add(updating_icon); // add loading icon
+            element.style["color"] = "#dddfeb";
+            item_to_remove = updating_icon;
+
+            $.ajax({
+                url: current_url,
+                method: "POST",
+                headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                success: function (returnData) {
+                    element.classList.remove(item_to_remove);
+                    element.classList.add(item_to_add);
+                    element.style["color"] = item_color;
+                }
+            });
+        }
+    </script>
+{% endblock %}
