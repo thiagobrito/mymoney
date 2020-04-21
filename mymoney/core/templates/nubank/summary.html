@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_content %}
+    <link href="{% static 'vendor/bootstrap4-editable/css/bootstrap-editable.css' %}" rel="stylesheet"/>
+    <script src="{% static 'vendor/bootstrap4-editable/js/bootstrap-editable.js' %}"></script>
+{% endblock %}
+
+{% block page_content %}
+    {% include "creditcard_table.html" with title="Detailed Description" expenses=expenses %}
+{% endblock %}
+
+{% block end_content %}
+    <script>
+        $.fn.editable.defaults.mode = 'inline';
+
+        $(document).ready(function() {
+            $('.editable').editable();
+        });
+    </script>
+{% endblock %}

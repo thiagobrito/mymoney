@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_content %}
+    <div class="container">
+        <div class="row h-100">
+            <div class="col">
+            </div>
+
+            <div class="col align-self-center" style="text-align: center;">
+                <h4 class="m-0 font-weight-bold text-dark">Open NuBank App and Scan this QRCode to Sync Your Data</h4>
+                <img src="https://chart.googleapis.com/chart?chs=450x450&cht=qr&chl={{ uuid }}&choe=UTF-8"/>
+                <p id="update_status_text">
+                    <img src="{% static 'imgs/loading.gif' %}"/>
+                    Waiting for autorization to update data...
+                </p>
+                <a id="skip_text" href="{% url 'nubank.summary' %}">Skip this step... I want to see the data that I have!</a>
+            </div>
+
+            <div class="col">
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block end_content %}
+
+    <script>
+        var processing_check_timer = null;
+
+        function processing_check() {
+            $.ajax({
+                url: "{% url 'nubank.processing' %}",
+                method: "GET",
+                headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                success: function (returnData) {
+                    document.getElementById("update_status_text").textContent = returnData;
+                    document.getElementById("skip_text").style.display = "none";
+                    clearInterval(processing_check_timer);
+
+                    window.location.href = "{% url 'nubank.summary' %}";
+                },
+            });
+        }
+
+        var auth_check_timer = null;
+        function authentication_check() {
+            console.log('sending...');
+            $.ajax({
+                url: "{% url 'nubank.authenticate' %}",
+                method: "GET",
+                headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                success: function (returnData) {
+                    document.getElementById("update_status_text").textContent = returnData;
+                    document.getElementById("skip_text").style.display = "none";
+                    clearInterval(auth_check_timer);
+
+                    processing_check_timer = setInterval(processing_check, 2000);
+                },
+            });
+        }
+        setInterval(authentication_check, 5000);
+    </script>
+
+{% endblock %}

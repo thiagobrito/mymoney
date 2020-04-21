@@ -18,6 +18,7 @@ from django.urls import path
 
 from mymoney.core.views.pages import earnings, expenses, nubank, funds
 from mymoney.core.views.api import api_earnings, api_expenses, api_funds
+from mymoney.core.views import nubank
 
 from mymoney.core.views import summary
 
@@ -27,8 +28,12 @@ urlpatterns = [
     path('summary/<int:month>/', summary.view, name='summary'),
     path('earnings/', earnings, name='earnings'),
     path('expenses/', expenses, name='expenses'),
-    path('nubank/', expenses, name='nubank'),
     path('fund/', funds, name='funds'),
+
+    path('nubank/qrcode/', nubank.qrcode, name='nubank.qrcode'),
+    path('nubank/authenticate/', nubank.authenticate, name='nubank.authenticate'),
+    path('nubank/processing/', nubank.processing, name='nubank.processing'),
+    path('nubank/summary/', nubank.summary, name='nubank.summary'),
 
     path('api/v1/earnings/month_chart/', api_earnings.month_chart, name='api.earnings.month_chart'),
     path('api/v1/earnings/sources_chart/', api_earnings.sources_chart, name='api.earnings.sources_chart'),
