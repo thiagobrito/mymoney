@@ -1,30 +1,28 @@
 from django.http import HttpResponse, HttpResponseNotModified
-from pynubank import Nubank
-
 from django.shortcuts import render
+
+from mymoney.core.services import nubank
 
 
 def qrcode(request):
-    nu = Nubank()
-    uuid, qr_code = nu.get_qr_code()
+    nubank_worker = nubank.NubankWorker()
+    request.session['uuid'] = nubank_worker.uuid
 
-    request.session['nubank_uuid'] = uuid
-    return render(request, 'nubank/qrcode.html', context={'uuid': uuid})
+    return render(request, 'nubank/qrcode.html', context={'uuid': request.session['uuid']})
 
 
 def authenticate(request):
-    nu = Nubank()
+    if nubank.authenticate(request.session['uuid'], '34026454835', 'aut55165'):
+        return HttpResponse('Just processing data, you will be redirected soon...')
 
-    try:
-        # nu.authenticate_with_qr_code('123456789', 'senha', request.session['nubank_uuid'])
-        pass
-    except:
-        return HttpResponseNotModified()
-    return HttpResponse('Just processing data, you will be redirected soon...')
+    return HttpResponse(status=401)
 
 
 def processing(request):
-    return HttpResponse('processing has been complete!')
+    if nubank.ready(request.session['uuid']):
+        return HttpResponse('processing has been complete!')
+
+    return HttpResponseNotModified()
 
 
 def summary(request):
