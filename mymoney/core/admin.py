@@ -12,7 +12,7 @@ from mymoney.core.models.labels import Label
 
 
 class CreditCardAdmin(admin.ModelAdmin):
-    list_display = ('time', 'payment_date', 'category', 'description', 'value')
+    list_display = ('transaction_time', 'payment_date', 'category', 'description', 'value')
 
 
 class LabelAdmin(admin.ModelAdmin):

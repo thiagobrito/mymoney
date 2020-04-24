@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseNotModified
 from django.shortcuts import render, redirect
 
 from mymoney.core.services import nubank
+from mymoney.core.models.credit_card import CreditCardBills
 
 
 def login(request):
@@ -29,7 +30,6 @@ def authenticate(request):
 
     if uuid and login and password:
         if nubank.authenticate(uuid, login, password):
-            del request.session['login']
             del request.session['password']
 
             return HttpResponse('Processing data, you will be redirected soon...')
@@ -45,4 +45,10 @@ def processing(request):
 
 
 def summary(request):
-    return render(request, 'nubank/summary.html')
+    login = request.session.get('login', default=None)
+    if login:
+        bills = CreditCardBills.objects.filter(account=login)
+    else:
+        bills = CreditCardBills.objects.all()
+
+    return render(request, 'nubank/summary.html', context={'data': bills})

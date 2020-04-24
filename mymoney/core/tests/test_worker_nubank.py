@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.test import TestCase
 from unittest.mock import MagicMock, Mock
 from wait_for import wait_for
@@ -44,3 +45,20 @@ class NubankWorkerTest(TestCase):
         self.worker.work()
 
         self.assertTrue(CreditCardBills.objects.exists())
+
+    def test_payment_date(self):
+        def date(day, month, only_date=False):
+            d = datetime.today()
+            d = d.replace(day=day, month=month)
+            if only_date:
+                return d.date()
+            return d
+
+        self.assertEqual(date(19, 1, only_date=True),
+                         self.worker._payment_date(transaction_time=date(1, 1), closing_day=19))  # <
+
+        self.assertEqual(date(19, 1, only_date=True),
+                         self.worker._payment_date(transaction_time=date(19, 1), closing_day=19))  # ==
+
+        self.assertEqual(date(19, 2, only_date=True),
+                         self.worker._payment_date(transaction_time=date(20, 1), closing_day=19))  # >

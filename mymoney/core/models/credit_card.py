@@ -11,10 +11,10 @@ class CreditCardBills(models.Model):
     description = models.TextField()
     labels = models.ManyToManyField(Label)
     value = MoneyField('value', max_digits=14, default_currency='BRL')
-    time = models.DateTimeField()
+    transaction_time = models.DateTimeField()
     payment_date = models.fields.DateField()
     category = models.TextField()
 
     class Meta:
         verbose_name_plural = 'Credit Card Bills'
-        ordering = ['time', 'value']
+        ordering = ['transaction_time', 'value']
