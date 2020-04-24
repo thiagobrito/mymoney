@@ -22,11 +22,11 @@ sample1 = [
     {
         "description": "Ifood *Ifood",
         "category": "transaction",
-        "amount": 4800,
+        "amount": 4812,
         "time": "2020-04-22T23:45:24Z",
         "source": "upfront_national",
         "title": "restaurante",
-        "amount_without_iof": 4800,
+        "amount_without_iof": 4812,
         "account": "56aa368e-dba9-46ef-8019-8d903a5e91d1",
         "details": {
             "subcategory": "card_not_present"

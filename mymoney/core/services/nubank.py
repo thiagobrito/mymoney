@@ -39,15 +39,18 @@ class NubankWorker(WorkerBase):
 
     @transaction.atomic
     def work(self):
+        def format_money(value):
+            return float('%d.%d' % ((value - (value % 100)) / 100, (value % 100)))
+
         if self._authenticated:
-            for statement in self._nu.get_card_statements():
+            for index, statement in enumerate(self._nu.get_card_statements()):
                 payment_date = self._payment_date(statement['time'], 19)
-                if payment_date.year > 2018:
+                if payment_date.year >= 2019:
                     if CreditCardBills.objects.filter(account=self._login, transaction_id=statement['id']).exists():
                         continue
 
                     obj = CreditCardBills(account=self._login, transaction_id=statement['id'],
-                                          description=statement['description'], value=statement['amount'],
+                                          description=statement['description'], value=format_money(statement['amount']),
                                           transaction_time=statement['time'], category=statement['title'],
                                           payment_date=payment_date)
                     obj.save()

@@ -14,35 +14,44 @@
                             <tr role="row">
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1"
                                     colspan="1" aria-sort="ascending"
-                                    aria-label="Name: activate to sort column descending" style="width: 170px; vertical-align: middle;">
+                                    aria-label="Name: activate to sort column descending"
+                                    style="width: 220px; vertical-align: middle;">
 
                                     Date
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Position: activate to sort column ascending" style="vertical-align: middle;" >
+                                    aria-label="Position: activate to sort column ascending"
+                                    style="vertical-align: middle;">
 
                                     Description
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Office: activate to sort column ascending" style="width: 40px; vertical-align: middle;">
+                                    aria-label="Office: activate to sort column ascending"
+                                    style="width: 40px; vertical-align: middle;">
 
                                     Value
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Office: activate to sort column ascending" style="width: 40px; vertical-align: middle;">
+                                    aria-label="Office: activate to sort column ascending"
+                                    style="width: 40px; vertical-align: middle;">
 
                                     Category
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Office: activate to sort column ascending" style="width: 150px; text-align: center; vertical-align: middle;">
+                                    aria-label="Office: activate to sort column ascending"
+                                    style="width: 150px; text-align: center; vertical-align: middle;">
 
                                     Payment Month
                                 </th>
+
+                                <!--
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Office: activate to sort column ascending" style="width: 200px; text-align: center; vertical-align: middle;">
+                                    aria-label="Office: activate to sort column ascending"
+                                    style="width: 200px; text-align: center; vertical-align: middle;">
 
                                     Labels
                                 </th>
+                                -->
                             </tr>
                             </thead>
                             <tbody>
@@ -50,35 +59,46 @@
                             {% for item in data %}
                                 <tr role="row"
                                     class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
-                                    <td class="sorting_1">{{ item.date }}</td>
+
+                                    <!-- Transaction Time -->
+                                    <td class="sorting_1">{{ item.transaction_time }}</td>
+
+                                    <!-- Description -->
                                     <td>
                                         <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
                                            data-url="{% url 'api.expenses.update' %}"
                                            data-title="Value"
                                            data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.description }}</a>
                                     </td>
+
+                                    <!-- Value -->
                                     <td>
                                         <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
                                            data-url="{% url 'api.expenses.update' %}" data-title="Value"
-                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.value_display }}</a>
+                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.value }}</a>
                                     </td>
+
+                                    <!-- Category -->
                                     <td>
-                                        {{ item.get_bank_account_display }}
+                                        <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
+                                           data-url="{% url 'api.expenses.update' %}" data-title="Value"
+                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.category }}</a>
                                     </td>
-                                    <td style="text-align: center">
-                                        <a class="fas {% if item.scheduled %}fa-smile-beam{% else %}fa-meh-rolling-eyes{% endif %}"
-                                           id="scheduled_{{ item.id }}"
-                                           href="javascript:void(0);"
-                                           onclick="onChangeItemStatus('scheduled_{{ item.id }}', '{% url 'api.expenses.scheduled' pk=item.pk %}' )"
-                                           style="color: {% if item.scheduled %}#36b9cc{% else %}#e74a3b{% endif %}"></a>
+
+                                    <!-- Payment Date -->
+                                    <td>
+                                        <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
+                                           data-url="{% url 'api.expenses.update' %}" data-title="Value"
+                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.payment_date }}</a>
                                     </td>
-                                    <td style="text-align: center">
-                                        <a class="fas {% if item.paid %}fa-smile-beam{% else %}fa-meh-rolling-eyes{% endif %}"
-                                           id="paid_{{ item.id }}"
-                                           href="javascript:void(0);"
-                                           onclick="onChangeItemStatus('paid_{{ item.id }}', '{% url 'api.expenses.paid' pk=item.pk %}' )"
-                                           style="color: {% if item.paid %}#36b9cc{% else %}#e74a3b{% endif %}"></a>
+
+                                    <!-- Labels
+                                    <td>
+                                        <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
+                                           data-url="{% url 'api.expenses.update' %}" data-title="Value"
+                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">Next</a>
                                     </td>
+                                    -->
                                 </tr>
                             {% endfor %}
 
