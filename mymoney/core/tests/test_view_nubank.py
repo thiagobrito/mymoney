@@ -3,6 +3,6 @@ from django.test import TestCase
 
 
 class IndexTest(TestCase):
-    def test_simple_request(self):
-        self.response = self.client.get(r('nubank'))
+    def test_nubank_summary_page(self):
+        self.response = self.client.get(r('nubank.summary'))
         self.assertEqual(200, self.response.status_code)

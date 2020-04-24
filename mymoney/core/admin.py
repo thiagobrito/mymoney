@@ -6,6 +6,17 @@ from dateutil.relativedelta import relativedelta
 from mymoney.core.models.earnings import Earnings
 from mymoney.core.models.funds import Funds
 from mymoney.core.models.expenses import Expenses
+from mymoney.core.models.credit_card import CreditCardBills
+from mymoney.core.models.credit_card_login import CreditCardLogin
+from mymoney.core.models.labels import Label
+
+
+class CreditCardAdmin(admin.ModelAdmin):
+    list_display = ('time', 'payment_date', 'category', 'description', 'value')
+
+
+class LabelAdmin(admin.ModelAdmin):
+    list_display = ('label', 'color')
 
 
 class EarningsAdmin(admin.ModelAdmin):
@@ -54,3 +65,6 @@ class ExpensesAdmin(admin.ModelAdmin):
 admin.site.register(Earnings, EarningsAdmin)
 admin.site.register(Funds, FundsAdmin)
 admin.site.register(Expenses, ExpensesAdmin)
+admin.site.register(Label, LabelAdmin)
+admin.site.register(CreditCardBills, CreditCardAdmin)
+admin.site.register(CreditCardLogin)

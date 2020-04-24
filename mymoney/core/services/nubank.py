@@ -1,8 +1,9 @@
-import json
+import datetime
 from pynubank import Nubank, NuException
 
 from mymoney.settings import PROCESS_QUEUE
 from mymoney.core.services.processing import WorkerBase
+from mymoney.core.models.credit_card import CreditCardBills
 
 
 class NubankWorker(WorkerBase):
@@ -33,7 +34,17 @@ class NubankWorker(WorkerBase):
 
     def work(self):
         if self._authenticated:
-            x = self._nu.get_card_statements()
+            for statement in self._nu.get_card_statements():
+                if CreditCardBills.objects.filter(account=statement['account'],
+                                                  transaction_id=statement['id']).exists():
+                    continue
+
+                obj = CreditCardBills(account=statement['account'], transaction_id=statement['id'],
+                                      description=statement['description'], value=statement['amount'],
+                                      time=statement['time'], category=statement['title'],
+                                      payment_date=datetime.datetime.today())
+                obj.save()
+
             self._ready = True
 
         return False

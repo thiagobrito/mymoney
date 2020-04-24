@@ -11,11 +11,12 @@ class WorkerBase:
 
 
 class ProcessingQueue:
-    def __init__(self, number_of_threads):
+    def __init__(self, number_of_threads, testing=False):
         self.queue = Queue()
         self._thread_list = []
         self.start(number_of_threads)
         self._workers = {}
+        self._testing = testing
 
     def __exit__(self, exc_type, exc_value, traceback):
         self.queue.get_nowait()
@@ -27,6 +28,9 @@ class ProcessingQueue:
             self._thread_list.append(thread)
 
     def add(self, id, item):
+        if self._testing:
+            return item.work()
+
         self._workers[id] = item
         self.queue.put(item)
 

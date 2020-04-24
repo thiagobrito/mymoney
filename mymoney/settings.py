@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mymoney.core',
+    'colorfield',
     'djmoney',
+    'mymoney.core',
 ]
 
 MIDDLEWARE = [
@@ -81,13 +82,16 @@ default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
 DATABASES = {
     'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
+    'OPTIONS': {
+        'timeout': 20
+    }
 }
 
 if TESTING:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3.test'),
         }
     }
 
@@ -144,4 +148,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-PROCESS_QUEUE = ProcessingQueue(5)
+PROCESS_QUEUE = ProcessingQueue(5, TESTING)

@@ -1,22 +1,20 @@
 from django.db import models
 from djmoney.models.fields import MoneyField
 
+from mymoney.core.models.labels import Label
 
-class CreditLabel(models.Model):
+
+class CreditCardBills(models.Model):
     id = models.AutoField(primary_key=True)
-    label = models.TextField()
-    color = models.TextField()
-
-
-class CreditCard(models.Model):
-    id = models.AutoField(primary_key=True)
-    credit_card_id = models.UUIDField()
-    date = models.DateField()
+    account = models.TextField()
+    transaction_id = models.TextField()
     description = models.TextField()
+    labels = models.ManyToManyField(Label)
     value = MoneyField('value', max_digits=14, default_currency='BRL')
-    payment = models.fields.DateField(default=False)
-    labels = models.ManyToManyField(CreditLabel)
+    time = models.DateTimeField()
+    payment_date = models.fields.DateField()
+    category = models.TextField()
 
     class Meta:
         verbose_name_plural = 'Credit Cards'
-        ordering = ['date', 'value']
+        ordering = ['time', 'value']
