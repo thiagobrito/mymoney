@@ -14,17 +14,6 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='CreditCardLogin',
-            fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('login', models.CharField(max_length=50)),
-                ('password', models.CharField(max_length=50)),
-            ],
-            options={
-                'verbose_name_plural': 'Credit Card Login',
-            },
-        ),
-        migrations.CreateModel(
             name='Earnings',
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),

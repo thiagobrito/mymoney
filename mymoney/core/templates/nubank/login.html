@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_content %}
+    <link href="{% static 'css/login.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block page_content %}
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="{% static 'imgs/nubank/icon.png' %}" id="icon" alt="User Icon"/>
+            </div>
+
+            <!-- Login Form -->
+            <form action="{% url 'nubank.qrcode' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" id="login" class="fadeIn second" name="login" placeholder="CPF">
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+                <input type="submit" class="fadeIn fourth" value="Log In">
+            </form>
+
+            <a id="skip_text" href="{% url 'nubank.summary' %}">Skip this step... I want to see the data that I
+                have!</a>
+        </div>
+    </div>
+
+{% endblock %}

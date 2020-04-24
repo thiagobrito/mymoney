@@ -30,6 +30,7 @@ urlpatterns = [
     path('expenses/', expenses, name='expenses'),
     path('fund/', funds, name='funds'),
 
+    path('nubank/login/', nubank.login, name='nubank.login'),
     path('nubank/qrcode/', nubank.qrcode, name='nubank.qrcode'),
     path('nubank/authenticate/', nubank.authenticate, name='nubank.authenticate'),
     path('nubank/processing/', nubank.processing, name='nubank.processing'),

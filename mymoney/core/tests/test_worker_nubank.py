@@ -5,7 +5,8 @@ from wait_for import wait_for
 from pynubank import Nubank, NuException
 from mymoney.core.services.nubank import NubankWorker
 from mymoney.core.tests.data import card_statements
-from mymoney.core.models.credit_card import CreditCard
+from mymoney.core.models.credit_card import CreditCardBills
+
 
 class NubankWorkerTest(TestCase):
     def setUp(self):
@@ -42,4 +43,4 @@ class NubankWorkerTest(TestCase):
 
         self.worker.work()
 
-        self.assertTrue(CreditCard.objects.exists())
+        self.assertTrue(CreditCardBills.objects.exists())

@@ -16,5 +16,5 @@ class CreditCardBills(models.Model):
     category = models.TextField()
 
     class Meta:
-        verbose_name_plural = 'Credit Cards'
+        verbose_name_plural = 'Credit Card Bills'
         ordering = ['time', 'value']
