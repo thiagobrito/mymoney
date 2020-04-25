@@ -61,7 +61,7 @@ class NubankWorker(WorkerBase):
 
         for index, statement in enumerate(self._nu.get_card_statements()):
             payment_date = self._payment_date(statement['time'], 19, 26)
-            if payment_date.year > 2019:
+            if payment_date.year > 2018:
                 if CreditCardBills.objects.filter(account=self._login, transaction_id=statement['id']).exists():
                     continue
 
@@ -93,12 +93,13 @@ class NubankWorker(WorkerBase):
                     obj.save()
 
     def _save_sumary(self):
-        biils = CreditCardBills.objects.filter(payment_date__year=datetime.datetime.now().year) \
+        bills = CreditCardBills.objects.filter(payment_date__year=datetime.datetime.now().year) \
+            .values('payment_date') \
             .annotate(total=Sum('value')) \
             .values('account', 'payment_date', 'total') \
             .order_by('payment_date')
 
-        for bill in biils:
+        for bill in bills:
             obj = Expenses.objects.filter(credit_card_ref=bill['account'], date=bill['payment_date'])
 
             if obj.exists():
