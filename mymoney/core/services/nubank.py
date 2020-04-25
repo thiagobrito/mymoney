@@ -1,11 +1,14 @@
 import calendar
 import datetime
 from pynubank import Nubank, NuException
+
 from django.db import transaction
+from django.db.models import Sum
 
 from mymoney.settings import PROCESS_QUEUE
 from mymoney.core.services.processing import WorkerBase
 from mymoney.core.models.credit_card import CreditCardBills
+from mymoney.core.models.expenses import Expenses
 
 
 class NubankWorker(WorkerBase):
@@ -39,44 +42,9 @@ class NubankWorker(WorkerBase):
 
     @transaction.atomic
     def work(self):
-        def format_money(value):
-            cents = (value % 100) / 100
-            total = (value - (value % 100)) / 100
-            return float(total + cents)
-
         if self._authenticated:
-            for index, statement in enumerate(self._nu.get_card_statements()):
-                payment_date = self._payment_date(statement['time'], 19)
-                if payment_date.year > 2019:
-                    if CreditCardBills.objects.filter(account=self._login, transaction_id=statement['id']).exists():
-                        continue
-
-                    if 'details' in statement and 'charges' in statement['details']:
-                        charge_count = statement['details']['charges']['count']
-                        charge_amount = format_money(statement['details']['charges']['amount'])
-
-                        for charge_index in range(1, charge_count + 1):
-                            description = '%s (%d/%d)' % (statement['description'], charge_index, charge_count)
-                            obj = CreditCardBills(account=self._login,
-                                                  transaction_id=statement['id'],
-                                                  description=description,
-                                                  value=charge_amount,
-                                                  transaction_time=statement['time'],
-                                                  category=statement['title'],
-                                                  payment_date=self._add_months(payment_date, charge_index - 1),
-                                                  charge_count=charge_count)
-                            obj.save()
-
-                    else:
-                        obj = CreditCardBills(account=self._login,
-                                              transaction_id=statement['id'],
-                                              description=statement['description'],
-                                              value=format_money(statement['amount']),
-                                              transaction_time=statement['time'],
-                                              category=statement['title'],
-                                              payment_date=payment_date,
-                                              charge_count=1)
-                        obj.save()
+            self._save_bills()
+            self._save_sumary()
 
             self._ready = True
 
@@ -85,7 +53,66 @@ class NubankWorker(WorkerBase):
     def ready(self):
         return self._ready
 
-    def _payment_date(self, transaction_time, closing_day):
+    def _save_bills(self):
+        def format_money(value):
+            cents = (value % 100) / 100
+            total = (value - (value % 100)) / 100
+            return float(total + cents)
+
+        for index, statement in enumerate(self._nu.get_card_statements()):
+            payment_date = self._payment_date(statement['time'], 19, 26)
+            if payment_date.year > 2019:
+                if CreditCardBills.objects.filter(account=self._login, transaction_id=statement['id']).exists():
+                    continue
+
+                if 'details' in statement and 'charges' in statement['details']:
+                    charge_count = statement['details']['charges']['count']
+                    charge_amount = format_money(statement['details']['charges']['amount'])
+
+                    for charge_index in range(1, charge_count + 1):
+                        description = '%s (%d/%d)' % (statement['description'], charge_index, charge_count)
+                        obj = CreditCardBills(account=self._login,
+                                              transaction_id=statement['id'],
+                                              description=description,
+                                              value=charge_amount,
+                                              transaction_time=statement['time'],
+                                              category=statement['title'],
+                                              payment_date=self._add_months(payment_date, charge_index - 1),
+                                              charge_count=charge_count)
+                        obj.save()
+
+                else:
+                    obj = CreditCardBills(account=self._login,
+                                          transaction_id=statement['id'],
+                                          description=statement['description'],
+                                          value=format_money(statement['amount']),
+                                          transaction_time=statement['time'],
+                                          category=statement['title'],
+                                          payment_date=payment_date,
+                                          charge_count=1)
+                    obj.save()
+
+    def _save_sumary(self):
+        biils = CreditCardBills.objects.filter(payment_date__year=datetime.datetime.now().year) \
+            .annotate(total=Sum('value')) \
+            .values('account', 'payment_date', 'total') \
+            .order_by('payment_date')
+
+        for bill in biils:
+            obj = Expenses.objects.filter(credit_card_ref=bill['account'], date=bill['payment_date'])
+
+            if obj.exists():
+                obj.value = bill['total']
+                obj.update()
+            else:
+                obj = Expenses(date=bill['payment_date'],
+                               description='Credit Card (%s)' % bill['account'],
+                               value=bill['total'],
+                               credit_card_ref=bill['account'],
+                               bank_account='BRD')
+                obj.save()
+
+    def _payment_date(self, transaction_time, closing_day, payment_day):
         if type(transaction_time) == str:
             transaction_time = datetime.datetime.strptime(transaction_time, "%Y-%m-%dT%H:%M:%SZ")
 
@@ -95,7 +122,7 @@ class NubankWorker(WorkerBase):
         if d.day > closing_day:
             d = self._add_months(d, 1)
 
-        return d.replace(day=closing_day)
+        return d.replace(day=payment_day)
 
     def _add_months(self, source_date, months):
         month = source_date.month - 1 + months

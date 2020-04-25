@@ -7,6 +7,7 @@ from pynubank import Nubank, NuException
 from mymoney.core.services.nubank import NubankWorker
 from mymoney.core.tests.data import card_statements
 from mymoney.core.models.credit_card import CreditCardBills
+from mymoney.core.models.expenses import Expenses
 
 
 class NubankWorkerTest(TestCase):
@@ -50,6 +51,16 @@ class NubankWorkerTest(TestCase):
         self.assertEqual(48.12, float(CreditCardBills.objects.all()[2].value.amount))
         self.assertEqual(50, float(CreditCardBills.objects.all()[3].value.amount))
 
+    def test_create_summary_on_expenses(self):
+        self.nubank_mock.authenticate_with_qr_code = MagicMock(return_value=None)
+        self.nubank_mock.get_card_statements = MagicMock(return_value=card_statements.sample1)
+        self.worker.authenticate('123', '456')
+
+        self.worker.work()
+
+        self.assertTrue(Expenses.objects.exists())
+        self.assertEqual(2, Expenses.objects.count())  # test data has items from 2 different months
+
     def test_payment_date(self):
         def date(day, month, only_date=False):
             d = datetime.today()
@@ -58,11 +69,11 @@ class NubankWorkerTest(TestCase):
                 return d.date()
             return d
 
-        self.assertEqual(date(19, 1, only_date=True),
-                         self.worker._payment_date(transaction_time=date(1, 1), closing_day=19))  # <
+        self.assertEqual(date(26, 1, only_date=True),
+                         self.worker._payment_date(transaction_time=date(1, 1), closing_day=19, payment_day=26))  # <
 
-        self.assertEqual(date(19, 1, only_date=True),
-                         self.worker._payment_date(transaction_time=date(19, 1), closing_day=19))  # ==
+        self.assertEqual(date(26, 1, only_date=True),
+                         self.worker._payment_date(transaction_time=date(19, 1), closing_day=19, payment_day=26))  # ==
 
-        self.assertEqual(date(19, 2, only_date=True),
-                         self.worker._payment_date(transaction_time=date(20, 1), closing_day=19))  # >
+        self.assertEqual(date(26, 2, only_date=True),
+                         self.worker._payment_date(transaction_time=date(20, 1), closing_day=19, payment_day=26))  # >

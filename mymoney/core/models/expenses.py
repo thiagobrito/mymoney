@@ -16,7 +16,8 @@ class Expenses(models.Model):
     value = MoneyField('total value', max_digits=14, default_currency='BRL')
     scheduled = models.BooleanField(default=False)
     paid = models.BooleanField(default=False)
-    bank_account = models.CharField('bank account', max_length=3, choices=BANK_ACCOUNT)
+    bank_account = models.CharField('bank account', max_length=3, choices=BANK_ACCOUNT, default='BRD')
+    credit_card_ref = models.CharField(max_length=50, default='')
 
     class Meta:
         verbose_name_plural = 'Expenses'
