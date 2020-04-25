@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 from djmoney.models.fields import MoneyField
 
@@ -13,6 +15,7 @@ class CreditCardBills(models.Model):
     value = MoneyField('value', max_digits=14, default_currency='BRL')
     transaction_time = models.DateTimeField()
     payment_date = models.fields.DateField()
+    closing_date = models.fields.DateField(default=datetime.datetime.now, blank=True)
     category = models.TextField()
     charge_count = models.IntegerField(default=1)
 

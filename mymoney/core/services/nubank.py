@@ -1,4 +1,3 @@
-import calendar
 import datetime
 from pynubank import Nubank, NuException
 
@@ -9,6 +8,11 @@ from mymoney.settings import PROCESS_QUEUE
 from mymoney.core.services.processing import WorkerBase
 from mymoney.core.models.credit_card import CreditCardBills
 from mymoney.core.models.expenses import Expenses
+
+from mymoney.core import util
+
+DEFAULT_PAYMENT_DAY = 26
+DEFAULT_CLOSING_DAY = 19
 
 
 class NubankWorker(WorkerBase):
@@ -44,7 +48,7 @@ class NubankWorker(WorkerBase):
     def work(self):
         if self._authenticated:
             self._save_bills()
-            self._save_sumary()
+            self._save_expense_table_record()
 
             self._ready = True
 
@@ -60,7 +64,7 @@ class NubankWorker(WorkerBase):
             return float(total + cents)
 
         for index, statement in enumerate(self._nu.get_card_statements()):
-            payment_date = self._payment_date(statement['time'], 19, 26)
+            payment_date = self._payment_date(statement['time'], DEFAULT_CLOSING_DAY, DEFAULT_PAYMENT_DAY)
             if payment_date.year > 2018:
                 if CreditCardBills.objects.filter(account=self._login, transaction_id=statement['id']).exists():
                     continue
@@ -77,7 +81,8 @@ class NubankWorker(WorkerBase):
                                               value=charge_amount,
                                               transaction_time=statement['time'],
                                               category=statement['title'],
-                                              payment_date=self._add_months(payment_date, charge_index - 1),
+                                              payment_date=util.add_months(payment_date, charge_index - 1),
+                                              closing_date=payment_date.replace(day=DEFAULT_CLOSING_DAY),
                                               charge_count=charge_count)
                         obj.save()
 
@@ -89,10 +94,11 @@ class NubankWorker(WorkerBase):
                                           transaction_time=statement['time'],
                                           category=statement['title'],
                                           payment_date=payment_date,
+                                          closing_date=payment_date.replace(day=DEFAULT_CLOSING_DAY),
                                           charge_count=1)
                     obj.save()
 
-    def _save_sumary(self):
+    def _save_expense_table_record(self):
         bills = CreditCardBills.objects.filter(payment_date__year=datetime.datetime.now().year) \
             .values('payment_date') \
             .annotate(total=Sum('value')) \
@@ -121,16 +127,9 @@ class NubankWorker(WorkerBase):
         d = d.replace(year=transaction_time.year, month=transaction_time.month, day=transaction_time.day)
 
         if d.day > closing_day:
-            d = self._add_months(d, 1)
+            d = util.add_months(d, 1)
 
         return d.replace(day=payment_day)
-
-    def _add_months(self, source_date, months):
-        month = source_date.month - 1 + months
-        year = source_date.year + month // 12
-        month = month % 12 + 1
-        day = min(source_date.day, calendar.monthrange(year, month)[1])
-        return datetime.date(year, month, day)
 
 
 def authenticate(uuid, login, password):

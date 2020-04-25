@@ -9,7 +9,13 @@ from mymoney.core.models.earnings import Earnings
 from mymoney.core.models.funds import Funds
 from mymoney.core.models.expenses import Expenses
 from mymoney.core.models.credit_card import CreditCardBills
+from mymoney.core import util
 
+
+# TODO:
+# Achar uma maneira melhor de calcular o daily estimate
+# - Pegar a data do primeiro dia da fatura atual do cartão (close date)
+# - Calcular numero de dias, estes dias nao é do mes... e sim a diff do open date ate o close date
 
 def view(request, month=None):
     def _credit_card_good_daily_estimate(credit_card, month, year, goal=6000):
@@ -18,13 +24,21 @@ def view(request, month=None):
         number_of_days = monthrange(year, month)[1]
         return Money((goal - charged_sum) / number_of_days, currency='BRL')
 
-    def _credit_card_month_daily_estimate(credit_card, month, year):
-        number_of_days = monthrange(year, month)[1]
-
+    def _credit_card_month_daily_estimate(credit_card):
         total_sum = credit_card.aggregate(Sum('value'))['value__sum']
-        charged_sum = credit_card.filter(charge_count__gt=1).aggregate(Sum('value'))['value__sum']
-        return Money((total_sum - charged_sum) / number_of_days, currency='BRL')
+        if total_sum:
+            start = credit_card[0].closing_date
+            end = util.add_months(credit_card[0].closing_date, 1)
 
+            if start >= datetime.now().date() <= end:
+                end = datetime.now().date()
+
+            number_of_days = (end - start).days
+
+            charged_sum = credit_card.filter(charge_count__gt=1).aggregate(Sum('value'))['value__sum']
+            return Money((total_sum - charged_sum) / number_of_days, currency='BRL')
+
+        return Money(0, currency='BRL')
 
     year = datetime.now().year
     earnings = Earnings.objects.filter(date__year=year)
@@ -39,7 +53,7 @@ def view(request, month=None):
         unpaid_expenses = unpaid_expenses.filter(date__month=month)
         credit_card = credit_card.filter(payment_date__month=month)
         credit_card_daily_estimate = _credit_card_good_daily_estimate(credit_card, month, year)
-        credit_card_month_daily_expenses = _credit_card_month_daily_estimate(credit_card, month, year)
+        credit_card_month_daily_expenses = _credit_card_month_daily_estimate(credit_card)
 
         months = ['', 'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
                   'November', 'December']
