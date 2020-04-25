@@ -40,20 +40,43 @@ class NubankWorker(WorkerBase):
     @transaction.atomic
     def work(self):
         def format_money(value):
-            return float('%d.%d' % ((value - (value % 100)) / 100, (value % 100)))
+            cents = (value % 100) / 100
+            total = (value - (value % 100)) / 100
+            return float(total + cents)
 
         if self._authenticated:
             for index, statement in enumerate(self._nu.get_card_statements()):
                 payment_date = self._payment_date(statement['time'], 19)
-                if payment_date.year >= 2019:
+                if payment_date.year > 2019:
                     if CreditCardBills.objects.filter(account=self._login, transaction_id=statement['id']).exists():
                         continue
 
-                    obj = CreditCardBills(account=self._login, transaction_id=statement['id'],
-                                          description=statement['description'], value=format_money(statement['amount']),
-                                          transaction_time=statement['time'], category=statement['title'],
-                                          payment_date=payment_date)
-                    obj.save()
+                    if 'details' in statement and 'charges' in statement['details']:
+                        charge_count = statement['details']['charges']['count']
+                        charge_amount = format_money(statement['details']['charges']['amount'])
+
+                        for charge_index in range(1, charge_count + 1):
+                            description = '%s (%d/%d)' % (statement['description'], charge_index, charge_count)
+                            obj = CreditCardBills(account=self._login,
+                                                  transaction_id=statement['id'],
+                                                  description=description,
+                                                  value=charge_amount,
+                                                  transaction_time=statement['time'],
+                                                  category=statement['title'],
+                                                  payment_date=self._add_months(payment_date, charge_index - 1),
+                                                  charge_count=charge_count)
+                            obj.save()
+
+                    else:
+                        obj = CreditCardBills(account=self._login,
+                                              transaction_id=statement['id'],
+                                              description=statement['description'],
+                                              value=format_money(statement['amount']),
+                                              transaction_time=statement['time'],
+                                              category=statement['title'],
+                                              payment_date=payment_date,
+                                              charge_count=1)
+                        obj.save()
 
             self._ready = True
 
@@ -63,13 +86,6 @@ class NubankWorker(WorkerBase):
         return self._ready
 
     def _payment_date(self, transaction_time, closing_day):
-        def add_months(sourcedate, months):
-            month = sourcedate.month - 1 + months
-            year = sourcedate.year + month // 12
-            month = month % 12 + 1
-            day = min(sourcedate.day, calendar.monthrange(year, month)[1])
-            return datetime.date(year, month, day)
-
         if type(transaction_time) == str:
             transaction_time = datetime.datetime.strptime(transaction_time, "%Y-%m-%dT%H:%M:%SZ")
 
@@ -77,9 +93,16 @@ class NubankWorker(WorkerBase):
         d = d.replace(year=transaction_time.year, month=transaction_time.month, day=transaction_time.day)
 
         if d.day > closing_day:
-            d = add_months(d, 1)
+            d = self._add_months(d, 1)
 
         return d.replace(day=closing_day)
+
+    def _add_months(self, source_date, months):
+        month = source_date.month - 1 + months
+        year = source_date.year + month // 12
+        month = month % 12 + 1
+        day = min(source_date.day, calendar.monthrange(year, month)[1])
+        return datetime.date(year, month, day)
 
 
 def authenticate(uuid, login, password):

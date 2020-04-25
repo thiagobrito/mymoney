@@ -14,6 +14,7 @@ class CreditCardBills(models.Model):
     transaction_time = models.DateTimeField()
     payment_date = models.fields.DateField()
     category = models.TextField()
+    charge_count = models.IntegerField(default=1)
 
     class Meta:
         verbose_name_plural = 'Credit Card Bills'

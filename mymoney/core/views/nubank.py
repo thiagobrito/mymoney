@@ -47,8 +47,8 @@ def processing(request):
 def summary(request):
     login = request.session.get('login', default=None)
     if login:
-        bills = CreditCardBills.objects.filter(account=login)
+        bills = CreditCardBills.objects.filter(account=login).order_by('-transaction_time')
     else:
-        bills = CreditCardBills.objects.all()
+        bills = CreditCardBills.objects.all().order_by('-transaction_time')
 
     return render(request, 'nubank/summary.html', context={'data': bills})

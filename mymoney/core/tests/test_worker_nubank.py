@@ -45,8 +45,10 @@ class NubankWorkerTest(TestCase):
         self.worker.work()
 
         self.assertTrue(CreditCardBills.objects.exists())
-        self.assertEqual(48.12, float(CreditCardBills.objects.all()[0].value.amount))
-        self.assertEqual(50, float(CreditCardBills.objects.all()[1].value.amount))
+        self.assertEqual(54.01, float(CreditCardBills.objects.all()[0].value.amount))
+        self.assertEqual(54.01, float(CreditCardBills.objects.all()[1].value.amount))
+        self.assertEqual(48.12, float(CreditCardBills.objects.all()[2].value.amount))
+        self.assertEqual(50, float(CreditCardBills.objects.all()[3].value.amount))
 
     def test_payment_date(self):
         def date(day, month, only_date=False):
