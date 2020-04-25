@@ -53,13 +53,16 @@
                                     <td class="sorting_1">{{ item.date }}</td>
                                     <td>
                                         <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
+                                           id="description"
                                            data-url="{% url 'api.expenses.update' %}"
-                                           data-title="Value"
+                                           data-title="description"
                                            data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.description }}</a>
                                     </td>
                                     <td>
                                         <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
-                                           data-url="{% url 'api.expenses.update' %}" data-title="Value"
+                                           id="value"
+                                           data-url="{% url 'api.expenses.update' %}"
+                                           data-title="Value"
                                            data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.value_display }}</a>
                                     </td>
                                     <td>
