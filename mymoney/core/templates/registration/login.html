@@ -1,0 +1,33 @@
+{% load static %}
+
+<head>
+    <link href="{% static 'css/login.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<html style="background-color: #ebf6ff">
+
+<body style="overflow: hidden">
+<div class="fadeInDown"
+     style="display: flex; align-items: center; flex-direction: column; justify-content: center; min-height: 100%">
+    <div id="formContent">
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="{% static 'imgs/logo_2.jpg' %}" id="icon" alt="User Icon"
+                 style="border-radius: 50%; width: 230px; margin-top: 16px;"/>
+        </div>
+
+        <!-- Login Form -->
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" id="inputEmail" class="fadeIn second" name="login" placeholder="username"
+                   required autofocus/>
+            <input type="password" name="password" id="inputPassword" class="fadeIn third" name="password"
+                   placeholder="password"/>
+            <input type="submit" class="fadeIn fourth" value="Log In">
+        </form>
+    </div>
+</div>
+</body>
+
+</html>
+

@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'mymoney.core.middleware.auth.AuthenticationMiddleware',
 ]
 
 ROOT_URLCONF = 'mymoney.urls'
@@ -149,3 +150,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 PROCESS_QUEUE = ProcessingQueue(5, TESTING)
+
+LOGIN_REDIRECT_URL = '/'
