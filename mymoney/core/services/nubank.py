@@ -1,6 +1,7 @@
 import datetime
 from pynubank import Nubank, NuException
 
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 from django.db.models import Sum
 
@@ -78,7 +79,7 @@ class NubankWorker(WorkerBase):
 
                     for charge_index in range(1, charge_count + 1):
                         charge_payment_date = util.add_months(payment_date, charge_index - 1)
-                        
+
                         description = '%s (%d/%d)' % (statement['description'], charge_index, charge_count)
                         obj = CreditCardBills(account=self._login,
                                               transaction_id=statement['id'],
@@ -111,12 +112,12 @@ class NubankWorker(WorkerBase):
             .order_by('payment_date')
 
         for bill in bills:
-            obj = Expenses.objects.filter(credit_card_ref=bill['account'], date=bill['payment_date'])
-
-            if obj.exists():
+            try:
+                obj = Expenses.objects.get(credit_card_ref=bill['account'], date=bill['payment_date'])
                 obj.value = bill['total']
-                obj.update()
-            else:
+                obj.save()
+
+            except ObjectDoesNotExist:
                 obj = Expenses(date=bill['payment_date'],
                                description='Credit Card (%s)' % bill['account'],
                                value=bill['total'],
