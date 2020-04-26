@@ -47,6 +47,9 @@ class NubankWorker(WorkerBase):
     @transaction.atomic
     def work(self):
         if self._authenticated:
+            # !!!! WARNING: Remove this item when finish this step !!!!!!!!
+            CreditCardBills.objects.filter(account=self._login).delete()
+
             self._save_bills()
             self._save_expense_table_record()
 
@@ -74,6 +77,7 @@ class NubankWorker(WorkerBase):
                     charge_amount = format_money(statement['details']['charges']['amount'])
 
                     for charge_index in range(1, charge_count + 1):
+                        charge_payment_date = util.add_months(payment_date, charge_index - 1)
                         description = '%s (%d/%d)' % (statement['description'], charge_index, charge_count)
                         obj = CreditCardBills(account=self._login,
                                               transaction_id=statement['id'],
@@ -81,8 +85,8 @@ class NubankWorker(WorkerBase):
                                               value=charge_amount,
                                               transaction_time=statement['time'],
                                               category=statement['title'],
-                                              payment_date=util.add_months(payment_date, charge_index - 1),
-                                              closing_date=payment_date.replace(day=DEFAULT_CLOSING_DAY),
+                                              payment_date=charge_payment_date,
+                                              closing_date=charge_payment_date.replace(day=DEFAULT_CLOSING_DAY),
                                               charge_count=charge_count)
                         obj.save()
 
