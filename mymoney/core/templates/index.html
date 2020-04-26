@@ -17,24 +17,27 @@
 
     <!-- Content Row -->
     <div class="row">
-        <!-- Reserve Fund -->
-        <div class="col-xl-2 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Reserve
-                                Fund (now)
+
+        {% if not monthly_summary %}
+            <!-- Reserve Fund -->
+            <div class="col-xl-2 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Reserve
+                                    Fund (now)
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ funds_total }}</div>
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ funds_total }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-coins fa-2x text-gray-300"></i>
+                            <div class="col-auto">
+                                <i class="fas fa-coins fa-2x text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
 
         <!-- Earnings Card  -->
         <div class="col-xl-2 col-md-6 mb-4">
@@ -59,7 +62,7 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Fixed Expenses</div>
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Expenses</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ expenses_total }}</div>
                         </div>
                         <div class="col-auto">
@@ -76,7 +79,9 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Credit Card Expenses</div>
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Credit Card
+                                Expenses
+                            </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ credit_card_total }}</div>
@@ -91,7 +96,24 @@
             </div>
         </div>
 
-        {% if credit_card_daily_estimate %}
+        {% if monthly_summary %}
+            <!-- Previous Months Charged Expenses -->
+            <div class="col-xl-2 col-md-6 mb-4">
+                <div class="card border-left-danger shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Credit Card Prev. Months Charged Expenses</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ month_charged_sum }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-hand-point-left fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Credit Card Daily Estimate -->
             <div class="col-xl-2 col-md-6 mb-4">
                 <div class="card border-left-success shadow h-100 py-2">
@@ -210,6 +232,10 @@
     </div>
 
     {% include "expenses_table.html" with title="Open Expenses for this Month" expenses=unpaid_expenses %}
+
+    {% if credit_card %}
+        {% include "creditcard_table.html" with title="Credit Card Expenses for this Month" data=credit_card %}
+    {% endif %}
 
 {% endblock %}
 

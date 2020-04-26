@@ -78,6 +78,7 @@ class NubankWorker(WorkerBase):
 
                     for charge_index in range(1, charge_count + 1):
                         charge_payment_date = util.add_months(payment_date, charge_index - 1)
+                        
                         description = '%s (%d/%d)' % (statement['description'], charge_index, charge_count)
                         obj = CreditCardBills(account=self._login,
                                               transaction_id=statement['id'],

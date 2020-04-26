@@ -58,7 +58,9 @@
 
                             {% for item in data %}
                                 <tr role="row"
-                                    class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                                    class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}"
+                                    {% if item.charge_count > 1 %}style="background: #fff7001f"{% endif %}
+                                >
 
                                     <!-- Transaction Time -->
                                     <td class="sorting_1">{{ item.transaction_time }}</td>

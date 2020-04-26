@@ -12,31 +12,27 @@ from mymoney.core.models.credit_card import CreditCardBills
 from mymoney.core import util
 
 
-# TODO:
-# Achar uma maneira melhor de calcular o daily estimate
-# - Pegar a data do primeiro dia da fatura atual do cartão (close date)
-# - Calcular numero de dias, estes dias nao é do mes... e sim a diff do open date ate o close date
-
 def view(request, month=None):
-    def _credit_card_good_daily_estimate(credit_card, month, year, goal=6000):
-        charged_sum = credit_card.filter(charge_count__gt=1).aggregate(Sum('value'))['value__sum']
+    def _credit_card_good_daily_estimate(credit_card, month_charged_sum, goal=4000):
+        start = util.add_months(credit_card[0].closing_date, -1)
+        end = credit_card[0].closing_date
 
-        number_of_days = monthrange(year, month)[1]
-        return Money((goal - charged_sum) / number_of_days, currency='BRL')
+        number_of_days = (end - start).days
+        if goal < month_charged_sum:
+            return Money(0, currency='BRL')
+        return Money((goal - month_charged_sum) / number_of_days, currency='BRL')
 
-    def _credit_card_month_daily_estimate(credit_card):
+    def _credit_card_month_daily_estimate(credit_card, month_charged_sum):
         total_sum = credit_card.aggregate(Sum('value'))['value__sum']
         if total_sum:
-            start = credit_card[0].closing_date
-            end = util.add_months(credit_card[0].closing_date, 1)
+            start = util.add_months(credit_card[0].closing_date, -1)
+            end = credit_card[0].closing_date
 
-            if start >= datetime.now().date() <= end:
+            if start <= datetime.now().date() <= end:
                 end = datetime.now().date()
 
             number_of_days = (end - start).days
-
-            charged_sum = credit_card.filter(charge_count__gt=1).aggregate(Sum('value'))['value__sum']
-            return Money((total_sum - charged_sum) / number_of_days, currency='BRL')
+            return Money((total_sum - month_charged_sum) / number_of_days, currency='BRL')
 
         return Money(0, currency='BRL')
 
@@ -45,15 +41,17 @@ def view(request, month=None):
     funds = Funds.objects.filter(date__year=year)
     expenses = Expenses.objects.filter(date__year=year)
     unpaid_expenses = Expenses.objects.filter(date__year=year)
-    credit_card = CreditCardBills.objects.filter(payment_date__year=year)
+    credit_card = CreditCardBills.objects.filter(payment_date__year=year).order_by('-transaction_time')
 
     if month:
         earnings = earnings.filter(date__month=month)
         expenses = expenses.filter(date__month=month)
         unpaid_expenses = unpaid_expenses.filter(date__month=month)
         credit_card = credit_card.filter(payment_date__month=month)
-        credit_card_daily_estimate = _credit_card_good_daily_estimate(credit_card, month, year)
-        credit_card_month_daily_expenses = _credit_card_month_daily_estimate(credit_card)
+        charged_sum = credit_card.filter(charge_count__gt=1).aggregate(Sum('value'))['value__sum']
+
+        credit_card_daily_estimate = _credit_card_good_daily_estimate(credit_card, charged_sum)
+        credit_card_month_daily_expenses = _credit_card_month_daily_estimate(credit_card, charged_sum)
 
         months = ['', 'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
                   'November', 'December']
@@ -64,6 +62,7 @@ def view(request, month=None):
         credit_card_daily_estimate = None
         credit_card_month_daily_expenses = None
         period = year
+        charged_sum = None
 
     return render(request, 'index.html',
                   context={
@@ -77,5 +76,8 @@ def view(request, month=None):
                                                  currency='BRL'),
                       'period': period,
                       'credit_card_daily_estimate': credit_card_daily_estimate,
-                      'credit_card_month_daily_expenses': credit_card_month_daily_expenses
+                      'credit_card_month_daily_expenses': credit_card_month_daily_expenses,
+                      'credit_card': credit_card if month else None,
+                      'monthly_summary': True if month else False,
+                      'month_charged_sum': Money(charged_sum or 0, currency='BRL'),
                   })
