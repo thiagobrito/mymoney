@@ -1,7 +1,41 @@
 <!-- Expenses Table -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">{{ title }}</h6>
+        <div class="d-sm-flex align-items-center justify-content-between mb-1">
+            <h6 class="h4 mb-0 text-gray-800">{{ title }}</h6>
+
+            <div class="dropdown show">
+                <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"
+                   class="btn btn-primary dropdown-toggle d-none d-sm-inline-block btn btn-sm btn-primary">
+                    <i class="fas fa-plus-circle fa-sm text-white-50"></i> New Expense
+                </a>
+
+                <div class="dropdown-menu">
+                    <form class="px-4 py-3" action="javascript:onNewExpense('{% url 'api.expenses.new' %}');"
+                          method="POST" id="new_expense_form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="DropDownExpenseDate">Date</label>
+                            <input type="date" class="form-control" id="DropDownExpenseDate"
+                                   name="date" placeholder="expense_date">
+                        </div>
+                        <div class="form-group">
+                            <label for="expense_description">Description</label>
+                            <input type="text" class="form-control" id="expense_description"
+                                   name="description" placeholder="Description...">
+                        </div>
+                        <div class="form-group">
+                            <label for="expense_value">Value</label>
+                            <input type="number" class="form-control" id="expense_value"
+                                   name="value" placeholder="R$ 0,00" step="any">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
     <div class="card-body">
         <div class="table-responsive" style="overflow-x: hidden">
@@ -125,6 +159,18 @@
                 }
             });
             return false;
+        }
+
+        function onNewExpense(url) {
+            $.ajax({
+                url: url,
+                data: $('#new_expense_form').serialize(),
+                method: "POST",
+                headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                success: function (returnData) {
+                    location.reload();
+                }
+            });
         }
     </script>
 {% endblock %}

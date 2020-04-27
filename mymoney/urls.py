@@ -48,4 +48,5 @@ urlpatterns = [
     path('api/v1/expenses/update/', api_expenses.update, name='api.expenses.update'),
     path('api/v1/expenses/scheduled/<int:pk>/', api_expenses.scheduled, name='api.expenses.scheduled'),
     path('api/v1/expenses/paid/<int:pk>/', api_expenses.paid, name='api.expenses.paid'),
+    path('api/v1/new/', api_expenses.new, name='api.expenses.new'),
 ]

@@ -24,3 +24,12 @@ def paid(request, pk):
     expense.save()
 
     return JsonResponse(data={'status': 200})
+
+
+def new(request):
+    obj = Expenses(date=request.POST.get('date'),
+                   description=request.POST.get('description'),
+                   value=request.POST.get('value'))
+    obj.save()
+
+    return JsonResponse(data={'status': 200})
