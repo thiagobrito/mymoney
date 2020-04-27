@@ -52,6 +52,7 @@ def view(request, month=None):
 
         credit_card_daily_estimate = _credit_card_good_daily_estimate(credit_card, charged_sum)
         credit_card_month_daily_expenses = _credit_card_month_daily_estimate(credit_card, charged_sum)
+        credit_card_daily_expenses_green = credit_card_month_daily_expenses <= credit_card_daily_estimate
 
         months = ['', 'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
                   'November', 'December']
@@ -63,6 +64,7 @@ def view(request, month=None):
         credit_card_month_daily_expenses = None
         period = year
         charged_sum = None
+        credit_card_daily_expenses_green = False
 
     return render(request, 'index.html',
                   context={
@@ -80,4 +82,5 @@ def view(request, month=None):
                       'credit_card': credit_card if month else None,
                       'monthly_summary': True if month else False,
                       'month_charged_sum': Money(charged_sum or 0, currency='BRL'),
+                      'credit_card_daily_expenses_green': credit_card_daily_expenses_green,
                   })
