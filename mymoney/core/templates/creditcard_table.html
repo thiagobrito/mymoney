@@ -54,44 +54,35 @@
                                 -->
                             </tr>
                             </thead>
-                            <tbody>
+
+                            <tbody style="color:#0088cc">
 
                             {% for item in data %}
                                 <tr role="row"
                                     class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}"
-                                    {% if item.charge_count > 1 %}style="background: #fff7001f"{% endif %}
-                                >
+                                    {% if item.charge_count > 1 %}style="color: #0088cc; background: #fff7001f"{% endif %}>
 
                                     <!-- Transaction Time -->
                                     <td class="sorting_1">{{ item.transaction_time }}</td>
 
                                     <!-- Description -->
                                     <td>
-                                        <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
-                                           data-url="{% url 'api.expenses.update' %}"
-                                           data-title="Value"
-                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.description }}</a>
+                                        <a>{{ item.description }}</a>
                                     </td>
 
                                     <!-- Value -->
                                     <td>
-                                        <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
-                                           data-url="{% url 'api.expenses.update' %}" data-title="Value"
-                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.value }}</a>
+                                        <a>{{ item.value }}</a>
                                     </td>
 
                                     <!-- Category -->
                                     <td>
-                                        <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
-                                           data-url="{% url 'api.expenses.update' %}" data-title="Value"
-                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.category }}</a>
+                                        <a>{{ item.category.title }}</a>
                                     </td>
 
                                     <!-- Payment Date -->
                                     <td>
-                                        <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
-                                           data-url="{% url 'api.expenses.update' %}" data-title="Value"
-                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.payment_date }}</a>
+                                        <a>{{ item.payment_date }}</a>
                                     </td>
 
                                     <!-- Labels
