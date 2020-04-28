@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotModified
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
 from mymoney.core.services import nubank
@@ -38,10 +38,8 @@ def authenticate(request):
 
 
 def processing(request):
-    if nubank.ready(request.session['uuid']):
-        return HttpResponse('processing has been complete!')
-
-    return HttpResponseNotModified()
+    ready, progress = nubank.ready(request.session['uuid'])
+    return JsonResponse({'ready': ready, 'progress': progress})
 
 
 def summary(request):

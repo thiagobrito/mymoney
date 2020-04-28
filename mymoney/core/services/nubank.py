@@ -26,6 +26,7 @@ class NubankWorker(WorkerBase):
         else:
             self.uuid, _ = self._nu.get_qr_code()
 
+        self._progress = 0
         self._login = None
         self._authenticated = False
 
@@ -56,13 +57,16 @@ class NubankWorker(WorkerBase):
 
             self._ready = True
 
-        return False
-
     def ready(self):
-        return self._ready
+        return self._ready, self._progress
 
     def _save_bills(self):
-        for index, statement in enumerate(self._nu.get_card_statements()):
+        card_statements = self._nu.get_card_statements()
+        total = len(card_statements)
+
+        for index, statement in enumerate(card_statements):
+            self._progress = (index / total) * 100.0
+
             payment_date = self._payment_date(statement['time'], DEFAULT_CLOSING_DAY, DEFAULT_PAYMENT_DAY)
             if payment_date.year > 2018:
                 if CreditCardBills.objects.filter(account=self._login, transaction_id=statement['id']).exists():

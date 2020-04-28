@@ -35,13 +35,14 @@
                 headers: {'X-CSRFToken': '{{ csrf_token }}'},
                 statusCode: {
                     200: function (response) {
-                        document.getElementById("update_status_text").textContent = response;
+                        if (response.ready) {
+                            document.getElementById("update_status_text").textContent = response;
+                            window.location.href = "{% url 'nubank.summary' %}";
+                        } else {
+                            document.getElementById("update_status_text").textContent = "Processing " + parseFloat(response.progress).toFixed(2) + "% concluded...";
+                            setTimeout(processing_check, 2000);
+                        }
                         document.getElementById("skip_text").style.display = "none";
-
-                        window.location.href = "{% url 'nubank.summary' %}";
-                    },
-                    304: function (response) {
-                        setTimeout(processing_check, 5000);
                     }
                 },
                 error: function () {
