@@ -146,3 +146,5 @@ def ready(uuid):
     worker = PROCESS_QUEUE.locate(uuid)
     if worker:
         return worker.ready()
+
+    return False, 0

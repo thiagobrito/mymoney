@@ -77,3 +77,15 @@ class NubankWorkerTest(TestCase):
 
         self.assertEqual(date(26, 2, only_date=True),
                          self.worker._payment_date(transaction_time=date(20, 1), closing_day=19, payment_day=26))  # >
+
+    def test_get_ready_status_before_start_working(self):
+        ready, progress = self.worker.ready()
+        self.assertFalse(ready)
+        self.assertEqual(0, progress)
+
+    def test_ready_uuid_not_found(self):
+        from mymoney.core.services import nubank
+
+        ready, progress = nubank.ready('not.found')
+        self.assertFalse(ready)
+        self.assertEqual(0, progress)
