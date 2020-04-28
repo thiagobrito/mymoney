@@ -49,6 +49,9 @@ class NubankWorker(WorkerBase):
     @transaction.atomic
     def work(self):
         if self._authenticated:
+            self._progress = 0
+            self._ready = False
+
             # !!!! WARNING: Remove this item when finish this step !!!!!!!!
             CreditCardBills.objects.filter(account=self._login).delete()
 
