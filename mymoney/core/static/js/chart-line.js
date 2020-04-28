@@ -40,7 +40,7 @@ $(function () {
                     labels: data.labels,
                     datasets: [
                         {
-                            label: "Earnings",
+                            label: data.data1_name,
                             lineTension: 0.3,
                             backgroundColor: "rgba(78, 115, 223, 0.05)",
                             borderColor: "rgba(78, 115, 223, 1)",
@@ -52,10 +52,10 @@ $(function () {
                             pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                             pointHitRadius: 10,
                             pointBorderWidth: 2,
-                            data: data.earnings,
+                            data: data.data1,
                         },
                         {
-                            label: "Spending",
+                            label: data.data2_name,
                             lineTension: 0.3,
                             fill: false,
                             backgroundColor: "rgba(226, 106, 106, 1)",
@@ -68,7 +68,7 @@ $(function () {
                             pointHoverBorderColor: "rgba(226, 106, 106, 1)",
                             pointHitRadius: 10,
                             pointBorderWidth: 2,
-                            data: data.expenses,
+                            data: data.data2,
                         }
                     ],
                 },

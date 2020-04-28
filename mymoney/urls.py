@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from mymoney.core.views.pages import earnings, expenses, nubank, funds
-from mymoney.core.views.api import api_earnings_expenses_chart, api_expenses, api_funds
+from mymoney.core.views.api import api_earnings_expenses_chart, api_expenses, api_funds, api_credit_card
 from mymoney.core.views import nubank
 
 from mymoney.core.views import summary
@@ -37,6 +37,8 @@ urlpatterns = [
     path('nubank/authenticate/', nubank.authenticate, name='nubank.authenticate'),
     path('nubank/processing/', nubank.processing, name='nubank.processing'),
     path('nubank/summary/', nubank.summary, name='nubank.summary'),
+
+    path('api/v1/credit_card/burndown/<int:month>/', api_credit_card.burndown_chart, name='api.credit_card.burndown_chart'),
 
     path('api/v1/earnings/month_chart/', api_earnings_expenses_chart.month_chart, name='api.earnings.month_chart'),
     path('api/v1/earnings/sources_chart/', api_earnings_expenses_chart.sources_chart,

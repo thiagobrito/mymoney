@@ -48,8 +48,10 @@ def month_chart(request):
 
     return JsonResponse(data={
         'labels': labels,
-        'earnings': earnings_data,
-        'expenses': expenses_data
+        'data1_name': 'Earnings',
+        'data2_name': 'Expenses',
+        'data1': earnings_data,
+        'data2': expenses_data
     })
 
 

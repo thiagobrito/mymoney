@@ -72,7 +72,7 @@ class NubankWorkerTest(TestCase):
         self.assertEqual(date(26, 1, only_date=True),
                          self.worker._payment_date(transaction_time=date(1, 1), closing_day=19, payment_day=26))  # <
 
-        self.assertEqual(date(26, 1, only_date=True),
+        self.assertEqual(date(26, 2, only_date=True),
                          self.worker._payment_date(transaction_time=date(19, 1), closing_day=19, payment_day=26))  # ==
 
         self.assertEqual(date(26, 2, only_date=True),

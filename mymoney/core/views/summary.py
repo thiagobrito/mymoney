@@ -1,5 +1,4 @@
 from datetime import datetime
-from calendar import monthrange
 from django.shortcuts import render
 from django.db.models import Sum
 
@@ -9,33 +8,10 @@ from mymoney.core.models.earnings import Earnings
 from mymoney.core.models.funds import Funds
 from mymoney.core.models.expenses import Expenses
 from mymoney.core.models.credit_card import CreditCardBills
-from mymoney.core import util
+from mymoney.core.views.credit_card_estimatives import good_daily_estimate, month_daily_estimate
 
 
 def view(request, month=None):
-    def _credit_card_good_daily_estimate(credit_card, month_charged_sum, goal=4000):
-        start = util.add_months(credit_card[0].closing_date, -1)
-        end = credit_card[0].closing_date
-
-        number_of_days = (end - start).days
-        if goal < month_charged_sum:
-            return Money(0, currency='BRL')
-        return Money((goal - month_charged_sum) / number_of_days, currency='BRL')
-
-    def _credit_card_month_daily_estimate(credit_card, month_charged_sum):
-        total_sum = credit_card.aggregate(Sum('value'))['value__sum']
-        if total_sum:
-            start = util.add_months(credit_card[0].closing_date, -1)
-            end = credit_card[0].closing_date
-
-            if start <= datetime.now().date() <= end:
-                end = datetime.now().date()
-
-            number_of_days = (end - start).days
-            return Money((total_sum - month_charged_sum) / number_of_days, currency='BRL')
-
-        return Money(0, currency='BRL')
-
     year = datetime.now().year
     earnings = Earnings.objects.filter(date__year=year)
     funds = Funds.objects.filter(date__year=year)
@@ -50,8 +26,8 @@ def view(request, month=None):
         credit_card = credit_card.filter(payment_date__month=month)
         charged_sum = credit_card.filter(charge_count__gt=1).aggregate(Sum('value'))['value__sum']
 
-        credit_card_daily_estimate = _credit_card_good_daily_estimate(credit_card, charged_sum)
-        credit_card_month_daily_expenses = _credit_card_month_daily_estimate(credit_card, charged_sum)
+        credit_card_daily_estimate = good_daily_estimate(credit_card, charged_sum)
+        credit_card_month_daily_expenses = month_daily_estimate(credit_card, charged_sum)
         credit_card_daily_expenses_green = credit_card_month_daily_expenses <= credit_card_daily_estimate
 
         months = ['', 'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
@@ -65,6 +41,10 @@ def view(request, month=None):
         period = year
         charged_sum = None
         credit_card_daily_expenses_green = False
+
+    main_chart_title = 'Earnings/Expenses Overview'
+    if month:
+        main_chart_title = 'Credit Card Burndown Chart'
 
     return render(request, 'index.html',
                   context={
@@ -81,6 +61,9 @@ def view(request, month=None):
                       'credit_card_month_daily_expenses': credit_card_month_daily_expenses,
                       'credit_card': credit_card if month else None,
                       'monthly_summary': True if month else False,
+                      'month': month or None,
                       'month_charged_sum': Money(charged_sum or 0, currency='BRL'),
                       'credit_card_daily_expenses_green': credit_card_daily_expenses_green,
+                      'main_chart_title': main_chart_title,
                   })
+
