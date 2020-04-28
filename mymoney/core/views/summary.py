@@ -32,13 +32,13 @@ def view(request, month=None):
 
         months = ['', 'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
                   'November', 'December']
-        period = months[month] + ' (%s)' % year
+        period_title = months[month] + ' (%s)' % year
 
     else:
         unpaid_expenses = unpaid_expenses.filter(date__month__lte=datetime.now().month).filter(paid=False)
         credit_card_daily_estimate = None
         credit_card_month_daily_expenses = None
-        period = year
+        period_title = year
         charged_sum = None
         credit_card_daily_expenses_green = False
 
@@ -56,14 +56,13 @@ def view(request, month=None):
                       'unpaid_expenses': unpaid_expenses,
                       'credit_card_total': Money(credit_card.aggregate(total=Sum('value'))['total'] or 0,
                                                  currency='BRL'),
-                      'period': period,
+                      'period': period_title,
+                      'month': month or None,
                       'credit_card_daily_estimate': credit_card_daily_estimate,
                       'credit_card_month_daily_expenses': credit_card_month_daily_expenses,
                       'credit_card': credit_card if month else None,
                       'monthly_summary': True if month else False,
-                      'month': month or None,
                       'month_charged_sum': Money(charged_sum or 0, currency='BRL'),
                       'credit_card_daily_expenses_green': credit_card_daily_expenses_green,
                       'main_chart_title': main_chart_title,
                   })
-
