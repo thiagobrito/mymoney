@@ -62,11 +62,6 @@ class NubankWorker(WorkerBase):
         return self._ready
 
     def _save_bills(self):
-        def format_money(value):
-            cents = (value % 100) / 100
-            total = (value - (value % 100)) / 100
-            return float(total + cents)
-
         for index, statement in enumerate(self._nu.get_card_statements()):
             payment_date = self._payment_date(statement['time'], DEFAULT_CLOSING_DAY, DEFAULT_PAYMENT_DAY)
             if payment_date.year > 2018:
@@ -75,7 +70,7 @@ class NubankWorker(WorkerBase):
 
                 if 'details' in statement and 'charges' in statement['details']:
                     charge_count = statement['details']['charges']['count']
-                    charge_amount = format_money(statement['details']['charges']['amount'])
+                    charge_amount = util.format_money(statement['details']['charges']['amount'])
 
                     for charge_index in range(1, charge_count + 1):
                         charge_payment_date = util.add_months(payment_date, charge_index - 1)
@@ -96,7 +91,7 @@ class NubankWorker(WorkerBase):
                     obj = CreditCardBills(account=self._login,
                                           transaction_id=statement['id'],
                                           description=statement['description'],
-                                          value=format_money(statement['amount']),
+                                          value=util.format_money(statement['amount']),
                                           transaction_time=statement['time'],
                                           category=statement['title'],
                                           payment_date=payment_date,
@@ -132,7 +127,7 @@ class NubankWorker(WorkerBase):
         d = datetime.date.today()
         d = d.replace(year=transaction_time.year, month=transaction_time.month, day=transaction_time.day)
 
-        if d.day > closing_day:
+        if d.day >= closing_day:
             d = util.add_months(d, 1)
 
         return d.replace(day=payment_day)
