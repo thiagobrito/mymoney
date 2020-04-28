@@ -65,12 +65,12 @@ class NubankWorker(WorkerBase):
         total = len(card_statements)
 
         for index, statement in enumerate(card_statements):
-            self._progress = (index / total) * 100.0
-
             payment_date = self._payment_date(statement['time'], DEFAULT_CLOSING_DAY, DEFAULT_PAYMENT_DAY)
             if payment_date.year > 2018:
                 if CreditCardBills.objects.filter(account=self._login, transaction_id=statement['id']).exists():
                     continue
+
+                self._progress = (index / total) * 100.0
 
                 if 'details' in statement and 'charges' in statement['details']:
                     charge_count = statement['details']['charges']['count']
