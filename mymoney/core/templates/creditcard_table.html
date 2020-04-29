@@ -77,7 +77,11 @@
 
                                     <!-- Category -->
                                     <td>
-                                        <a>{{ item.category.title }}</a>
+                                        <a href="#" class="editable" data-type="text" data-pk="{{ item.transaction_id }}"
+                                           id="category"
+                                           data-url="{% url 'api.credit_card.update_category' %}"
+                                           data-title="category"
+                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ item.category.title }}</a>
                                     </td>
 
                                     <!-- Payment Date -->
@@ -106,6 +110,12 @@
 
 {% block end_content %}
     <script>
+        $.fn.editable.defaults.mode = 'inline';
+
+        $(document).ready(function () {
+            $('.editable').editable();
+        });
+
         function onChangeItemStatus(name, current_url) {
             var element = document.getElementById(name);
             var item_to_remove = 'fa-meh-rolling-eyes';

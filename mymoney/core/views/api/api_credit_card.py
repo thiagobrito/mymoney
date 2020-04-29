@@ -4,9 +4,11 @@ from datetime import datetime, timedelta
 
 from django.db.models import Sum
 from django.http import JsonResponse, HttpResponseBadRequest
+from django.core.exceptions import ObjectDoesNotExist
 
 from mymoney.core.views.credit_card_estimatives import good_daily_estimate
 from mymoney.core.models.credit_card import CreditCardBills
+from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate
 from mymoney.core import util
 
 
@@ -64,3 +66,24 @@ def category_chart(request, month):
         'data': data,
         'colors': util.label_colors(len(data))
     })
+
+
+def update_category(request):
+    if request.POST.get('name') != 'category':
+        return HttpResponseBadRequest()
+
+    try:
+        obj = CreditCardCategoryUpdate.objects.get(transaction_id=request.POST.get('pk'))
+        obj.category = request.POST.get('value')
+        obj.save()
+
+    except ObjectDoesNotExist:
+        obj = CreditCardCategoryUpdate(transaction_id=request.POST.get('pk'),
+                                       category=request.POST.get('value').lower())
+        obj.save()
+
+    for bill in CreditCardBills.objects.filter(transaction_id=request.POST.get('pk')).all():
+        bill.category = request.POST.get('value').lower()
+        bill.save()
+
+    return JsonResponse(data={'status': 200})

@@ -236,12 +236,12 @@
         </div>
     </div>
 
-    {% include "earnings_table.html" with title="Earnings received this month" earnings=earnings %}
+    {% include "earnings_table.html" with title="Earnings received" earnings=earnings %}
 
-    {% include "expenses_table.html" with title="Open expenses for this month" expenses=unpaid_expenses %}
+    {% include "expenses_table.html" with title="Open expenses" expenses=unpaid_expenses %}
 
     {% if credit_card %}
-        {% include "creditcard_table.html" with title="Credit Card Expenses for this Month" data=credit_card %}
+        {% include "creditcard_table.html" with title="Credit Card Expenses" data=credit_card %}
     {% endif %}
 
 {% endblock %}

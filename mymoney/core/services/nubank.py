@@ -8,6 +8,7 @@ from django.db.models import Sum
 from mymoney.settings import PROCESS_QUEUE
 from mymoney.core.services.processing import WorkerBase
 from mymoney.core.models.credit_card import CreditCardBills
+from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate
 from mymoney.core.models.expenses import Expenses
 
 from mymoney.core import util
@@ -88,7 +89,7 @@ class NubankWorker(WorkerBase):
                                               description=description,
                                               value=charge_amount,
                                               transaction_time=statement['time'],
-                                              category=statement['title'],
+                                              category=self._transaction_category(statement),
                                               payment_date=charge_payment_date,
                                               closing_date=charge_payment_date.replace(day=DEFAULT_CLOSING_DAY),
                                               charge_count=charge_count)
@@ -100,7 +101,7 @@ class NubankWorker(WorkerBase):
                                           description=statement['description'],
                                           value=util.format_money(statement['amount']),
                                           transaction_time=statement['time'],
-                                          category=statement['title'],
+                                          category=self._transaction_category(statement),
                                           payment_date=payment_date,
                                           closing_date=payment_date.replace(day=DEFAULT_CLOSING_DAY),
                                           charge_count=1)
@@ -138,6 +139,12 @@ class NubankWorker(WorkerBase):
             d = util.add_months(d, 1)
 
         return d.replace(day=payment_day)
+
+    def _transaction_category(self, statement):
+        try:
+            return CreditCardCategoryUpdate.objects.get(transaction_id=statement['id']).category
+        except ObjectDoesNotExist:
+            return statement['title']
 
 
 def authenticate(uuid, login, password):

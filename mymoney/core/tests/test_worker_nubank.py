@@ -7,6 +7,7 @@ from pynubank import Nubank, NuException
 from mymoney.core.services.nubank import NubankWorker
 from mymoney.core.tests.data import card_statements
 from mymoney.core.models.credit_card import CreditCardBills
+from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate
 from mymoney.core.models.expenses import Expenses
 
 
@@ -89,3 +90,17 @@ class NubankWorkerTest(TestCase):
         ready, progress = nubank.ready('not.found')
         self.assertFalse(ready)
         self.assertEqual(0, progress)
+
+    def test_category_updated_should_update_transaction_category(self):
+        self.nubank_mock.authenticate_with_qr_code = MagicMock(return_value=None)
+        self.nubank_mock.get_card_statements = MagicMock(return_value=card_statements.sample1)
+        self.worker.authenticate('123', '456')
+
+        obj = CreditCardCategoryUpdate(transaction_id=card_statements.sample1[0]['id'],
+                                       category='testing category')
+        obj.save()
+
+        self.worker.work()
+
+        obj = CreditCardBills.objects.get(transaction_id=card_statements.sample1[0]['id'])
+        self.assertEqual('testing category', obj.category)

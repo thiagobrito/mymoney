@@ -8,6 +8,7 @@ from mymoney.core.models.funds import Funds
 from mymoney.core.models.expenses import Expenses
 from mymoney.core.models.credit_card import CreditCardBills
 from mymoney.core.models.labels import Label
+from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate
 
 
 class CreditCardAdmin(admin.ModelAdmin):
@@ -66,3 +67,4 @@ admin.site.register(Funds, FundsAdmin)
 admin.site.register(Expenses, ExpensesAdmin)
 admin.site.register(Label, LabelAdmin)
 admin.site.register(CreditCardBills, CreditCardAdmin)
+admin.site.register(CreditCardCategoryUpdate)

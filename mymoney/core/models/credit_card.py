@@ -22,3 +22,4 @@ class CreditCardBills(models.Model):
     class Meta:
         verbose_name_plural = 'Credit Card Bills'
         ordering = ['transaction_time', 'value']
+
