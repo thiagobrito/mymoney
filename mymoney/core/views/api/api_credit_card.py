@@ -1,3 +1,4 @@
+import random
 from decimal import Decimal
 from datetime import datetime, timedelta
 
@@ -44,3 +45,22 @@ def burndown_chart(request, month):
         })
 
     return HttpResponseBadRequest()
+
+
+def category_chart(request, month):
+    credit_card = CreditCardBills.objects.filter(payment_date__year=datetime.now().year).order_by('-transaction_time')
+    credit_card = credit_card.filter(payment_date__month=month)
+    report = credit_card.values('category').annotate(Sum('value')).order_by('category')
+
+    labels = []
+    data = []
+
+    for bill in report.order_by('-value__sum'):
+        labels.append(bill['category'].title())
+        data.append(bill['value__sum'])
+
+    return JsonResponse(data={
+        'labels': labels,
+        'data': data,
+        'colors': util.label_colors(len(data))
+    })

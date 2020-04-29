@@ -38,7 +38,10 @@ urlpatterns = [
     path('nubank/processing/', nubank.processing, name='nubank.processing'),
     path('nubank/summary/', nubank.summary, name='nubank.summary'),
 
-    path('api/v1/credit_card/burndown/<int:month>/', api_credit_card.burndown_chart, name='api.credit_card.burndown_chart'),
+    path('api/v1/credit_card/burndown/<int:month>/', api_credit_card.burndown_chart,
+         name='api.credit_card.burndown_chart'),
+    path('api/v1/credit_card/category/<int:month>/', api_credit_card.category_chart,
+         name='api.credit_card.category_chart'),
 
     path('api/v1/earnings/month_chart/', api_earnings_expenses_chart.month_chart, name='api.earnings.month_chart'),
     path('api/v1/earnings/sources_chart/', api_earnings_expenses_chart.sources_chart,

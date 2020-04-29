@@ -7,6 +7,7 @@ from django.db.models import Sum
 from mymoney.core.models.earnings import Earnings
 from mymoney.core.models.expenses import Expenses
 from mymoney.core.views.api import update_from_request
+from mymoney.core import util
 
 
 def month_chart(request):
@@ -67,7 +68,8 @@ def sources_chart(request):
 
     return JsonResponse(data={
         'labels': labels,
-        'data': data}
+        'data': data,
+        'colors': util.label_colors(len(data))}
     )
 
 

@@ -103,7 +103,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Credit Card Prev. Months Charged Expenses</div>
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Credit Card Prev.
+                                    Months Charged Expenses
+                                </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ month_charged_sum }}</div>
                             </div>
                             <div class="col-auto">
@@ -120,7 +122,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Credit Card Daily Expenses Goal</div>
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Credit Card Daily
+                                    Expenses Goal
+                                </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ credit_card_daily_estimate }}</div>
                             </div>
                             <div class="col-auto">
@@ -143,7 +147,8 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ credit_card_month_daily_expenses }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-thermometer-three-quarters fa-2x text-gray-300" style="color: {% if credit_card_daily_expenses_green %}#008000bd{% else %}#ff0000a3{% endif %} !important"></i>
+                                <i class="fas fa-thermometer-three-quarters fa-2x text-gray-300"
+                                   style="color: {% if credit_card_daily_expenses_green %}#008000bd{% else %}#ff0000a3{% endif %} !important"></i>
                             </div>
                         </div>
                     </div>
@@ -174,7 +179,8 @@
                 <div class="card-body">
                     <div class="chart-area">
                         {% if monthly_summary %}
-                            <canvas id="myAreaChart" data-url="{% url 'api.credit_card.burndown_chart' month=month %}"></canvas>
+                            <canvas id="myAreaChart"
+                                    data-url="{% url 'api.credit_card.burndown_chart' month=month %}"></canvas>
                         {% else %}
                             <canvas id="myAreaChart" data-url="{% url 'api.earnings.month_chart' %}"></canvas>
                         {% endif %}
@@ -188,7 +194,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">{{ pie_chart_title }}</h6>
                     <div class="dropdown no-arrow">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -206,19 +212,24 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <div class="chart-pie pt-4 pb-2">
-                        <canvas id="myPieChart" data-url="{% url 'api.earnings.sources_chart' %}"></canvas>
+                    <div class="chart-pie">
+                        {% if monthly_summary %}
+                            <canvas id="myPieChart" data-url="{% url 'api.credit_card.category_chart' month=month %}"></canvas>
+                        {% else %}
+                            <canvas id="myPieChart" data-url="{% url 'api.earnings.sources_chart' %}"></canvas>
+                        {% endif %}
                     </div>
+
                     <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> AlgoMania
-                    </span>
                         <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Salario
-                    </span>
+                            <!-- <i class="fas fa-circle text-primary"></i> AlgoMania -->
+                        </span>
                         <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Udemy
-                    </span>
+                            <!-- <i class="fas fa-circle text-success"></i> Salario -->
+                        </span>
+                        <span class="mr-2">
+                            <!-- <i class="fas fa-circle text-info"></i> Udemy -->
+                        </span>
                     </div>
                 </div>
             </div>
@@ -236,7 +247,6 @@
 {% block end_content %}
     <!-- Page level custom scripts -->
     <script src="{% static 'js/chart-line.js' %}"></script>
-    <script src="{% static 'js/chart-pie.js' %}"></script>
 
     <script>
         $.fn.editable.defaults.mode = 'inline';
@@ -244,5 +254,53 @@
         $(document).ready(function () {
             $('.editable').editable();
         });
+    </script>
+
+    <script>
+        // Set new default font family and font color to mimic Bootstrap's default styling
+        Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        Chart.defaults.global.defaultFontColor = '#858796';
+
+        $(function () {
+            var $populationChart = $("#myPieChart");
+            $.ajax({
+                url: $populationChart.data("url"),
+                success: function (data) {
+                    var ctx = $populationChart[0].getContext("2d");
+
+                    new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: data.labels,
+                            datasets: [{
+                                data: data.data,
+                                backgroundColor: data.colors,
+                                hoverBorderColor: "rgba(234, 236, 244, 1)",
+                            }],
+                        },
+                        options: {
+                            maintainAspectRatio: false,
+                            tooltips: {
+                                backgroundColor: "rgb(255,255,255)",
+                                bodyFontColor: "#858796",
+                                borderColor: '#dddfeb',
+                                borderWidth: 1,
+                                xPadding: 15,
+                                yPadding: 15,
+                                displayColors: true,
+                                caretPadding: 10,
+                            },
+                            legend: {
+                                display: true,
+                                position: "bottom",
+                                usePointStyle: true,
+                            },
+                            cutoutPercentage: 70,
+                        },
+                    });
+
+                }
+            })
+        })
     </script>
 {% endblock %}

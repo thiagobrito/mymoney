@@ -1,3 +1,4 @@
+import random
 import calendar
 import datetime
 
@@ -14,3 +15,9 @@ def format_money(value):
     cents = (value % 100) / 100
     total = (value - (value % 100)) / 100
     return float(total + cents)
+
+
+def label_colors(number_of_colors):
+    colors = ['#e74a3bbf', '#4e73dfbf', '#1cc88abf', '#36b9ccbf']
+    colors += ["#" + ''.join([random.choice('0123456789ABCDEF') for j in range(6)]) for i in range(number_of_colors)]
+    return colors[0:number_of_colors]
