@@ -236,7 +236,9 @@
         </div>
     </div>
 
-    {% include "expenses_table.html" with title="Open Expenses for this Month" expenses=unpaid_expenses %}
+    {% include "earnings_table.html" with title="Earnings received this month" earnings=earnings %}
+
+    {% include "expenses_table.html" with title="Open expenses for this month" expenses=unpaid_expenses %}
 
     {% if credit_card %}
         {% include "creditcard_table.html" with title="Credit Card Expenses for this Month" data=credit_card %}

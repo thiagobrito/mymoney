@@ -1,0 +1,131 @@
+<div class="card shadow mb-4">
+
+    <div class="card-header py-3">
+        <div class="d-sm-flex align-items-center justify-content-between mb-1">
+            <h6 class="h4 mb-0 text-gray-800">{{ title }}</h6>
+
+            <div class="dropdown show">
+                <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"
+                   class="btn btn-primary dropdown-toggle d-none d-sm-inline-block btn btn-sm btn-primary">
+                    <i class="fas fa-plus-circle fa-sm text-white-50"></i> New Earning
+                </a>
+
+                <div class="dropdown-menu">
+                    <form class="px-4 py-3" action="javascript:onNewEarning('{% url 'api.earnings.new' %}');"
+                          method="POST" id="new_earning_form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="DropDownExpenseDate">Date</label>
+                            <input type="date" class="form-control" id="DropDownExpenseDate"
+                                   name="date" placeholder="expense_date">
+                        </div>
+                        <div class="form-group">
+                            <label for="expense_description">Description</label>
+                            <input type="text" class="form-control" id="earning_description"
+                                   name="description" placeholder="Description...">
+                        </div>
+                        <div class="form-group">
+                            <label for="expense_value">Value</label>
+                            <input type="number" class="form-control" id="earning_value"
+                                   name="value" placeholder="R$ 0,00" step="any">
+                        </div>
+                        <div class="form-group">
+                            <label for="expense_value">Value</label>
+                            <input type="text" class="form-control" id="earning_origin"
+                                   name="origin" placeholder="Salario" step="any">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive" style="overflow-x: hidden">
+            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
+                               role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                            <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                    colspan="1" aria-sort="ascending"
+                                    aria-label="Name: activate to sort column descending" style="width: 170px;">
+
+                                    Date
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Position: activate to sort column ascending" style="width: 401px;">
+
+                                    Description
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Office: activate to sort column ascending" style="width: 50px;">
+
+                                    Value
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Start date: activate to sort column ascending"
+                                    style="width: 187px;">
+
+                                    Origin
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for earn in earnings %}
+                                <tr role="row"
+                                    class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                                    <td class="sorting_1">
+                                        {{ earn.date }}
+                                    </td>
+                                    <td>
+                                        <a href="#" class="editable" data-type="text" data-pk="{{ earn.id }}"
+                                           id="description" data-url="{% url 'api.earnings.update' %}"
+                                           data-title="Value"
+                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ earn.description }}</a>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="editable" data-type="text" data-pk="{{ earn.id }}"
+                                           id="value" data-url="{% url 'api.earnings.update' %}" data-title="Value"
+                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ earn.value }}</a>
+                                    </td>
+                                    <td>
+                                        {{ earn.origin }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% block end_content %}
+    <script>
+        $.fn.editable.defaults.mode = 'inline';
+
+        $(document).ready(function () {
+            $('.editable').editable();
+        });
+
+        function onNewEarning(url) {
+            $.ajax({
+                url: url,
+                data: $('#new_earning_form').serialize(),
+                method: "POST",
+                headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                success: function (returnData) {
+                    location.reload();
+                }
+            });
+        }
+    </script>
+{% endblock %}

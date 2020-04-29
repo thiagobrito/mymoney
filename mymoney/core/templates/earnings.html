@@ -1,84 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block page_content %}
+    {% include "earnings_table.html" with title="Earnings" earnings=earnings %}
+{% endblock %}
+
 {% block head_content %}
     <link href="{% static 'vendor/bootstrap4-editable/css/bootstrap-editable.css' %}" rel="stylesheet"/>
     <script src="{% static 'vendor/bootstrap4-editable/js/bootstrap-editable.js' %}"></script>
 {% endblock %}
 
-{% block page_content %}
-
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Earnings</h6>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive" style="overflow-x: hidden">
-                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
-                                   role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                                <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                        colspan="1" aria-sort="ascending"
-                                        aria-label="Name: activate to sort column descending" style="width: 170px;">
-
-                                        Date
-                                    </th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Position: activate to sort column ascending" style="width: 401px;">
-
-                                        Description
-                                    </th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Office: activate to sort column ascending" style="width: 50px;">
-
-                                        Value
-                                    </th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Start date: activate to sort column ascending"
-                                        style="width: 187px;">
-
-                                        Origin
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for earn in earnings %}
-                                    <tr role="row"
-                                        class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
-                                        <td class="sorting_1">
-                                            {{ earn.date }}
-                                        </td>
-                                        <td>
-                                            <a href="#" class="editable" data-type="text" data-pk="{{ earn.id }}" id="description" data-url="{% url 'api.earnings.update' %}" data-title="Value" data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ earn.description }}</a>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="editable" data-type="text" data-pk="{{ earn.id }}" id="value" data-url="{% url 'api.earnings.update' %}" data-title="Value" data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">{{ earn.value }}</a>
-                                        </td>
-                                        <td>
-                                            {{ earn.get_origin_display }}
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
-
-{% block end_content %}
-    <script>
-        $.fn.editable.defaults.mode = 'inline';
-
-        $(document).ready(function() {
-            $('.editable').editable();
-        });
-    </script>
-{% endblock %}

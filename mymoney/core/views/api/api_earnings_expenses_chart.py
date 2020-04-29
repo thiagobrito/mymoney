@@ -63,7 +63,7 @@ def sources_chart(request):
     data = []
 
     for exp in report:
-        labels.append(Earnings().source_display_name(exp['origin']))
+        labels.append(exp['origin'])
         data.append(exp['value__sum'])
 
     return JsonResponse(data={
