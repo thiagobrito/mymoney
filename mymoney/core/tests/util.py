@@ -1,3 +1,4 @@
+from datetime import datetime
 from pynubank import Nubank
 from mymoney.core.services.nubank import NubankWorker
 
@@ -15,3 +16,11 @@ def fill_database():
     worker.authenticate('123', '456')
 
     worker.work()
+
+
+def date(day, month, only_date=False):
+    d = datetime.today()
+    d = d.replace(day=day, month=month)
+    if only_date:
+        return d.date()
+    return d

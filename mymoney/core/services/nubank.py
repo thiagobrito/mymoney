@@ -8,7 +8,7 @@ from django.db.models import Sum
 from mymoney.settings import PROCESS_QUEUE
 from mymoney.core.services.processing import WorkerBase
 from mymoney.core.models.credit_card import CreditCardBills
-from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate
+from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate, CreditCardDateUpdate
 from mymoney.core.models.expenses import Expenses
 
 from mymoney.core import util
@@ -69,7 +69,7 @@ class NubankWorker(WorkerBase):
         total = len(card_statements)
 
         for index, statement in enumerate(card_statements):
-            payment_date = self._payment_date(statement['time'], DEFAULT_CLOSING_DAY, DEFAULT_PAYMENT_DAY)
+            payment_date = self._calculate_payment_date(statement, DEFAULT_CLOSING_DAY, DEFAULT_PAYMENT_DAY)
             if payment_date.year > 2018:
                 if CreditCardBills.objects.filter(account=self._login, transaction_id=statement['id']).exists():
                     continue
@@ -128,7 +128,8 @@ class NubankWorker(WorkerBase):
                                bank_account='BRD')
                 obj.save()
 
-    def _payment_date(self, transaction_time, closing_day, payment_day):
+    def _calculate_payment_date(self, statement, closing_day, payment_day):
+        transaction_time = statement['time']
         if type(transaction_time) == str:
             transaction_time = datetime.datetime.strptime(transaction_time, "%Y-%m-%dT%H:%M:%SZ")
 
@@ -138,7 +139,18 @@ class NubankWorker(WorkerBase):
         if d.day >= closing_day:
             d = util.add_months(d, 1)
 
-        return d.replace(day=payment_day)
+        calculated_date = d.replace(day=payment_day)
+
+        try:
+            updated_obj = CreditCardDateUpdate.objects.get(transaction_id=statement['id'],
+                                                           orig_transaction_time=transaction_time,
+                                                           orig_payment_date=calculated_date)
+            return updated_obj.new_payment_date
+
+        except ObjectDoesNotExist:
+            pass
+
+        return calculated_date
 
     def _transaction_category(self, statement):
         try:

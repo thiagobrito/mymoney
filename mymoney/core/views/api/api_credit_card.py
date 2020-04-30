@@ -8,7 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from mymoney.core.views.credit_card_estimatives import good_daily_estimate
 from mymoney.core.models.credit_card import CreditCardBills
-from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate
+from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate, CreditCardDateUpdate
 from mymoney.core import util
 
 
@@ -85,5 +85,46 @@ def update_category(request):
     for bill in CreditCardBills.objects.filter(transaction_id=request.POST.get('pk')).all():
         bill.category = request.POST.get('value').lower()
         bill.save()
+
+    return JsonResponse(data={'status': 200})
+
+
+def update_payment_date(request):
+    if request.POST.get('name') != 'payment_date':
+        return HttpResponseBadRequest()
+
+    try:
+        obj = CreditCardBills.objects.get(id=request.POST.get('pk'))
+        original_payment_date = obj.payment_date
+
+        # 0 = Previous
+        change = request.POST.get('value')
+        if change == '0':
+            obj.payment_date = util.add_months(obj.payment_date, -1)
+            obj.closing_date = util.add_months(obj.closing_date, -1)
+        # 1 = Next
+        elif change == '1':
+            obj.payment_date = util.add_months(obj.payment_date, 1)
+            obj.closing_date = util.add_months(obj.closing_date, 1)
+        obj.save()
+
+    except ObjectDoesNotExist:
+        return HttpResponseBadRequest()
+
+    try:
+        updated_obj = CreditCardDateUpdate.objects.get(transaction_id=obj.transaction_id,
+                                                       orig_transaction_time=obj.transaction_time,
+                                                       orig_payment_date=original_payment_date)
+        updated_obj.new_payment_date = obj.payment_date
+        updated_obj.new_closing_date = obj.closing_date
+        updated_obj.save()
+
+    except ObjectDoesNotExist:
+        updated_obj = CreditCardDateUpdate(transaction_id=obj.transaction_id,
+                                           orig_transaction_time=obj.transaction_time,
+                                           orig_payment_date=original_payment_date,
+                                           new_payment_date=obj.payment_date,
+                                           new_closing_date=obj.closing_date)
+        updated_obj.save()
 
     return JsonResponse(data={'status': 200})

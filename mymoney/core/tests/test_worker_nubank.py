@@ -7,8 +7,9 @@ from pynubank import Nubank, NuException
 from mymoney.core.services.nubank import NubankWorker
 from mymoney.core.tests.data import card_statements
 from mymoney.core.models.credit_card import CreditCardBills
-from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate
+from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate, CreditCardDateUpdate
 from mymoney.core.models.expenses import Expenses
+from mymoney.core.tests import util
 
 
 class NubankWorkerTest(TestCase):
@@ -62,22 +63,33 @@ class NubankWorkerTest(TestCase):
         self.assertTrue(Expenses.objects.exists())
         self.assertEqual(2, Expenses.objects.count())  # test data has items from 2 different months
 
-    def test_payment_date(self):
-        def date(day, month, only_date=False):
-            d = datetime.today()
-            d = d.replace(day=day, month=month)
-            if only_date:
-                return d.date()
-            return d
+    def test_payment_date_new_item(self):
+        statement = {'time': util.date(1, 1), 'id': 'not.found'}
+        self.assertEqual(util.date(26, 1, only_date=True),
+                         self.worker._calculate_payment_date(statement, closing_day=19, payment_day=26))  # <
 
-        self.assertEqual(date(26, 1, only_date=True),
-                         self.worker._payment_date(transaction_time=date(1, 1), closing_day=19, payment_day=26))  # <
+        statement['time'] = util.date(19, 1)
+        self.assertEqual(util.date(26, 2, only_date=True),
+                         self.worker._calculate_payment_date(statement, closing_day=19, payment_day=26))  # ==
 
-        self.assertEqual(date(26, 2, only_date=True),
-                         self.worker._payment_date(transaction_time=date(19, 1), closing_day=19, payment_day=26))  # ==
+        statement['time'] = util.date(20, 1)
+        self.assertEqual(util.date(26, 2, only_date=True),
+                         self.worker._calculate_payment_date(statement, closing_day=19, payment_day=26))  # >
 
-        self.assertEqual(date(26, 2, only_date=True),
-                         self.worker._payment_date(transaction_time=date(20, 1), closing_day=19, payment_day=26))  # >
+    def test_payment_date_updated_item(self):
+        transaction_time = util.date(1, 1)
+        new_payment_date = util.date(26, 4, only_date=True)
+        statement = {'time': transaction_time, 'id': '{valid_transaction}'}
+
+        obj = CreditCardDateUpdate(transaction_id=statement['id'],
+                                   orig_transaction_time=transaction_time,
+                                   orig_payment_date=util.date(26, 1, only_date=True),
+                                   new_payment_date=new_payment_date,
+                                   new_closing_date=util.date(19, 4, only_date=True))
+        obj.save()
+
+        self.assertEqual(new_payment_date,
+                         self.worker._calculate_payment_date(statement, closing_day=19, payment_day=26))  # <
 
     def test_get_ready_status_before_start_working(self):
         ready, progress = self.worker.ready()

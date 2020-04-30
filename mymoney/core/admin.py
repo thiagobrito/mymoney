@@ -8,11 +8,16 @@ from mymoney.core.models.funds import Funds
 from mymoney.core.models.expenses import Expenses
 from mymoney.core.models.credit_card import CreditCardBills
 from mymoney.core.models.labels import Label
-from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate
+from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate, CreditCardDateUpdate
 
 
 class CreditCardAdmin(admin.ModelAdmin):
     list_display = ('transaction_time', 'payment_date', 'category', 'description', 'value')
+
+
+class CreditCardDateUpdateAdmin(admin.ModelAdmin):
+    list_display = ('transaction_id',
+                    'orig_transaction_time', 'orig_payment_date', 'new_payment_date', 'new_closing_date')
 
 
 class LabelAdmin(admin.ModelAdmin):
@@ -68,3 +73,4 @@ admin.site.register(Expenses, ExpensesAdmin)
 admin.site.register(Label, LabelAdmin)
 admin.site.register(CreditCardBills, CreditCardAdmin)
 admin.site.register(CreditCardCategoryUpdate)
+admin.site.register(CreditCardDateUpdate, CreditCardDateUpdateAdmin)

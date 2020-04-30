@@ -44,6 +44,8 @@ urlpatterns = [
          name='api.credit_card.category_chart'),
     path('api/v1/credit_card/update_category/', api_credit_card.update_category,
          name='api.credit_card.update_category'),
+    path('api/v1/credit_card/update_payment_date/', api_credit_card.update_payment_date,
+         name='api.credit_card.update_payment_date'),
 
     path('api/v1/earnings/month_chart/', api_earnings_expenses_chart.month_chart, name='api.earnings.month_chart'),
     path('api/v1/earnings/sources_chart/', api_earnings_expenses_chart.sources_chart,

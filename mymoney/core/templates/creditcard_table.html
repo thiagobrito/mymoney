@@ -86,7 +86,13 @@
 
                                     <!-- Payment Date -->
                                     <td>
-                                        <a>{{ item.payment_date }}</a>
+                                        <a href="#" class="payment_date" data-type="select" data-pk="{{ item.id }}"
+                                           id="payment_date"
+                                           data-url="{% url 'api.credit_card.update_payment_date' %}"
+                                           data-title="Select status"
+                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">
+                                            {{ item.payment_date }}
+                                        </a>
                                     </td>
 
                                     <!-- Labels
@@ -114,6 +120,14 @@
 
         $(document).ready(function () {
             $('.editable').editable();
+
+            $('.payment_date').editable({
+                value: 2,
+                source: [
+                      {value: 0, text: 'Previous'},
+                      {value: 1, text: 'Next'}
+                   ]
+            });
         });
 
         function onChangeItemStatus(name, current_url) {
@@ -146,5 +160,6 @@
             });
             return false;
         }
+
     </script>
 {% endblock %}
