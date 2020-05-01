@@ -34,7 +34,8 @@ def burndown_chart(request, month):
             good_daily_acumulated += good_daily_estimate(credit_card, charged_sum).amount
             expected.append(good_daily_acumulated)
 
-            month_transactions = credit_card.filter(transaction_time__lte=current).filter(charge_count=1)
+            limit_date = current + timedelta(days=1)
+            month_transactions = credit_card.filter(transaction_time__lte=limit_date).filter(charge_count=1)
             transactions_sum = month_transactions.aggregate(Sum('value'))['value__sum'] or Decimal(0)
             expended.append(transactions_sum)
 
