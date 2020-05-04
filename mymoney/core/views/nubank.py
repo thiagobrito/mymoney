@@ -40,8 +40,7 @@ def authenticate(request):
 def processing(request):
     uuid = request.session.get('uuid', default=None)
     if uuid:
-        ready, progress = nubank.ready(uuid)
-        return JsonResponse({'ready': ready, 'progress': progress})
+        return JsonResponse(nubank.status(uuid))
 
     return HttpResponse(status=401)
 

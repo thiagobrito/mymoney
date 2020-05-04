@@ -1,7 +1,5 @@
-from datetime import datetime
 from django.test import TestCase
 from unittest.mock import MagicMock, Mock
-from wait_for import wait_for
 
 from pynubank import Nubank, NuException
 from mymoney.core.services.nubank import NubankWorker
@@ -42,8 +40,6 @@ class NubankWorkerTest(TestCase):
         self.nubank_mock.authenticate_with_qr_code = MagicMock(return_value=None)
         self.nubank_mock.get_card_statements = MagicMock(return_value=card_statements.sample1)
         self.worker.authenticate('123', '456')
-
-        wait_for(self.worker.ready)
 
         self.worker.work()
 
@@ -92,16 +88,16 @@ class NubankWorkerTest(TestCase):
                          self.worker._calculate_payment_date(statement, closing_day=19, payment_day=26))  # <
 
     def test_get_ready_status_before_start_working(self):
-        ready, progress = self.worker.ready()
-        self.assertFalse(ready)
-        self.assertEqual(0, progress)
+        status = self.worker.status()
+        self.assertFalse(status['ready'])
+        self.assertEqual(0, status['progress'])
 
     def test_ready_uuid_not_found(self):
         from mymoney.core.services import nubank
 
-        ready, progress = nubank.ready('not.found')
-        self.assertFalse(ready)
-        self.assertEqual(0, progress)
+        status = nubank.status('not.found')
+        self.assertFalse(status['ready'])
+        self.assertEqual(0, status['progress'])
 
     def test_category_updated_should_update_transaction_category(self):
         self.nubank_mock.authenticate_with_qr_code = MagicMock(return_value=None)

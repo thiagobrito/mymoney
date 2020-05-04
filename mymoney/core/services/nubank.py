@@ -1,3 +1,4 @@
+import sys
 import datetime
 from pynubank import Nubank, NuException
 
@@ -29,52 +30,50 @@ class NubankWorker(WorkerBase):
 
         self._progress = 0
         self._login = None
-        self._authenticated = False
+        self._status = {'authenticated': False, 'progress': 0, 'ready': False, 'exception': ''}
+        self._card_statements = None
 
     def authenticate(self, login, password):
-        if self._authenticated:
+        if self._status['authenticated']:
             return True
 
         try:
             self._nu.authenticate_with_qr_code(login, password, self.uuid)
-            self._authenticated = True
             self._login = login
+            self._card_statements = self._nu.get_card_statements()
 
             PROCESS_QUEUE.add(self.uuid, self)
+            self._status['authenticated'] = True
 
         except NuException:
             pass
 
-        return self._authenticated
+        return self._status['authenticated']
 
     @transaction.atomic
     def work(self):
-        if self._authenticated:
-            self._progress = 0
-            self._ready = False
-
+        if self._status['authenticated']:
             # !!!! WARNING: Remove this item when finish this step !!!!!!!!
             CreditCardBills.objects.filter(account=self._login).delete()
 
             self._save_bills()
             self._save_expense_table_record()
 
-            self._ready = True
+            self._status['ready'] = True
 
-    def ready(self):
-        return self._ready, self._progress
+    def status(self):
+        return self._status
 
     def _save_bills(self):
-        card_statements = self._nu.get_card_statements()
-        total = len(card_statements)
+        total = len(self._card_statements)
 
-        for index, statement in enumerate(card_statements):
+        for index, statement in enumerate(self._card_statements):
             payment_date = self._calculate_payment_date(statement, DEFAULT_CLOSING_DAY, DEFAULT_PAYMENT_DAY)
             if payment_date.year > 2018:
                 if CreditCardBills.objects.filter(account=self._login, transaction_id=statement['id']).exists():
                     continue
 
-                self._progress = (index / total) * 100.0
+                self._status['progress'] = (index / total) * 100.0
 
                 if 'details' in statement and 'charges' in statement['details']:
                     charge_count = statement['details']['charges']['count']
@@ -164,9 +163,8 @@ def authenticate(uuid, login, password):
     return worker.authenticate(login, password)
 
 
-def ready(uuid):
+def status(uuid):
     worker = PROCESS_QUEUE.locate(uuid)
     if worker:
-        return worker.ready()
-
-    return False, 0
+        return worker.status()
+    return {'ready': False, 'progress': 0, 'exception': False}
