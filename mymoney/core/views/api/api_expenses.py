@@ -33,3 +33,11 @@ def new(request):
     obj.save()
 
     return JsonResponse(data={'status': 200})
+
+
+def recurrent(request, pk):
+    expense = Expenses.objects.get(pk=pk)
+    expense.recurrent = not expense.recurrent
+    expense.save()
+
+    return JsonResponse(data={'status': 200})

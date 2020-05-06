@@ -30,7 +30,7 @@ class NubankWorker(WorkerBase):
 
         self._progress = 0
         self._login = None
-        self._status = {'authenticated': False, 'progress': 0, 'ready': False, 'exception': ''}
+        self._status = {'authenticated': False, 'progress': 0, 'ready': False, 'failed': False}
         self._card_statements = None
 
     def authenticate(self, login, password):
@@ -46,7 +46,7 @@ class NubankWorker(WorkerBase):
             self._status['authenticated'] = True
 
         except NuException:
-            pass
+            self._status['failed'] = True
 
         return self._status['authenticated']
 

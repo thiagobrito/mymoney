@@ -18,6 +18,7 @@ class Expenses(models.Model):
     paid = models.BooleanField(default=False)
     bank_account = models.CharField('bank account', max_length=3, choices=BANK_ACCOUNT, default='BRD')
     credit_card_ref = models.CharField(max_length=50, default='')
+    recurrent = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = 'Expenses'

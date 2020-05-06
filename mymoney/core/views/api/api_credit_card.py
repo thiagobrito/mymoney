@@ -24,6 +24,7 @@ def burndown_chart(request, month):
         dates = []
         expected = []
         expended = []
+        diff = []
 
         good_daily_acumulated = 0
         for day in range((end - start).days):
@@ -39,12 +40,15 @@ def burndown_chart(request, month):
             transactions_sum = month_transactions.aggregate(Sum('value'))['value__sum'] or Decimal(0)
             expended.append(transactions_sum)
 
+            diff.append(transactions_sum - good_daily_acumulated)
+
         return JsonResponse(data={
             'labels': dates,
             'data1_name': 'Expected',
             'data2_name': 'Expenses',
             'data1': expected,
-            'data2': expended
+            'data2': expended,
+            'diff': diff
         })
 
     return HttpResponseBadRequest()

@@ -77,6 +77,11 @@
 
                                     Paid
                                 </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Office: activate to sort column ascending" style="width: 40px;">
+
+                                    Recurrent
+                                </th>
                             </tr>
                             </thead>
                             <tbody>
@@ -115,6 +120,13 @@
                                            href="javascript:void(0);"
                                            onclick="onChangeItemStatus('paid_{{ item.id }}', '{% url 'api.expenses.paid' pk=item.pk %}' )"
                                            style="color: {% if item.paid %}#36b9cc{% else %}#e74a3b{% endif %}"></a>
+                                    </td>
+                                    <td style="text-align: center">
+                                        <a class="fas fa-retweet {% if item.recurrent %}recurrent{% endif %}"
+                                           id="recurrent_{{ item.id }}"
+                                           href="javascript:void(0);"
+                                           onclick="onChangeRecurrency('recurrent_{{ item.id }}', '{% url 'api.expenses.recurrent' pk=item.pk %}' )"
+                                           style="color: {% if item.recurrent %}#36b9cc{% else %}#b7b9cc{% endif %}"></a>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -156,6 +168,33 @@
                     element.classList.remove(item_to_remove);
                     element.classList.add(item_to_add);
                     element.style["color"] = item_color;
+                }
+            });
+            return false;
+        }
+
+        function onChangeRecurrency(name, current_url) {
+            var element = document.getElementById(name);
+            var is_recurrent = true;
+
+            var item_new_color = "#36b9cc";
+            if (element.classList.contains('recurrent')) {
+                item_new_color = "#b7b9cc";
+                is_recurrent = false;
+            }
+
+            $.ajax({
+                url: current_url,
+                method: "POST",
+                headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                success: function (returnData) {
+                    element.style["color"] = item_new_color;
+
+                    if (is_recurrent) {
+                        element.classList.add('recurrent');
+                    } else {
+                        element.classList.remove('recurrent');
+                    }
                 }
             });
             return false;
