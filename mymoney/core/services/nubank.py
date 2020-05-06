@@ -1,4 +1,3 @@
-import sys
 import datetime
 from pynubank import Nubank, NuException
 

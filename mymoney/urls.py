@@ -59,5 +59,7 @@ urlpatterns = [
     path('api/v1/expenses/scheduled/<int:pk>/', api_expenses.scheduled, name='api.expenses.scheduled'),
     path('api/v1/expenses/paid/<int:pk>/', api_expenses.paid, name='api.expenses.paid'),
     path('api/v1/expenses/recurrent/<int:pk>/', api_expenses.recurrent, name='api.expenses.recurrent'),
+    path('api/v1/expenses/fill_recurrences/<int:month>/', api_expenses.fill_recurrences,
+         name='api.expenses.fill_recurrences'),
     path('api/v1/new/', api_expenses.new, name='api.expenses.new'),
 ]
