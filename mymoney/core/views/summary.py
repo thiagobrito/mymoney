@@ -9,6 +9,7 @@ from mymoney.core.models.funds import Funds
 from mymoney.core.models.expenses import Expenses
 from mymoney.core.models.credit_card import CreditCardBills
 from mymoney.core.views.credit_card_estimatives import good_daily_estimate, month_daily_estimate
+from mymoney.core.recurrences import has_pending_recurrences
 
 
 def view(request, month=None):
@@ -30,6 +31,7 @@ def view(request, month=None):
         credit_card_month_daily_expenses = month_daily_estimate(credit_card, charged_sum)
         credit_card_daily_expenses_green = credit_card_month_daily_expenses <= credit_card_daily_estimate
         pie_chart_title = 'Credit Card Categories'
+        pending_recurrences = has_pending_recurrences(month)
 
         months = ['', 'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
                   'November', 'December']
@@ -43,6 +45,7 @@ def view(request, month=None):
         charged_sum = None
         credit_card_daily_expenses_green = False
         pie_chart_title = 'Revenue Sources'
+        pending_recurrences = False
 
     main_chart_title = 'Earnings/Expenses Overview'
     if month:
@@ -68,4 +71,5 @@ def view(request, month=None):
                       'credit_card_daily_expenses_green': credit_card_daily_expenses_green,
                       'main_chart_title': main_chart_title,
                       'pie_chart_title': pie_chart_title,
+                      'pending_recurrences': pending_recurrences,
                   })
