@@ -98,7 +98,7 @@
                                     class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
                                     <td class="sorting_1">{{ item.date }}</td>
                                     <td>
-                                        <a href="#" class="editable" data-type="text" data-transaction_id="{{ item.id }}"
+                                        <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
                                            id="description"
                                            data-url="{% url 'api.expenses.update' %}"
                                            data-title="description"
