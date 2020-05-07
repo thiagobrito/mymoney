@@ -54,7 +54,7 @@ def fill_recurrences(request, month):
         return description, should_create
 
     year = 2020
-    previous_month_expenses = Expenses.objects.filter(date__year=year, date__month=month - 1, recurrent=True)
+    previous_month_expenses = Expenses.objects.filter(date__year=year, date__month=month - 1, credit_card_ref='', recurrent=True)
     current_month_expenses = Expenses.objects.filter(date__year=year, date__month=month)
 
     for prev_expense in previous_month_expenses:
