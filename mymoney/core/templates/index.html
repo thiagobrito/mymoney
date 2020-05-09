@@ -179,10 +179,10 @@
                 <div class="card-body">
                     <div class="chart-area">
                         {% if monthly_summary %}
-                            <canvas id="myAreaChart"
+                            <canvas id="CreditCardBurndownChart"
                                     data-url="{% url 'api.credit_card.burndown_chart' month=month %}"></canvas>
                         {% else %}
-                            <canvas id="myAreaChart" data-url="{% url 'api.earnings.month_chart' %}"></canvas>
+                            <canvas id="EarningsExpensesChart" data-url="{% url 'api.earnings.month_chart' %}"></canvas>
                         {% endif %}
                     </div>
                 </div>
@@ -300,7 +300,6 @@
                             cutoutPercentage: 70,
                         },
                     });
-
                 }
             })
         })

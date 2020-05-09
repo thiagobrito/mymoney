@@ -40,7 +40,7 @@ def burndown_chart(request, month):
             transactions_sum = month_transactions.aggregate(Sum('value'))['value__sum'] or Decimal(0)
             expended.append(transactions_sum)
 
-            diff.append(transactions_sum - good_daily_acumulated)
+            diff.append(good_daily_acumulated - transactions_sum)
 
         return JsonResponse(data={
             'labels': dates,

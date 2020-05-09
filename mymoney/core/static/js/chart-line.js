@@ -28,7 +28,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 $(function () {
-    var $populationChart = $("#myAreaChart");
+    var $populationChart = $("#EarningsExpensesChart");
     $.ajax({
         url: $populationChart.data("url"),
         success: function (data) {
@@ -69,6 +69,140 @@ $(function () {
                             pointHitRadius: 10,
                             pointBorderWidth: 2,
                             data: data.data2,
+                        }
+                    ],
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            left: 10,
+                            right: 25,
+                            top: 25,
+                            bottom: 0
+                        }
+                    },
+                    scales: {
+                        xAxes: [{
+                            time: {
+                                unit: 'date'
+                            },
+                            gridLines: {
+                                display: false,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                maxTicksLimit: 7
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                maxTicksLimit: 5,
+                                padding: 10,
+                                // Include a dollar sign in the ticks
+                                callback: function (value, index, values) {
+                                    return 'R$ ' + number_format(value);
+                                }
+                            },
+                            gridLines: {
+                                color: "rgb(234, 236, 244)",
+                                zeroLineColor: "rgb(234, 236, 244)",
+                                drawBorder: false,
+                                borderDash: [2],
+                                zeroLineBorderDash: [2]
+                            }
+                        }],
+                    },
+                    legend: {
+                        display: false
+                    },
+                    tooltips: {
+                        backgroundColor: "rgb(255,255,255)",
+                        bodyFontColor: "#858796",
+                        titleMarginBottom: 10,
+                        titleFontColor: '#6e707e',
+                        titleFontSize: 14,
+                        borderColor: '#dddfeb',
+                        borderWidth: 1,
+                        xPadding: 15,
+                        yPadding: 15,
+                        displayColors: false,
+                        intersect: false,
+                        mode: 'index',
+                        caretPadding: 10,
+                        callbacks: {
+                            label: function (tooltipItem, chart) {
+                                var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+                                return datasetLabel + ': R$ ' + number_format(tooltipItem.yLabel);
+                            }
+                        }
+                    }
+                }
+            })
+        }
+    });
+});
+
+
+
+$(function () {
+    var $populationChart = $("#CreditCardBurndownChart");
+    $.ajax({
+        url: $populationChart.data("url"),
+        success: function (data) {
+            var ctx = $populationChart[0].getContext("2d");
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.labels,
+                    datasets: [
+                        {
+                            label: data.data1_name,
+                            lineTension: 0.3,
+                            backgroundColor: "rgba(78, 115, 223, 0.05)",
+                            borderColor: "rgba(78, 115, 223, 1)",
+                            pointRadius: 3,
+                            pointBackgroundColor: "rgba(78, 115, 223, 1)",
+                            pointBorderColor: "rgba(78, 115, 223, 1)",
+                            pointHoverRadius: 3,
+                            pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+                            pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+                            pointHitRadius: 10,
+                            pointBorderWidth: 2,
+                            data: data.data1,
+                        },
+                        {
+                            label: data.data2_name,
+                            lineTension: 0.3,
+                            fill: false,
+                            backgroundColor: "rgba(226, 106, 106, 1)",
+                            borderColor: "rgba(226, 106, 106, 1)",
+                            pointRadius: 3,
+                            pointBackgroundColor: "rgba(226, 106, 106, 1)",
+                            pointBorderColor: "rgba(226, 106, 106, 1)",
+                            pointHoverRadius: 3,
+                            pointHoverBackgroundColor: "rgba(226, 106, 106, 1)",
+                            pointHoverBorderColor: "rgba(226, 106, 106, 1)",
+                            pointHitRadius: 10,
+                            pointBorderWidth: 2,
+                            data: data.data2,
+                        },
+                        {
+                            label: 'diff',
+                            lineTension: 0,
+                            fill: false,
+                            backgroundColor: "#85879670",
+                            borderColor: "#85879670",
+                            pointRadius: 3,
+                            pointBackgroundColor: "#85879670",
+                            pointBorderColor: "#85879670",
+                            pointHoverRadius: 3,
+                            pointHoverBackgroundColor: "rgba(226, 106, 106, 1)",
+                            pointHoverBorderColor: "rgba(226, 106, 106, 1)",
+                            pointHitRadius: 10,
+                            pointBorderWidth: 2,
+                            data: data.diff,
                         }
                     ],
                 },
