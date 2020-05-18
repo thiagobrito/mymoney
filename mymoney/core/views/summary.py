@@ -47,6 +47,8 @@ def view(request, month=None):
         pie_chart_title = 'Revenue Sources'
         pending_recurrences = False
 
+    not_recurrent = expenses.filter(recurrent=False)
+
     main_chart_title = 'Earnings/Expenses Overview'
     if month:
         main_chart_title = 'Credit Card Burndown Chart'
@@ -59,6 +61,9 @@ def view(request, month=None):
                       'expenses': expenses,
                       'expenses_total': Money(expenses.aggregate(total=Sum('value'))['total'] or 0, currency='BRL'),
                       'unpaid_expenses': unpaid_expenses,
+                      'unpaid_expenses_total':
+                          Money(unpaid_expenses.filter(paid=False).aggregate(total=Sum('value'))['total'] or 0,
+                                currency='BRL'),
                       'credit_card_total': Money(credit_card.aggregate(total=Sum('value'))['total'] or 0,
                                                  currency='BRL'),
                       'period': period_title,
@@ -72,4 +77,6 @@ def view(request, month=None):
                       'main_chart_title': main_chart_title,
                       'pie_chart_title': pie_chart_title,
                       'pending_recurrences': pending_recurrences,
+                      'not_recurrent_total': Money(not_recurrent.aggregate(total=Sum('value'))['total'] or 0,
+                                                   currency='BRL'),
                   })

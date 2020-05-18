@@ -4,12 +4,38 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-1">
             <h6 class="h4 mb-0 text-gray-800">{{ title }}</h6>
 
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                        Waiting for Payment
+                    </div>
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ unpaid_expenses_total }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                        Not Recurrent
+                    </div>
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ not_recurrent_total }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="dropdown show">
                 {% if monthly_summary and pending_recurrences %}
-                <a href="javascript:onRecurrencyCheck('{% url 'api.expenses.fill_recurrences' month=month %}');"
-                   role="button" aria-expanded="false" class="btn btn-info btn btn-sm btn-primary">
-                    <i class="fas fa-redo-alt fa-sm text-white-50"></i> Fill Recurrency
-                </a>
+                    <a href="javascript:onRecurrencyCheck('{% url 'api.expenses.fill_recurrences' month=month %}');"
+                       role="button" aria-expanded="false" class="btn btn-info btn btn-sm btn-primary">
+                        <i class="fas fa-redo-alt fa-sm text-white-50"></i> Fill Recurrency
+                    </a>
                 {% endif %}
 
                 <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -144,6 +170,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
