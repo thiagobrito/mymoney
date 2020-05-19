@@ -25,7 +25,7 @@ def month_daily_estimate(credit_card, month_charged_sum):
         if start <= datetime.now().date() <= end:
             end = datetime.now().date()
 
-        number_of_days = (end - start).days
+        number_of_days = (end - start).days or 1
         return Money((total_sum - month_charged_sum) / number_of_days, currency='BRL')
 
     return Money(0, currency='BRL')
