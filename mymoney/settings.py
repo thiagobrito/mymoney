@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os, sys
+import datetime
 from decouple import config, Csv
 from dj_database_url import parse as dburl
 
@@ -151,4 +152,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 PROCESS_QUEUE = ProcessingQueue(5, TESTING)
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/summary/%d/' % datetime.datetime.now().month
