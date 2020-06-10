@@ -1,3 +1,4 @@
+import datetime
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
@@ -18,7 +19,8 @@ def qrcode(request):
         request.session['login'] = login
         request.session['password'] = password
 
-        return render(request, 'nubank/qrcode.html', context={'uuid': request.session['uuid']})
+        return render(request, 'nubank/qrcode.html', context={'uuid': request.session['uuid'],
+                                                              'current_month': datetime.datetime.now().month})
 
     return redirect('nubank.login')
 
