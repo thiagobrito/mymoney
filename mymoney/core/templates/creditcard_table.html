@@ -58,6 +58,7 @@
                             <tbody style="color:#0088cc">
 
                             {% for item in data %}
+                                {% if item.visible %}
                                 <tr role="row"
                                     class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}"
                                     {% if item.charge_count > 1 %}style="color: #0088cc; background: #fff7001f"{% endif %}>
@@ -94,15 +95,8 @@
                                             {{ item.payment_date }}
                                         </a>
                                     </td>
-
-                                    <!-- Labels
-                                    <td>
-                                        <a href="#" class="editable" data-type="text" data-pk="{{ item.id }}"
-                                           data-url="{% url 'api.expenses.update' %}" data-title="Value"
-                                           data-params="{csrfmiddlewaretoken:'{{ csrf_token }}'}">Next</a>
-                                    </td>
-                                    -->
                                 </tr>
+                                {% endif %}
                             {% endfor %}
 
                             </tbody>

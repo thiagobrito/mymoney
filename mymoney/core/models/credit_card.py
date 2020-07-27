@@ -18,6 +18,7 @@ class CreditCardBills(models.Model):
     closing_date = models.fields.DateField(default=datetime.datetime.now, blank=True)
     category = models.TextField()
     charge_count = models.IntegerField(default=1)
+    visible = models.BooleanField(default=True)
 
     class Meta:
         verbose_name_plural = 'Credit Card Bills'
