@@ -66,10 +66,12 @@ class NubankWorker(WorkerBase):
     def _save_bills(self):
         total = len(self._card_statements)
 
+        account_credit_card_bills = CreditCardBills.objects.filter(account=self._login)
+
         for index, statement in enumerate(self._card_statements):
             payment_date = self._calculate_payment_date(statement, DEFAULT_CLOSING_DAY, DEFAULT_PAYMENT_DAY)
             if payment_date.year > 2018:
-                if CreditCardBills.objects.filter(account=self._login, transaction_id=statement['id']).exists():
+                if account_credit_card_bills.filter(transaction_id=statement['id']).exists():
                     continue
 
                 self._status['progress'] = (index / total) * 100.0
@@ -78,16 +80,16 @@ class NubankWorker(WorkerBase):
                     charge_count = statement['details']['charges']['count']
                     charge_amount = util.format_money(statement['details']['charges']['amount'])
 
+                    visible = True
+                    for desc in ['Casas Bahia.C*219987898']:
+                        if desc in statement['description']:
+                            visible = False
+                            break
+
                     for charge_index in range(1, charge_count + 1):
                         charge_payment_date = util.add_months(payment_date, charge_index - 1)
 
                         description = '%s (%d/%d)' % (statement['description'], charge_index, charge_count)
-
-                        visible = True
-                        for desc in ['Casas Bahia.C*219987898']:
-                            if desc in description:
-                                visible = False
-                                break
 
                         obj = CreditCardBills(account=self._login,
                                               transaction_id=statement['id'],
