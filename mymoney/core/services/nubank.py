@@ -82,6 +82,13 @@ class NubankWorker(WorkerBase):
                         charge_payment_date = util.add_months(payment_date, charge_index - 1)
 
                         description = '%s (%d/%d)' % (statement['description'], charge_index, charge_count)
+
+                        visible = True
+                        for desc in ['Casas Bahia.C*219987898']:
+                            if desc in description:
+                                visible = False
+                                break
+
                         obj = CreditCardBills(account=self._login,
                                               transaction_id=statement['id'],
                                               description=description,
@@ -90,7 +97,8 @@ class NubankWorker(WorkerBase):
                                               category=self._transaction_category(statement),
                                               payment_date=charge_payment_date,
                                               closing_date=charge_payment_date.replace(day=DEFAULT_CLOSING_DAY),
-                                              charge_count=charge_count)
+                                              charge_count=charge_count,
+                                              visible=visible)
                         obj.save()
 
                 else:
