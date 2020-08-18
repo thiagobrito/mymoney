@@ -16,3 +16,4 @@ class CreditCardDateUpdate(models.Model):
     orig_payment_date = models.DateField(default=datetime.datetime.now, blank=True)
     new_payment_date = models.DateField()
     new_closing_date = models.DateField()
+    refunded = models.BooleanField(default=False)

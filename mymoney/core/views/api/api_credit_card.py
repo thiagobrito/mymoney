@@ -98,6 +98,7 @@ def update_payment_date(request):
     if request.POST.get('name') != 'payment_date':
         return HttpResponseBadRequest()
 
+    refunded = False
     try:
         obj = CreditCardBills.objects.get(id=request.POST.get('pk'))
         original_payment_date = obj.payment_date
@@ -111,6 +112,11 @@ def update_payment_date(request):
         elif change == '1':
             obj.payment_date = util.add_months(obj.payment_date, 1)
             obj.closing_date = util.add_months(obj.closing_date, 1)
+        # 2 = Redunded
+        elif change == '2':
+            obj.value = 0
+            obj.visible = False
+            refunded = True
         obj.save()
 
     except ObjectDoesNotExist:
@@ -122,6 +128,7 @@ def update_payment_date(request):
                                                        orig_payment_date=original_payment_date)
         updated_obj.new_payment_date = obj.payment_date
         updated_obj.new_closing_date = obj.closing_date
+        updated_obj.refunded = refunded
         updated_obj.save()
 
     except ObjectDoesNotExist:
@@ -129,7 +136,8 @@ def update_payment_date(request):
                                            orig_transaction_time=obj.transaction_time,
                                            orig_payment_date=original_payment_date,
                                            new_payment_date=obj.payment_date,
-                                           new_closing_date=obj.closing_date)
+                                           new_closing_date=obj.closing_date,
+                                           refunded=refunded)
         updated_obj.save()
 
     return JsonResponse(data={'status': 200})
