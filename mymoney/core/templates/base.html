@@ -65,25 +65,50 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-               aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2020"
+               aria-expanded="true" aria-controls="collapse2020">
                 <i class="fas fa-fw fa-calendar-alt"></i>
                 <span>2020</span>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapse2020" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="{% url 'summary' month=1 %}">January</a>
-                    <a class="collapse-item" href="{% url 'summary' month=2 %}">Febuary</a>
-                    <a class="collapse-item" href="{% url 'summary' month=3 %}">March</a>
-                    <a class="collapse-item" href="{% url 'summary' month=4 %}">April</a>
-                    <a class="collapse-item" href="{% url 'summary' month=5 %}">May</a>
-                    <a class="collapse-item" href="{% url 'summary' month=6 %}">June</a>
-                    <a class="collapse-item" href="{% url 'summary' month=7 %}">July</a>
-                    <a class="collapse-item" href="{% url 'summary' month=8 %}">August</a>
-                    <a class="collapse-item" href="{% url 'summary' month=9 %}">September</a>
-                    <a class="collapse-item" href="{% url 'summary' month=10 %}">October</a>
-                    <a class="collapse-item" href="{% url 'summary' month=11 %}">November</a>
-                    <a class="collapse-item" href="{% url 'summary' month=12 %}">December</a>
+                    <a class="collapse-item" href="{% url 'summary' month=1 year=2020 %}">January</a>
+                    <a class="collapse-item" href="{% url 'summary' month=2 year=2020 %}">Febuary</a>
+                    <a class="collapse-item" href="{% url 'summary' month=3 year=2020 %}">March</a>
+                    <a class="collapse-item" href="{% url 'summary' month=4 year=2020 %}">April</a>
+                    <a class="collapse-item" href="{% url 'summary' month=5 year=2020 %}">May</a>
+                    <a class="collapse-item" href="{% url 'summary' month=6 year=2020 %}">June</a>
+                    <a class="collapse-item" href="{% url 'summary' month=7 year=2020 %}">July</a>
+                    <a class="collapse-item" href="{% url 'summary' month=8 year=2020 %}">August</a>
+                    <a class="collapse-item" href="{% url 'summary' month=9 year=2020 %}">September</a>
+                    <a class="collapse-item" href="{% url 'summary' month=10 year=2020 %}">October</a>
+                    <a class="collapse-item" href="{% url 'summary' month=11 year=2020 %}">November</a>
+                    <a class="collapse-item" href="{% url 'summary' month=12 year=2020 %}">December</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item 2021 - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2021"
+               aria-expanded="true" aria-controls="collapse2021">
+                <i class="fas fa-fw fa-calendar-alt"></i>
+                <span>2021</span>
+            </a>
+            <div id="collapse2021" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{% url 'summary' month=1 year=2021 %}">January</a>
+                    <a class="collapse-item" href="{% url 'summary' month=2 year=2021 %}">Febuary</a>
+                    <a class="collapse-item" href="{% url 'summary' month=3 year=2021 %}">March</a>
+                    <a class="collapse-item" href="{% url 'summary' month=4 year=2021 %}">April</a>
+                    <a class="collapse-item" href="{% url 'summary' month=5 year=2021 %}">May</a>
+                    <a class="collapse-item" href="{% url 'summary' month=6 year=2021 %}">June</a>
+                    <a class="collapse-item" href="{% url 'summary' month=7 year=2021 %}">July</a>
+                    <a class="collapse-item" href="{% url 'summary' month=8 year=2021 %}">August</a>
+                    <a class="collapse-item" href="{% url 'summary' month=9 year=2021 %}">September</a>
+                    <a class="collapse-item" href="{% url 'summary' month=10 year=2021 %}">October</a>
+                    <a class="collapse-item" href="{% url 'summary' month=11 year=2021 %}">November</a>
+                    <a class="collapse-item" href="{% url 'summary' month=12 year=2021 %}">December</a>
                 </div>
             </div>
         </li>

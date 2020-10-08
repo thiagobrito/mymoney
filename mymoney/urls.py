@@ -27,7 +27,7 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),
 
     path('', summary.view, name='index'),
-    path('summary/<int:month>/', summary.view, name='summary'),
+    path('summary/<int:month>/<int:year>', summary.view, name='summary'),
     path('earnings/', earnings, name='earnings'),
     path('expenses/', expenses, name='expenses'),
     path('fund/', funds, name='funds'),

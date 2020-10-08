@@ -12,8 +12,7 @@ from mymoney.core.views.credit_card_estimatives import good_daily_estimate, mont
 from mymoney.core.recurrences import has_pending_recurrences
 
 
-def view(request, month=None):
-    year = datetime.now().year
+def view(request, month=None, year=datetime.now().year):
     earnings = Earnings.objects.filter(date__year=year)
     funds = Funds.objects.filter(date__year=year)
     expenses = Expenses.objects.filter(date__year=year)
@@ -21,10 +20,10 @@ def view(request, month=None):
     credit_card = CreditCardBills.objects.filter(payment_date__year=year).order_by('-transaction_time')
 
     if month:
-        earnings = earnings.filter(date__month=month)
-        expenses = expenses.filter(date__month=month)
-        unpaid_expenses = unpaid_expenses.filter(date__month=month)
-        credit_card = credit_card.filter(payment_date__month=month)
+        earnings = earnings.filter(date__month=month, date__year=year)
+        expenses = expenses.filter(date__month=month, date__year=year)
+        unpaid_expenses = unpaid_expenses.filter(date__month=month, date__year=year)
+        credit_card = credit_card.filter(payment_date__month=month, payment_date__year=year)
         charged_sum = credit_card.filter(charge_count__gt=1).aggregate(Sum('value'))['value__sum']
 
         credit_card_daily_estimate = good_daily_estimate(credit_card, charged_sum)
@@ -38,7 +37,8 @@ def view(request, month=None):
         period_title = months[month] + ' (%s)' % year
 
     else:
-        unpaid_expenses = unpaid_expenses.filter(date__month__lte=datetime.now().month).filter(paid=False)
+        unpaid_expenses = unpaid_expenses.filter(date__month__lte=datetime.now().month,
+                                                 date__year=datetime.now().year).filter(paid=False)
         credit_card_daily_estimate = None
         credit_card_month_daily_expenses = None
         period_title = year
