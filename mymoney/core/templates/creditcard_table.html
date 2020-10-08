@@ -61,7 +61,7 @@
                                 {% if item.visible %}
                                 <tr role="row"
                                     class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}"
-                                    {% if item.charge_count > 1 %}style="color: #0088cc; background: #fff7001f"{% endif %}>
+                                    style="color: #0088cc; background: {{ item.row_background }}"
 
                                     <!-- Transaction Time -->
                                     <td class="sorting_1">{{ item.transaction_time }}</td>

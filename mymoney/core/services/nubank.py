@@ -1,4 +1,5 @@
 import datetime
+import json
 from pynubank import Nubank, NuException
 
 from django.core.exceptions import ObjectDoesNotExist
@@ -40,6 +41,7 @@ class NubankWorker(WorkerBase):
             self._nu.authenticate_with_qr_code(login, password, self.uuid)
             self._login = login
             self._card_statements = self._nu.get_card_statements()
+            open('nubank.json', 'w').write(json.dumps(self._card_statements, indent=2))
 
             PROCESS_QUEUE.add(self.uuid, self)
             self._status['authenticated'] = True
@@ -95,6 +97,7 @@ class NubankWorker(WorkerBase):
                                               payment_date=charge_payment_date,
                                               closing_date=charge_payment_date.replace(day=DEFAULT_CLOSING_DAY),
                                               charge_count=charge_count,
+                                              charge_index=charge_index,
                                               visible=self._is_bill_visible(statement['description']))
                         obj.save()
 
@@ -107,6 +110,7 @@ class NubankWorker(WorkerBase):
                                           category=self._transaction_category(statement),
                                           payment_date=payment_date,
                                           closing_date=payment_date.replace(day=DEFAULT_CLOSING_DAY),
+                                          charge_index=1,
                                           charge_count=1)
                     obj.save()
 

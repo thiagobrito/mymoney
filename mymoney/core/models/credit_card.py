@@ -18,9 +18,18 @@ class CreditCardBills(models.Model):
     closing_date = models.fields.DateField(default=datetime.datetime.now, blank=True)
     category = models.TextField()
     charge_count = models.IntegerField(default=1)
+    charge_index = models.IntegerField(default=1)
     visible = models.BooleanField(default=True)
 
     class Meta:
         verbose_name_plural = 'Credit Card Bills'
         ordering = ['transaction_time', 'value']
 
+    @property
+    def row_background(self):
+        if self.charge_count > 1:
+            if self.charge_count == self.charge_index:
+                return '#a9ff001f'
+            else:
+                return '#fff7001f'
+        return 'white'
