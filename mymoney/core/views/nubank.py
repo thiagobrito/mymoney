@@ -20,7 +20,8 @@ def qrcode(request):
         request.session['password'] = password
 
         return render(request, 'nubank/qrcode.html', context={'uuid': request.session['uuid'],
-                                                              'current_month': datetime.datetime.now().month})
+                                                              'current_month': datetime.datetime.now().month,
+                                                              'current_year': datetime.datetime.now().year})
 
     return redirect('nubank.login')
 

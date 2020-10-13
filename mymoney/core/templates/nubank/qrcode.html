@@ -37,7 +37,7 @@
                     200: function (response) {
                         if (response.ready) {
                             document.getElementById("update_status_text").textContent = response;
-                            window.location.href = "{% url 'summary' month=current_month %}";
+                            window.location.href = "{% url 'summary' month=current_month year=current_year %}";
                         } else {
                             if (parseFloat(response.progress) > 0) {
                                 document.getElementById("update_status_text").textContent = "Processing " + parseFloat(response.progress).toFixed(2) + "% concluded...";
