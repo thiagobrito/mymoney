@@ -1,3 +1,9 @@
 exclude_patterns:
 - "mymoney/core/static/js/*.js"
+- "mymoney/core/static/vendor/bootstrap/js/*.js"
+- "mymoney/core/static/vendor/bootstrap4-editable/*.js"
+- "mymoney/core/static/vendor/chart.js/*.js"
+- "mymoney/core/static/vendor/datatables/*.js"
 - "mymoney/core/static/vendor/jquery/*.js"
+- "mymoney/core/static/vendor/jquery-easing/*.js"
+
