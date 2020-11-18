@@ -1,3 +1,5 @@
 exclude_patterns:
 - "mymoney/core/static/js/*.js"
 - "**/vendor/"
+- "mymoney/core/migrations/*.py"
+- "mymoney/core/tests/data/*.py"
