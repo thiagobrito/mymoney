@@ -50,9 +50,9 @@ def processing(request):
 
 
 def summary(request):
-    login = request.session.get('login', default=None)
-    if login:
-        bills = CreditCardBills.objects.filter(account=login).order_by('-transaction_time')
+    login_info = request.session.get('login', default=None)
+    if login_info:
+        bills = CreditCardBills.objects.filter(account=login_info).order_by('-transaction_time')
     else:
         bills = CreditCardBills.objects.all().order_by('-transaction_time')
 
