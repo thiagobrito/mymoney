@@ -3,6 +3,8 @@ import json
 import datetime
 from pynubank import Nubank
 
+from mymoney.core.util import str_to_datetime
+
 
 class NubankTransactions:
     def __init__(self, nubank=None):
@@ -18,8 +20,8 @@ class NubankTransactions:
                 bill_details = self._get_bill_details(bill)
                 for transaction in bill_details['bill']['line_items']:
                     yield {
-                        'bill': bill['summary'],
-                        'transaction': transaction
+                        'bill': self._prepare_date_fields(bill['summary']),
+                        'transaction': self._prepare_date_fields(transaction)
                     }
 
     def _get_bills(self):
@@ -30,6 +32,13 @@ class NubankTransactions:
         if os.path.exists(r'data'):
             open(bills_path, 'w').write(json.dumps(bills))
         return bills
+
+    def _prepare_date_fields(self, info):
+        date_fields = ['due_date', 'close_date', 'post_date', 'open_date']
+        for field in date_fields:
+            if field in info:
+                info[field] = str_to_datetime(info[field])
+        return info
 
     @staticmethod
     def _should_get_bill_details(bill, min_year):

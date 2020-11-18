@@ -11,6 +11,12 @@ def add_months(source_date, months):
     return datetime.date(year, month, day)
 
 
+def str_to_datetime(date_str):
+    if type(date_str) == datetime.date:
+        return date_str
+    return datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
+
+
 def format_money(value):
     cents = (value % 100) / 100
     total = (value - (value % 100)) / 100

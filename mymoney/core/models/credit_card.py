@@ -13,7 +13,7 @@ class CreditCardBills(models.Model):
     description = models.TextField()
     labels = models.ManyToManyField(Label)
     value = MoneyField('value', max_digits=14, default_currency='BRL')
-    transaction_time = models.DateTimeField()
+    transaction_time = models.DateField()
     payment_date = models.fields.DateField()
     closing_date = models.fields.DateField(default=datetime.datetime.now, blank=True)
     category = models.TextField()
