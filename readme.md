@@ -1,16 +1,8 @@
-## Goals 
+# MyMooney
 
-The goal of this project is to manage my money with a simple and intuitive dashboard that shows my earnings and debts.
+[![CI Status](https://github.com/thiagobrito/mymoney/workflows/CI/badge.svg)](https://github.com/thiagobrito/mymoney/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/43c722006c259d9a80c1/maintainability)](https://codeclimate.com/repos/5f97765fe95b6b01790046fe/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/43c722006c259d9a80c1/test_coverage)](https://codeclimate.com/repos/5f97765fe95b6b01790046fe/test_coverage)
 
+Um jeito simples de organizar suas finanças com o Nubank
 
-## TODO:
-- [ ] Django project initial structure
-- [ ] Prepare to publish at heroku
-- [ ] Prepare to run Ci with heroku
-- [ ] Insert the initial dashboard idea (without data)
-- [ ] Insert login
-- [ ] Create debits screen
-- [ ] Create Nubank synchronization screen
-- [ ] Create each month screen
-- [ ] Fill dashboard with summarized information
-- [ ] Create link to share ready only information

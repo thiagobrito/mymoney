@@ -8,13 +8,25 @@ jobs:
         
         steps:
         - uses: actions/checkout@v2
+
         - name: Set up Python 3.8
           uses: actions/setup-python@v2
           with:
             python-version: 3.8
+
         - name: Install dependencies
           run: pip install -r requirements.txt
+
         - name: Run tests
           run: python manage.py test
           env:
             SECRET_KEY: test_secret_key
+
+        - name: Execute Unit Tests and Publish Code Coverage
+          uses: paambaati/codeclimate-action@v2.7.4
+          env:
+            CC_TEST_REPORTER_ID: b480ec0e2add878e28893c87133971266108d9714a839e705eb94cb0ba95ddb6
+            SECRET_KEY: test_secret_key
+          with:
+            coverageCommand: coverage xml
+            debug: false
