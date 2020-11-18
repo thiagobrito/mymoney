@@ -1,0 +1,636 @@
+{
+  "bill": {
+    "id": "58baf4de-5925-4ffb-b9a2-a0617d6090e0",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-03-10",
+      "close_date": "2017-03-03",
+      "late_interest_rate": "0.1475",
+      "past_balance": -6843,
+      "late_fee": "0.02",
+      "effective_due_date": "2017-03-10",
+      "total_balance": 322925,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 329767,
+      "paid": 400300,
+      "minimum_payment": 48439,
+      "open_date": "2017-02-03"
+    },
+    "_links": {
+      "boleto_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LADDaa-wZFuJO-jB3XWAFgihZXkGg.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81OGJhZjRkZS01OTI1LTRmZmItYjlhMi1hMDYxN2Q2MDkwZTAvYm9sZXRvL2VtYWls"
+      },
+      "barcode": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LC6rcIfmd-daV-Flp0Yar_hOdf9EQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81OGJhZjRkZS01OTI1LTRmZmItYjlhMi1hMDYxN2Q2MDkwZTAvYm9sZXRvL2JhcmNvZGU"
+      },
+      "invoice_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCOHjkKl3pSaIdTlQdhu1FrLCwV6w.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81OGJhZjRkZS01OTI1LTRmZmItYjlhMi1hMDYxN2Q2MDkwZTAvaW52b2ljZS9lbWFpbA"
+      },
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCJPehRXJ_RVDbU1iCOw5W0EK0EaA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81OGJhZjRkZS01OTI1LTRmZmItYjlhMi1hMDYxN2Q2MDkwZTA"
+      }
+    },
+    "line_items": [
+      {
+        "amount": 6615,
+        "index": 0,
+        "title": "Outback Bz 19 Bourbon",
+        "post_date": "2017-02-02",
+        "id": "58943f28-9476-46d2-8786-1b58f5f44643",
+        "href": "nuapp://transaction/589206e5-c414-4632-b649-c87515e31aab",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3600,
+        "index": 2,
+        "title": "Empiricus Research",
+        "post_date": "2017-02-03",
+        "id": "5894342b-7e8a-493d-8366-6bf018ea82f7",
+        "href": "nuapp://transaction/58518d0c-9c20-462d-9670-f95d358b8600",
+        "category": "servi\u00e7os",
+        "charges": 12
+      },
+      {
+        "amount": 1490,
+        "index": 0,
+        "title": "Pao de Acucar Indaiatu",
+        "post_date": "2017-02-03",
+        "id": "5895e340-c630-4b84-924b-b62aff97d475",
+        "href": "nuapp://transaction/589397b3-08ae-47b3-8d6a-a5a2b11d477f",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 23000,
+        "index": 2,
+        "title": "Pagsegurouol G7crossfi",
+        "post_date": "2017-02-03",
+        "id": "5894342b-a2f6-44c8-ae08-e773bdca275e",
+        "href": "nuapp://transaction/58473e2b-1bd3-4f16-95a0-562b5e820696",
+        "category": "lazer",
+        "charges": 6
+      },
+      {
+        "amount": 5018,
+        "index": 0,
+        "title": "Ebanx Sonyplaystatn",
+        "post_date": "2017-02-03",
+        "id": "5895dc86-532a-4272-b8a8-3041956bed81",
+        "href": "nuapp://transaction/58935090-917c-42f3-8cf1-9f29cf18a9e8",
+        "category": "eletr\u00f4nicos",
+        "charges": 1
+      },
+      {
+        "amount": 800,
+        "index": 0,
+        "title": "Chocolate Art Doce Lem",
+        "post_date": "2017-02-06",
+        "id": "5899c100-5ef2-4cae-a6b8-6c5536c23c0c",
+        "href": "nuapp://transaction/589760a0-5fb4-421f-b18c-d782b1e986d2",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 6655,
+        "index": 0,
+        "title": "Bom Apetite",
+        "post_date": "2017-02-06",
+        "id": "5899b016-af6d-48ac-a368-3f1dd4e92985",
+        "href": "nuapp://transaction/58975886-e2e0-4ef1-b44d-01f2ac090175",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1650,
+        "index": 0,
+        "title": "Chocolate Art Doce Lem",
+        "post_date": "2017-02-06",
+        "id": "5899a0d3-9f43-4c5f-bf92-ec23201d2d7c",
+        "href": "nuapp://transaction/58975bb2-d393-4f45-aa5c-ed953db439df",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 799,
+        "index": 0,
+        "title": "Itaici Loja de Conven",
+        "post_date": "2017-02-06",
+        "id": "589998ab-a045-425f-8e07-711d696d327b",
+        "href": "nuapp://transaction/5894d758-18ec-4028-8989-2d42e65f7bc2",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 34128,
+        "index": 0,
+        "title": "Pagseguro Txaimaua",
+        "post_date": "2017-02-06",
+        "id": "58998849-fafa-4239-906d-90fd29312a9c",
+        "href": "nuapp://transaction/58960c99-9a23-4818-b1e5-95081d47eb9c",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 14260,
+        "index": 0,
+        "title": "Pet Star",
+        "post_date": "2017-02-06",
+        "id": "5899ae76-855c-44c1-b2e3-b663fa1b4757",
+        "href": "nuapp://transaction/5895f1e9-04ca-4824-95c4-a2da82b7d6c8",
+        "category": "casa",
+        "charges": 1
+      },
+      {
+        "amount": 3100,
+        "index": 0,
+        "title": "Mc Donalds Dut",
+        "post_date": "2017-02-06",
+        "id": "5899b2f4-cf61-4773-a2c5-77692d8dab21",
+        "href": "nuapp://transaction/58951300-9a65-4e66-8b67-893e1ee4f65e",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5000,
+        "index": 0,
+        "title": "Auto Post Serra da Ind",
+        "post_date": "2017-02-06",
+        "id": "5899bbb5-805f-4afe-af48-68673d81cf12",
+        "href": "nuapp://transaction/589641b4-8abb-4909-a719-1d5d24412e22",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 8000,
+        "index": 0,
+        "title": "Pet Star",
+        "post_date": "2017-02-06",
+        "id": "58998577-f0e4-4c7a-a26d-1cff96ac6e64",
+        "href": "nuapp://transaction/5895f1fe-9bdc-48e2-ac0c-c6e80e365b5b",
+        "category": "casa",
+        "charges": 1
+      },
+      {
+        "amount": 5000,
+        "index": 0,
+        "title": "Auto Posto Indiana",
+        "post_date": "2017-02-06",
+        "id": "5899a04a-0936-4e22-91e9-adbe25e87ef1",
+        "href": "nuapp://transaction/5894d788-0ec8-49b6-9265-ec59338ac4aa",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 16247,
+        "index": 0,
+        "title": "Braseiro Gaucho",
+        "post_date": "2017-02-06",
+        "id": "5899a3ab-fc84-401f-bedf-7de653d7f910",
+        "href": "nuapp://transaction/589656a0-9bd7-4652-807d-2c7e64ac612b",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 9306,
+        "index": 0,
+        "title": "Arco Iris Roseira",
+        "post_date": "2017-02-06",
+        "id": "5899b269-472b-4dc7-a7b0-1ed7582b29db",
+        "href": "nuapp://transaction/58951b5f-5205-49fe-968d-6072b8b45bab",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 11200,
+        "index": 0,
+        "title": "Frango Assado Taubate",
+        "post_date": "2017-02-07",
+        "id": "589ac9bc-396c-482f-80a0-9f8196efd4fb",
+        "href": "nuapp://transaction/58983f0d-1319-4bb3-a87b-d6017069c0b7",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 3520,
+        "index": 0,
+        "title": "Frango Assado Taubate",
+        "post_date": "2017-02-07",
+        "id": "589aced0-dcdf-4701-8c9e-8acd4f0b2898",
+        "href": "nuapp://transaction/58984671-09f2-486a-9bc3-7c5d3aefb06d",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": -150000,
+        "title": "Pagamento recebido",
+        "post_date": "2017-02-08",
+        "id": "589c334e-585a-4370-b3fd-8b598ec3e168"
+      },
+      {
+        "amount": -315,
+        "type_detail": "forex_delta",
+        "title": "Varia\u00e7\u00e3o cambial",
+        "post_date": "2017-02-10",
+        "id": "589e63c4-cae9-4458-8c33-324322106bfd"
+      },
+      {
+        "amount": -109200,
+        "title": "Pagamento recebido",
+        "post_date": "2017-02-10",
+        "id": "589ed99d-2915-424e-8a04-7a2d1c78eadd"
+      },
+      {
+        "amount": 6319,
+        "index": 0,
+        "title": "Oficina Grill",
+        "post_date": "2017-02-13",
+        "id": "58a36241-344c-417f-9158-c56a0b8fef78",
+        "href": "nuapp://transaction/58a0eda0-7725-45c3-8881-bd96482f366f",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 890,
+        "index": 0,
+        "title": "Esquina Grill",
+        "post_date": "2017-02-13",
+        "id": "58a3584a-25a4-4e95-9593-d1a06658756e",
+        "href": "nuapp://transaction/589fc8d7-8c29-44cd-88ba-245c57bf6f4c",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5490,
+        "index": 0,
+        "title": "Kostela do Japones",
+        "post_date": "2017-02-13",
+        "id": "58a387b6-4dcb-4180-9658-81450f2ca78d",
+        "href": "nuapp://transaction/589b32a7-cc4b-4af5-8e5a-c342550bdfbe",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 6000,
+        "index": 0,
+        "title": "Auto Posto Brasil",
+        "post_date": "2017-02-13",
+        "id": "58a37286-7fcf-4e3e-8495-e0cf2c2a1398",
+        "href": "nuapp://transaction/58a0c89c-04d9-49b8-9968-20c40b887eb4",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 10213,
+        "index": 0,
+        "title": "Arco Iris Roseira",
+        "post_date": "2017-02-13",
+        "id": "58a341d7-ba7f-4132-b22a-1b0df6bca2e4",
+        "href": "nuapp://transaction/589e4749-0346-48b2-a577-5979ea3ab730",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 1024,
+        "index": 0,
+        "title": "Habib S",
+        "post_date": "2017-02-13",
+        "id": "58a37838-7d87-47eb-89fe-e64172738a4e",
+        "href": "nuapp://transaction/589f9234-38fb-461b-a62c-dbbfda608913",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 4700,
+        "index": 0,
+        "title": "Hotmart Cursos Online",
+        "post_date": "2017-02-13",
+        "id": "58a35f8e-1e73-4385-98e7-9ce5a66a3f50",
+        "href": "nuapp://transaction/58a06822-75b6-44a3-a737-3ea96f1339ee",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 837,
+        "index": 0,
+        "title": "Drogal Farmacia",
+        "post_date": "2017-02-13",
+        "id": "58a313a9-d897-4301-a194-d7c0758c8432",
+        "href": "nuapp://transaction/589c7d77-15db-4e8d-a4f8-f9758cd06eb0",
+        "category": "sa\u00fade",
+        "charges": 1
+      },
+      {
+        "amount": 3100,
+        "index": 0,
+        "title": "Mc Donalds Dut",
+        "post_date": "2017-02-13",
+        "id": "58a37bb0-c073-4575-a68f-204a8a692a43",
+        "href": "nuapp://transaction/589e4117-3756-4ead-8723-1d15878cda38",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3640,
+        "index": 0,
+        "title": "Frango Assado Aparecid",
+        "post_date": "2017-02-14",
+        "id": "58a4115f-8f87-48ba-abc6-4c2a03a388f7",
+        "href": "nuapp://transaction/58a17920-42d5-4cba-a5b2-8a4eb6589de0",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5808,
+        "index": 0,
+        "title": "la Pasta Gialla",
+        "post_date": "2017-02-17",
+        "id": "58a8030a-dd34-4237-8140-8a6cb0eba253",
+        "href": "nuapp://transaction/58a5ca4e-8d62-46f6-b930-314fdc9e89e8",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2975,
+        "index": 0,
+        "title": "Pao de Acucar Indaiatu",
+        "post_date": "2017-02-20",
+        "id": "58ac42a4-f537-45eb-a49d-1b73657778b5",
+        "href": "nuapp://transaction/58a9cf86-0b18-44fa-a5cd-f53615827672",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 9839,
+        "index": 0,
+        "title": "Arco Iris Roseira",
+        "post_date": "2017-02-20",
+        "id": "58ac5746-4a4e-417f-b57a-d9f8a2158493",
+        "href": "nuapp://transaction/58a77575-3984-4016-8190-2c4caf3af626",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 3659,
+        "index": 0,
+        "title": "Lima Restaurante",
+        "post_date": "2017-02-20",
+        "id": "58ac2a21-d225-45db-b7f0-1efc893bcf16",
+        "href": "nuapp://transaction/58a9cd7e-2254-4253-9050-c5e7cb6249ea",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 4041,
+        "index": 0,
+        "title": "Frango Assado Aparecid",
+        "post_date": "2017-02-20",
+        "id": "58ac4f9a-b514-4043-af7e-b044406e5156",
+        "href": "nuapp://transaction/58a857d9-3373-4ee2-b895-1121da60f7aa",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3200,
+        "index": 0,
+        "title": "Madero Container Rosei",
+        "post_date": "2017-02-20",
+        "id": "58ac3b04-a984-41bd-b8fb-fd66d020e58f",
+        "href": "nuapp://transaction/58a76aad-c97a-468e-b447-5d8ff8a4711e",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 350,
+        "index": 0,
+        "title": "Frango Assado Roseira",
+        "post_date": "2017-02-20",
+        "id": "58ac29c9-27ec-4515-9102-f058bab9e0e7",
+        "href": "nuapp://transaction/58a773f6-e3db-4977-9a7b-ca02aa615aca",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5000,
+        "index": 0,
+        "title": "Posto Arco Iris",
+        "post_date": "2017-02-20",
+        "id": "58ac1f63-67a3-4a76-8558-77f2d3284cb5",
+        "href": "nuapp://transaction/58a85101-1712-41f0-9d77-79d80849a4ec",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 1670,
+        "index": 0,
+        "title": "Amazon Com",
+        "post_date": "2017-02-21",
+        "id": "58ad4f8c-e6cd-40a9-b4f5-3a18bebbd397",
+        "href": "nuapp://transaction/58aba0e3-8b4a-430c-bd63-8299086a878b",
+        "category": "educa\u00e7\u00e3o",
+        "charges": 1
+      },
+      {
+        "amount": 2244,
+        "index": 0,
+        "title": "Frans Cafe",
+        "post_date": "2017-02-24",
+        "id": "58b14fd2-e4d2-4f3a-b4f6-8f7fb9df8b75",
+        "href": "nuapp://transaction/58af2e68-22e9-4c26-b319-34bafd84b1d7",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3400,
+        "index": 0,
+        "title": "Pagsegurouol Accordion",
+        "post_date": "2017-02-24",
+        "id": "58b1466d-384c-42e4-a48d-3f0d6d11740a",
+        "href": "nuapp://transaction/58af5574-48ef-487a-965a-2921383e8453",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 8133,
+        "index": 0,
+        "title": "Pe Grande",
+        "post_date": "2017-03-01",
+        "id": "58b8c7c0-8691-44b5-9b21-d0ba5cdbc4cd",
+        "href": "nuapp://transaction/58b31956-0606-45dc-916a-67eba7814d4a",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5717,
+        "index": 0,
+        "title": "Pezao Bar",
+        "post_date": "2017-03-01",
+        "id": "58b8c6de-dfe3-4a61-8eea-cff64ed4d64f",
+        "href": "nuapp://transaction/58b4ddd3-d48c-47c3-916c-7f88e042d0fa",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 7410,
+        "index": 0,
+        "title": "Mundo Verde",
+        "post_date": "2017-03-01",
+        "id": "58b8d94b-0c6f-4ace-9430-4efbbc34406b",
+        "href": "nuapp://transaction/58b1de24-8fde-4d7a-96de-795b8c3b15c0",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 3200,
+        "index": 0,
+        "title": "Kopenhagen",
+        "post_date": "2017-03-01",
+        "id": "58b8a9d5-0ad2-4230-8056-e08d97807038",
+        "href": "nuapp://transaction/58b1cf8b-0802-4f1e-9424-82acc75a59c6",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 3180,
+        "index": 0,
+        "title": "Lima Restaurante",
+        "post_date": "2017-03-01",
+        "id": "58b8dab3-ecb3-4da4-9f96-f24ecf1cb67d",
+        "href": "nuapp://transaction/58b44cdb-6f7d-4504-8e3d-606ddcf5483e",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5794,
+        "index": 0,
+        "title": "Hermes Com de Alim",
+        "post_date": "2017-03-01",
+        "id": "58b8a817-e29a-469a-bbc9-e2040c27a2e4",
+        "href": "nuapp://transaction/58b1c2da-23de-486e-b727-7ad62c7ca862",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3036,
+        "index": 0,
+        "title": "Frans Cafe",
+        "post_date": "2017-03-01",
+        "id": "58b8b168-418c-41b2-b3df-f74b16f238c1",
+        "href": "nuapp://transaction/58b5d459-05eb-4e07-aa1d-0aedc11b30f1",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3974,
+        "index": 0,
+        "title": "Pao de Acucar Indaiatu",
+        "post_date": "2017-03-01",
+        "id": "58b8c390-9f15-47af-bbcd-743f20cb1fc5",
+        "href": "nuapp://transaction/58b5f31b-b8a2-4914-a5fa-65f2ee9c0dbb",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 2200,
+        "index": 0,
+        "title": "Gelateria Italiana Il",
+        "post_date": "2017-03-01",
+        "id": "58b8b04a-0a3f-4b40-97db-3c8ba5bb638d",
+        "href": "nuapp://transaction/58b37431-3fda-43df-9260-a1a4adf7fb8f",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 8481,
+        "index": 0,
+        "title": "Casa da Moqueca Iii",
+        "post_date": "2017-03-01",
+        "id": "58b8ab61-6f6b-4a4d-9442-232b8ca8c9a5",
+        "href": "nuapp://transaction/58b5acb4-b9c0-4fb4-83f3-db5e71c09e35",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1500,
+        "index": 0,
+        "title": "Itaici Loja de Conven",
+        "post_date": "2017-03-01",
+        "id": "58b8cfd8-f929-4a60-a4c9-0319c6141ac0",
+        "href": "nuapp://transaction/58b5af3d-c627-45b4-8a38-54f7587a1a5a",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 14520,
+        "index": 0,
+        "title": "A7 Comercio de Alime",
+        "post_date": "2017-03-01",
+        "id": "58b8bf69-b111-47ed-9d26-9ed7335df8fe",
+        "href": "nuapp://transaction/58b23b26-00a5-4804-be30-c889b2a2cbe5",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5000,
+        "index": 0,
+        "title": "Auto Posto Indiana",
+        "post_date": "2017-03-01",
+        "id": "58b8a129-02f3-45fe-9773-05ed4af57457",
+        "href": "nuapp://transaction/58b5af6e-cdcb-425a-ba09-80337f994aa3",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 1990,
+        "index": 0,
+        "title": "Amazon Com",
+        "post_date": "2017-03-01",
+        "id": "58b8c8b4-abb8-4be3-b6aa-82764add58cd",
+        "href": "nuapp://transaction/58b48e98-f8a3-4823-884e-583949795631",
+        "category": "educa\u00e7\u00e3o",
+        "charges": 1
+      },
+      {
+        "amount": 3280,
+        "index": 0,
+        "title": "Star 022 Dom Pedro F",
+        "post_date": "2017-03-01",
+        "id": "58b8bc55-233f-4f9f-8002-d72f30a07557",
+        "href": "nuapp://transaction/58b2011d-f3d6-417d-854d-c089e0920661",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 4880,
+        "index": 0,
+        "title": "Yano Arita Alimentacao",
+        "post_date": "2017-03-01",
+        "id": "58b8d7b7-ad4b-4f8b-ba1b-e7605c57c6e4",
+        "href": "nuapp://transaction/58b37114-b564-4e2f-8c15-2a858df67328",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3200,
+        "index": 0,
+        "title": "Kopenhagen",
+        "post_date": "2017-03-01",
+        "id": "58b8d6b0-16d5-46f6-be0b-7f5bb0f9b931",
+        "href": "nuapp://transaction/58b4a13b-67bb-4e62-abb1-a21f16c2fbb1",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 800,
+        "index": 0,
+        "title": "Indigo",
+        "post_date": "2017-03-01",
+        "id": "58b8d281-aa3e-4118-b63c-e939a51f3fa7",
+        "href": "nuapp://transaction/58b2203b-7473-4fb9-89ef-b6c36bb24aa2",
+        "category": "transporte",
+        "charges": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,453 @@
+{
+  "bill": {
+    "id": "5724df56-d41e-482f-94b9-3765f2309070",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-05-10",
+      "close_date": "2016-04-30",
+      "late_interest_rate": "0.0875",
+      "past_balance": 0,
+      "late_fee": "0.02",
+      "effective_due_date": "2016-05-10",
+      "total_balance": 110182,
+      "interest_rate": "0.0775",
+      "interest": 0,
+      "total_cumulative": 110182,
+      "paid": 110182,
+      "minimum_payment": 16527,
+      "open_date": "2016-03-31"
+    },
+    "_links": {
+      "boleto_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAtk64-Iog36_9JhyZQF0yT3i-IMg.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NzI0ZGY1Ni1kNDFlLTQ4MmYtOTRiOS0zNzY1ZjIzMDkwNzAvYm9sZXRvL2VtYWls"
+      },
+      "barcode": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCJU4uzwSBXgtsGp2I2ojKUrxp5yQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NzI0ZGY1Ni1kNDFlLTQ4MmYtOTRiOS0zNzY1ZjIzMDkwNzAvYm9sZXRvL2JhcmNvZGU"
+      },
+      "invoice_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBsNTjKr00kmqdormhlGipXy93YEA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NzI0ZGY1Ni1kNDFlLTQ4MmYtOTRiOS0zNzY1ZjIzMDkwNzAvaW52b2ljZS9lbWFpbA"
+      },
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDx045KWIAAHA5KVkqvW43QwaoqSw.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NzI0ZGY1Ni1kNDFlLTQ4MmYtOTRiOS0zNzY1ZjIzMDkwNzA"
+      }
+    },
+    "line_items": [
+      {
+        "amount": -52745,
+        "title": "Pagamento recebido",
+        "post_date": "2016-03-31",
+        "id": "56fe1cc8-af7d-42d0-8644-b4a9ba5f8705"
+      },
+      {
+        "amount": 5600,
+        "index": 0,
+        "title": "Pizza Tutto",
+        "post_date": "2016-04-05",
+        "id": "5703d004-09a3-4b3a-ade2-69acd58df0ff",
+        "href": "nuapp://transaction/5701ac8f-0a9a-43e8-af7a-468761dee537",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 7434,
+        "index": 0,
+        "title": "Mercadopago Clickbus",
+        "post_date": "2016-04-05",
+        "id": "5703ce97-2e95-4bdb-bdac-0330f152d474",
+        "href": "nuapp://transaction/56fea9d8-1620-4a0b-ab1b-093130975da2",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 6781,
+        "index": 0,
+        "title": "Viacao Cometa Vrd",
+        "post_date": "2016-04-05",
+        "id": "5703c61b-ee01-4880-a563-fc750ce2b783",
+        "href": "nuapp://transaction/57015292-5e28-4f4e-8a7b-1f7f6d29e887",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 3980,
+        "index": 0,
+        "title": "Hamad Esfihas",
+        "post_date": "2016-04-05",
+        "id": "5703cde1-da99-4e52-be24-28ba3f5ebffb",
+        "href": "nuapp://transaction/57005c47-c18c-47af-8364-b3e65055d5bd",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3175,
+        "index": 0,
+        "title": "Vb Transportes Turismo",
+        "post_date": "2016-04-06",
+        "id": "5704e31d-e1bb-4703-8654-e202645ea08a",
+        "href": "nuapp://transaction/57022045-e23b-43bd-864f-030de125e94f",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 1951,
+        "index": 0,
+        "title": "Rincao Gaucho Churrasc",
+        "post_date": "2016-04-06",
+        "id": "5704e31c-8d8f-48c7-8512-381071376269",
+        "href": "nuapp://transaction/570292c6-4c95-42ab-9a5b-0b1da53fe528",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 925,
+        "index": 0,
+        "title": "Renan Franco de Olivei",
+        "post_date": "2016-04-06",
+        "id": "5704e31c-44b6-45c5-9c36-9f3a4ba60b48",
+        "href": "nuapp://transaction/5702c1c1-a3aa-4074-a999-eae2be959f98",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1199,
+        "index": 0,
+        "title": "Comida Caseira da Sand",
+        "post_date": "2016-04-07",
+        "id": "57063717-ae2b-48b2-9880-c6632cc8c314",
+        "href": "nuapp://transaction/5703e2b8-77b3-4e25-99b0-200b61f3a5e4",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2297,
+        "index": 0,
+        "title": "Rincao Gaucho Churrasc",
+        "post_date": "2016-04-08",
+        "id": "5707b6cf-e186-45d7-b941-869185f9d235",
+        "href": "nuapp://transaction/57053ddb-8aab-4eed-9b84-8637adb3b628",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3850,
+        "index": 0,
+        "title": "Casa da Moqueca de Ind",
+        "post_date": "2016-04-09",
+        "id": "5708d716-0d6d-4364-8a47-59c75ada3e71",
+        "href": "nuapp://transaction/57068570-ddcf-4058-bf5b-8d5dc8a1bad1",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 900,
+        "index": 0,
+        "title": "Arriba Paleteria",
+        "post_date": "2016-04-09",
+        "id": "5708d716-58d4-4d35-bd06-2a873b5efda6",
+        "href": "nuapp://transaction/57068737-f4d7-4eaf-b553-35b9b56c15ba",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2400,
+        "index": 0,
+        "title": "3765 Grsa Bobs Mezan",
+        "post_date": "2016-04-12",
+        "id": "570d449e-b894-4bab-a7a7-e09f2ac8db33",
+        "href": "nuapp://transaction/570831ef-3ac3-4978-9b5d-3d57cfa4fdf4",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 2110,
+        "index": 0,
+        "title": "Habib S",
+        "post_date": "2016-04-12",
+        "id": "570d493a-02d2-4b0b-aa14-f9c795afa32b",
+        "href": "nuapp://transaction/570afa95-2f3a-4301-b5de-cf10717304e0",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 6521,
+        "index": 0,
+        "title": "Viacao Cometa Internet",
+        "post_date": "2016-04-12",
+        "id": "570d0cfb-bc08-4d59-9a55-c39e6526f8c3",
+        "href": "nuapp://transaction/5707c1cf-2404-4527-947f-5c907c770642",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 2925,
+        "index": 0,
+        "title": "Vb Transportes Turismo",
+        "post_date": "2016-04-12",
+        "id": "570d1006-4ebf-454a-8ec7-6676731eb556",
+        "href": "nuapp://transaction/5707b945-698e-4cb6-bdd2-e9a4cfa4ab35",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 1500,
+        "index": 0,
+        "title": "Rodosnack Clube dos",
+        "post_date": "2016-04-12",
+        "id": "570d3990-3dba-4d8c-bb37-4c828a7f72fd",
+        "href": "nuapp://transaction/57085fc8-854d-4c0f-b3f5-8e30a8332aa7",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 519,
+        "index": 0,
+        "title": "Drogal Farmacia",
+        "post_date": "2016-04-12",
+        "id": "570d0f12-23a4-4b64-b396-c41ff065fa56",
+        "href": "nuapp://transaction/5707b9f7-ca93-46f3-97df-09064e068490",
+        "category": "sa\u00fade",
+        "charges": 1
+      },
+      {
+        "amount": 4820,
+        "index": 0,
+        "title": "Zattar Esfihas",
+        "post_date": "2016-04-12",
+        "id": "570d32a1-209c-4887-b9d3-6531b08f95a8",
+        "href": "nuapp://transaction/570987fc-1f2b-4b3c-9386-779025637e1f",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2529,
+        "index": 0,
+        "title": "de la Marie Restaurant",
+        "post_date": "2016-04-12",
+        "id": "570d478f-b3ba-4afa-9f39-7cf4070e2ebf",
+        "href": "nuapp://transaction/5707d13a-8e41-4f6e-ac76-9d97edf502e6",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 925,
+        "index": 0,
+        "title": "Renan Franco de Olivei",
+        "post_date": "2016-04-13",
+        "id": "570e1a01-611a-4aa0-bc0e-6d76a0e50a38",
+        "href": "nuapp://transaction/570befaf-6790-448c-97f4-7793749deb0b",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1935,
+        "index": 0,
+        "title": "Paulistao",
+        "post_date": "2016-04-13",
+        "id": "570e1a01-a834-436d-868f-8e961e12b2ff",
+        "href": "nuapp://transaction/570c31cf-60a5-4f25-892b-a05bc12c3ed1",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1950,
+        "index": 0,
+        "title": "Gerson Lanches",
+        "post_date": "2016-04-14",
+        "id": "570f8838-1126-4fec-b4fe-129eb4818278",
+        "href": "nuapp://transaction/570da647-a690-4335-a5cd-89f165210c82",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2102,
+        "index": 0,
+        "title": "Rincao Gaucho Churrasc",
+        "post_date": "2016-04-14",
+        "id": "570f8838-b1f8-4119-9c49-4e9ba0130742",
+        "href": "nuapp://transaction/570d21e1-933c-404a-8c81-d8eef3885015",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2247,
+        "index": 0,
+        "title": "Rincao Gaucho Churrasc",
+        "post_date": "2016-04-15",
+        "id": "5710c79e-8f6a-4dc1-a73e-7e0f33ac2477",
+        "href": "nuapp://transaction/570e7861-1a43-453c-8375-20b5edc28c84",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2178,
+        "index": 0,
+        "title": "Rincao Gaucho Churrasc",
+        "post_date": "2016-04-16",
+        "id": "57120ddc-5f9f-4bf7-81a5-801ae971624c",
+        "href": "nuapp://transaction/570fbc9d-0716-4a83-bb4e-c9b7da554cb2",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3580,
+        "index": 0,
+        "title": "Dafiti Com",
+        "post_date": "2016-04-16",
+        "id": "57123fb1-d816-4b57-902c-29d0a7276331",
+        "href": "nuapp://transaction/57100322-a2bb-440f-9987-5e9ecba7b4c5",
+        "category": "vestu\u00e1rio",
+        "charges": 6
+      },
+      {
+        "amount": 3229,
+        "index": 0,
+        "title": "Lima Restaurante",
+        "post_date": "2016-04-19",
+        "id": "57161986-ff12-4351-b3dd-7a54d339edee",
+        "href": "nuapp://transaction/5713b908-d3b7-4b74-ab23-cbafb7ffbb86",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 925,
+        "index": 0,
+        "title": "Renan Franco de Olivei",
+        "post_date": "2016-04-19",
+        "id": "57161c1a-7b7e-4003-bb95-c4d35b774318",
+        "href": "nuapp://transaction/57114073-d1be-4b34-be98-13719e4ae28f",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2340,
+        "index": 0,
+        "title": "Rincao Gaucho Churrasc",
+        "post_date": "2016-04-19",
+        "id": "57163cb7-2e35-47d4-ad4b-df5193acd13a",
+        "href": "nuapp://transaction/57110b79-2b75-47b8-9938-418f812b3853",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2331,
+        "index": 0,
+        "title": "de la Marie",
+        "post_date": "2016-04-19",
+        "id": "57161a18-1ac2-4598-8b5d-5a801b6472c3",
+        "href": "nuapp://transaction/57125fff-ae69-4f0d-a47e-ac689d97dbcd",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 2569,
+        "index": 0,
+        "title": "Paulistao",
+        "post_date": "2016-04-19",
+        "id": "571644a8-f9d6-4f2c-8eb3-4111c0d3ee2b",
+        "href": "nuapp://transaction/5712b79c-79c3-4294-ac59-5e03364a79a6",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 3350,
+        "index": 0,
+        "title": "Carmel Comercio de Mat",
+        "post_date": "2016-04-19",
+        "id": "57161b42-1bed-403a-bd56-7e3edcbe4cb7",
+        "href": "nuapp://transaction/5712563a-9f2f-40da-9447-e46b28e61659",
+        "category": "casa",
+        "charges": 1
+      },
+      {
+        "amount": 1500,
+        "index": 0,
+        "title": "Gerson Lanches",
+        "post_date": "2016-04-19",
+        "id": "5716403d-ec09-4f8b-96d4-5ca6f0c2d387",
+        "href": "nuapp://transaction/5712bcfd-8487-47fb-b3c7-af659156b1f1",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1700,
+        "index": 0,
+        "title": "Comida Caseira da Sand",
+        "post_date": "2016-04-20",
+        "id": "571759c3-2482-402f-b18e-aef59d365627",
+        "href": "nuapp://transaction/57150470-90dd-47b7-bd04-7c9ca60d68ff",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 925,
+        "index": 0,
+        "title": "Renan Franco de Olivei",
+        "post_date": "2016-04-21",
+        "id": "5718e008-6f25-4b6f-91a4-946354f69dbd",
+        "href": "nuapp://transaction/57168f38-83c8-491d-90a5-b58bdd620f31",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 600,
+        "index": 0,
+        "title": "Arena Muscle Academia",
+        "post_date": "2016-04-21",
+        "id": "5718e008-fa6e-44d3-be3a-0570ae1aa973",
+        "href": "nuapp://transaction/57164ad9-9084-47ce-bf08-f097d1148dc8",
+        "category": "lazer",
+        "charges": 1
+      },
+      {
+        "amount": 1665,
+        "index": 0,
+        "title": "Comida Caseira da Sand",
+        "post_date": "2016-04-21",
+        "id": "5718dfe9-8d62-46da-b161-c07e194614b5",
+        "href": "nuapp://transaction/5716547c-5e3a-440c-b776-a3219496e24f",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2250,
+        "index": 0,
+        "title": "Rincao Gaucho Churrasc",
+        "post_date": "2016-04-23",
+        "id": "571b51e9-3da1-43ce-b693-5e03794f52ec",
+        "href": "nuapp://transaction/5717a30a-b4e9-47ff-a8a1-8ea191665d59",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 925,
+        "index": 0,
+        "title": "Renan Franco de Olivei",
+        "post_date": "2016-04-23",
+        "id": "571b556c-f719-40c5-8c69-ca94f6d07103",
+        "href": "nuapp://transaction/5717d8b0-ed90-421f-a57b-f02068b1b114",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 7590,
+        "index": 0,
+        "title": "Paulistao",
+        "post_date": "2016-04-23",
+        "id": "571b4da7-f173-4490-a212-d80709ff7a52",
+        "href": "nuapp://transaction/5718f7cf-8ff1-46e9-8aac-e508930a83df",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1950,
+        "index": 0,
+        "title": "Gerson Lanches",
+        "post_date": "2016-04-23",
+        "id": "571b4cbe-e1c7-43a8-be7f-efebcba93bee",
+        "href": "nuapp://transaction/57183344-c7f2-4a12-a632-53e7afb104f7",
+        "category": "restaurante",
+        "charges": 1
+      }
+    ]
+  }
+}

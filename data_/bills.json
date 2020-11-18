@@ -1,0 +1,1435 @@
+[
+  {
+    "state": "future",
+    "summary": {
+      "due_date": "2021-09-26",
+      "close_date": "2021-09-19",
+      "past_balance": 0,
+      "effective_due_date": "2021-09-27",
+      "total_balance": 40397,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 40397,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2021-08-19"
+    },
+    "_links": {}
+  },
+  {
+    "state": "future",
+    "summary": {
+      "due_date": "2021-08-26",
+      "close_date": "2021-08-19",
+      "past_balance": 0,
+      "effective_due_date": "2021-08-26",
+      "total_balance": 64297,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 64297,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2021-07-19"
+    },
+    "_links": {}
+  },
+  {
+    "state": "future",
+    "summary": {
+      "due_date": "2021-07-26",
+      "close_date": "2021-07-19",
+      "past_balance": 0,
+      "effective_due_date": "2021-07-26",
+      "total_balance": 103431,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 103431,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2021-06-19"
+    },
+    "_links": {}
+  },
+  {
+    "state": "future",
+    "summary": {
+      "due_date": "2021-06-26",
+      "close_date": "2021-06-19",
+      "past_balance": 0,
+      "effective_due_date": "2021-06-28",
+      "total_balance": 136939,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 136939,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2021-05-19"
+    },
+    "_links": {}
+  },
+  {
+    "state": "future",
+    "summary": {
+      "due_date": "2021-05-26",
+      "close_date": "2021-05-19",
+      "past_balance": 0,
+      "effective_due_date": "2021-05-26",
+      "total_balance": 160019,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 160019,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2021-04-19"
+    },
+    "_links": {}
+  },
+  {
+    "state": "future",
+    "summary": {
+      "due_date": "2021-04-26",
+      "close_date": "2021-04-19",
+      "past_balance": 0,
+      "effective_due_date": "2021-04-26",
+      "total_balance": 211654,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 211654,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2021-03-19"
+    },
+    "_links": {}
+  },
+  {
+    "state": "future",
+    "summary": {
+      "due_date": "2021-03-26",
+      "close_date": "2021-03-19",
+      "past_balance": 0,
+      "effective_due_date": "2021-03-26",
+      "total_balance": 255830,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 255830,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2021-02-19"
+    },
+    "_links": {}
+  },
+  {
+    "state": "future",
+    "summary": {
+      "due_date": "2021-02-26",
+      "close_date": "2021-02-19",
+      "past_balance": 0,
+      "effective_due_date": "2021-02-26",
+      "total_balance": 280830,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 280830,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2021-01-19"
+    },
+    "_links": {}
+  },
+  {
+    "state": "future",
+    "summary": {
+      "due_date": "2021-01-26",
+      "close_date": "2021-01-19",
+      "past_balance": 0,
+      "effective_due_date": "2021-01-26",
+      "total_balance": 289112,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 289112,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2020-12-19"
+    },
+    "_links": {}
+  },
+  {
+    "state": "future",
+    "summary": {
+      "due_date": "2020-12-26",
+      "close_date": "2020-12-19",
+      "past_balance": 0,
+      "effective_due_date": "2020-12-28",
+      "total_balance": 402782,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 402782,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2020-11-19"
+    },
+    "_links": {}
+  },
+  {
+    "state": "open",
+    "summary": {
+      "due_date": "2020-11-26",
+      "close_date": "2020-11-19",
+      "late_interest_rate": "0.1475",
+      "past_balance": -218900,
+      "late_fee": "0.02",
+      "effective_due_date": "2020-11-26",
+      "total_balance": 598275,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 817175,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2020-10-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCnNW10gohH4WotLxALcrSiO8KEpQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9hY2NvdW50cy81NmFhMzY4ZS1kYmE5LTQ2ZWYtODAxOS04ZDkwM2E1ZTkxZDEvYmlsbHMvb3Blbg"
+      },
+      "barcode": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAK60YgNe2CxStzH4cDsHdtCtz-yQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9hY2NvdW50cy81NmFhMzY4ZS1kYmE5LTQ2ZWYtODAxOS04ZDkwM2E1ZTkxZDEvYmlsbHMvb3Blbi9ib2xldG8vYmFyY29kZQ"
+      },
+      "boleto_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LByB7rPx7gUCKG53wo2_QMmJ3t6qA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9hY2NvdW50cy81NmFhMzY4ZS1kYmE5LTQ2ZWYtODAxOS04ZDkwM2E1ZTkxZDEvYmlsbHMvb3Blbi9ib2xldG8vZW1haWw"
+      }
+    }
+  },
+  {
+    "id": "5f8d2246-4f9b-487f-9b4c-8659c20d6f56",
+    "state": "overdue",
+    "summary": {
+      "remaining_balance": 0,
+      "due_date": "2020-10-26",
+      "close_date": "2020-10-19",
+      "past_balance": -145608,
+      "effective_due_date": "2020-10-26",
+      "total_balance": 483906,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 629513,
+      "paid": 0,
+      "minimum_payment": 0,
+      "remaining_minimum_payment": 0,
+      "open_date": "2020-09-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAnR1UMNdGgCCyAlNjYU1nAuKgUeA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZjhkMjI0Ni00ZjliLTQ4N2YtOWI0Yy04NjU5YzIwZDZmNTY"
+      }
+    }
+  },
+  {
+    "id": "5f659015-d342-40fd-909f-a7b8c90d38bb",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2020-09-26",
+      "close_date": "2020-09-19",
+      "past_balance": -13624,
+      "effective_due_date": "2020-09-28",
+      "total_balance": 751835,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 765459,
+      "paid": 0,
+      "minimum_payment": 101195,
+      "open_date": "2020-08-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBbZ5Rc5op1v1Xrv6Ys6rWsXxqJ-g.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZjY1OTAxNS1kMzQyLTQwZmQtOTA5Zi1hN2I4YzkwZDM4YmI"
+      }
+    }
+  },
+  {
+    "id": "5f3cb1f8-3f82-4ca1-a99e-3415feb48d99",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2020-08-26",
+      "close_date": "2020-08-19",
+      "past_balance": -650000,
+      "effective_due_date": "2020-08-26",
+      "total_balance": 53713,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 703713,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2020-07-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBBA2-q9s4eJNnlEL8_edhPanSZ0g.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZjNjYjFmOC0zZjgyLTRjYTEtYTk5ZS0zNDE1ZmViNDhkOTk"
+      }
+    }
+  },
+  {
+    "id": "5f13ccc3-86f2-4803-9057-e45fe6135eb7",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2020-07-26",
+      "close_date": "2020-07-19",
+      "past_balance": 0,
+      "effective_due_date": "2020-07-27",
+      "total_balance": 432067,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 432067,
+      "paid": 0,
+      "minimum_payment": 64810,
+      "open_date": "2020-06-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBPXTp_XDuGgmNuYTCva-8QWxhnZw.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZjEzY2NjMy04NmYyLTQ4MDMtOTA1Ny1lNDVmZTYxMzVlYjc"
+      }
+    }
+  },
+  {
+    "id": "5eec4142-4c7a-4bd2-9c4a-d87c9e2a2555",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2020-06-26",
+      "close_date": "2020-06-19",
+      "past_balance": -9725,
+      "effective_due_date": "2020-06-26",
+      "total_balance": 405439,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 415164,
+      "paid": 0,
+      "minimum_payment": 60816,
+      "open_date": "2020-05-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAFqwYyun2GoKzRZRjeKbXeIBqv6Q.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZWVjNDE0Mi00YzdhLTRiZDItOWM0YS1kODdjOWUyYTI1NTU"
+      }
+    }
+  },
+  {
+    "id": "5ec35cc7-802f-4a5a-a771-7a55de0afb98",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2020-05-26",
+      "close_date": "2020-05-19",
+      "past_balance": 0,
+      "effective_due_date": "2020-05-26",
+      "total_balance": 379957,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 379957,
+      "paid": 0,
+      "minimum_payment": 68893,
+      "open_date": "2020-04-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LA24gL0zIrCXtbJN_hmJvWYn9vyFA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZWMzNWNjNy04MDJmLTRhNWEtYTc3MS03YTU1ZGUwYWZiOTg"
+      }
+    }
+  },
+  {
+    "id": "5e9bcea3-6249-44f2-9140-ea99ab8e6bcf",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2020-04-26",
+      "close_date": "2020-04-19",
+      "past_balance": 0,
+      "effective_due_date": "2020-04-27",
+      "total_balance": 647578,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 647578,
+      "paid": 0,
+      "minimum_payment": 97136,
+      "open_date": "2020-03-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDkCsPFjQCHVUpFVjYKRE4Zt571dQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZTliY2VhMy02MjQ5LTQ0ZjItOTE0MC1lYTk5YWI4ZTZiY2Y"
+      }
+    }
+  },
+  {
+    "id": "5e72edfa-276d-4bfc-a252-6e3b5b7f46c9",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2020-03-26",
+      "close_date": "2020-03-19",
+      "past_balance": 0,
+      "effective_due_date": "2020-03-26",
+      "total_balance": 914106,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 914106,
+      "paid": 0,
+      "minimum_payment": 217530,
+      "open_date": "2020-02-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBzoKizoti9lgt0h4EaD7X3ggu87g.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZTcyZWRmYS0yNzZkLTRiZmMtYTI1Mi02ZTNiNWI3ZjQ2Yzk"
+      }
+    }
+  },
+  {
+    "id": "5e4cb77f-378d-4949-b9e8-8a68dc72c21d",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2020-02-26",
+      "close_date": "2020-02-19",
+      "past_balance": -200000,
+      "effective_due_date": "2020-02-26",
+      "total_balance": 837534,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 1037533,
+      "paid": 0,
+      "minimum_payment": 32548,
+      "open_date": "2020-01-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBxxaoTeOkl0LHScB9vgNjQqtmZzA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZTRjYjc3Zi0zNzhkLTQ5NDktYjllOC04YTY4ZGM3MmMyMWQ"
+      }
+    }
+  },
+  {
+    "id": "5e23d42b-bdd7-444d-a320-19ea46f32c51",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2020-01-26",
+      "close_date": "2020-01-19",
+      "past_balance": -400000,
+      "effective_due_date": "2020-01-27",
+      "total_balance": 336696,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 736696,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2019-12-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCiL6Tx6bAFYmNvEuFYsSoYgICoqQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZTIzZDQyYi1iZGQ3LTQ0NGQtYTMyMC0xOWVhNDZmMzJjNTE"
+      }
+    }
+  },
+  {
+    "id": "5dfaf3b7-f764-4034-8069-e6564f6604f5",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-12-26",
+      "close_date": "2019-12-19",
+      "past_balance": -7962,
+      "effective_due_date": "2019-12-26",
+      "total_balance": 648124,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 656086,
+      "paid": 0,
+      "minimum_payment": 161362,
+      "open_date": "2019-11-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCaaOX9jN-oAzcRo6sSC6L8CyCgow.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZGZhZjNiNy1mNzY0LTQwMzQtODA2OS1lNjU2NGY2NjA0ZjU"
+      }
+    }
+  },
+  {
+    "id": "5dd3e564-b9de-48fd-bae2-ac05e3a04726",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-11-26",
+      "close_date": "2019-11-19",
+      "past_balance": -1190588,
+      "effective_due_date": "2019-11-26",
+      "total_balance": 667887,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 1858475,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2019-10-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDJyq0fd8wQcjGo9DfinTC09TIHfQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZGQzZTU2NC1iOWRlLTQ4ZmQtYmFlMi1hYzA1ZTNhMDQ3MjY"
+      }
+    }
+  },
+  {
+    "id": "5daa8249-a15d-491a-b50d-e3d4e6a640c9",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-10-26",
+      "close_date": "2019-10-19",
+      "past_balance": 0,
+      "effective_due_date": "2019-10-28",
+      "total_balance": 575880,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 575879,
+      "paid": 0,
+      "minimum_payment": 106889,
+      "open_date": "2019-09-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LC3qWCJrHBcFrem9n6jfW1eRC96aA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZGFhODI0OS1hMTVkLTQ5MWEtYjUwZC1lM2Q0ZTZhNjQwYzk"
+      }
+    }
+  },
+  {
+    "id": "5d82f50a-e4fb-4ed0-84a7-15297ae51828",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-09-26",
+      "close_date": "2019-09-19",
+      "past_balance": 0,
+      "effective_due_date": "2019-09-26",
+      "total_balance": 484240,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 484240,
+      "paid": 0,
+      "minimum_payment": 84614,
+      "open_date": "2019-08-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBJG0lhPiak9sQixDpa_esFD-JD2A.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZDgyZjUwYS1lNGZiLTRlZDAtODRhNy0xNTI5N2FlNTE4Mjg"
+      }
+    }
+  },
+  {
+    "id": "5d5a1852-18f4-4b9c-8b02-5bf2bcfca42c",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-08-26",
+      "close_date": "2019-08-19",
+      "past_balance": 0,
+      "effective_due_date": "2019-08-26",
+      "total_balance": 475453,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 475454,
+      "paid": 0,
+      "minimum_payment": 71318,
+      "open_date": "2019-07-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBoKq6xRl6iqBSAskv9o3I85s8e2g.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZDVhMTg1Mi0xOGY0LTRiOWMtOGIwMi01YmYyYmNmY2E0MmM"
+      }
+    }
+  },
+  {
+    "id": "5d313a01-b437-4474-9ff8-eff6890c2341",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-07-26",
+      "close_date": "2019-07-19",
+      "past_balance": 0,
+      "effective_due_date": "2019-07-26",
+      "total_balance": 563582,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 563582,
+      "paid": 0,
+      "minimum_payment": 105924,
+      "open_date": "2019-06-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LC2x-p4v3D69lhfHcbW1F774sdwkQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZDMxM2EwMS1iNDM3LTQ0NzQtOWZmOC1lZmY2ODkwYzIzNDE"
+      }
+    }
+  },
+  {
+    "id": "5d09acd9-3957-4406-aae1-08c1da6268b5",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-06-26",
+      "close_date": "2019-06-19",
+      "past_balance": 0,
+      "effective_due_date": "2019-06-26",
+      "total_balance": 441635,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 441634,
+      "paid": 0,
+      "minimum_payment": 66245,
+      "open_date": "2019-05-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAEZcK923aXpbSKecPtYb9ByENaFw.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZDA5YWNkOS0zOTU3LTQ0MDYtYWFlMS0wOGMxZGE2MjY4YjU"
+      }
+    }
+  },
+  {
+    "id": "5ce0d09a-8b82-4a25-884b-fab9f5c6f5f1",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-05-26",
+      "close_date": "2019-05-19",
+      "past_balance": 0,
+      "effective_due_date": "2019-05-27",
+      "total_balance": 416017,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 416018,
+      "paid": 0,
+      "minimum_payment": 62402,
+      "open_date": "2019-04-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAqPoo7z6DsqnmgLjNERPnrX4AuuQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81Y2UwZDA5YS04YjgyLTRhMjUtODg0Yi1mYWI5ZjVjNmY1ZjE"
+      }
+    }
+  },
+  {
+    "id": "5cb9472e-5ad5-4d98-ad7a-20b15d308a19",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-04-26",
+      "close_date": "2019-04-19",
+      "past_balance": 0,
+      "effective_due_date": "2019-04-26",
+      "total_balance": 339454,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 339454,
+      "paid": 0,
+      "minimum_payment": 50918,
+      "open_date": "2019-03-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBGJ22F6ThLrlEKeeQjo_qwarYODw.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81Y2I5NDcyZS01YWQ1LTRkOTgtYWQ3YS0yMGIxNWQzMDhhMTk"
+      }
+    }
+  },
+  {
+    "id": "5c906bc1-24cf-408d-ae97-f4decec2db5f",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-03-26",
+      "close_date": "2019-03-19",
+      "past_balance": -123,
+      "effective_due_date": "2019-03-26",
+      "total_balance": 909880,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 910003,
+      "paid": 0,
+      "minimum_payment": 136482,
+      "open_date": "2019-02-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCIkH3-lGr3RyiwRbjIlJH0L69OSQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YzkwNmJjMS0yNGNmLTQwOGQtYWU5Ny1mNGRlY2VjMmRiNWY"
+      }
+    }
+  },
+  {
+    "id": "5c6b7aac-e62c-44e3-a838-996c44f214e0",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-02-26",
+      "close_date": "2019-02-19",
+      "past_balance": -603119,
+      "effective_due_date": "2019-02-26",
+      "total_balance": 518861,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 1121981,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2019-01-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAAplDWX21IQIe1YZ8hhVjZCpnW3Q.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YzZiN2FhYy1lNjJjLTQ0ZTMtYTgzOC05OTZjNDRmMjE0ZTA"
+      }
+    }
+  },
+  {
+    "id": "5c429cfd-f038-4f6d-a077-11e6888848d5",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-01-26",
+      "close_date": "2019-01-19",
+      "past_balance": -842761,
+      "effective_due_date": "2019-01-28",
+      "total_balance": -10990,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 831771,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2018-12-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LD17_PloOGFMFOmCeAI3YsF1ERNQA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YzQyOWNmZC1mMDM4LTRmNmQtYTA3Ny0xMWU2ODg4ODQ4ZDU"
+      }
+    }
+  },
+  {
+    "id": "5c19bf6e-189e-4aa4-bc38-87081035a1c3",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2018-12-26",
+      "close_date": "2018-12-19",
+      "past_balance": 0,
+      "effective_due_date": "2018-12-26",
+      "total_balance": 694013,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 694013,
+      "paid": 0,
+      "minimum_payment": 112644,
+      "open_date": "2018-11-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDdOalaHuy-D3DHArCTzsBD5kIDnA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YzE5YmY2ZS0xODllLTRhYTQtYmMzOC04NzA4MTAzNWExYzM"
+      }
+    }
+  },
+  {
+    "id": "5bf2313a-9bac-413d-8f6c-8ad683419c4f",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2018-11-26",
+      "close_date": "2018-11-19",
+      "past_balance": 0,
+      "effective_due_date": "2018-11-26",
+      "total_balance": 679252,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 679252,
+      "paid": 0,
+      "minimum_payment": 112141,
+      "open_date": "2018-10-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCQDXgXEmXliJZSyWkyUnRZs7KVbw.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YmYyMzEzYS05YmFjLTQxM2QtOGY2Yy04YWQ2ODM0MTljNGY"
+      }
+    }
+  },
+  {
+    "id": "5bc95387-d656-4f5b-91a4-7c86ab32ffc4",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2018-10-26",
+      "close_date": "2018-10-19",
+      "past_balance": -141,
+      "effective_due_date": "2018-10-26",
+      "total_balance": 544337,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 544478,
+      "paid": 0,
+      "minimum_payment": 113270,
+      "open_date": "2018-09-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBlIj1DMr27SJo727NmVirhHypBAg.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YmM5NTM4Ny1kNjU2LTRmNWItOTFhNC03Yzg2YWIzMmZmYzQ"
+      }
+    }
+  },
+  {
+    "id": "5ba1c559-5083-45d7-84d9-dfa0d61f5658",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2018-09-26",
+      "close_date": "2018-09-19",
+      "past_balance": -102,
+      "effective_due_date": "2018-09-26",
+      "total_balance": 584651,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 584753,
+      "paid": 0,
+      "minimum_payment": 87611,
+      "open_date": "2018-08-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LC-7ZBG05-aKITvDnbSRlltqMovPw.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YmExYzU1OS01MDgzLTQ1ZDctODRkOS1kZmEwZDYxZjU2NTg"
+      }
+    }
+  },
+  {
+    "id": "5b78e664-06ec-4836-8a20-eabdfda31ba4",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2018-08-26",
+      "close_date": "2018-08-19",
+      "past_balance": -655,
+      "effective_due_date": "2018-08-27",
+      "total_balance": 615611,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 616266,
+      "paid": 0,
+      "minimum_payment": 117634,
+      "open_date": "2018-07-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCDTuOA9vEXqm7hZ9slSlcTygfN6g.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81Yjc4ZTY2NC0wNmVjLTQ4MzYtOGEyMC1lYWJkZmRhMzFiYTQ"
+      }
+    }
+  },
+  {
+    "id": "5b500b13-3089-409e-92aa-9caf8fd143e6",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2018-07-26",
+      "close_date": "2018-07-19",
+      "past_balance": 0,
+      "effective_due_date": "2018-07-26",
+      "total_balance": 651580,
+      "interest_rate": "0.1375",
+      "interest": 17321,
+      "total_cumulative": 634259,
+      "paid": 0,
+      "minimum_payment": 114457,
+      "open_date": "2018-06-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LC0vBNrCcc9r4yPfy4YmNpGN64AXg.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YjUwMGIxMy0zMDg5LTQwOWUtOTJhYS05Y2FmOGZkMTQzZTY"
+      }
+    }
+  },
+  {
+    "id": "5b287d43-ed6e-4cb8-87b1-ba8b968810c0",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2018-06-26",
+      "close_date": "2018-06-19",
+      "past_balance": 0,
+      "effective_due_date": "2018-06-26",
+      "total_balance": 592876,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 592876,
+      "paid": 0,
+      "minimum_payment": 117993,
+      "open_date": "2018-05-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LD6sORtUFn7QSDgYHKSpYoD8gotjA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YjI4N2Q0My1lZDZlLTRjYjgtODdiMS1iYThiOTY4ODEwYzA"
+      }
+    }
+  },
+  {
+    "id": "5aff9d83-ad7d-4f0e-8fc7-8cb3e8978364",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2018-05-26",
+      "close_date": "2018-05-19",
+      "past_balance": 0,
+      "effective_due_date": "2018-05-28",
+      "total_balance": 862205,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 862204,
+      "paid": 0,
+      "minimum_payment": 145583,
+      "open_date": "2018-04-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LC29thACwT-WwK67pFwpmXwUVjFYg.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YWZmOWQ4My1hZDdkLTRmMGUtOGZjNy04Y2IzZTg5NzgzNjQ"
+      }
+    }
+  },
+  {
+    "id": "5ad80eb7-05c9-4bbb-abc5-b5cc8a6dc652",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2018-04-26",
+      "close_date": "2018-04-19",
+      "past_balance": 0,
+      "effective_due_date": "2018-04-26",
+      "total_balance": 785758,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 785758,
+      "paid": 0,
+      "minimum_payment": 152892,
+      "open_date": "2018-03-19"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LD8y0oxJ2nYdZZ7kVfXzhxbaN5BRA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YWQ4MGViNy0wNWM5LTRiYmItYWJjNS1iNWNjOGE2ZGM2NTI"
+      }
+    }
+  },
+  {
+    "id": "5aaf331e-62ba-4222-b6e6-8d51459a8561",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2018-03-26",
+      "close_date": "2018-03-19",
+      "past_balance": -2320,
+      "effective_due_date": "2018-03-26",
+      "total_balance": 631554,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 633874,
+      "paid": 0,
+      "minimum_payment": 92761,
+      "open_date": "2018-02-12"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBx7cnpQ3utVL36nyx32tHV9js5cg.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YWFmMzMxZS02MmJhLTQyMjItYjZlNi04ZDUxNDU5YTg1NjE"
+      }
+    }
+  },
+  {
+    "id": "5a810cef-fd5e-4510-8d98-dd32b4655d6d",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2018-02-19",
+      "close_date": "2018-02-12",
+      "past_balance": -396922,
+      "effective_due_date": "2018-02-19",
+      "total_balance": 777680,
+      "interest_rate": "0.1375",
+      "interest": 247,
+      "total_cumulative": 1174355,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2018-01-12"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LANMJ-1mfUwZBdSR0dtI7l5q67UHg.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YTgxMGNlZi1mZDVlLTQ1MTAtOGQ5OC1kZDMyYjQ2NTVkNmQ"
+      }
+    }
+  },
+  {
+    "id": "5a582dbb-fa94-4fbd-97ae-6187f27b58f4",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2018-01-19",
+      "close_date": "2018-01-12",
+      "past_balance": -540690,
+      "effective_due_date": "2018-01-19",
+      "total_balance": 283241,
+      "interest_rate": "0.1375",
+      "interest": 6278,
+      "total_cumulative": 817652,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2017-12-12"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LANQaqfTTBx927YflBg9HLFVKETjQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YTU4MmRiYi1mYTk0LTRmYmQtOTdhZS02MTg3ZjI3YjU4ZjQ"
+      }
+    }
+  },
+  {
+    "id": "5a2f4f3b-60a6-4acb-92db-7a750db09c00",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-12-19",
+      "close_date": "2017-12-12",
+      "past_balance": -3664,
+      "effective_due_date": "2017-12-19",
+      "total_balance": 559309,
+      "interest_rate": "0.1375",
+      "interest": 10624,
+      "total_cumulative": 552349,
+      "paid": 0,
+      "minimum_payment": 91763,
+      "open_date": "2017-11-12"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBual4ejTEO2KQqgOVnp0OmsYfwYg.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YTJmNGYzYi02MGE2LTRhY2ItOTJkYi03YTc1MGRiMDljMDA"
+      }
+    }
+  },
+  {
+    "id": "5a07bf71-e607-4219-8054-08b5bf15b934",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-11-19",
+      "close_date": "2017-11-12",
+      "past_balance": -11547,
+      "effective_due_date": "2017-11-21",
+      "total_balance": 576336,
+      "interest_rate": "0.1375",
+      "interest": 12477,
+      "total_cumulative": 575406,
+      "paid": 0,
+      "minimum_payment": 89278,
+      "open_date": "2017-10-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDjZrlv7IwYzA2bOwzf2vnojTBl8w.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81YTA3YmY3MS1lNjA3LTQyMTktODA1NC0wOGI1YmYxNWI5MzQ"
+      }
+    }
+  },
+  {
+    "id": "59d38358-cb5d-40f0-bd6e-46c09c1c3d5d",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-10-10",
+      "close_date": "2017-10-03",
+      "past_balance": -31850,
+      "effective_due_date": "2017-10-10",
+      "total_balance": 488453,
+      "interest_rate": "0.1375",
+      "interest": 10574,
+      "total_cumulative": 509730,
+      "paid": 0,
+      "minimum_payment": 57888,
+      "open_date": "2017-09-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCr-_gMovj16YUR5O5Ojw21cqQOFQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81OWQzODM1OC1jYjVkLTQwZjAtYmQ2ZS00NmMwOWMxYzNkNWQ"
+      }
+    }
+  },
+  {
+    "id": "59ac20c5-5036-4efd-b48c-8ee133efbae2",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-09-10",
+      "close_date": "2017-09-03",
+      "past_balance": -56931,
+      "effective_due_date": "2017-09-11",
+      "total_balance": 369666,
+      "interest_rate": "0.1375",
+      "interest": 185,
+      "total_cumulative": 426412,
+      "paid": 0,
+      "minimum_payment": 7449,
+      "open_date": "2017-08-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCNRWM7MDJyfsX3NkKSfLnNvL9yKA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81OWFjMjBjNS01MDM2LTRlZmQtYjQ4Yy04ZWUxMzNlZmJhZTI"
+      }
+    }
+  },
+  {
+    "id": "5982e7fc-676d-48cc-b680-ba8811ed7090",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-08-10",
+      "close_date": "2017-08-03",
+      "past_balance": -241738,
+      "effective_due_date": "2017-08-10",
+      "total_balance": 243069,
+      "interest_rate": "0.1375",
+      "interest": 5532,
+      "total_cumulative": 479276,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2017-07-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDRA98GzkKCaOdUsHRVG_7VKRWhfA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81OTgyZTdmYy02NzZkLTQ4Y2MtYjY4MC1iYTg4MTFlZDcwOTA"
+      }
+    }
+  },
+  {
+    "id": "595a58e5-cb69-4e88-aa25-5b94fb603920",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-07-10",
+      "close_date": "2017-07-03",
+      "past_balance": -20557,
+      "effective_due_date": "2017-07-10",
+      "total_balance": 608328,
+      "interest_rate": "0.1375",
+      "interest": 4524,
+      "total_cumulative": 624361,
+      "paid": 0,
+      "minimum_payment": 78292,
+      "open_date": "2017-06-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCIN1htnE8dm-oHBUqds4f1TGtUEA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81OTVhNThlNS1jYjY5LTRlODgtYWEyNS01Yjk0ZmI2MDM5MjA"
+      }
+    }
+  },
+  {
+    "id": "5932878a-13ac-4632-aace-70f8df47c63c",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-06-10",
+      "close_date": "2017-06-03",
+      "past_balance": -199999,
+      "effective_due_date": "2017-06-12",
+      "total_balance": 329443,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 529441,
+      "paid": 0,
+      "minimum_payment": 0,
+      "open_date": "2017-05-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDkJZHgmRtM_JKR7rkainBW87yDaQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81OTMyODc4YS0xM2FjLTQ2MzItYWFjZS03MGY4ZGY0N2M2M2M"
+      }
+    }
+  },
+  {
+    "id": "5909ed3c-66be-4fe6-a62c-2981a88ddb33",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-05-10",
+      "close_date": "2017-05-03",
+      "past_balance": 0,
+      "effective_due_date": "2017-05-10",
+      "total_balance": 356701,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 356701,
+      "paid": 0,
+      "minimum_payment": 53506,
+      "open_date": "2017-04-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBRj3UyDcdG1spq6B6Qh_DoGVBNfg.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81OTA5ZWQzYy02NmJlLTRmZTYtYTYyYy0yOTgxYTg4ZGRiMzM"
+      }
+    }
+  },
+  {
+    "id": "58e24340-4672-4e41-bb4f-3f71f8a20c31",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-04-10",
+      "close_date": "2017-04-03",
+      "past_balance": -77375,
+      "effective_due_date": "2017-04-10",
+      "total_balance": 220967,
+      "interest_rate": "0.1375",
+      "interest": 11241,
+      "total_cumulative": 287102,
+      "paid": 0,
+      "minimum_payment": 43267,
+      "open_date": "2017-03-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBWg6_WSDLwOfsa62xqXTtE0cK-NQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81OGUyNDM0MC00NjcyLTRlNDEtYmI0Zi0zZjcxZjhhMjBjMzE"
+      }
+    }
+  },
+  {
+    "id": "58baf4de-5925-4ffb-b9a2-a0617d6090e0",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-03-10",
+      "close_date": "2017-03-03",
+      "past_balance": -6843,
+      "effective_due_date": "2017-03-10",
+      "total_balance": 322925,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 329767,
+      "paid": 0,
+      "minimum_payment": 48439,
+      "open_date": "2017-02-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCJPehRXJ_RVDbU1iCOw5W0EK0EaA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81OGJhZjRkZS01OTI1LTRmZmItYjlhMi1hMDYxN2Q2MDkwZTA"
+      }
+    }
+  },
+  {
+    "id": "58941191-760a-42a1-af79-adbce9884eab",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-02-10",
+      "close_date": "2017-02-03",
+      "past_balance": -2116,
+      "effective_due_date": "2017-02-10",
+      "total_balance": 252357,
+      "interest_rate": "0.1375",
+      "interest": 241,
+      "total_cumulative": 254232,
+      "paid": 0,
+      "minimum_payment": 38147,
+      "open_date": "2017-01-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBuv_bUnPE7NECF2q7PxEUDMjdE4g.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ODk0MTE5MS03NjBhLTQyYTEtYWY3OS1hZGJjZTk4ODRlYWI"
+      }
+    }
+  },
+  {
+    "id": "586b3345-a41f-47e7-80f4-5af8349de14c",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-01-10",
+      "close_date": "2017-01-03",
+      "past_balance": -75189,
+      "effective_due_date": "2017-01-10",
+      "total_balance": 157884,
+      "interest_rate": "0.1375",
+      "interest": 2400,
+      "total_cumulative": 230673,
+      "paid": 0,
+      "minimum_payment": 26001,
+      "open_date": "2016-12-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBEARoeLgtWSnH31lbwg0K__igI0Q.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ODZiMzM0NS1hNDFmLTQ3ZTctODBmNC01YWY4MzQ5ZGUxNGM"
+      }
+    }
+  },
+  {
+    "id": "584253a7-852b-4751-bf80-670d634721e5",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-12-10",
+      "close_date": "2016-12-03",
+      "past_balance": 0,
+      "effective_due_date": "2016-12-12",
+      "total_balance": 374811,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 374811,
+      "paid": 0,
+      "minimum_payment": 56222,
+      "open_date": "2016-11-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAb4eJod56htVo0saluNiV40bMSjw.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ODQyNTNhNy04NTJiLTQ3NTEtYmY4MC02NzBkNjM0NzIxZTU"
+      }
+    }
+  },
+  {
+    "id": "581b080d-bbe1-4c36-8b29-cff350bd9d65",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-11-10",
+      "close_date": "2016-11-03",
+      "past_balance": 0,
+      "effective_due_date": "2016-11-10",
+      "total_balance": 277741,
+      "interest_rate": "0.1375",
+      "interest": 2357,
+      "total_cumulative": 275384,
+      "paid": 0,
+      "minimum_payment": 44482,
+      "open_date": "2016-10-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCFx6KnJIOksGJhxOtGRh2BuNVfAA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ODFiMDgwZC1iYmUxLTRjMzYtOGIyOS1jZmYzNTBiZDlkNjU"
+      }
+    }
+  },
+  {
+    "id": "57f2105c-5855-4e07-8284-b7d75b04b799",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-10-10",
+      "close_date": "2016-10-03",
+      "past_balance": -9298,
+      "effective_due_date": "2016-10-10",
+      "total_balance": 341750,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 351048,
+      "paid": 0,
+      "minimum_payment": 51262,
+      "open_date": "2016-09-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAw8g1kNmjAZ2dLBdi7b2VRmdAX5w.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81N2YyMTA1Yy01ODU1LTRlMDctODI4NC1iN2Q3NWIwNGI3OTk"
+      }
+    }
+  },
+  {
+    "id": "57ca9e8a-6dd4-4414-8832-188653d66e39",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-09-10",
+      "close_date": "2016-09-03",
+      "past_balance": 0,
+      "effective_due_date": "2016-09-12",
+      "total_balance": 290702,
+      "interest_rate": "0.0775",
+      "interest": 0,
+      "total_cumulative": 290702,
+      "paid": 0,
+      "minimum_payment": 43605,
+      "open_date": "2016-08-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LD0duEqB3LhIruC-rbbMxxQJOfC0g.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81N2NhOWU4YS02ZGQ0LTQ0MTQtODgzMi0xODg2NTNkNjZlMzk"
+      }
+    }
+  },
+  {
+    "id": "57a1b13f-df5e-4d9b-8843-b1454a46190e",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-08-10",
+      "close_date": "2016-08-03",
+      "past_balance": -76812,
+      "effective_due_date": "2016-08-10",
+      "total_balance": 2580,
+      "interest_rate": "0.0775",
+      "interest": 0,
+      "total_cumulative": 79392,
+      "paid": 0,
+      "minimum_payment": 387,
+      "open_date": "2016-07-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAmdqU5PMvSvMQGfETRAUYOs9WdcA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81N2ExYjEzZi1kZjVlLTRkOWItODg0My1iMTQ1NGE0NjE5MGU"
+      }
+    }
+  },
+  {
+    "id": "5778c1bf-68db-4fa3-80a3-571a1607514d",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-07-10",
+      "close_date": "2016-07-03",
+      "past_balance": 0,
+      "effective_due_date": "2016-07-11",
+      "total_balance": 144244,
+      "interest_rate": "0.0775",
+      "interest": 0,
+      "total_cumulative": 144244,
+      "paid": 0,
+      "minimum_payment": 21637,
+      "open_date": "2016-06-03"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCmYIFih9frIQDUrb3kBCdl-MqRFA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81Nzc4YzFiZi02OGRiLTRmYTMtODBhMy01NzFhMTYwNzUxNGQ"
+      }
+    }
+  },
+  {
+    "id": "575132c3-ec8a-4f06-a9fc-4e3c4a2a50c7",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-06-10",
+      "close_date": "2016-06-03",
+      "past_balance": 0,
+      "effective_due_date": "2016-06-10",
+      "total_balance": 119050,
+      "interest_rate": "0.0775",
+      "interest": 0,
+      "total_cumulative": 119050,
+      "paid": 0,
+      "minimum_payment": 17858,
+      "open_date": "2016-04-30"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDQnzObBTqwFBSLADOQsU3Bsg97FA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NzUxMzJjMy1lYzhhLTRmMDYtYTlmYy00ZTNjNGEyYTUwYzc"
+      }
+    }
+  },
+  {
+    "id": "5724df56-d41e-482f-94b9-3765f2309070",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-05-10",
+      "close_date": "2016-04-30",
+      "past_balance": 0,
+      "effective_due_date": "2016-05-10",
+      "total_balance": 110182,
+      "interest_rate": "0.0775",
+      "interest": 0,
+      "total_cumulative": 110182,
+      "paid": 0,
+      "minimum_payment": 16527,
+      "open_date": "2016-03-31"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDx045KWIAAHA5KVkqvW43QwaoqSw.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NzI0ZGY1Ni1kNDFlLTQ4MmYtOTRiOS0zNzY1ZjIzMDkwNzA"
+      }
+    }
+  },
+  {
+    "id": "56fd4e43-b421-4627-9bb4-109d98c761f9",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-04-10",
+      "close_date": "2016-03-31",
+      "past_balance": 0,
+      "effective_due_date": "2016-04-11",
+      "total_balance": 52745,
+      "interest_rate": "0.0775",
+      "interest": 0,
+      "total_cumulative": 52745,
+      "paid": 0,
+      "minimum_payment": 7912,
+      "open_date": "2016-02-29"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBvGu9VODQihuN3yhzNQWwg7QCC-w.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NmZkNGU0My1iNDIxLTQ2MjctOWJiNC0xMDlkOThjNzYxZjk"
+      }
+    }
+  },
+  {
+    "id": "56d4628d-b0ce-445b-bdd5-f3fc137d19ba",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-03-10",
+      "close_date": "2016-02-29",
+      "past_balance": 0,
+      "effective_due_date": "2016-03-10",
+      "total_balance": 31256,
+      "interest_rate": "0.0775",
+      "interest": 0,
+      "total_cumulative": 31256,
+      "paid": 0,
+      "minimum_payment": 4688,
+      "open_date": "2016-01-28"
+    },
+    "_links": {
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDP4jGUk6fP3Z_JSh7YKBm7yFit0w.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NmQ0NjI4ZC1iMGNlLTQ0NWItYmRkNS1mM2ZjMTM3ZDE5YmE"
+      }
+    }
+  }
+]

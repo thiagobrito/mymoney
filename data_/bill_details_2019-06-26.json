@@ -1,0 +1,1004 @@
+{
+  "bill": {
+    "id": "5d09acd9-3957-4406-aae1-08c1da6268b5",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2019-06-26",
+      "close_date": "2019-06-19",
+      "late_interest_rate": "0.1475",
+      "past_balance": 0,
+      "late_fee": "0.02",
+      "effective_due_date": "2019-06-26",
+      "total_balance": 441635,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 441634,
+      "paid": 441635,
+      "minimum_payment": 66245,
+      "open_date": "2019-05-19"
+    },
+    "_links": {
+      "boleto_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCP8_ptR7HmtH2pT1ZgbGBcLTFivQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZDA5YWNkOS0zOTU3LTQ0MDYtYWFlMS0wOGMxZGE2MjY4YjUvYm9sZXRvL2VtYWls"
+      },
+      "barcode": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAHMuctQHMcskbOWYwNdDD9aqEWLw.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZDA5YWNkOS0zOTU3LTQ0MDYtYWFlMS0wOGMxZGE2MjY4YjUvYm9sZXRvL2JhcmNvZGU"
+      },
+      "invoice_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDut0-PyI-soNsUw6HDCpy2cnZDpA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZDA5YWNkOS0zOTU3LTQ0MDYtYWFlMS0wOGMxZGE2MjY4YjUvaW52b2ljZS9lbWFpbA"
+      },
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAEZcK923aXpbSKecPtYb9ByENaFw.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZDA5YWNkOS0zOTU3LTQ0MDYtYWFlMS0wOGMxZGE2MjY4YjU"
+      }
+    },
+    "line_items": [
+      {
+        "amount": 17983,
+        "index": 6,
+        "title": "Ebanx-Cam",
+        "post_date": "2019-05-19",
+        "id": "5c026d9b-e1ba-470e-b657-3c9c61b7b87a",
+        "href": "nuapp://transaction/5bfd9bb3-61e7-46f9-a3ab-28b602190b87",
+        "category": "outros",
+        "charges": 12
+      },
+      {
+        "amount": 6830,
+        "index": 2,
+        "title": "Mercado Pet",
+        "post_date": "2019-05-19",
+        "id": "5cb33daa-18b0-492a-ba4c-3defe905a964",
+        "href": "nuapp://transaction/5cb33da9-f5c2-4f6b-922a-64a8e3056aa0",
+        "category": "casa",
+        "charges": 3
+      },
+      {
+        "amount": 4380,
+        "index": 2,
+        "title": "Paypal -Growthsuppl",
+        "post_date": "2019-05-19",
+        "id": "5cab0d49-c041-41fc-a4a9-66a777e50811",
+        "href": "nuapp://transaction/5ca734a3-5215-4487-8e50-57252cdfb283",
+        "category": "outros",
+        "charges": 6
+      },
+      {
+        "amount": 998,
+        "index": 1,
+        "title": "Hotmart*Hotmart Gabrie",
+        "post_date": "2019-05-19",
+        "id": "5cc042ba-9738-42a1-afdf-869a84212493",
+        "href": "nuapp://transaction/5cc042ba-75e5-4736-9438-7422a27aa894",
+        "category": "servi\u00e7os",
+        "charges": 6
+      },
+      {
+        "amount": 7331,
+        "index": 1,
+        "title": "Centauro Ce157",
+        "post_date": "2019-05-19",
+        "id": "5cdddaf1-e2c7-448a-82f1-9ec9488a4982",
+        "href": "nuapp://transaction/5cdddaf1-09a9-444a-bb72-ca5857fb0c15",
+        "category": "vestu\u00e1rio",
+        "charges": 3
+      },
+      {
+        "amount": 15706,
+        "index": 4,
+        "title": "Ebanx Airbnb",
+        "post_date": "2019-05-19",
+        "id": "5c484314-3e78-4397-9878-c181eef2a869",
+        "href": "nuapp://transaction/5c465293-7156-4c1e-856f-02b546eb52a2",
+        "category": "servi\u00e7os",
+        "charges": 12
+      },
+      {
+        "amount": 1302,
+        "index": 5,
+        "title": "Brhotels*972195078200h",
+        "post_date": "2019-05-19",
+        "id": "5c3dbcab-604f-41f8-983d-13600113e5fb",
+        "href": "nuapp://transaction/5c3bbd20-1bf2-4911-b8e2-ee0ca0e414c1",
+        "category": "viagem",
+        "charges": 6
+      },
+      {
+        "amount": 1699,
+        "index": 0,
+        "title": "Champion Sp 101 Cin-In",
+        "post_date": "2019-05-20",
+        "id": "5ce1f1c3-0f05-4ce5-bbbc-5b9fe7decacb",
+        "href": "nuapp://transaction/5ce1f1c3-ee22-45d0-b9d7-2640635abada",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 6692,
+        "index": 0,
+        "title": "Pag*Acainafruta",
+        "post_date": "2019-05-20",
+        "id": "5ce0575e-decf-4f6b-a6ac-06ce7ada23a1",
+        "href": "nuapp://transaction/5ce0575e-e3d1-4083-9a79-4c67e3569d05",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 8352,
+        "index": 0,
+        "title": "Posto dos Esteves",
+        "post_date": "2019-05-20",
+        "id": "5ce18edc-ea9e-4b07-ab66-361f4fcef5e6",
+        "href": "nuapp://transaction/5ce18edc-c3b4-4311-8878-09de1b9a1da8",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 4295,
+        "index": 0,
+        "title": "Ifood*Ifood",
+        "post_date": "2019-05-20",
+        "id": "5cdf3ee1-ce68-4533-9eef-a666f2db4a54",
+        "href": "nuapp://transaction/5cdf3ee1-dd08-4db0-8600-d821cd71b5a6",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 7135,
+        "index": 0,
+        "title": "Champion Sp 101 Cin-In",
+        "post_date": "2019-05-20",
+        "id": "5ce1d930-bfbb-4223-a523-b20bb9bb1bbb",
+        "href": "nuapp://transaction/5ce1d92f-ae48-4410-8ab6-3827415b16c8",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 950,
+        "index": 0,
+        "title": "Panificadora C M N",
+        "post_date": "2019-05-20",
+        "id": "5ce1917b-1d3d-4f9a-9a2f-69ec3ad30d67",
+        "href": "nuapp://transaction/5ce1917b-545c-4438-b87e-8ed55727b31d",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2690,
+        "index": 0,
+        "title": "Rox Burguer",
+        "post_date": "2019-05-20",
+        "id": "5ce1ef69-fbde-49ac-b95f-d8e1cfb4a68a",
+        "href": "nuapp://transaction/5ce1ef68-f7ea-4cca-b941-d8546c00d8f6",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Amadeu Jose Brito Lope",
+        "post_date": "2019-05-21",
+        "id": "5ce2d863-7a56-48a4-870a-db2ca918d470",
+        "href": "nuapp://transaction/5ce2d863-76c6-402f-ae96-aa9130a74120",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2700,
+        "index": 0,
+        "title": "Subway de Indaiatuba",
+        "post_date": "2019-05-21",
+        "id": "5ce3228c-87d0-4988-a4ff-0dd8cc71686f",
+        "href": "nuapp://transaction/5ce3228c-9e19-455e-a40e-bf287e83eb96",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2318,
+        "index": 0,
+        "title": "Mercado Pago",
+        "post_date": "2019-05-21",
+        "id": "5ce4ca45-b9df-49a5-83a5-10194eba945c",
+        "href": "nuapp://transaction/5ce2a9c1-b714-4d63-9916-eb93451aa957",
+        "category": "outros",
+        "charges": 6
+      },
+      {
+        "amount": 5800,
+        "index": 0,
+        "title": "Nespresso",
+        "post_date": "2019-05-22",
+        "id": "5ce3d056-72ce-4b76-a656-3cc03554f410",
+        "href": "nuapp://transaction/5ce3d056-dbea-4352-9b40-c6a1be6830c9",
+        "category": "supermercado",
+        "charges": 2
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Sumup *Marmitadaberna",
+        "post_date": "2019-05-22",
+        "id": "5ce42837-0349-40b7-81b4-60f9cf1b9a87",
+        "href": "nuapp://transaction/5ce42836-f29b-4c51-b4d2-c5e577798f5b",
+        "category": "lazer",
+        "charges": 1
+      },
+      {
+        "amount": 3490,
+        "index": 0,
+        "title": "Itunes.Com/Bill",
+        "post_date": "2019-05-22",
+        "id": "5ce2cce1-ec98-48c5-a4eb-8fc88c7e285a",
+        "href": "nuapp://transaction/5ce2cce1-2412-4e0a-bcc5-da63d3a7de4d",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 12710,
+        "index": 0,
+        "title": "Rox Burguer",
+        "post_date": "2019-05-22",
+        "id": "5ce49fc6-0580-44f2-a44d-6ddd3dff78d0",
+        "href": "nuapp://transaction/5ce49fc6-c54c-4046-9bb9-bdf7b674dc45",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 4880,
+        "index": 0,
+        "title": "Jf3 Thiagobri",
+        "post_date": "2019-05-22",
+        "id": "5ce3f60f-6dc5-4e4c-9890-374945639340",
+        "href": "nuapp://transaction/5ce3f60f-fd34-407f-a6ed-d22d33e08980",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 5405,
+        "index": 0,
+        "title": "Restaurante Via Brasil",
+        "post_date": "2019-05-23",
+        "id": "5ce57680-90f3-4e50-bebd-9a975fbca846",
+        "href": "nuapp://transaction/5ce57680-14e3-48bd-a2f2-8cef1f75cd8c",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 954,
+        "index": 0,
+        "title": "Uber do Brasil Tecnolo",
+        "post_date": "2019-05-23",
+        "id": "5ce4a03f-926d-4d45-9849-e4dbdd142554",
+        "href": "nuapp://transaction/5ce4a03f-536a-46b3-966e-3d9017e073f6",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 4000,
+        "index": 0,
+        "title": "Registrobr",
+        "post_date": "2019-05-23",
+        "id": "5ce5a786-eba5-4cfc-8394-48f5904d5716",
+        "href": "nuapp://transaction/5ce5a786-b537-41fe-a60d-0d6f646a55f2",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 2500,
+        "index": 0,
+        "title": "Frutalcenter",
+        "post_date": "2019-05-23",
+        "id": "5ce5c0f1-e6b2-4495-bc74-9b7c9982e7e7",
+        "href": "nuapp://transaction/5ce5c0f1-5a0f-402b-a984-956e9de554bb",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 6200,
+        "index": 0,
+        "title": "Bacon Republic",
+        "post_date": "2019-05-24",
+        "id": "5ce713b0-8b1e-4ff5-84d6-928da8d2ca3f",
+        "href": "nuapp://transaction/5ce713b0-4831-40b4-89eb-1c546eaeced1",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Comida Caseira da Bern",
+        "post_date": "2019-05-24",
+        "id": "5ce6cf36-9771-4585-9196-5f523ec7718d",
+        "href": "nuapp://transaction/5ce6cf36-29c1-407a-b138-5be1ac219633",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Comida Caseira da Bern",
+        "post_date": "2019-05-25",
+        "id": "5ce81604-b506-4f52-b9c5-4c050d6dac26",
+        "href": "nuapp://transaction/5ce81604-4978-40cf-bef3-2274f81f5eaf",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 40000,
+        "index": 0,
+        "title": "Mercadopago *Pamdrenam",
+        "post_date": "2019-05-25",
+        "id": "5ce892cb-13fe-4663-9811-f58fa4e07cd7",
+        "href": "nuapp://transaction/5ce892cb-cd89-432c-9a0b-c82f09f7f958",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 4850,
+        "index": 0,
+        "title": "Suica Park Ltda Epp",
+        "post_date": "2019-05-27",
+        "id": "5ce9b4af-c328-42ea-b2d4-077e8d11c0b7",
+        "href": "nuapp://transaction/5ce9b4af-8911-4e07-a77d-fef195a2e7ab",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": -416017,
+        "title": "Pagamento recebido",
+        "post_date": "2019-05-27",
+        "id": "5cecbfeb-95ce-4f6a-b594-6b9a44867a4b"
+      },
+      {
+        "amount": 11396,
+        "index": 0,
+        "title": "Santo Parque",
+        "post_date": "2019-05-27",
+        "id": "5ce9ed5d-69ea-485f-b76e-08c86a3bd659",
+        "href": "nuapp://transaction/5ce9ed5d-eefc-4fcc-9aa3-84fe4829f4b5",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1490,
+        "index": 0,
+        "title": "Amazon.Com.Br Amazon D",
+        "post_date": "2019-05-27",
+        "id": "5ceaa9ca-56d0-418d-a51f-02b09997804c",
+        "href": "nuapp://transaction/5ceaa9ca-7483-4d02-aa9e-b06da2d3c215",
+        "category": "educa\u00e7\u00e3o",
+        "charges": 1
+      },
+      {
+        "amount": 8480,
+        "index": 0,
+        "title": "Indaiatuba Pizza e Bie",
+        "post_date": "2019-05-27",
+        "id": "5ceb2bda-acd9-473d-b849-a63ff1c9d134",
+        "href": "nuapp://transaction/5ceb2bda-a0d3-46f8-8e31-8b68e516e42d",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 8218,
+        "index": 0,
+        "title": "Pag*Acainafruta",
+        "post_date": "2019-05-27",
+        "id": "5ceac2a1-9fea-4160-80c2-5a7172aebcb2",
+        "href": "nuapp://transaction/5ceac2a1-8374-4ac9-956e-08592aa30c8d",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 9984,
+        "index": 0,
+        "title": "Posto dos Esteves",
+        "post_date": "2019-05-27",
+        "id": "5ce99e90-19ce-4af0-8a85-e813a36b9451",
+        "href": "nuapp://transaction/5ce99e72-ca1e-4ddd-a278-add4afafaf04",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 3179,
+        "index": 0,
+        "title": "Tea Music Assessoria M",
+        "post_date": "2019-05-27",
+        "id": "5ceb020f-b9d4-48c8-bb18-b7bf4259690b",
+        "href": "nuapp://transaction/5ceb020f-4046-4b0c-b16a-122d2ed2188f",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2200,
+        "index": 0,
+        "title": "Flor de Pitanga",
+        "post_date": "2019-05-27",
+        "id": "5ce9fc9f-d268-469b-9b8c-00a458d05441",
+        "href": "nuapp://transaction/5ce9fc9f-c8a9-4010-a12b-26bc309f2783",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 5032,
+        "index": 0,
+        "title": "Drogal Farmacia",
+        "post_date": "2019-05-28",
+        "id": "5cec1606-0707-45ed-babe-78dc209fbec7",
+        "href": "nuapp://transaction/5cec15ea-b122-4fe8-a64e-bcd5b21fba72",
+        "category": "sa\u00fade",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Amadeu Jose Brito Lope",
+        "post_date": "2019-05-28",
+        "id": "5cec147e-6120-4f82-b870-8048dc33849e",
+        "href": "nuapp://transaction/5cec1461-be83-4908-abba-00599aeab83c",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 770,
+        "index": 0,
+        "title": "Conveniencia",
+        "post_date": "2019-05-28",
+        "id": "5cec3be9-862d-423e-b2dc-ce78befaf702",
+        "href": "nuapp://transaction/5cec3bc6-dd3c-4f53-b9ce-6a119835da53",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Comida Caseira da Bern",
+        "post_date": "2019-05-29",
+        "id": "5ced62e4-4153-4bbe-889f-bb47eee24dd4",
+        "href": "nuapp://transaction/5ced62c9-d9c2-4b22-8d40-b624f22322a2",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2900,
+        "index": 0,
+        "title": "Comida Caseira da Bern",
+        "post_date": "2019-05-30",
+        "id": "5ceeaa0f-6175-4f49-bfef-757b8dd0c0cd",
+        "href": "nuapp://transaction/5ceeaa0f-b1b1-4957-ab24-55b942f698bc",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 732,
+        "index": 0,
+        "title": "Picpay*Jf3 Thiagobri",
+        "post_date": "2019-05-30",
+        "id": "5cee8455-48fd-4e5a-be11-852435ce46e9",
+        "href": "nuapp://transaction/5cee8444-e89a-4d8d-bf34-57fdaea86c81",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 1244,
+        "index": 0,
+        "title": "Uber do Brasil Tecnolo",
+        "post_date": "2019-05-30",
+        "id": "5cedd739-65fa-4e60-885b-c6f81ec259dc",
+        "href": "nuapp://transaction/5cedd739-d1cf-43de-b374-a23f58057686",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 7200,
+        "index": 0,
+        "title": "Madero Indaiatuba",
+        "post_date": "2019-05-31",
+        "id": "5cf0556c-6fe4-4bf3-9ef1-16edda249ac1",
+        "href": "nuapp://transaction/5cf05364-7074-419e-a173-1e84700d1191",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5500,
+        "index": 0,
+        "title": "Petz Indaiatuba",
+        "post_date": "2019-05-31",
+        "id": "5cf06089-f911-48d7-a289-ee938a09fe32",
+        "href": "nuapp://transaction/5cf06088-64fd-460a-ae7b-9d90f9200cff",
+        "category": "casa",
+        "charges": 2
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Comida Caseira da Bern",
+        "post_date": "2019-05-31",
+        "id": "5cf00489-2f17-4553-93fe-7cc3931ee858",
+        "href": "nuapp://transaction/5cf00489-5fba-47f6-99fd-7eeba8909579",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5000,
+        "index": 0,
+        "title": "Abdelnor Iii",
+        "post_date": "2019-06-01",
+        "id": "5cf195b9-5645-42ed-a0a1-aa9101f74b49",
+        "href": "nuapp://transaction/5cf195b9-e460-4393-b3ee-ac5407a95857",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 769,
+        "index": 0,
+        "title": "Picpay*Jf3 Thiagobri",
+        "post_date": "2019-06-01",
+        "id": "5cf12330-c84b-4519-ba91-c63a12603a82",
+        "href": "nuapp://transaction/5cf12330-020c-4112-94b2-a0dcb35bf37d",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Comida Caseira da Bern",
+        "post_date": "2019-06-01",
+        "id": "5cf15537-f40d-487f-acd4-f937f5e7dc47",
+        "href": "nuapp://transaction/5cf15536-c34e-4180-8f9e-303e748bef04",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3580,
+        "index": 0,
+        "title": "Itunes.Com/Bill",
+        "post_date": "2019-06-01",
+        "id": "5cf10813-24f4-4563-9d67-52e12bb71921",
+        "href": "nuapp://transaction/5cf10813-c6f0-428f-9da8-762a1db0c881",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 3677,
+        "index": 0,
+        "title": "Restaurante Suica Park",
+        "post_date": "2019-06-01",
+        "id": "5cf1a6e9-9e68-4090-ab56-a8878e433c06",
+        "href": "nuapp://transaction/5cf1a6e9-708a-4b38-a0ba-7608975ea331",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 4094,
+        "index": 0,
+        "title": "Dropbox*Pdxsymn5n3f8",
+        "post_date": "2019-06-03",
+        "id": "5cf61526-46d8-45c8-8f14-92dcf27bd05f",
+        "href": "nuapp://transaction/5cf3c757-3c7c-47e0-ace0-b14669b5537e",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 5440,
+        "index": 0,
+        "title": "Rox Burger",
+        "post_date": "2019-06-03",
+        "id": "5cf45251-5403-48c6-98a3-537aba590520",
+        "href": "nuapp://transaction/5cf45251-d4fd-4278-9e44-868c9348e777",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 261,
+        "type_detail": "tax_foreign",
+        "title": "IOF de \"Dropbox*Pdxsymn5n3f8\"",
+        "post_date": "2019-06-03",
+        "id": "5cf61526-7b72-4763-8ca1-e9ec70e33138",
+        "href": "nuapp://transaction/5cf3c757-3c7c-47e0-ace0-b14669b5537e"
+      },
+      {
+        "amount": 2213,
+        "index": 0,
+        "title": "Google *Gsuite_thiagob",
+        "post_date": "2019-06-03",
+        "id": "5cf47b81-5c52-492b-8e4d-3857b1faeb9e",
+        "href": "nuapp://transaction/5cf30bab-06dd-4223-b769-a16ac667cf1b",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 5017,
+        "index": 0,
+        "title": "Joao Coragem",
+        "post_date": "2019-06-03",
+        "id": "5cf2a139-9de4-4a0b-a161-96fda450483c",
+        "href": "nuapp://transaction/5cf2a139-c4b0-4597-8338-b086a502b636",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 141,
+        "type_detail": "tax_foreign",
+        "title": "IOF de \"Google *Gsuite_thiagob\"",
+        "post_date": "2019-06-03",
+        "id": "5cf47b81-aa71-4353-8a24-af3298e29c80",
+        "href": "nuapp://transaction/5cf30bab-06dd-4223-b769-a16ac667cf1b"
+      },
+      {
+        "amount": 1980,
+        "index": 0,
+        "title": "Brendan House Cafe",
+        "post_date": "2019-06-03",
+        "id": "5cf2c67b-aab1-4a98-b59e-be783b1911f3",
+        "href": "nuapp://transaction/5cf2c67a-4ea0-406d-a77b-e6f64fcfe4d8",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Comida Caseira da Bern",
+        "post_date": "2019-06-04",
+        "id": "5cf549d7-2fa4-41aa-8dcc-adfbedc24f1e",
+        "href": "nuapp://transaction/5cf549d6-1bfa-4f0b-ad51-91b09d087b9a",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 4000,
+        "index": 0,
+        "title": "Registrobr",
+        "post_date": "2019-06-05",
+        "id": "5cf6dd48-6e37-4ad0-930f-088275719bea",
+        "href": "nuapp://transaction/5cf6dd48-9011-4eb6-a33a-0def235ccb1d",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Comida Caseira da Bern",
+        "post_date": "2019-06-05",
+        "id": "5cf6a276-80f3-43eb-9cf8-4e1f185e7f73",
+        "href": "nuapp://transaction/5cf6a276-d1fc-420f-9b7d-d35a2d3685ca",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2700,
+        "index": 0,
+        "title": "Frutalcenter",
+        "post_date": "2019-06-05",
+        "id": "5cf6e2bb-67f3-4258-9a27-437c7f4fec65",
+        "href": "nuapp://transaction/5cf6e2bb-cf52-4f17-b6c9-986697ef4702",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 2400,
+        "index": 0,
+        "title": "Frutalcenter",
+        "post_date": "2019-06-06",
+        "id": "5cf840e6-bb07-4adf-9520-2edf397008c1",
+        "href": "nuapp://transaction/5cf840e6-4a1b-4a82-b21a-ba965b4087d9",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Amadeu Jose Brito Lope",
+        "post_date": "2019-06-06",
+        "id": "5cf7ef97-c918-4084-b687-3f2abe24a30e",
+        "href": "nuapp://transaction/5cf7ef97-18c2-43f2-8b4c-33723f66aa2f",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2850,
+        "index": 0,
+        "title": "Flor de Pitanga",
+        "post_date": "2019-06-07",
+        "id": "5cf98eb2-82e2-41c5-b023-6fae31311392",
+        "href": "nuapp://transaction/5cf98eb2-48d4-4eca-bcd9-f0aa83123601",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Comida Caseira da Bern",
+        "post_date": "2019-06-08",
+        "id": "5cfa9222-91f7-4e92-b676-380dad051685",
+        "href": "nuapp://transaction/5cfa9222-9412-489d-bb2d-422398458dc2",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 4500,
+        "index": 0,
+        "title": "Forneria Paulistana",
+        "post_date": "2019-06-10",
+        "id": "5cfda082-a6b1-4dff-88b8-2c10bc6254a4",
+        "href": "nuapp://transaction/5cfda082-f171-4d28-b777-e18ba56e74fd",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1320,
+        "type_detail": "tax_foreign",
+        "title": "IOF de \"Paypal *Algoexpertl\"",
+        "post_date": "2019-06-10",
+        "id": "5cfed6fc-2c69-44cc-b5a8-ba31ad4c68c2",
+        "href": "nuapp://transaction/5cfab5bf-d478-49c7-b979-d0b9341ef000"
+      },
+      {
+        "amount": 20687,
+        "index": 0,
+        "title": "Paypal *Algoexpertl",
+        "post_date": "2019-06-10",
+        "id": "5cfed6fc-92b6-4248-b4c1-97603b7efee1",
+        "href": "nuapp://transaction/5cfab5bf-d478-49c7-b979-d0b9341ef000",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 2380,
+        "index": 0,
+        "title": "Kopenhagen",
+        "post_date": "2019-06-10",
+        "id": "5cfbe6ff-be52-4097-98f5-fc47247ef453",
+        "href": "nuapp://transaction/5cfbe6ff-a378-4ee1-a746-83fbee16f6d1",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 2083,
+        "index": 0,
+        "title": "Amazon.Com.Br Amazon D",
+        "post_date": "2019-06-10",
+        "id": "5cfc29a4-0e77-491e-a875-225606ffecae",
+        "href": "nuapp://transaction/5cfc29a4-9f4b-41fc-9e4a-35696a047b20",
+        "category": "educa\u00e7\u00e3o",
+        "charges": 1
+      },
+      {
+        "amount": 2700,
+        "index": 0,
+        "title": "Construcenter Lar",
+        "post_date": "2019-06-10",
+        "id": "5cfbca1c-b64d-468a-8e81-b9a6080e4f0e",
+        "href": "nuapp://transaction/5cfbca1c-973e-4cc7-84f8-810aca5d135b",
+        "category": "casa",
+        "charges": 1
+      },
+      {
+        "amount": 6000,
+        "index": 0,
+        "title": "Joao Coragem",
+        "post_date": "2019-06-10",
+        "id": "5cfbe358-1ac8-4772-b434-27bf363b2d45",
+        "href": "nuapp://transaction/5cfbe357-7c99-4544-ad47-ff3efa523ff4",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Comida Caseira da Bern",
+        "post_date": "2019-06-11",
+        "id": "5cfe8800-f5d9-43d0-ac6e-ea461237458c",
+        "href": "nuapp://transaction/5cfe8800-2d69-4f3e-abca-4cbe90e3a9d9",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 4258,
+        "index": 0,
+        "title": "Nova Galeria",
+        "post_date": "2019-06-11",
+        "id": "5cfedb58-1c2d-4689-a2d5-25592b7a2ec9",
+        "href": "nuapp://transaction/5cfedb58-0146-4661-8edb-b27b46cae2f2",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 10000,
+        "index": 0,
+        "title": "Auto Posto Amcg",
+        "post_date": "2019-06-11",
+        "id": "5cfef914-b81a-4404-b3c5-f9f10b6735f4",
+        "href": "nuapp://transaction/5cfef913-e5eb-4f4e-b058-3b9f92b12f00",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Sumup *Marmitadaberna",
+        "post_date": "2019-06-12",
+        "id": "5cffd7b8-72df-4a62-a701-a56e47707536",
+        "href": "nuapp://transaction/5cffd7b8-1905-49c9-93a6-bee5c8a956e9",
+        "category": "lazer",
+        "charges": 1
+      },
+      {
+        "amount": 4800,
+        "index": 0,
+        "title": "Forneria Paulistana",
+        "post_date": "2019-06-13",
+        "id": "5d018458-2084-4d8a-8613-16e0df90f090",
+        "href": "nuapp://transaction/5d018457-02cb-40a5-8de4-e1667f97244e",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 729,
+        "index": 0,
+        "title": "Uber do Brasil Tecnolo",
+        "post_date": "2019-06-13",
+        "id": "5d016313-05a9-40c5-9f1a-a5efb69f0f3e",
+        "href": "nuapp://transaction/5d016313-4fea-4db6-8cfa-6e3be629063e",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 684,
+        "index": 0,
+        "title": "Uber do Brasil Tecnolo",
+        "post_date": "2019-06-13",
+        "id": "5d0159d0-1b24-4b28-961f-86bf45a32a3f",
+        "href": "nuapp://transaction/5d0159d0-03aa-422b-9523-5e0d0d2ac85c",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Comida Caseira da Bern",
+        "post_date": "2019-06-13",
+        "id": "5d012690-9968-472c-9ad7-aa5462b5d715",
+        "href": "nuapp://transaction/5d012690-2a92-4fa2-bd81-514fe9947989",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3000,
+        "index": 0,
+        "title": "Pag*Faustinobarber",
+        "post_date": "2019-06-13",
+        "id": "5d01628e-8628-40ce-b772-21974c4780e6",
+        "href": "nuapp://transaction/5d01628e-d765-4a60-ba5f-0d2d21c9f5f4",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 6900,
+        "index": 0,
+        "title": "Madero Indaiatuba",
+        "post_date": "2019-06-14",
+        "id": "5d02ca9f-865e-4266-a206-d5f3e3632403",
+        "href": "nuapp://transaction/5d02ca9f-a14e-4906-b39f-5acd8ccdb8af",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 10400,
+        "index": 0,
+        "title": "El Dourado",
+        "post_date": "2019-06-14",
+        "id": "5d027905-9aae-42d3-8111-a1795fcb5178",
+        "href": "nuapp://transaction/5d027905-ba49-4505-8a99-c2ff3771b349",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1450,
+        "index": 0,
+        "title": "Rest Nicolau Barretos",
+        "post_date": "2019-06-14",
+        "id": "5d02a5c7-d5a6-4afe-a6ec-2612fb21e7ce",
+        "href": "nuapp://transaction/5d02a5c7-6631-4b3b-aeec-631bea83cfea",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2609,
+        "index": 0,
+        "title": "Picpay*Jf3 Thiagobri",
+        "post_date": "2019-06-15",
+        "id": "5d03ded6-2b10-4f3d-b4e4-b47a3c375e3f",
+        "href": "nuapp://transaction/5d03ded6-ba96-4192-9140-0a0af9439344",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 7990,
+        "index": 0,
+        "title": "Arena Muscle",
+        "post_date": "2019-06-15",
+        "id": "5d03b8f2-07ab-41c3-8f8f-c963b974a4df",
+        "href": "nuapp://transaction/5d03b8f2-40d3-4783-bb84-449259a44a75",
+        "category": "lazer",
+        "charges": 1
+      },
+      {
+        "amount": 3879,
+        "index": 0,
+        "title": "Champion Sp 101 Cin-In",
+        "post_date": "2019-06-15",
+        "id": "5d041aa9-12b0-45e8-bdb6-2e42b5bb3703",
+        "href": "nuapp://transaction/5d041aa8-7316-4fdc-afa3-75f44bb20144",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1400,
+        "index": 0,
+        "title": "Comida Caseira da Bern",
+        "post_date": "2019-06-15",
+        "id": "5d03c932-c477-4860-a5ce-32f1be10c32f",
+        "href": "nuapp://transaction/5d03c932-a65a-49a2-9a39-ae42cef2ec81",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": -4590,
+        "type_detail": "rewards_cashback",
+        "title": "Rewards - Cr\u00e9dito de compra apagada",
+        "post_date": "2019-06-16",
+        "id": "5d064798-7047-4ad9-a131-8a95a4d23464"
+      },
+      {
+        "amount": 10000,
+        "index": 0,
+        "title": "Auto Posto Amcg",
+        "post_date": "2019-06-17",
+        "id": "5d053b51-1513-4f69-9c94-b6769abba6a6",
+        "href": "nuapp://transaction/5d053b51-0867-4e43-9d95-04e5124d31f7",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 5000,
+        "index": 0,
+        "title": "sem Parar",
+        "post_date": "2019-06-17",
+        "id": "5d057638-6cd5-4b7e-b8a1-9e9e37407dfe",
+        "href": "nuapp://transaction/5d057638-d76f-4065-bf4d-380df6cb5ed5",
+        "category": "viagem",
+        "charges": 1
+      },
+      {
+        "amount": 6468,
+        "index": 0,
+        "title": "Joao Coragem",
+        "post_date": "2019-06-17",
+        "id": "5d0522ad-20e5-4163-8407-94686d9ffd40",
+        "href": "nuapp://transaction/5d0522ad-e4d4-4c34-b5ff-34370c30dc0b",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 4590,
+        "index": 0,
+        "title": "Netflix.Com",
+        "post_date": "2019-06-17",
+        "id": "5d04babb-3bf7-461d-8994-45051c694e6b",
+        "href": "nuapp://transaction/5d04babb-1f4d-4bee-9cc4-d59117b5c392",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 6800,
+        "index": 0,
+        "title": "Helvetia Eventos",
+        "post_date": "2019-06-17",
+        "id": "5d0572fd-b3a6-41ec-8a1a-b41a7eb65713",
+        "href": "nuapp://transaction/5d0572fd-3ed5-4d44-b044-9fd6958db368",
+        "category": "lazer",
+        "charges": 1
+      }
+    ]
+  }
+}

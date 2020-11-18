@@ -1,0 +1,137 @@
+{
+  "bill": {
+    "id": "56d4628d-b0ce-445b-bdd5-f3fc137d19ba",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-03-10",
+      "close_date": "2016-02-29",
+      "late_interest_rate": "0.0875",
+      "past_balance": 0,
+      "late_fee": "0.02",
+      "effective_due_date": "2016-03-10",
+      "total_balance": 31256,
+      "interest_rate": "0.0775",
+      "interest": 0,
+      "total_cumulative": 31256,
+      "paid": 31256,
+      "minimum_payment": 4688,
+      "open_date": "2016-01-28"
+    },
+    "_links": {
+      "boleto_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDetnhgeT3pOchT8aM4ueM3jYMdQQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NmQ0NjI4ZC1iMGNlLTQ0NWItYmRkNS1mM2ZjMTM3ZDE5YmEvYm9sZXRvL2VtYWls"
+      },
+      "barcode": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBCwdSb2vUE7c04cWiM1hseHnlTpQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NmQ0NjI4ZC1iMGNlLTQ0NWItYmRkNS1mM2ZjMTM3ZDE5YmEvYm9sZXRvL2JhcmNvZGU"
+      },
+      "invoice_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDaBTmntMVA5ANa5p3wliLMcmLEJA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NmQ0NjI4ZC1iMGNlLTQ0NWItYmRkNS1mM2ZjMTM3ZDE5YmEvaW52b2ljZS9lbWFpbA"
+      },
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDP4jGUk6fP3Z_JSh7YKBm7yFit0w.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NmQ0NjI4ZC1iMGNlLTQ0NWItYmRkNS1mM2ZjMTM3ZDE5YmE"
+      }
+    },
+    "line_items": [
+      {
+        "amount": 2050,
+        "index": 0,
+        "title": "Gerson Lanches",
+        "post_date": "2016-02-20",
+        "id": "56c84174-11a1-4ca1-8e74-e6a7fba71ca9",
+        "href": "nuapp://transaction/56c6622c-d4ac-4f09-ba3a-baacd77c42aa",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3650,
+        "index": 0,
+        "title": "Subway",
+        "post_date": "2016-02-23",
+        "id": "56cc9296-72eb-49e6-80e2-92fe5eaadcd9",
+        "href": "nuapp://transaction/56ca5b36-275a-4491-bd03-3ced0cb0cc44",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5968,
+        "index": 0,
+        "title": "3lf Restaurante",
+        "post_date": "2016-02-23",
+        "id": "56cc9296-b2d4-493d-8209-63be3fcf5f6f",
+        "href": "nuapp://transaction/56c733ac-c46e-4a50-a07e-f2183949da5f",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3700,
+        "index": 0,
+        "title": "Parada do Impedrador",
+        "post_date": "2016-02-23",
+        "id": "56cc9296-0b91-4c20-9ed8-321a879de0ee",
+        "href": "nuapp://transaction/56c7a441-7632-4cd8-9346-4f887b305dbe",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2040,
+        "index": 0,
+        "title": "Rincao Gaucho Churrasc",
+        "post_date": "2016-02-24",
+        "id": "56cd80a1-d870-4f4b-a1e4-4b30746f5f1f",
+        "href": "nuapp://transaction/56cb46cd-fee6-4fc7-a0fc-ca77f14c1ea5",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1013,
+        "index": 0,
+        "title": "Comida Caseira da Sand",
+        "post_date": "2016-02-25",
+        "id": "56cee76b-72ce-46cd-8a97-920f837a8f53",
+        "href": "nuapp://transaction/56cc8958-4a9b-4f7c-a313-c26371cd24c0",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2620,
+        "index": 0,
+        "title": "Drogal Farmacia",
+        "post_date": "2016-02-25",
+        "id": "56cee76b-a8c8-4e20-b412-cce1064fcac2",
+        "href": "nuapp://transaction/56cc4269-c00b-414b-91bb-f4fa3eed8c84",
+        "category": "sa\u00fade",
+        "charges": 1
+      },
+      {
+        "amount": 5615,
+        "index": 0,
+        "title": "Kostela do Japones",
+        "post_date": "2016-02-26",
+        "id": "56d01fae-52f4-420f-b7d8-4b8bfa03b0ef",
+        "href": "nuapp://transaction/56cdd8af-236e-43ef-a979-5258b68cf65e",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3500,
+        "index": 0,
+        "title": "Uenohara Lanch Rest Indaiatuba",
+        "post_date": "2016-02-27",
+        "id": "56d23543-e77c-484a-9808-4c7b75d72c02",
+        "href": "nuapp://transaction/56cf23a0-fe95-4137-b295-eebfd59b41f3",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1100,
+        "index": 0,
+        "title": "Chocolates Kopenhagen Indaiatuba",
+        "post_date": "2016-02-27",
+        "id": "56d23543-cf22-46b5-bb51-06a119f2021a",
+        "href": "nuapp://transaction/56cf2a12-d14d-4b2c-9ca2-d94b1a4b74fb",
+        "category": "supermercado",
+        "charges": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "bill": {
+    "id": "56fd4e43-b421-4627-9bb4-109d98c761f9",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2016-04-10",
+      "close_date": "2016-03-31",
+      "late_interest_rate": "0.0875",
+      "past_balance": 0,
+      "late_fee": "0.02",
+      "effective_due_date": "2016-04-11",
+      "total_balance": 52745,
+      "interest_rate": "0.0775",
+      "interest": 0,
+      "total_cumulative": 52745,
+      "paid": 52745,
+      "minimum_payment": 7912,
+      "open_date": "2016-02-29"
+    },
+    "_links": {
+      "boleto_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCUi3PNHrha1S2UU7n_FrJi2_iv2g.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NmZkNGU0My1iNDIxLTQ2MjctOWJiNC0xMDlkOThjNzYxZjkvYm9sZXRvL2VtYWls"
+      },
+      "barcode": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDrY17b1v3ZY7qws67oDhoGAmYLkg.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NmZkNGU0My1iNDIxLTQ2MjctOWJiNC0xMDlkOThjNzYxZjkvYm9sZXRvL2JhcmNvZGU"
+      },
+      "invoice_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAbORqYiFQZAFK4t0CDtD4l_aPWJw.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NmZkNGU0My1iNDIxLTQ2MjctOWJiNC0xMDlkOThjNzYxZjkvaW52b2ljZS9lbWFpbA"
+      },
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBvGu9VODQihuN3yhzNQWwg7QCC-w.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81NmZkNGU0My1iNDIxLTQ2MjctOWJiNC0xMDlkOThjNzYxZjk"
+      }
+    },
+    "line_items": [
+      {
+        "amount": 2787,
+        "index": 0,
+        "title": "Frango Assado",
+        "post_date": "2016-03-01",
+        "id": "56d5a949-fa22-461f-9a60-78f9c373f161",
+        "href": "nuapp://transaction/56d0db91-e2e7-41d3-a4d5-861747fe8bc4",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1990,
+        "index": 0,
+        "title": "Confeitaria Central",
+        "post_date": "2016-03-01",
+        "id": "56d5b976-f528-4c3f-98ca-cdf9fed9f2b4",
+        "href": "nuapp://transaction/56d1f8c6-bcd8-4a9e-a223-8d0a6dcff773",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 2284,
+        "index": 0,
+        "title": "Rincao Gaucho Churrasc",
+        "post_date": "2016-03-01",
+        "id": "56d5b976-0ebd-4fee-8f49-e6d184cff967",
+        "href": "nuapp://transaction/56d082cb-d156-4c8c-ab39-54a2eac4f6be",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3548,
+        "index": 0,
+        "title": "Construcenter",
+        "post_date": "2016-03-01",
+        "id": "56d5a949-7455-4991-ab31-ffa5d9060f6c",
+        "href": "nuapp://transaction/56d08e58-ccb5-418e-9fde-369a06ca7b28",
+        "category": "casa",
+        "charges": 1
+      },
+      {
+        "amount": 8444,
+        "index": 0,
+        "title": "Lojas Americanas",
+        "post_date": "2016-03-01",
+        "id": "56d5b976-31f2-4541-bb20-e696bdd9851a",
+        "href": "nuapp://transaction/56d1fc7b-f8f6-46fe-841e-239dc2436197",
+        "category": "eletr\u00f4nicos",
+        "charges": 1
+      },
+      {
+        "amount": 3000,
+        "index": 0,
+        "title": "Registro",
+        "post_date": "2016-03-03",
+        "id": "56d80dcf-4a86-475d-a807-f63485af6144",
+        "href": "nuapp://transaction/56d5e63a-b472-4499-8c1f-e1c9b52af329",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": -31256,
+        "title": "Pagamento recebido",
+        "post_date": "2016-03-10",
+        "id": "56e286a0-726d-444b-82c5-7804a9a8ea33"
+      },
+      {
+        "amount": 3999,
+        "index": 0,
+        "title": "306 Sider Shopping V",
+        "post_date": "2016-03-15",
+        "id": "56e819e7-8970-4ff6-ad01-f278695ec097",
+        "href": "nuapp://transaction/56e5caeb-ec08-44fe-91fb-4d4151e12353",
+        "category": "eletr\u00f4nicos",
+        "charges": 1
+      },
+      {
+        "amount": 1617,
+        "index": 0,
+        "title": "Cheiro do Campo",
+        "post_date": "2016-03-15",
+        "id": "56e8045e-d92a-4e75-bfb9-f664ce20f3bf",
+        "href": "nuapp://transaction/56e43fc3-1bf3-4de3-9211-a0e805893f16",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2749,
+        "index": 0,
+        "title": "Frango Assado",
+        "post_date": "2016-03-15",
+        "id": "56e82264-bed5-4557-9111-c85604c67ca3",
+        "href": "nuapp://transaction/56e34f80-9a87-4ff6-9df0-2d91ea0d68cf",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1460,
+        "index": 0,
+        "title": "Grao de Cafe",
+        "post_date": "2016-03-15",
+        "id": "56e819eb-8b7a-4992-9c1a-359fca5cd7f9",
+        "href": "nuapp://transaction/56e5cebb-979d-45ef-919c-2e6a1236daaa",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2500,
+        "index": 0,
+        "title": "de la Marie",
+        "post_date": "2016-03-15",
+        "id": "56e81a27-3252-4954-94b8-9f09c66c483f",
+        "href": "nuapp://transaction/56e2f589-d3cf-42f6-b9bc-6aa8e47b45e3",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1460,
+        "index": 0,
+        "title": "Grao de Cafe",
+        "post_date": "2016-03-15",
+        "id": "56e819e9-4c5a-4259-8d43-5e0b351a8d06",
+        "href": "nuapp://transaction/56e5cc26-bd90-4825-8555-884a0ee11935",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 16907,
+        "index": 0,
+        "title": "Braseiro Gaucho",
+        "post_date": "2016-03-15",
+        "id": "56e80928-6ab6-432b-b11d-a296918e4b6c",
+        "href": "nuapp://transaction/56e4b9a5-92ac-4ee8-930f-1edecd53c7ee",
+        "category": "restaurante",
+        "charges": 1
+      }
+    ]
+  }
+}

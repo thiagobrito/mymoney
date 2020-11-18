@@ -1,0 +1,850 @@
+{
+  "bill": {
+    "id": "5eec4142-4c7a-4bd2-9c4a-d87c9e2a2555",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2020-06-26",
+      "close_date": "2020-06-19",
+      "late_interest_rate": "0.1475",
+      "past_balance": -9725,
+      "late_fee": "0.02",
+      "effective_due_date": "2020-06-26",
+      "total_balance": 405439,
+      "interest_rate": "0.1375",
+      "interest": 0,
+      "total_cumulative": 415164,
+      "paid": 405439,
+      "minimum_payment": 60816,
+      "open_date": "2020-05-19"
+    },
+    "_links": {
+      "boleto_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LADnbbt2kvDdcki_-aI1QQuMINLaw.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZWVjNDE0Mi00YzdhLTRiZDItOWM0YS1kODdjOWUyYTI1NTUvYm9sZXRvL2VtYWls"
+      },
+      "barcode": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LChlO5G47LwsJn_1uaplpNoXXCsYA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZWVjNDE0Mi00YzdhLTRiZDItOWM0YS1kODdjOWUyYTI1NTUvYm9sZXRvL2JhcmNvZGU"
+      },
+      "invoice_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LCWx3__86_PpUL-DpAcRnpLHBYoHQ.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZWVjNDE0Mi00YzdhLTRiZDItOWM0YS1kODdjOWUyYTI1NTUvaW52b2ljZS9lbWFpbA"
+      },
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LAFqwYyun2GoKzRZRjeKbXeIBqv6Q.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ZWVjNDE0Mi00YzdhLTRiZDItOWM0YS1kODdjOWUyYTI1NTU"
+      }
+    },
+    "line_items": [
+      {
+        "amount": 8227,
+        "index": 4,
+        "title": "Acom Mkt Place",
+        "post_date": "2020-05-19",
+        "id": "5e4214bb-9ff7-4a35-a989-bf7ee38aaf39",
+        "href": "nuapp://transaction/5e414126-dbb3-4f87-92c6-3845363b23fa",
+        "category": "eletr\u00f4nicos",
+        "charges": 8
+      },
+      {
+        "amount": 5375,
+        "index": 6,
+        "title": "Htm*Hotmart Cpme",
+        "post_date": "2020-05-19",
+        "id": "5de16452-6950-4023-af30-ff39bc01c88c",
+        "href": "nuapp://transaction/5de16452-3563-44cc-ae73-cbfb5bd0da58",
+        "category": "servi\u00e7os",
+        "charges": 12
+      },
+      {
+        "amount": 2424,
+        "index": 6,
+        "title": "Comclick",
+        "post_date": "2020-05-19",
+        "id": "5def9e28-1138-40b3-9f21-44accc9fb994",
+        "href": "nuapp://transaction/5def9e28-6b29-419f-a66b-fb0548cebaeb",
+        "category": "servi\u00e7os",
+        "charges": 12
+      },
+      {
+        "amount": 21397,
+        "index": 6,
+        "title": "Americanas Com",
+        "post_date": "2020-05-19",
+        "id": "5df385d4-7120-42f8-87c6-f86b58116124",
+        "href": "nuapp://transaction/5df385d4-b0a0-46b2-b137-ad3959bf98a9",
+        "category": "eletr\u00f4nicos",
+        "charges": 8
+      },
+      {
+        "amount": 10739,
+        "index": 5,
+        "title": "Dicico Lj",
+        "post_date": "2020-05-19",
+        "id": "5e1ec4aa-ab95-4011-b0b5-227ae4777404",
+        "href": "nuapp://transaction/5e1e4929-f54c-473f-a602-c784dfb32b54",
+        "category": "casa",
+        "charges": 6
+      },
+      {
+        "amount": 3559,
+        "index": 5,
+        "title": "Americanas Com",
+        "post_date": "2020-05-19",
+        "id": "5e05efc9-90d7-4a32-ac92-3c673d32f2e3",
+        "href": "nuapp://transaction/5e050ba9-27c2-4374-8567-a387e94aa06c",
+        "category": "eletr\u00f4nicos",
+        "charges": 8
+      },
+      {
+        "amount": 2997,
+        "index": 5,
+        "title": "Cae Loja",
+        "post_date": "2020-05-19",
+        "id": "5e019700-6398-42e6-8e8c-4e07ed973ad3",
+        "href": "nuapp://transaction/5e014e72-dec2-458a-a4e1-5bdaa90bb73c",
+        "category": "casa",
+        "charges": 10
+      },
+      {
+        "amount": 5206,
+        "index": 1,
+        "title": "Www.Arezzo.C*Order0357",
+        "post_date": "2020-05-19",
+        "id": "5eb0c599-55b1-453a-b196-da2f71300d91",
+        "href": "nuapp://transaction/5eb00a51-90eb-4b68-909a-23116fe8bb44",
+        "category": "vestu\u00e1rio",
+        "charges": 3
+      },
+      {
+        "amount": 2126,
+        "index": 2,
+        "title": "Acom Mkt Place",
+        "post_date": "2020-05-19",
+        "id": "5e93e223-5ec8-4697-aaf2-aa6803d6f9d4",
+        "href": "nuapp://transaction/5e921dea-e893-405e-8b96-61736cdc58fb",
+        "category": "eletr\u00f4nicos",
+        "charges": 3
+      },
+      {
+        "amount": 18092,
+        "index": 5,
+        "title": "Dicico Home Dicico Hom",
+        "post_date": "2020-05-19",
+        "id": "5e104e38-02fc-41fe-b1ad-35cbe8313869",
+        "href": "nuapp://transaction/5e0fc409-462c-4425-920c-0aa7d4df0938",
+        "category": "casa",
+        "charges": 8
+      },
+      {
+        "amount": 11000,
+        "index": 0,
+        "title": "Pag*Cristalpet",
+        "post_date": "2020-05-19",
+        "id": "5ec2eeb5-e2f9-4286-a0ee-574e5fa6fc6e",
+        "href": "nuapp://transaction/5ec2eeb5-4fe5-4b29-a943-1eb092787c18",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 28284,
+        "index": 2,
+        "title": "Ebanx Cambly",
+        "post_date": "2020-05-19",
+        "id": "5e8fdb22-2821-45b8-a95e-3c46abe9f79b",
+        "href": "nuapp://transaction/5e8f24be-3f30-4487-a7ab-1f7e110346ce",
+        "category": "casa",
+        "charges": 12
+      },
+      {
+        "amount": 834,
+        "index": 8,
+        "title": "Kabum",
+        "post_date": "2020-05-19",
+        "id": "5da6f54b-607c-48ec-9f26-f81e23631f8b",
+        "href": "nuapp://transaction/5da5c034-21b3-4604-bed4-a1112eb325a9",
+        "category": "eletr\u00f4nicos",
+        "charges": 12
+      },
+      {
+        "amount": 19177,
+        "index": 6,
+        "title": "Americanas Com",
+        "post_date": "2020-05-19",
+        "id": "5df7057c-7491-4b31-8a9e-0ed72f10229e",
+        "href": "nuapp://transaction/5df385d2-a6e0-4742-9db0-270ab2925ed5",
+        "category": "eletr\u00f4nicos",
+        "charges": 8
+      },
+      {
+        "amount": 11446,
+        "index": 5,
+        "title": "Americanas Com",
+        "post_date": "2020-05-19",
+        "id": "5e105181-092a-4819-b5bb-997b3d05e743",
+        "href": "nuapp://transaction/5e0f6fd1-88a1-4678-8938-9fcef2d66bc9",
+        "category": "eletr\u00f4nicos",
+        "charges": 8
+      },
+      {
+        "amount": 3970,
+        "index": 10,
+        "title": "Pg *Eduzz*Eduzz",
+        "post_date": "2020-05-19",
+        "id": "5d3b2e31-b20e-4642-b6e4-60566c7efad2",
+        "href": "nuapp://transaction/5d3b2e31-a6a1-4147-b709-19e4932f435a",
+        "category": "educa\u00e7\u00e3o",
+        "charges": 12
+      },
+      {
+        "amount": 8123,
+        "index": 1,
+        "title": "Mercado Pet",
+        "post_date": "2020-05-19",
+        "id": "5ea45834-ae90-4e9b-9d64-d161eecd740e",
+        "href": "nuapp://transaction/5ea45834-4f21-4661-a01a-d91eeddcee04",
+        "category": "casa",
+        "charges": 3
+      },
+      {
+        "amount": 23550,
+        "index": 3,
+        "title": "Vidracaria Imperial Vi",
+        "post_date": "2020-05-19",
+        "id": "5e67cb64-40ce-4f76-ae67-d024f196bc71",
+        "href": "nuapp://transaction/5e67cb64-9b6a-48ea-983e-4e962418dd87",
+        "category": "casa",
+        "charges": 6
+      },
+      {
+        "amount": 9714,
+        "index": 10,
+        "title": "Hotmart*Hotmart Ap",
+        "post_date": "2020-05-19",
+        "id": "5d529581-9f24-44fc-82de-d35f5c308189",
+        "href": "nuapp://transaction/5d529581-e2f1-403c-83d6-715006455557",
+        "category": "servi\u00e7os",
+        "charges": 12
+      },
+      {
+        "amount": 795,
+        "index": 4,
+        "title": "Mercpago*Servtect",
+        "post_date": "2020-05-19",
+        "id": "5e469ecf-ef63-4b51-9e91-a1847321198f",
+        "href": "nuapp://transaction/5e469ecf-e2e0-45f4-a4bc-735bc32ab950",
+        "category": "servi\u00e7os",
+        "charges": 12
+      },
+      {
+        "amount": 4744,
+        "index": 0,
+        "title": "Restaurante Suica Park",
+        "post_date": "2020-05-20",
+        "id": "5ec449fe-58e1-45d8-b524-78c9205d3997",
+        "href": "nuapp://transaction/5ec449fe-0fe9-4608-9d5e-e832a217189c",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5000,
+        "index": 0,
+        "title": "Posto Esplanada",
+        "post_date": "2020-05-22",
+        "id": "5ec6e016-b517-4f4a-bbe1-80abc83794f9",
+        "href": "nuapp://transaction/5ec6e016-70b9-4b8a-b18d-f1602dc7d79f",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 2302,
+        "index": 0,
+        "title": "Elo7",
+        "post_date": "2020-05-22",
+        "id": "5ec666a4-82f3-42ff-b74d-47ad1732baf6",
+        "href": "nuapp://transaction/5ec666a4-5547-43b5-bc47-9cc631156119",
+        "category": "servi\u00e7os",
+        "charges": 12
+      },
+      {
+        "amount": 2199,
+        "index": 0,
+        "title": "Pao de Acucar Indaiatu",
+        "post_date": "2020-05-22",
+        "id": "5ec6add3-5c53-4985-9ea3-ed4b4f3b9702",
+        "href": "nuapp://transaction/5ec6add3-4b72-4cb7-90a1-38c11ff57aca",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 2250,
+        "index": 0,
+        "title": "Ac Indaiatuba",
+        "post_date": "2020-05-22",
+        "id": "5ec6a519-d9b0-4cdd-98fa-b8259caefae5",
+        "href": "nuapp://transaction/5ec6a518-ab9d-44c7-ad81-71647b6355b7",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 4340,
+        "index": 0,
+        "title": "Ifood *Ifood",
+        "post_date": "2020-05-23",
+        "id": "5ec7132c-8949-4a5c-b633-41ece2bcd156",
+        "href": "nuapp://transaction/5ec7132c-af93-44b5-95c7-88edac548efb",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3829,
+        "index": 0,
+        "title": "Ifood *Ifood",
+        "post_date": "2020-05-25",
+        "id": "5ecac89d-13e8-4aff-83df-9e776a245a57",
+        "href": "nuapp://transaction/5ecac89d-0722-4060-a85c-87f3a8eb38d0",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5569,
+        "index": 0,
+        "title": "Dicico Lj",
+        "post_date": "2020-05-25",
+        "id": "5ec9365d-5efe-4ca5-b4a2-3862ce6c0ec2",
+        "href": "nuapp://transaction/5ec9365d-12af-4c27-9a11-9a2992ef11e9",
+        "category": "casa",
+        "charges": 1
+      },
+      {
+        "amount": 4380,
+        "index": 0,
+        "title": "Swift Indaiatuba",
+        "post_date": "2020-05-25",
+        "id": "5ec93413-dcb8-4f86-b23c-d4b124e276d2",
+        "href": "nuapp://transaction/5ec93413-2822-41a9-8dd5-5c2a668de236",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": -379957,
+        "title": "Pagamento recebido",
+        "post_date": "2020-05-26",
+        "id": "5ece0701-3d92-485d-8358-cdba5f331887"
+      },
+      {
+        "amount": -7460,
+        "type_detail": "reversal_brazil_due",
+        "title": "Estorno de \"Amazon-Marketplace\"",
+        "post_date": "2020-05-28",
+        "id": "5ecff9ea-fed9-446f-a28b-b3bb3a6fec5a",
+        "href": "nuapp://transaction/5e840548-06a1-498d-a7d8-4fc9249e135a"
+      },
+      {
+        "amount": 5265,
+        "index": 0,
+        "title": "Ifood *Ifood",
+        "post_date": "2020-05-28",
+        "id": "5eced99c-bf5d-495c-90a8-0d50ec0f1ccb",
+        "href": "nuapp://transaction/5eced99c-314f-4be1-82a8-75a3383867c0",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 7600,
+        "index": 0,
+        "title": "Registrobr",
+        "post_date": "2020-05-29",
+        "id": "5ecee511-1110-4f9a-83e3-6ae8d0eeecdc",
+        "href": "nuapp://transaction/5ecee511-a536-4ad4-bdc4-f4f876a0082d",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 1300,
+        "index": 0,
+        "title": "Camila Roberta Scabell",
+        "post_date": "2020-06-01",
+        "id": "5ed277d8-7fa9-46c6-8662-6e7428583159",
+        "href": "nuapp://transaction/5ed277d8-ec24-402b-a869-e4c05b89ade7",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 5000,
+        "index": 0,
+        "title": "sem Parar",
+        "post_date": "2020-06-01",
+        "id": "5ed285c1-c40c-4294-b4cd-80d3ba1689b2",
+        "href": "nuapp://transaction/5ed285c1-0732-4a1b-83b2-dd927eec8613",
+        "category": "viagem",
+        "charges": 1
+      },
+      {
+        "amount": 8000,
+        "index": 0,
+        "title": "Posto Esplanada",
+        "post_date": "2020-06-01",
+        "id": "5ed25515-a6b5-4d99-80fe-56327fd4b365",
+        "href": "nuapp://transaction/5ed25515-77f9-4876-9f33-8e3a5ab34af9",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 600,
+        "index": 0,
+        "title": "Pag*Eneidatorreshonor",
+        "post_date": "2020-06-01",
+        "id": "5ed27814-1b29-4923-a2d3-d4e0777e5a73",
+        "href": "nuapp://transaction/5ed27814-fd85-4810-9a91-0b3be9c6293f",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1770,
+        "index": 0,
+        "title": "Pag*Kelivariedades",
+        "post_date": "2020-06-01",
+        "id": "5ed27727-456b-4e74-8588-a05356383533",
+        "href": "nuapp://transaction/5ed27727-2555-4552-8eec-d2ea136b594b",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 4800,
+        "index": 0,
+        "title": "Forneria Paulistana",
+        "post_date": "2020-06-01",
+        "id": "5ed2da7f-ed63-4081-93e5-09e1604b1135",
+        "href": "nuapp://transaction/5ed2da7f-a547-4635-9f27-f821ba4a6fa6",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 2800,
+        "index": 0,
+        "title": "Grao Espresso Sam'S",
+        "post_date": "2020-06-01",
+        "id": "5ed28ae0-c2cc-42f3-90e4-f7a8839942ab",
+        "href": "nuapp://transaction/5ed28ae0-fd90-4cb0-b898-1317235a44a9",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1290,
+        "index": 0,
+        "title": "Mercadopago *Guimis",
+        "post_date": "2020-06-01",
+        "id": "5ed2d8ab-9f2f-46ea-887b-b354b46d874a",
+        "href": "nuapp://transaction/5ed2d8ab-9ce6-48f3-b2e3-6849f4d73625",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 12,
+        "type_detail": "tax_foreign",
+        "title": "IOF de \"Amazon Web Services\"",
+        "post_date": "2020-06-03",
+        "id": "5ed71ad8-f24d-4405-a5a3-b6378cf65ad9",
+        "href": "nuapp://transaction/5ed6b613-c782-4310-b01c-2d18d9e86d29"
+      },
+      {
+        "amount": 191,
+        "index": 0,
+        "title": "Amazon Web Services",
+        "post_date": "2020-06-03",
+        "id": "5ed71ad9-bb6a-4dbb-885a-454b164704af",
+        "href": "nuapp://transaction/5ed6b613-c782-4310-b01c-2d18d9e86d29",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 2430,
+        "index": 0,
+        "title": "Google Gsuite_thiagobr",
+        "post_date": "2020-06-03",
+        "id": "5ed65546-4392-4aaa-bf0b-96d2fa8aedcd",
+        "href": "nuapp://transaction/5ed65546-df08-4f4f-a748-e1da787fa6cb",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 2430,
+        "index": 0,
+        "title": "Google Gsuite_patricia",
+        "post_date": "2020-06-03",
+        "id": "5ed61e1f-d7fb-4fe9-85ee-9a751be94113",
+        "href": "nuapp://transaction/5ed61e1f-507b-4bda-8d04-b4b643f170be",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": -2129,
+        "type_detail": "reversal_foreign_due",
+        "title": "Estorno de \"Notion Labs Inc\"",
+        "post_date": "2020-06-04",
+        "id": "5ed8eb15-576f-48a6-8e92-4bd63636f18f",
+        "href": "nuapp://transaction/5df62118-0e20-4fea-9484-05c36122da20"
+      },
+      {
+        "amount": -136,
+        "type_detail": "tax_foreign",
+        "title": "IOF de \"Notion Labs Inc\"",
+        "post_date": "2020-06-04",
+        "id": "5ed8eb15-99fd-46d7-9418-ed027a72696c",
+        "href": "nuapp://transaction/5df62118-0e20-4fea-9484-05c36122da20"
+      },
+      {
+        "amount": 1611,
+        "index": 0,
+        "title": "Amazon.Com.Br Digital",
+        "post_date": "2020-06-04",
+        "id": "5ed7954c-3cd2-45fd-9d63-63c8349c3944",
+        "href": "nuapp://transaction/5ed7954c-4b3c-489f-a8e1-ab90b772e562",
+        "category": "educa\u00e7\u00e3o",
+        "charges": 1
+      },
+      {
+        "amount": 2990,
+        "index": 0,
+        "title": "Amazon.Com.Br Digital",
+        "post_date": "2020-06-04",
+        "id": "5ed7950a-6b04-438b-833e-3e7b72eed737",
+        "href": "nuapp://transaction/5ed7950a-0ebb-4e8e-9a8e-cb22f3cfc11f",
+        "category": "educa\u00e7\u00e3o",
+        "charges": 1
+      },
+      {
+        "amount": 500,
+        "index": 0,
+        "title": "Beneton Park Indaiatub",
+        "post_date": "2020-06-05",
+        "id": "5ed9213c-af7a-4160-8c8f-771cffb4e70e",
+        "href": "nuapp://transaction/5ed9213c-9987-45c3-85c4-c3d0f8a8b148",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 6630,
+        "index": 0,
+        "title": "Ifood *Ifood",
+        "post_date": "2020-06-05",
+        "id": "5ed97b7a-afd8-4929-8786-cbc56bf62a51",
+        "href": "nuapp://transaction/5ed97b7a-7ec0-47d4-beff-8cd4e6e7b099",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2000,
+        "index": 0,
+        "title": "Pag*Vanessadevechi",
+        "post_date": "2020-06-06",
+        "id": "5eda5c51-b631-46f5-86cc-92c950dcf973",
+        "href": "nuapp://transaction/5eda5c51-6e25-4df3-b29c-8d7b14d1788f",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5000,
+        "index": 0,
+        "title": "Auto Posto Esplanada D",
+        "post_date": "2020-06-08",
+        "id": "5edd214d-d8fa-4d65-9941-2da46cbc561d",
+        "href": "nuapp://transaction/5edd214d-afe4-41b9-b093-82384344f9ff",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 6399,
+        "index": 0,
+        "title": "Ifood *Ifood",
+        "post_date": "2020-06-08",
+        "id": "5edadc67-844b-4e4f-bc2e-2a10ac6f988c",
+        "href": "nuapp://transaction/5edadc67-a3d3-4621-bd23-d6022b52354b",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 9588,
+        "index": 0,
+        "title": "Mobly *Mobly",
+        "post_date": "2020-06-08",
+        "id": "5ede3d8a-c357-496c-9bf9-0bffffb006a8",
+        "href": "nuapp://transaction/5edd8707-1c65-4d00-8484-fe404f21756f",
+        "category": "casa",
+        "charges": 10
+      },
+      {
+        "amount": 4445,
+        "index": 0,
+        "title": "Ifood *Ifood",
+        "post_date": "2020-06-08",
+        "id": "5edc1d23-aa54-4808-a24f-9f43c44a9e06",
+        "href": "nuapp://transaction/5edc1d23-ac87-412a-b359-1a55a2e7a9c3",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3580,
+        "index": 0,
+        "title": "Amazon-Marketplace",
+        "post_date": "2020-06-09",
+        "id": "5edd87ea-c8f8-4de0-8199-1248811fd162",
+        "href": "nuapp://transaction/5edd87ea-1a83-4871-b415-32dc81fa83e3",
+        "category": "eletr\u00f4nicos",
+        "charges": 10
+      },
+      {
+        "amount": 371,
+        "type_detail": "tax_foreign",
+        "title": "IOF de \"Heroku May-37041473\"",
+        "post_date": "2020-06-10",
+        "id": "5ee07f8b-a891-470e-9598-fe59d4eab265",
+        "href": "nuapp://transaction/5edfcfd0-cec0-4d94-b7f1-9cc5e1a09fdb"
+      },
+      {
+        "amount": 2936,
+        "index": 0,
+        "title": "Paulistao Loja",
+        "post_date": "2020-06-10",
+        "id": "5edf92f7-7942-4a03-93fb-0a4260b48ca4",
+        "href": "nuapp://transaction/5edf92f7-e50e-44f1-a3a5-ae15ba662e3c",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 9840,
+        "index": 0,
+        "title": "Mercado Pet",
+        "post_date": "2020-06-10",
+        "id": "5edf91e9-9e4c-4008-9c0c-5b0be1aa1c14",
+        "href": "nuapp://transaction/5edf91e9-75de-490e-92d1-29aa2cb6dee5",
+        "category": "casa",
+        "charges": 2
+      },
+      {
+        "amount": 5821,
+        "index": 0,
+        "title": "Heroku May-37041473",
+        "post_date": "2020-06-10",
+        "id": "5ee07f8c-1b59-4388-b65e-2bd2925432fe",
+        "href": "nuapp://transaction/5edfcfd0-cec0-4d94-b7f1-9cc5e1a09fdb",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 2000,
+        "index": 0,
+        "title": "Pag*Vanessadevechi",
+        "post_date": "2020-06-11",
+        "id": "5ee16bdc-98c2-45f5-9dfc-e5fe586cd3e4",
+        "href": "nuapp://transaction/5ee16bdc-43dc-4849-bf5b-94b2546b5635",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 6500,
+        "index": 0,
+        "title": "Ifood *Ifood",
+        "post_date": "2020-06-11",
+        "id": "5ee14e75-d31f-4e96-8585-c109c0a63842",
+        "href": "nuapp://transaction/5ee14e75-7e8a-44dd-aa86-76c665050626",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": -4445,
+        "type_detail": "rewards_cashback",
+        "title": "Rewards - Cr\u00e9dito de compra apagada",
+        "post_date": "2020-06-11",
+        "id": "5ee2349d-7f9e-41f5-b33c-f8734aaa9470"
+      },
+      {
+        "amount": 1909,
+        "index": 0,
+        "title": "B Blend",
+        "post_date": "2020-06-12",
+        "id": "5ee3518e-7bf6-4b42-9d89-e89a68c9d2b7",
+        "href": "nuapp://transaction/5ee2c238-ce5e-4ceb-9e8c-ac416bb3b5eb",
+        "category": "casa",
+        "charges": 10
+      },
+      {
+        "amount": 5000,
+        "index": 0,
+        "title": "Posto Nova Suica",
+        "post_date": "2020-06-12",
+        "id": "5ee25a20-f4ab-4574-b33a-e7192c5d8b1f",
+        "href": "nuapp://transaction/5ee25a20-51ad-469d-98c1-e41077cf6d37",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 5022,
+        "index": 0,
+        "title": "Oba Hortifruti",
+        "post_date": "2020-06-12",
+        "id": "5ee25907-787e-44ae-bab9-df3ea2fe4954",
+        "href": "nuapp://transaction/5ee25907-a40f-4e45-95f9-e352af3e76aa",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 11998,
+        "index": 0,
+        "title": "Oba Hortifruti",
+        "post_date": "2020-06-13",
+        "id": "5ee394dd-a45d-4f18-8d1a-f4f2aea41bd1",
+        "href": "nuapp://transaction/5ee394dd-b852-43f5-9401-40f9a878ee2b",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 640,
+        "index": 0,
+        "title": "Dicico Lj",
+        "post_date": "2020-06-13",
+        "id": "5ee3d490-0044-4cbb-abb5-57a0087de082",
+        "href": "nuapp://transaction/5ee3d490-40e3-41b3-bfc7-334345dc6333",
+        "category": "casa",
+        "charges": 1
+      },
+      {
+        "amount": 10800,
+        "index": 0,
+        "title": "Pag*Zachellosaboreart",
+        "post_date": "2020-06-13",
+        "id": "5ee35c95-f57b-4a78-bfae-cff46e7749e4",
+        "href": "nuapp://transaction/5ee35c95-3ff6-4ffa-9a42-391e3460cced",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 2070,
+        "index": 0,
+        "title": "Dicico Lj",
+        "post_date": "2020-06-13",
+        "id": "5ee3bc83-9194-42ae-88a8-63c4423a3468",
+        "href": "nuapp://transaction/5ee3bc83-47be-450f-a653-1c89d731fe6e",
+        "category": "casa",
+        "charges": 1
+      },
+      {
+        "amount": 12200,
+        "index": 0,
+        "title": "Corbella",
+        "post_date": "2020-06-13",
+        "id": "5ee38cd9-e1f8-473d-85c5-bf96eff6c354",
+        "href": "nuapp://transaction/5ee38cd9-2ce3-435c-9952-8655e52452e7",
+        "category": "casa",
+        "charges": 1
+      },
+      {
+        "amount": 599,
+        "index": 0,
+        "title": "Oba Hortifruti",
+        "post_date": "2020-06-13",
+        "id": "5ee39512-7ad3-453d-b14b-c5f61be1aefe",
+        "href": "nuapp://transaction/5ee39512-4594-42eb-8d30-b31d6d9363a9",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 779,
+        "index": 0,
+        "title": "Champion Sp 101 Cin-In",
+        "post_date": "2020-06-13",
+        "id": "5ee3ba90-253a-456a-a908-4947949d6b1b",
+        "href": "nuapp://transaction/5ee3ba90-ea72-4715-9f60-ae45a6dbfef0",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1715,
+        "index": 0,
+        "title": "Suica Park Ltda Epp",
+        "post_date": "2020-06-15",
+        "id": "5ee6a854-0b12-4f7f-b0bb-df10115bd655",
+        "href": "nuapp://transaction/5ee6a854-2ed9-4ce6-9723-3728131f9c9c",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 5440,
+        "index": 0,
+        "title": "Ifood *Ifood",
+        "post_date": "2020-06-15",
+        "id": "5ee5595a-4ab2-41f8-96b0-3b4f8312fb5d",
+        "href": "nuapp://transaction/5ee5595a-d7fb-4be8-a214-445b23139ab6",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1918,
+        "index": 0,
+        "title": "Drogasil",
+        "post_date": "2020-06-15",
+        "id": "5ee541c3-8ba0-4cf3-a8a3-59a1d2e3e11e",
+        "href": "nuapp://transaction/5ee541c2-c073-4038-a17b-88a42eefd0cd",
+        "category": "sa\u00fade",
+        "charges": 1
+      },
+      {
+        "amount": 3599,
+        "index": 0,
+        "title": "Ifood *Ifood",
+        "post_date": "2020-06-15",
+        "id": "5ee66abb-6e99-4973-a61a-3fee3f9376c7",
+        "href": "nuapp://transaction/5ee66abb-31c5-4583-b3f0-f5f010297f2e",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 4590,
+        "index": 0,
+        "title": "Netflix.Com",
+        "post_date": "2020-06-16",
+        "id": "5ee73a40-0577-43c8-be7f-32f5c16a9748",
+        "href": "nuapp://transaction/5ee73a40-cf59-496e-9e81-b1ac292e7ead",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 990,
+        "index": 0,
+        "title": "Amazonprimebr",
+        "post_date": "2020-06-16",
+        "id": "5ee6be56-1214-4bf0-8159-5942cdfc848f",
+        "href": "nuapp://transaction/5ee6be56-4c68-4416-a77d-9a7da6a8cdb1",
+        "category": "educa\u00e7\u00e3o",
+        "charges": 1
+      },
+      {
+        "amount": 788,
+        "index": 0,
+        "title": "Uberbr Uber Trip Help.",
+        "post_date": "2020-06-17",
+        "id": "5ee8ad8a-df29-4ae2-8169-c3b2879b3863",
+        "href": "nuapp://transaction/5ee8ad8a-2053-4fbe-9525-5357f5ee4a27",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 3500,
+        "index": 0,
+        "title": "Sumup *Faustinobarber",
+        "post_date": "2020-06-17",
+        "id": "5ee8babc-f0ea-4267-a936-2b38b3598ebe",
+        "href": "nuapp://transaction/5ee8babc-33ba-495b-a226-11f901d03871",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 704,
+        "index": 0,
+        "title": "Uberbr Uber Trip Help.",
+        "post_date": "2020-06-17",
+        "id": "5ee8beeb-4f2f-45ff-be23-d54459deede1",
+        "href": "nuapp://transaction/5ee8beeb-c40b-4395-99b3-56767ae4d02e",
+        "category": "transporte",
+        "charges": 1
+      }
+    ]
+  }
+}

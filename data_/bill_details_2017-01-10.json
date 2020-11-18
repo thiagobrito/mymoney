@@ -1,0 +1,489 @@
+{
+  "bill": {
+    "id": "586b3345-a41f-47e7-80f4-5af8349de14c",
+    "state": "overdue",
+    "summary": {
+      "due_date": "2017-01-10",
+      "close_date": "2017-01-03",
+      "late_interest_rate": "0.1475",
+      "past_balance": -75189,
+      "late_fee": "0.02",
+      "effective_due_date": "2017-01-10",
+      "total_balance": 157884,
+      "interest_rate": "0.1375",
+      "interest": 2400,
+      "total_cumulative": 230673,
+      "paid": 160000,
+      "minimum_payment": 26001,
+      "open_date": "2016-12-03"
+    },
+    "_links": {
+      "boleto_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LA2v5KgAOekaSYSwhnmUyaQ1I9KNA.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ODZiMzM0NS1hNDFmLTQ3ZTctODBmNC01YWY4MzQ5ZGUxNGMvYm9sZXRvL2VtYWls"
+      },
+      "barcode": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LD3inAAOOTVvtR2oaA6xCAr5X2EMg.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ODZiMzM0NS1hNDFmLTQ3ZTctODBmNC01YWY4MzQ5ZGUxNGMvYm9sZXRvL2JhcmNvZGU"
+      },
+      "invoice_email": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LDJVPOP16QeH5Sqiwk641L8OuSKtg.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ODZiMzM0NS1hNDFmLTQ3ZTctODBmNC01YWY4MzQ5ZGUxNGMvaW52b2ljZS9lbWFpbA"
+      },
+      "self": {
+        "href": "https://prod-global-webapp-proxy.nubank.com.br/api/proxy/AJxL5LBEARoeLgtWSnH31lbwg0K__igI0Q.aHR0cHM6Ly9wcm9kLXMwLWZhY2FkZS5udWJhbmsuY29tLmJyL2FwaS9iaWxscy81ODZiMzM0NS1hNDFmLTQ3ZTctODBmNC01YWY4MzQ5ZGUxNGM"
+      }
+    },
+    "line_items": [
+      {
+        "amount": 1588,
+        "index": 0,
+        "title": "Drogal Farmacia",
+        "post_date": "2016-12-02",
+        "id": "5842a65a-9ce1-40fc-812e-300e9b0cd9e4",
+        "href": "nuapp://transaction/58400c53-0dc7-44ff-a7b7-59ef6e4381b9",
+        "category": "sa\u00fade",
+        "charges": 1
+      },
+      {
+        "amount": -150000,
+        "title": "Pagamento recebido",
+        "post_date": "2016-12-02",
+        "id": "584272cb-f167-42fb-b247-a75077afff41"
+      },
+      {
+        "amount": 6193,
+        "index": 1,
+        "title": "Taco",
+        "post_date": "2016-12-03",
+        "id": "5842a0e9-e4c9-4556-b891-de2a182ff18b",
+        "href": "nuapp://transaction/5839d14a-3cad-4f0f-806a-5cbb4e4cace2",
+        "category": "vestu\u00e1rio",
+        "charges": 3
+      },
+      {
+        "amount": 10729,
+        "index": 1,
+        "title": "Netshoes Zattini",
+        "post_date": "2016-12-03",
+        "id": "5842a0e9-f493-414c-ab2a-47c3df373e97",
+        "href": "nuapp://transaction/58211466-456c-441f-bd78-c0821a7e27ab",
+        "category": "vestu\u00e1rio",
+        "charges": 3
+      },
+      {
+        "amount": 2001,
+        "index": 0,
+        "title": "Paulistao",
+        "post_date": "2016-12-05",
+        "id": "5846a57a-8925-4c66-97a4-69595ecb0f9a",
+        "href": "nuapp://transaction/584337c7-2bae-4dbd-9345-e224cc8af860",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1600,
+        "index": 0,
+        "title": "Kopenhagen",
+        "post_date": "2016-12-05",
+        "id": "5846abc6-f04f-46c4-a9b3-741f0250bcc4",
+        "href": "nuapp://transaction/58443f55-c131-48cb-8f58-ec557c776aef",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 4017,
+        "index": 0,
+        "title": "Paulistao",
+        "post_date": "2016-12-05",
+        "id": "5846884f-d8e7-4ee9-b3a2-665d90a82e55",
+        "href": "nuapp://transaction/5842f0e1-91ae-463c-9192-7b5ee2d6193a",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 4061,
+        "index": 0,
+        "title": "Lima Restaurante",
+        "post_date": "2016-12-05",
+        "id": "584694df-77ff-4bfc-91be-8f99dae3c4c9",
+        "href": "nuapp://transaction/58443bf5-e1e0-457c-956a-ec7989ccc8da",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": -150000,
+        "title": "Pagamento recebido",
+        "post_date": "2016-12-06",
+        "id": "5847ad06-3ea2-453c-9a66-77da3e5c80e4"
+      },
+      {
+        "amount": 23000,
+        "index": 0,
+        "title": "Pagsegurouol G7crossfi",
+        "post_date": "2016-12-07",
+        "id": "58491d09-facd-4ee8-8574-87eb5bac2242",
+        "href": "nuapp://transaction/58473e2b-1bd3-4f16-95a0-562b5e820696",
+        "category": "lazer",
+        "charges": 6
+      },
+      {
+        "amount": 1698,
+        "index": 0,
+        "title": "Bom Negocio Atividades",
+        "post_date": "2016-12-07",
+        "id": "58491cbf-57cc-4b8b-8e7c-d4dda7576c79",
+        "href": "nuapp://transaction/5846d675-0439-4737-a3b9-b3177d8bd864",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 12980,
+        "index": 0,
+        "title": "Pagsegurouol Meccasupl",
+        "post_date": "2016-12-08",
+        "id": "584a6f85-f5f4-4907-ad0b-0291fd33cf37",
+        "href": "nuapp://transaction/58481fe1-4731-402a-aed9-fd9a6e812aff",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 5380,
+        "index": 0,
+        "title": "Mc Donalds Lj Vre",
+        "post_date": "2016-12-12",
+        "id": "5850461a-0205-43df-aa57-e21204136e17",
+        "href": "nuapp://transaction/584b4f47-9c89-4773-86aa-187169e3f79e",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3190,
+        "index": 0,
+        "title": "de la Marie",
+        "post_date": "2016-12-12",
+        "id": "58506a23-c7b0-447c-bd85-7cb3cf2b97f1",
+        "href": "nuapp://transaction/584ac407-1fdc-4a3b-8e7d-36562e5ffaa7",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1814,
+        "index": 0,
+        "title": "Apg",
+        "post_date": "2016-12-12",
+        "id": "58506757-22b9-43a0-98bc-2494b6840a96",
+        "href": "nuapp://transaction/584be733-56e0-4bc1-9311-f2639a9d46d8",
+        "category": "sa\u00fade",
+        "charges": 1
+      },
+      {
+        "amount": 10001,
+        "index": 0,
+        "title": "Auto Posto Brasil",
+        "post_date": "2016-12-12",
+        "id": "58504332-6272-4ca8-be8d-27c10912134e",
+        "href": "nuapp://transaction/584be4e7-4e17-4388-96c2-a972f9a3f585",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 5120,
+        "index": 0,
+        "title": "Hamad Esfihas",
+        "post_date": "2016-12-12",
+        "id": "58500cd6-9b1c-416f-b325-c93b7e023ddb",
+        "href": "nuapp://transaction/584c9e90-1632-4286-a00b-f73c7f83dc0c",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 14608,
+        "index": 0,
+        "title": "Hanamy Sushi",
+        "post_date": "2016-12-12",
+        "id": "58506230-47a7-4937-bd30-b1d22216f2db",
+        "href": "nuapp://transaction/584df289-84fb-4162-b09a-d90be2890d03",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 825,
+        "index": 0,
+        "title": "Renan Franco de Olivei",
+        "post_date": "2016-12-13",
+        "id": "5850fe2b-4a33-4c46-9a70-4e3ad9185b47",
+        "href": "nuapp://transaction/584ef978-930f-4545-956a-8716e3cb3cbc",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 2450,
+        "index": 0,
+        "title": "Rincao Gaucho",
+        "post_date": "2016-12-13",
+        "id": "5850ffa9-33bd-4977-a016-a14e7591636d",
+        "href": "nuapp://transaction/584eb617-9b66-48ab-a005-f489f2a9e26a",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 4364,
+        "index": 0,
+        "title": "Paulistao",
+        "post_date": "2016-12-13",
+        "id": "585108c4-8e6a-4217-8fce-8b166d3cdb4a",
+        "href": "nuapp://transaction/584f0abc-7580-4d7a-bc37-f7da9295867b",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 1238,
+        "index": 0,
+        "title": "Drogal Farmacia",
+        "post_date": "2016-12-15",
+        "id": "5853a709-e098-4dab-8f90-02ac106a3fbb",
+        "href": "nuapp://transaction/5851ad23-a863-4ed5-8f1e-17d7880b2cad",
+        "category": "sa\u00fade",
+        "charges": 1
+      },
+      {
+        "amount": 3600,
+        "index": 0,
+        "title": "Empiricus Research",
+        "post_date": "2016-12-15",
+        "id": "5853ddda-8905-4b88-95d3-02935f5365d6",
+        "href": "nuapp://transaction/58518d0c-9c20-462d-9670-f95d358b8600",
+        "category": "servi\u00e7os",
+        "charges": 12
+      },
+      {
+        "amount": 1600,
+        "index": 0,
+        "title": "Gerson Lanches",
+        "post_date": "2016-12-15",
+        "id": "5853cff5-033d-4b49-a0fb-91853f3e5470",
+        "href": "nuapp://transaction/5851d1a9-090b-4a36-98e8-050a9506884e",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 8465,
+        "index": 0,
+        "title": "Bar do Porto",
+        "post_date": "2016-12-16",
+        "id": "58550187-83a7-4dbb-a63c-92dfc27c3e80",
+        "href": "nuapp://transaction/58533943-7654-45aa-a809-92f276cdfb0e",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 1999,
+        "index": 0,
+        "title": "Frango Assado",
+        "post_date": "2016-12-19",
+        "id": "585912d4-5d61-4917-a238-b3d5ffbec11d",
+        "href": "nuapp://transaction/58546580-33f4-4b78-81c8-d6795308de24",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 3000,
+        "index": 0,
+        "title": "Retail Services Cafete",
+        "post_date": "2016-12-19",
+        "id": "5859292e-e400-4bda-931e-7c3657306a03",
+        "href": "nuapp://transaction/5856733e-8918-4dcc-a480-5b783f06da68",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 3540,
+        "index": 0,
+        "title": "de la Marie",
+        "post_date": "2016-12-19",
+        "id": "585900c6-85f7-4acf-bd26-7b359950e17f",
+        "href": "nuapp://transaction/5853fd0b-ab6c-4cbd-89ea-dfcc4398a4f9",
+        "category": "supermercado",
+        "charges": 1
+      },
+      {
+        "amount": 10000,
+        "index": 0,
+        "title": "Auto Posto Brasil",
+        "post_date": "2016-12-19",
+        "id": "58592677-845c-4146-82e4-291e0fb5c26d",
+        "href": "nuapp://transaction/5855295b-9d0b-4fd3-af05-8b7ed7514544",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 8623,
+        "index": 0,
+        "title": "Posto Arco Iris",
+        "post_date": "2016-12-19",
+        "id": "585926d4-53a0-4547-968a-b7dafe5a5355",
+        "href": "nuapp://transaction/5855b9f8-f718-42a8-8f28-fd72e78abe55",
+        "category": "transporte",
+        "charges": 1
+      },
+      {
+        "amount": 2198,
+        "index": 0,
+        "title": "Drogal Farmacia",
+        "post_date": "2016-12-19",
+        "id": "5859368f-8983-4b3a-8fb1-ecaca4771588",
+        "href": "nuapp://transaction/5853cc4c-b07c-42f0-9356-e94e4c2085a6",
+        "category": "sa\u00fade",
+        "charges": 1
+      },
+      {
+        "amount": 1599,
+        "index": 0,
+        "title": "Google Play Diandian I",
+        "post_date": "2016-12-19",
+        "id": "58593247-b229-4c50-96bb-01a81f371afd",
+        "href": "nuapp://transaction/5855750f-cd9f-4295-91e4-47dc4a3468bc",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": -150000,
+        "title": "Pagamento recebido",
+        "post_date": "2016-12-19",
+        "id": "585919b5-3995-4c49-b658-4e309e13e04f"
+      },
+      {
+        "amount": 2500,
+        "index": 0,
+        "title": "Ivan Salao de Beleza",
+        "post_date": "2016-12-19",
+        "id": "585901fa-a944-4ee5-bc6a-b207f735067e",
+        "href": "nuapp://transaction/5855218b-c778-4fac-b7d3-54e5aad68669",
+        "category": "servi\u00e7os",
+        "charges": 1
+      },
+      {
+        "amount": 329,
+        "index": 0,
+        "title": "Google Play Diandian I",
+        "post_date": "2016-12-19",
+        "id": "5859333c-c6b2-46b3-b53e-f6b4cae154ee",
+        "href": "nuapp://transaction/58557f90-a7e8-4188-9982-3fed1de5bee0",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 441,
+        "type_detail": "tax_foreign",
+        "title": "IOF de \"Disney Resorts Wdw\"",
+        "post_date": "2016-12-23",
+        "id": "585e4cc3-1bf0-4b2f-9369-ee8301ce0c81",
+        "href": "nuapp://transaction/585a8f92-7f72-469a-81a8-98516618302f"
+      },
+      {
+        "amount": 6920,
+        "index": 0,
+        "title": "Disney Resorts Wdw",
+        "post_date": "2016-12-23",
+        "id": "585e4cc3-db95-4baa-8b80-e36631beb773",
+        "href": "nuapp://transaction/585a8f92-7f72-469a-81a8-98516618302f",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 28965,
+        "index": 0,
+        "title": "Nike Orlando Intl",
+        "post_date": "2016-12-26",
+        "id": "5862378d-96a7-401e-a5c9-296b468374e6",
+        "href": "nuapp://transaction/585d8eea-2dda-4e22-a99f-4a0755897338",
+        "category": "vestu\u00e1rio",
+        "charges": 1
+      },
+      {
+        "amount": 6800,
+        "index": 0,
+        "title": "Disney Resorts Wdw",
+        "post_date": "2016-12-26",
+        "id": "58623329-5371-4504-b947-dcad206b34e0",
+        "href": "nuapp://transaction/585e8da7-641e-4100-a9e1-f656bcf1a60e",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 434,
+        "type_detail": "tax_foreign",
+        "title": "IOF de \"Disney Resorts Wdw\"",
+        "post_date": "2016-12-26",
+        "id": "58623329-d572-4158-9f5d-60e87633ca17",
+        "href": "nuapp://transaction/585e8da7-641e-4100-a9e1-f656bcf1a60e"
+      },
+      {
+        "amount": 1848,
+        "type_detail": "tax_foreign",
+        "title": "IOF de \"Nike Orlando Intl\"",
+        "post_date": "2016-12-26",
+        "id": "5862378d-e18a-4d50-a728-ba003b7e379e",
+        "href": "nuapp://transaction/585d8eea-2dda-4e22-a99f-4a0755897338"
+      },
+      {
+        "amount": 1990,
+        "index": 0,
+        "title": "Amazon Com",
+        "post_date": "2016-12-28",
+        "id": "5864d299-916e-4e68-97e0-b432154c3b94",
+        "href": "nuapp://transaction/5862ca57-bc30-4d8e-b3a8-7adcfd9203af",
+        "category": "educa\u00e7\u00e3o",
+        "charges": 1
+      },
+      {
+        "amount": 1272,
+        "index": 0,
+        "title": "Rosen Inn Lite Bite",
+        "post_date": "2016-12-29",
+        "id": "58661dd2-5f47-45f3-b76d-16fb0a07844a",
+        "href": "nuapp://transaction/5862e2ec-f030-44d5-920d-90e4936ade52",
+        "category": "restaurante",
+        "charges": 1
+      },
+      {
+        "amount": 81,
+        "type_detail": "tax_foreign",
+        "title": "IOF de \"Rosen Inn Lite Bite\"",
+        "post_date": "2016-12-29",
+        "id": "58661dd2-3130-4fc8-8c75-3c7331d0e37b",
+        "href": "nuapp://transaction/5862e2ec-f030-44d5-920d-90e4936ade52"
+      },
+      {
+        "amount": 1037,
+        "type_detail": "tax_foreign",
+        "title": "IOF de \"Ron Jon Orlando\"",
+        "post_date": "2016-12-30",
+        "id": "586774cd-9c38-4217-b394-0ed17bd4a231",
+        "href": "nuapp://transaction/58654002-4527-40b1-9256-371e4d6f62f4"
+      },
+      {
+        "amount": 16248,
+        "index": 0,
+        "title": "Ron Jon Orlando",
+        "post_date": "2016-12-30",
+        "id": "586774cd-79fa-4c57-9b5f-5e6a6a57414b",
+        "href": "nuapp://transaction/58654002-4527-40b1-9256-371e4d6f62f4",
+        "category": "outros",
+        "charges": 1
+      },
+      {
+        "amount": 2400,
+        "type_detail": "interest_revolving",
+        "title": "Juros de rotativo",
+        "post_date": "2017-01-02",
+        "id": "586a0fe9-e269-47bd-82ba-3c29a719565f"
+      },
+      {
+        "amount": 327,
+        "type_detail": "tax_revolving",
+        "title": "IOF de rotativo",
+        "post_date": "2017-01-02",
+        "id": "586a0fe9-1c7b-4434-b469-49568c979d08"
+      }
+    ]
+  }
+}

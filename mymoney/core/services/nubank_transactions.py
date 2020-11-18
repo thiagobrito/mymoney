@@ -27,7 +27,8 @@ class NubankTransactions:
         if os.path.exists(bills_path):
             return json.loads(open(bills_path, 'r').read())
         bills = self._nubank.get_bills()
-        open(bills_path, 'r').write(json.dumps(bills))
+        if os.path.exists(r'data'):
+            open(bills_path, 'w').write(json.dumps(bills))
         return bills
 
     @staticmethod
@@ -41,5 +42,6 @@ class NubankTransactions:
         if os.path.exists(details_path):
             return json.loads(open(details_path, 'r').read())
         bill_details = self._nubank.get_bill_details(bill)
-        open(details_path, 'w').write(json.dumps(bill_details, indent=2))
+        if os.path.exists(r'data'):
+            open(details_path, 'w').write(json.dumps(bill_details, indent=2))
         return bill_details
