@@ -10,3 +10,6 @@ class TestNubankTransactions(unittest.TestCase):
 
         self.nu_transactions = NubankTransactions(self.mocked_nu)
         self.nu_transactions.authenticate('cpf', 'password', 'uuid')
+
+    def test_simple_transactions(self):
+        transactions = list(self.nu_transactions.transactions())

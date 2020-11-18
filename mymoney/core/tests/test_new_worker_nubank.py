@@ -14,3 +14,6 @@ class TestNewWorkerNubank(unittest.TestCase):
 
         nu_transactions = NubankTransactions(nu)
         self.worker = NubankWorker('test.account', nu_transactions)
+
+    def test_simple_transactions(self):
+        self.worker.work()

@@ -65,7 +65,7 @@ class NubankWorker(WorkerBase):
         try:
             return CreditCardCategoryUpdate.objects.get(transaction_id=transaction['id']).category
         except ObjectDoesNotExist:
-            return transaction['title']
+            return transaction['category']
 
     @staticmethod
     def _save_expenses_table_bill_record():
