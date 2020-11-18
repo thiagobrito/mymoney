@@ -34,7 +34,7 @@ urlpatterns = [
 
     path('nubank/login/', nubank.login, name='nubank.login'),
     path('nubank/qrcode/', nubank.qrcode, name='nubank.qrcode'),
-    path('nubank/authenticate/', nubank.authenticate, name='nubank.authenticate'),
+    path('nubank/authenticate/', nubank.authenticate_and_process, name='nubank.authenticate'),
     path('nubank/processing/', nubank.processing, name='nubank.processing'),
     path('nubank/summary/', nubank.summary, name='nubank.summary'),
 

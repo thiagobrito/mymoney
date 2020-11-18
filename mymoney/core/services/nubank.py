@@ -1,129 +1,71 @@
 import datetime
-import json
-from pynubank import Nubank, NuException
 
 from django.core.exceptions import ObjectDoesNotExist
-from django.db import transaction
 from django.db.models import Sum
 
-from mymoney.settings import PROCESS_QUEUE
-from mymoney.core.services.processing import WorkerBase
-from mymoney.core.models.credit_card import CreditCardBills
-from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate, CreditCardDateUpdate
-from mymoney.core.models.expenses import Expenses
-
 from mymoney.core import util
+from mymoney.core.models.credit_card import CreditCardBills
+from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate
+from mymoney.core.models.expenses import Expenses
+from mymoney.core.services.processing import WorkerBase
+from mymoney.core.services.nubank_transactions import NubankTransactions
 
-DEFAULT_PAYMENT_DAY = 26
-DEFAULT_CLOSING_DAY = 19
+from mymoney.settings import PROCESS_QUEUE
 
 
 class NubankWorker(WorkerBase):
-    def __init__(self, uuid=None, nubank=None):
+    def __init__(self, account, transactions=None):
         super(NubankWorker, self).__init__()
 
-        self._nu = nubank or Nubank()
-        if uuid:
-            self.uuid = uuid
-        else:
-            self.uuid, _ = self._nu.get_qr_code()
+        self._transactions = transactions or NubankTransactions()
+        self.uuid = self._transactions.uuid
+        self._account = account
+        self._status = {'ready': False, 'progress': 0, 'exception': False}
 
-        self._progress = 0
-        self._login = None
-        self._status = {'authenticated': False, 'progress': 0, 'ready': False, 'failed': False}
-        self._card_statements = None
-
-    def authenticate(self, login, password):
-        if self._status['authenticated']:
-            return True
-
-        try:
-            self._nu.authenticate_with_qr_code(login, password, self.uuid)
-            self._login = login
-            self._card_statements = self._nu.get_card_statements()
-            open('nubank.json', 'w').write(json.dumps(self._card_statements, indent=2))
-
-            PROCESS_QUEUE.add(self.uuid, self)
-            self._status['authenticated'] = True
-
-        except NuException:
-            self._status['failed'] = True
-
-        return self._status['authenticated']
-
-    @transaction.atomic
     def work(self):
-        if self._status['authenticated']:
-            # !!!! WARNING: Remove this item when finish this step !!!!!!!!
-            CreditCardBills.objects.filter(account=self._login).delete()
+        CreditCardBills.objects.filter(account=self._account).delete()
 
-            self._save_bills()
-            self._save_expense_table_record()
+        self._save_all_transactions()
+        self._save_expenses_table_bill_record()
 
-            self._status['ready'] = True
+        self._status['ready'] = True
 
     def status(self):
         return self._status
 
-    def _save_bills(self):
-        total = len(self._card_statements)
+    def _save_all_transactions(self):
+        for transaction in self._transactions.transactions():
+            self._save_single_transaction(transaction['bill'], transaction['transaction'])
 
-        account_credit_card_bills = CreditCardBills.objects.filter(account=self._login)
+    def _save_single_transaction(self, bill, transaction):
+        if self._is_buy_transaction(transaction):
+            description = transaction['title']
+            if transaction['charges'] > 1:
+                description += ' (%d/%d)' % (transaction['index'], transaction['charges'])
 
-        for index, statement in enumerate(self._card_statements):
-            payment_date = self._calculate_payment_date(statement, DEFAULT_CLOSING_DAY, DEFAULT_PAYMENT_DAY)
-            if payment_date.year > 2018:
-                if self._is_bill_refunded(statement['id']):
-                    continue
-                if account_credit_card_bills.filter(transaction_id=statement['id']).exists():
-                    continue
+            obj = CreditCardBills(account=self._account,
+                                  transaction_id=transaction['id'],
+                                  description=description,
+                                  value=util.format_money(transaction['amount']),
+                                  transaction_time=transaction['post_date'],
+                                  category=self._transaction_category(transaction),
+                                  payment_date=bill['due_date'], closing_date=bill['close_date'],
+                                  charge_index=transaction['index'], charge_count=transaction['charges'])
+            obj.save()
 
-                self._status['progress'] = (index / total) * 100.0
-                if 'details' in statement and 'charges' in statement['details']:
-                    charge_count = statement['details']['charges']['count']
-                    charge_amount = util.format_money(statement['details']['charges']['amount'])
+    @staticmethod
+    def _is_buy_transaction(transaction):
+        return 'charges' in transaction
 
-                    for charge_index in range(1, charge_count + 1):
-                        charge_payment_date = util.add_months(payment_date, charge_index - 1)
+    @staticmethod
+    def _transaction_category(transaction):
+        try:
+            return CreditCardCategoryUpdate.objects.get(transaction_id=transaction['id']).category
+        except ObjectDoesNotExist:
+            return transaction['title']
 
-                        description = '%s (%d/%d)' % (statement['description'], charge_index, charge_count)
-
-                        obj = CreditCardBills(account=self._login,
-                                              transaction_id=statement['id'],
-                                              description=description,
-                                              value=charge_amount,
-                                              transaction_time=statement['time'],
-                                              category=self._transaction_category(statement),
-                                              payment_date=charge_payment_date,
-                                              closing_date=charge_payment_date.replace(day=DEFAULT_CLOSING_DAY),
-                                              charge_count=charge_count,
-                                              charge_index=charge_index,
-                                              visible=self._is_bill_visible(statement['description']))
-                        obj.save()
-
-                else:
-                    obj = CreditCardBills(account=self._login,
-                                          transaction_id=statement['id'],
-                                          description=statement['description'],
-                                          value=util.format_money(statement['amount']),
-                                          transaction_time=statement['time'],
-                                          category=self._transaction_category(statement),
-                                          payment_date=payment_date,
-                                          closing_date=payment_date.replace(day=DEFAULT_CLOSING_DAY),
-                                          charge_index=1,
-                                          charge_count=1)
-                    obj.save()
-
-    def _is_bill_refunded(self, transaction_id):
-        return CreditCardDateUpdate.objects.filter(transaction_id=transaction_id, refunded=True).exists()
-
-    def _is_bill_visible(self, description):
-        for desc in ['Casas Bahia.C*219987898']:
-            if desc in description:
-                return False
-        return True
-
-    def _save_expense_table_record(self):
+    @staticmethod
+    def _save_expenses_table_bill_record():
         bills = CreditCardBills.objects.filter(payment_date__year=datetime.datetime.now().year) \
             .values('payment_date') \
             .annotate(total=Sum('value')) \
@@ -144,40 +86,16 @@ class NubankWorker(WorkerBase):
                                bank_account='BRD')
                 obj.save()
 
-    def _calculate_payment_date(self, statement, closing_day, payment_day):
-        transaction_time = statement['time']
-        if type(transaction_time) == str:
-            transaction_time = datetime.datetime.strptime(transaction_time, "%Y-%m-%dT%H:%M:%SZ")
 
-        d = datetime.date.today()
-        d = d.replace(year=transaction_time.year, month=transaction_time.month, day=transaction_time.day)
+def authenticate(login, password, uuid):
+    nu_transactions = NubankTransactions()
+    nu_transactions.authenticate(login, password, uuid)
 
-        if d.day >= closing_day:
-            d = util.add_months(d, 1)
-
-        calculated_date = d.replace(day=payment_day)
-
-        try:
-            updated_obj = CreditCardDateUpdate.objects.get(transaction_id=statement['id'],
-                                                           orig_transaction_time=transaction_time,
-                                                           orig_payment_date=calculated_date)
-            return updated_obj.new_payment_date
-
-        except ObjectDoesNotExist:
-            pass
-
-        return calculated_date
-
-    def _transaction_category(self, statement):
-        try:
-            return CreditCardCategoryUpdate.objects.get(transaction_id=statement['id']).category
-        except ObjectDoesNotExist:
-            return statement['title']
+    return NubankWorker(login, nu_transactions)
 
 
-def authenticate(uuid, login, password):
-    worker = NubankWorker(uuid)
-    return worker.authenticate(login, password)
+def add_to_queue(uuid, worker):
+    PROCESS_QUEUE.add(uuid, worker)
 
 
 def status(uuid):

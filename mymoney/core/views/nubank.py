@@ -15,7 +15,7 @@ def qrcode(request):
     password = request.POST.get('password', default=None)
 
     if login and password:
-        request.session['uuid'] = nubank.NubankWorker().uuid
+        request.session['uuid'] = nubank.NubankWorker(login).uuid
         request.session['login'] = login
         request.session['password'] = password
 
@@ -26,16 +26,17 @@ def qrcode(request):
     return redirect('nubank.login')
 
 
-def authenticate(request):
+def authenticate_and_process(request):
     uuid = request.session.get('uuid', default=None)
     login = request.session.get('login', default=None)
     password = request.session.get('password', default=None)
 
     if uuid and login and password:
-        if nubank.authenticate(uuid, login, password):
-            del request.session['password']
+        worker = nubank.authenticate(login, password, uuid)
+        nubank.add_to_queue(uuid, worker)
 
-            return HttpResponse('Processing data, you will be redirected soon...')
+        del request.session['password']
+        return HttpResponse('Processing data, you will be redirected soon...')
 
     return HttpResponse(status=401)
 
