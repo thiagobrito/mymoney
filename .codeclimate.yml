@@ -1,2 +1,3 @@
 exclude_patterns:
 - "mymoney/core/static/js/*.js"
+- "mymoney/core/static/vendor/jquery/*.js"
