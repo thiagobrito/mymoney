@@ -39,9 +39,12 @@ class NubankWorker(WorkerBase):
 
     def _save_single_transaction(self, bill, transaction):
         if self._is_buy_transaction(transaction):
+            charge_index = transaction['index'] + 1
+            charge_count = transaction['charges']
+
             description = transaction['title']
             if transaction['charges'] > 1:
-                description += ' (%d/%d)' % (transaction['index'], transaction['charges'])
+                description += ' (%d/%d)' % (charge_index, charge_count)
 
             obj = CreditCardBills(account=self._account,
                                   transaction_id=transaction['id'],
@@ -50,7 +53,7 @@ class NubankWorker(WorkerBase):
                                   transaction_time=transaction['post_date'],
                                   category=self._transaction_category(transaction),
                                   payment_date=bill['due_date'], closing_date=bill['close_date'],
-                                  charge_index=transaction['index'], charge_count=transaction['charges'])
+                                  charge_index=charge_index, charge_count=charge_count)
             obj.save()
 
     @staticmethod
