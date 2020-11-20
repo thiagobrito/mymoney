@@ -1,3 +1,4 @@
+import uuid
 import os
 import json
 import datetime
@@ -8,11 +9,11 @@ from mymoney.core.util import str_to_datetime
 
 class NubankTransactions:
     def __init__(self, nubank=None):
-        self._nubank = nubank or Nubank()
-        self.uuid, _ = self._nubank.get_qr_code()
+        self.__nubank = nubank
+        self.uuid = str(uuid.uuid4())
 
     def authenticate(self, cpf, password, uuid):
-        self._nubank.authenticate_with_qr_code(cpf, password, uuid)
+        self._nubank().authenticate_with_qr_code(cpf, password, uuid)
 
     def transactions(self, min_year=2020):
         for bill in self._get_bills():
@@ -24,11 +25,16 @@ class NubankTransactions:
                         'transaction': self._prepare_date_fields(transaction)
                     }
 
+    def _nubank(self):
+        if self.__nubank is None:
+            self.__nubank = Nubank()
+        return self.__nubank
+
     def _get_bills(self):
         bills_path = r'data\bills.json'
         if os.path.exists(bills_path):
             return json.loads(open(bills_path, 'r').read())
-        bills = self._nubank.get_bills()
+        bills = self._nubank().get_bills()
         if os.path.exists(r'data'):
             open(bills_path, 'w').write(json.dumps(bills))
         return bills
@@ -50,7 +56,7 @@ class NubankTransactions:
         details_path = r'data\bill_details_%s.json' % bill['summary']['due_date']
         if os.path.exists(details_path):
             return json.loads(open(details_path, 'r').read())
-        bill_details = self._nubank.get_bill_details(bill)
+        bill_details = self._nubank().get_bill_details(bill)
         if os.path.exists(r'data'):
             open(details_path, 'w').write(json.dumps(bill_details, indent=2))
         return bill_details
