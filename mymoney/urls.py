@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from mymoney.core.views.pages import earnings, expenses, nubank, funds
+from mymoney.core.views.pages import earnings, expenses, funds
 from mymoney.core.views.api import api_earnings_expenses_chart, api_expenses, api_funds, api_credit_card, api_earnings
 from mymoney.core.views import nubank
 

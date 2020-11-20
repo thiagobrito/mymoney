@@ -19,10 +19,6 @@ def expenses(request):
                   context={'expenses': expenses})
 
 
-def nubank(request):
-    return render(request, 'nubank.html')
-
-
 def funds(request):
     funds = Funds.objects.filter(date__year=2020).order_by('-date')
 
