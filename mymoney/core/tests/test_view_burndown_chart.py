@@ -1,8 +1,6 @@
 from django.shortcuts import resolve_url as r
 from django.test import TestCase
 
-from mymoney.core.tests.util import fill_database
-
 '''
 class IndexTest(TestCase):
     def setUp(self):
