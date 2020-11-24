@@ -16,7 +16,7 @@ def burndown_chart(request, month):
     credit_card = CreditCardBills.objects.filter(payment_date__year=datetime.now().year).order_by('-transaction_time')
     credit_card = credit_card.filter(payment_date__month=month)
     if len(credit_card):
-        charged_sum = credit_card.filter(charge_count__gt=1).aggregate(Sum('value'))['value__sum']
+        charged_sum = credit_card.filter(charge_count__gt=1).aggregate(Sum('value'))['value__sum'] or 0
 
         start = util.add_months(credit_card[0].closing_date, -1)
         end = credit_card[0].closing_date
