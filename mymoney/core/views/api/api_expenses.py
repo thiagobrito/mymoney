@@ -1,4 +1,5 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotFound
+from django.core.exceptions import ObjectDoesNotExist
 
 from mymoney.core.models.expenses import Expenses
 from mymoney.core.views.api import update_from_request
@@ -7,7 +8,15 @@ from mymoney.core.recurrences import fill_pending_recurrences
 
 
 def update(request):
-    return update_from_request(request, Expenses.objects.get(pk=request.POST.get('pk')))
+    pk = request.POST.get('pk')
+    if pk is None:
+        return HttpResponseBadRequest()
+
+    try:
+        item = Expenses.objects.get(pk=pk)
+        return update_from_request(request, item)
+    except ObjectDoesNotExist:
+        return HttpResponseNotFound()
 
 
 def scheduled(request, pk):
