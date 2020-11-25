@@ -1,4 +1,3 @@
-import random
 from decimal import Decimal
 from datetime import datetime, timedelta
 
@@ -77,18 +76,22 @@ def update_category(request):
     if request.POST.get('name') != 'category':
         return HttpResponseBadRequest()
 
+    pk = request.POST.get('pk')
+    category = request.POST.get('value')
+    if pk is None or category is None:
+        return HttpResponseBadRequest()
+
     try:
-        obj = CreditCardCategoryUpdate.objects.get(transaction_id=request.POST.get('pk'))
-        obj.category = request.POST.get('value')
+        obj = CreditCardCategoryUpdate.objects.get(transaction_id=pk)
+        obj.category = category
         obj.save()
 
     except ObjectDoesNotExist:
-        obj = CreditCardCategoryUpdate(transaction_id=request.POST.get('pk'),
-                                       category=request.POST.get('value').lower())
+        obj = CreditCardCategoryUpdate(transaction_id=pk, category=category.lower())
         obj.save()
 
-    for bill in CreditCardBills.objects.filter(transaction_id=request.POST.get('pk')).all():
-        bill.category = request.POST.get('value').lower()
+    for bill in CreditCardBills.objects.filter(transaction_id=pk).all():
+        bill.category = category.lower()
         bill.save()
 
     return JsonResponse(data={'status': 200})
@@ -98,13 +101,20 @@ def update_payment_date(request):
     if request.POST.get('name') != 'payment_date':
         return HttpResponseBadRequest()
 
+    pk = request.POST.get('pk')
+    if pk is None:
+        return HttpResponseBadRequest()
+
+    change = request.POST.get('value')
+    if change is None:
+        return HttpResponseBadRequest()
+
     refunded = False
     try:
-        obj = CreditCardBills.objects.get(id=request.POST.get('pk'))
+        obj = CreditCardBills.objects.get(id=pk)
         original_payment_date = obj.payment_date
 
         # 0 = Previous
-        change = request.POST.get('value')
         if change == '0':
             obj.payment_date = util.add_months(obj.payment_date, -1)
             obj.closing_date = util.add_months(obj.closing_date, -1)
