@@ -20,38 +20,50 @@ def update(request):
 
 
 def scheduled(request, pk):
-    expense = Expenses.objects.get(pk=pk)
-    expense.scheduled = not expense.scheduled
-    expense.save()
+    try:
+        expense = Expenses.objects.get(pk=pk)
+        expense.scheduled = not expense.scheduled
+        expense.save()
 
-    return JsonResponse(data={'status': 200})
+        return JsonResponse(data={'status': 200})
+    except ObjectDoesNotExist:
+        return HttpResponseNotFound()
 
 
 def paid(request, pk):
-    expense = Expenses.objects.get(pk=pk)
-    expense.paid = not expense.paid
-    if expense.paid:
-        expense.scheduled = True
-    expense.save()
+    try:
+        expense = Expenses.objects.get(pk=pk)
+        expense.paid = not expense.paid
+        if expense.paid:
+            expense.scheduled = True
+        expense.save()
 
-    return JsonResponse(data={'status': 200})
+        return JsonResponse(data={'status': 200})
+    except ObjectDoesNotExist:
+        return HttpResponseNotFound()
 
 
 def new(request):
-    obj = Expenses(date=request.POST.get('date'),
-                   description=request.POST.get('description'),
-                   value=request.POST.get('value'))
-    obj.save()
+    date = request.POST.get('date')
+    description = request.POST.get('description')
+    value = request.POST.get('value')
 
+    if date is None or description is None or value is None:
+        return HttpResponseBadRequest()
+
+    Expenses(date=date, description=description, value=value).save()
     return JsonResponse(data={'status': 200})
 
 
 def recurrent(request, pk):
-    expense = Expenses.objects.get(pk=pk)
-    expense.recurrent = not expense.recurrent
-    expense.save()
+    try:
+        expense = Expenses.objects.get(pk=pk)
+        expense.recurrent = not expense.recurrent
+        expense.save()
 
-    return JsonResponse(data={'status': 200})
+        return JsonResponse(data={'status': 200})
+    except ObjectDoesNotExist:
+        return HttpResponseNotFound()
 
 
 def fill_recurrences(request, month):
