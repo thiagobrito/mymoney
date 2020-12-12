@@ -66,7 +66,7 @@ def recurrent(request, pk):
         return HttpResponseNotFound()
 
 
-def fill_recurrences(request, month):
-    fill_pending_recurrences(month)
+def fill_recurrences(request, month, year):
+    fill_pending_recurrences(month, year)
 
     return JsonResponse(data={'status': 200})

@@ -3,22 +3,26 @@ import datetime
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Sum
 
+from pynubank import Nubank
+
 from mymoney.core import util
 from mymoney.core.models.credit_card import CreditCardBills
 from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate
 from mymoney.core.models.expenses import Expenses
 from mymoney.core.services.processing import WorkerBase
-from mymoney.core.services.nubank_transactions import NubankTransactions
+from mymoney.core.services.nubank_transactions import NubankCardTransactions
+from mymoney.core.services.nuconta_transactions import NuContaTransactions
 
 from mymoney.settings import PROCESS_QUEUE
 
 
 class NubankWorker(WorkerBase):
-    def __init__(self, account, transactions=None):
+    def __init__(self, account, card_transactions=None, conta_transactions=None):
         super(NubankWorker, self).__init__()
 
-        self._transactions = transactions or NubankTransactions()
-        self.uuid = self._transactions.uuid
+        self._card_transactions = card_transactions or NubankCardTransactions()
+        self._conta_transactions = conta_transactions or NuContaTransactions()
+        self.uuid = self._card_transactions.uuid
         self._account = account
         self._status = {'ready': False, 'progress': 0, 'exception': False}
 
@@ -34,8 +38,10 @@ class NubankWorker(WorkerBase):
         return self._status
 
     def _save_all_transactions(self):
-        for transaction in self._transactions.transactions():
+        for transaction in self._card_transactions.transactions():
             self._save_single_transaction(transaction['bill'], transaction['transaction'])
+
+        self._conta_transactions.load_all_transactions()
 
     def _save_single_transaction(self, bill, transaction):
         if self._is_buy_transaction(transaction):
@@ -91,10 +97,13 @@ class NubankWorker(WorkerBase):
 
 
 def authenticate(login, password, uuid):
-    nu_transactions = NubankTransactions()
-    nu_transactions.authenticate(login, password, uuid)
+    nubank = Nubank()
+    nubank.authenticate_with_qr_code(login, password, uuid)
 
-    return NubankWorker(login, nu_transactions)
+    nucard_transactions = NubankCardTransactions(nubank=nubank)
+    nuconta_transactions = NuContaTransactions(nubank=nubank)
+
+    return NubankWorker(login, card_transactions=nucard_transactions, conta_transactions=nuconta_transactions)
 
 
 def add_to_queue(uuid, worker):

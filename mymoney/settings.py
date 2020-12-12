@@ -152,4 +152,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 PROCESS_QUEUE = ProcessingQueue(5, TESTING)
 
-LOGIN_REDIRECT_URL = '/summary/%d/' % datetime.datetime.now().month
+LOGIN_REDIRECT_URL = '/summary/%d/%d' % (datetime.datetime.now().month, datetime.datetime.now().year)

@@ -32,7 +32,7 @@
 
             <div class="dropdown show">
                 {% if monthly_summary and pending_recurrences %}
-                    <a href="javascript:onRecurrencyCheck('{% url 'api.expenses.fill_recurrences' month=month %}');"
+                    <a href="javascript:onRecurrencyCheck('{% url 'api.expenses.fill_recurrences' month=month year=year %}');"
                        role="button" aria-expanded="false" class="btn btn-info btn btn-sm btn-primary">
                         <i class="fas fa-redo-alt fa-sm text-white-50"></i> Fill Recurrency
                     </a>

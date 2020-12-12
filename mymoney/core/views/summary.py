@@ -30,7 +30,7 @@ def view(request, month=None, year=datetime.now().year):
         credit_card_month_daily_expenses = month_daily_estimate(credit_card, charged_sum)
         credit_card_daily_expenses_green = credit_card_month_daily_expenses <= credit_card_daily_estimate
         pie_chart_title = 'Credit Card Categories'
-        pending_recurrences = has_pending_recurrences(month)
+        pending_recurrences = has_pending_recurrences(month, year)
 
         months = ['', 'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
                   'November', 'December']

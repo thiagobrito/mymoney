@@ -7,7 +7,7 @@ from pynubank import Nubank
 from mymoney.core.util import str_to_datetime
 
 
-class NubankTransactions:
+class NubankCardTransactions:
     def __init__(self, nubank=None):
         self.__nubank = nubank
         self.uuid = str(uuid.uuid4())

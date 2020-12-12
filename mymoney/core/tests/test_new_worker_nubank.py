@@ -1,19 +1,18 @@
-import unittest
+from django.test import TestCase
 
 from pynubank import Nubank, MockHttpClient
-from mymoney.core.services.nubank_transactions import NubankTransactions
+from mymoney.core.services.nubank_transactions import NubankCardTransactions
+from mymoney.core.services.nuconta_transactions import NuContaTransactions
 from mymoney.core.services.nubank import NubankWorker
 
-from mymoney.core.models.credit_card import CreditCardBills
 
-
-class TestNewWorkerNubank(unittest.TestCase):
-    def setUp(self) -> None:
-        nu = Nubank(MockHttpClient())
-        nu.authenticate_with_qr_code('cpf', 'pass', 'uuid')
-
-        nu_transactions = NubankTransactions(nu)
-        self.worker = NubankWorker('test.account', nu_transactions)
-
+class TestNewWorkerNubank(TestCase):
     def test_simple_transactions(self):
+        nubank = Nubank(MockHttpClient())
+        nubank.authenticate_with_qr_code('cpf', 'pass', 'uuid')
+
+        card_transactions = NubankCardTransactions(nubank=nubank)
+        conta_transactions = NuContaTransactions(nubank=nubank)
+        self.worker = NubankWorker('test.account.worker', card_transactions=card_transactions,
+                                   conta_transactions=conta_transactions)
         self.worker.work()
