@@ -9,6 +9,7 @@ class Earnings(models.Model):
     value = MoneyField('value', max_digits=14, default_currency='BRL')
     received = models.fields.BooleanField(default=False)
     origin = models.CharField('Source', max_length=50)
+    transaction_id = models.CharField('Transaction ID', max_length=50, default='')
 
     class Meta:
         verbose_name_plural = 'Earnings'

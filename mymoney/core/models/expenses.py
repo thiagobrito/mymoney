@@ -17,7 +17,7 @@ class Expenses(models.Model):
     scheduled = models.BooleanField(default=False)
     paid = models.BooleanField(default=False)
     bank_account = models.CharField('bank account', max_length=3, choices=BANK_ACCOUNT, default='BRD')
-    credit_card_ref = models.CharField(max_length=50, default='')
+    transaction_id = models.CharField(max_length=50, default='')
     recurrent = models.BooleanField(default=False)
 
     class Meta:

@@ -51,7 +51,7 @@ class IndexTest(TestCase):
 
     def test_dont_migrate_credit_card_expenses(self):
         Expenses(date=self._previous_month, description='credit card', value=123, recurrent=True,
-                 credit_card_ref='123').save()
+                 transaction_id='123').save()
         Expenses(date=self._current_date, description='conta de agua', value=789, recurrent=False).save()
 
         self.response = self.client.get(r('api.expenses.fill_recurrences', month=self._month, year=self._year))

@@ -2,7 +2,7 @@ from mymoney.core.models.expenses import Expenses
 
 
 def has_pending_recurrences(month, year):
-    previous_month_expenses = Expenses.objects.filter(date__year=year, date__month=month - 1, credit_card_ref='',
+    previous_month_expenses = Expenses.objects.filter(date__year=year, date__month=month - 1, transaction_id='',
                                                       recurrent=True)
     current_month_expenses = Expenses.objects.filter(date__year=year, date__month=month)
 
@@ -24,7 +24,7 @@ def has_pending_recurrences(month, year):
 
 
 def fill_pending_recurrences(month, year):
-    previous_month_expenses = Expenses.objects.filter(date__year=year, date__month=month - 1, credit_card_ref='',
+    previous_month_expenses = Expenses.objects.filter(date__year=year, date__month=month - 1, transaction_id='',
                                                       recurrent=True)
     current_month_expenses = Expenses.objects.filter(date__year=year, date__month=month)
 

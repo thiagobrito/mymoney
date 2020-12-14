@@ -16,18 +16,34 @@ class TestNubankTransactions(TestCase):
         self.nu_conta = NuContaTransactions()
 
     def test_process_transactions_TransferOutEvent_save_as_expense(self):
-        self.nu_conta.load([account_statements.transactions[0]])
+        transaction = [{
+            'id': '5fd39bfe-e8ba-4450-a0c3-4393a6a53887', '__typename': 'TransferOutEvent',
+            'title': 'Transferência enviada', 'detail': 'Waldecir Ruiz Acrani - R$\xa0470,00',
+            'postDate': '2020-12-11', 'amount': 470.0,
+            'destinationAccount': {'name': 'Waldecir Ruiz Acrani'}
+        }]
+        self.nu_conta.load(transaction)
 
         expense = Expenses.objects.all()[0]
 
         self.assertEqual(1, Expenses.objects.count())
         self.assertEqual('TED/DOC realizado (Waldecir Ruiz Acrani)', expense.description)
         self.assertEqual('R$470.00', str(expense.value))
+        self.assertEqual('NUB', expense.bank_account)
         self.assertTrue(expense.scheduled)
         self.assertTrue(expense.paid)
 
     def test_process_transactions_TransferInEvent_save_as_earning(self):
-        self.nu_conta.load([account_statements.transactions[1]])
+        transaction = [{
+            'id': '5fd2519e-62a6-498c-8924-e6d5a4178457',
+            '__typename': 'TransferInEvent',
+            'title': 'Transferência recebida',
+            'detail': 'R$ 60,88',
+            'postDate': '2020-12-10',
+            'amount': 60.88,
+            'originAccount': {'name': 'Carlos Augusto Galhiego Vieira'}
+        }]
+        self.nu_conta.load(transaction)
 
         earning = Earnings.objects.all()[0]
 
@@ -53,6 +69,7 @@ class TestNubankTransactions(TestCase):
         self.assertEqual(1, Expenses.objects.count())
         self.assertEqual('Compra no Debito (Mineirin do Queijo Iii)', expense.description)
         self.assertEqual('R$56.00', str(expense.value))
+        self.assertEqual('NUB', expense.bank_account)
         self.assertTrue(expense.scheduled)
         self.assertTrue(expense.paid)
 
@@ -72,6 +89,7 @@ class TestNubankTransactions(TestCase):
         self.assertEqual(1, Expenses.objects.count())
         self.assertEqual('Pagamento da fatura', expense.description)
         self.assertEqual('R$100.00', str(expense.value))
+        self.assertEqual('NUB', expense.bank_account)
         self.assertTrue(expense.scheduled)
         self.assertTrue(expense.paid)
 
@@ -127,6 +145,7 @@ class TestNubankTransactions(TestCase):
         self.assertEqual(1, Expenses.objects.count())
         self.assertEqual('Pagamento de Boleto', expense.description)
         self.assertEqual('R$100.00', str(expense.value))
+        self.assertEqual('NUB', expense.bank_account)
         self.assertTrue(expense.scheduled)
         self.assertTrue(expense.paid)
 
@@ -145,6 +164,7 @@ class TestNubankTransactions(TestCase):
         self.assertEqual(1, Expenses.objects.count())
         self.assertEqual('Tarifa de Saque (Padaria Jardins)', expense.description)
         self.assertEqual('R$6.50', str(expense.value))
+        self.assertEqual('NUB', expense.bank_account)
         self.assertTrue(expense.scheduled)
         self.assertTrue(expense.paid)
 
@@ -163,5 +183,6 @@ class TestNubankTransactions(TestCase):
         self.assertEqual(1, Expenses.objects.count())
         self.assertEqual('Saque (Padaria Jardins)', expense.description)
         self.assertEqual('R$100.00', str(expense.value))
+        self.assertEqual('NUB', expense.bank_account)
         self.assertTrue(expense.scheduled)
         self.assertTrue(expense.paid)

@@ -27,88 +27,81 @@ class NuContaTransactions:
 
     @staticmethod
     def _transfer_out_event(transaction):
-        expense = Expenses.objects.create(date=str_to_datetime(transaction['postDate']),
-                                          description='TED/DOC realizado (%s)' % (
-                                              transaction['destinationAccount']['name']
-                                          ),
-                                          value=transaction['amount'], scheduled=True, paid=True,
-                                          bank_account='Nubank')
-        expense.save()
+        Expenses.objects.get_or_create(transaction_id=transaction['id'],
+                                       date=str_to_datetime(transaction['postDate']),
+                                       description='TED/DOC realizado (%s)' % (
+                                           transaction['destinationAccount']['name']
+                                       ),
+                                       value=transaction['amount'],
+                                       scheduled=True, paid=True, bank_account='NUB')
 
     @staticmethod
     def _transfer_in_event(transaction):
-        earning = Earnings.objects.create(date=str_to_datetime(transaction['postDate']),
-                                          description='TED/DOC recebido (%s)' % (
-                                              transaction['originAccount']['name']
-                                          ),
-                                          value=transaction['amount'], received=True, origin='Nubank')
-        earning.save()
+        Earnings.objects.get_or_create(transaction_id=transaction['id'],
+                                       date=str_to_datetime(transaction['postDate']),
+                                       description='TED/DOC recebido (%s)' % transaction['originAccount']['name'],
+                                       value=transaction['amount'], received=True, origin='Nubank')
 
     @staticmethod
     def _debit_event(transaction):
         title = transaction['detail'].split('-')[0].strip()
 
-        expense = Expenses.objects.create(date=str_to_datetime(transaction['postDate']),
-                                          description='Compra no Debito (%s)' % title,
-                                          value=transaction['amount'], scheduled=True, paid=True,
-                                          bank_account='Nubank')
-        expense.save()
+        Expenses.objects.get_or_create(transaction_id=transaction['id'],
+                                       date=str_to_datetime(transaction['postDate']),
+                                       description='Compra no Debito (%s)' % title, value=transaction['amount'],
+                                       scheduled=True, paid=True, bank_account='NUB')
 
     @staticmethod
     def _bill_payment_event(transaction):
         amount = format_money_from_description(transaction['detail'])
 
-        expense = Expenses.objects.create(date=str_to_datetime(transaction['postDate']),
-                                          description='Pagamento da fatura', value=amount, scheduled=True, paid=True,
-                                          bank_account='Nubank')
-        expense.save()
+        Expenses.objects.get_or_create(transaction_id=transaction['id'],
+                                       date=str_to_datetime(transaction['postDate']),
+                                       description='Pagamento da fatura', value=amount,
+                                       scheduled=True, paid=True, bank_account='NUB')
 
     @staticmethod
     def _transfer_out_reversal_event(transaction):
         name = transaction['detail'].split('-')[0].strip()
         amount = transaction.get('amount', format_money_from_description(transaction['detail']))
 
-        earning = Earnings.objects.create(date=str_to_datetime(transaction['postDate']),
-                                          description='TED/DOC devolvido (%s)' % name,
-                                          value=amount, received=True, origin='Nubank')
-        earning.save()
+        Earnings.objects.get_or_create(transaction_id=transaction['id'],
+                                       date=str_to_datetime(transaction['postDate']),
+                                       description='TED/DOC devolvido (%s)' % name,
+                                       value=amount, received=True, origin='Nubank')
 
     @staticmethod
     def _debit_reversal_event(transaction):
         amount = transaction.get('amount', format_money_from_description(transaction['detail']))
 
-        earning = Earnings.objects.create(date=str_to_datetime(transaction['postDate']),
-                                          description='Estorno de debito (%s)' % transaction['detail'],
-                                          value=amount, received=True, origin='Nubank')
-        earning.save()
+        Earnings.objects.get_or_create(transaction_id=transaction['id'],
+                                       date=str_to_datetime(transaction['postDate']),
+                                       description='Estorno de debito (%s)' % transaction['detail'],
+                                       value=amount, received=True, origin='Nubank')
 
     @staticmethod
     def _barcode_payment_event(transaction):
-        expense = Expenses.objects.create(date=str_to_datetime(transaction['postDate']),
-                                          description='Pagamento de Boleto',
-                                          value=transaction['amount'],
-                                          scheduled=True, paid=True,
-                                          bank_account='Nubank')
-        expense.save()
+        Expenses.objects.get_or_create(transaction_id=transaction['id'],
+                                       date=str_to_datetime(transaction['postDate']),
+                                       description='Pagamento de Boleto',
+                                       value=transaction['amount'],
+                                       scheduled=True, paid=True, bank_account='NUB')
 
     @staticmethod
     def _debit_withdrawalfee_event(transaction):
         location = transaction['detail'].split('-')[0].strip()
 
-        expense = Expenses.objects.create(date=str_to_datetime(transaction['postDate']),
-                                          description='Tarifa de Saque (%s)' % location,
-                                          value=transaction['amount'],
-                                          scheduled=True, paid=True,
-                                          bank_account='Nubank')
-        expense.save()
+        Expenses.objects.get_or_create(transaction_id=transaction['id'],
+                                       date=str_to_datetime(transaction['postDate']),
+                                       description='Tarifa de Saque (%s)' % location,
+                                       value=transaction['amount'],
+                                       scheduled=True, paid=True, bank_account='NUB')
 
     @staticmethod
     def _debit_withdrawal_event(transaction):
         location = transaction['detail'].split('-')[0].strip()
 
-        expense = Expenses.objects.create(date=str_to_datetime(transaction['postDate']),
-                                          description='Saque (%s)' % location,
-                                          value=transaction['amount'],
-                                          scheduled=True, paid=True,
-                                          bank_account='Nubank')
-        expense.save()
+        Expenses.objects.get_or_create(transaction_id=transaction['id'],
+                                       date=str_to_datetime(transaction['postDate']),
+                                       description='Saque (%s)' % location, value=transaction['amount'],
+                                       scheduled=True, paid=True, bank_account='NUB')

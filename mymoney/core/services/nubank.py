@@ -52,15 +52,14 @@ class NubankWorker(WorkerBase):
             if transaction['charges'] > 1:
                 description += ' (%d/%d)' % (charge_index, charge_count)
 
-            obj = CreditCardBills(account=self._account,
-                                  transaction_id=transaction['id'],
-                                  description=description,
-                                  value=util.format_money(transaction['amount']),
-                                  transaction_time=transaction['post_date'],
-                                  category=self._transaction_category(transaction),
-                                  payment_date=bill['due_date'], closing_date=bill['close_date'],
-                                  charge_index=charge_index, charge_count=charge_count)
-            obj.save()
+            CreditCardBills.objects.get_or_create(account=self._account,
+                                                  transaction_id=transaction['id'],
+                                                  description=description,
+                                                  value=util.format_money(transaction['amount']),
+                                                  transaction_time=transaction['post_date'],
+                                                  category=self._transaction_category(transaction),
+                                                  payment_date=bill['due_date'], closing_date=bill['close_date'],
+                                                  charge_index=charge_index, charge_count=charge_count)
 
     @staticmethod
     def _is_buy_transaction(transaction):
@@ -83,7 +82,7 @@ class NubankWorker(WorkerBase):
 
         for bill in bills:
             try:
-                obj = Expenses.objects.get(credit_card_ref=bill['account'], date=bill['payment_date'])
+                obj = Expenses.objects.get(transaction_id=bill['account'], date=bill['payment_date'])
                 obj.value = bill['total']
                 obj.save()
 
@@ -91,7 +90,7 @@ class NubankWorker(WorkerBase):
                 obj = Expenses(date=bill['payment_date'],
                                description='Credit Card (%s)' % bill['account'],
                                value=bill['total'],
-                               credit_card_ref=bill['account'],
+                               transaction_id=bill['account'],
                                bank_account='BRD')
                 obj.save()
 
