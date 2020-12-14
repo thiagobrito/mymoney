@@ -23,6 +23,10 @@ def format_money(value):
     return float(total + cents)
 
 
+def format_money_from_description(value):
+    return format_money(float(value.split('-')[1].replace('R$', '').replace(',', '').replace('.', '').strip()))
+
+
 def label_colors(number_of_colors):
     colors = ['#e74a3bbf', '#4e73dfbf', '#1cc88abf', '#36b9ccbf']
     colors += ["#" + ''.join([random.choice('0123456789ABCDEF') for j in range(6)]) for i in range(number_of_colors)]

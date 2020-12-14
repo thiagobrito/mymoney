@@ -18,7 +18,7 @@ parsedatetime==2.4
 psycopg2-binary==2.8.4
 py-moneyed==0.8.0
 pycparser==2.20
-pynubank==2.7.1
+git+git://github.com/thiagobrito/pynubank.git
 pyOpenSSL==19.1.0
 python-dateutil==2.8.1
 python-decouple==3.3
