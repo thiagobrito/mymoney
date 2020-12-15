@@ -10,6 +10,10 @@ def update_from_request(request, object):
             object.description = value
         elif name == 'value':
             object.value = Money(value.replace('R$', '').replace(',', ''), currency='BRL')
-        object.save()
+
+        if object.value.amount == 0:
+            object.delete()
+        else:
+            object.save()
 
     return JsonResponse(data={'msg': 'success'})

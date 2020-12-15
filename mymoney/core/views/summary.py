@@ -68,6 +68,7 @@ def view(request, month=None, year=datetime.now().year):
                                                  currency='BRL'),
                       'period': period_title,
                       'month': month or None,
+                      'year': year or 2020,
                       'credit_card_daily_estimate': credit_card_daily_estimate,
                       'credit_card_month_daily_expenses': credit_card_month_daily_expenses,
                       'credit_card': credit_card if month else None,
