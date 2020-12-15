@@ -8,7 +8,7 @@
                 <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="false"
                    class="btn btn-primary dropdown-toggle d-none d-sm-inline-block btn btn-sm btn-primary">
-                    <i class="fas fa-plus-circle fa-sm text-white-50"></i> New Earning
+                    <i class="fas fa-plus-circle fa-sm text-white-50"></i> Novo
                 </a>
 
                 <div class="dropdown-menu">
@@ -16,17 +16,17 @@
                           method="POST" id="new_earning_form">
                         {% csrf_token %}
                         <div class="form-group">
-                            <label for="DropDownExpenseDate">Date</label>
+                            <label for="DropDownExpenseDate">Data</label>
                             <input type="date" class="form-control" id="DropDownExpenseDate"
                                    name="date" placeholder="expense_date">
                         </div>
                         <div class="form-group">
-                            <label for="expense_description">Description</label>
+                            <label for="expense_description">Descrição</label>
                             <input type="text" class="form-control" id="earning_description"
                                    name="description" placeholder="Description...">
                         </div>
                         <div class="form-group">
-                            <label for="expense_value">Value</label>
+                            <label for="expense_value">Valor</label>
                             <input type="number" class="form-control" id="earning_value"
                                    name="value" placeholder="R$ 0,00" step="any">
                         </div>
@@ -35,7 +35,7 @@
                             <input type="text" class="form-control" id="earning_origin"
                                    name="origin" placeholder="Salario" step="any">
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
                     </form>
                 </div>
             </div>
@@ -55,23 +55,23 @@
                                     colspan="1" aria-sort="ascending"
                                     aria-label="Name: activate to sort column descending" style="width: 170px;">
 
-                                    Date
+                                    Data
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                     aria-label="Position: activate to sort column ascending" style="width: 401px;">
 
-                                    Description
+                                    Descrição
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                     aria-label="Office: activate to sort column ascending" style="width: 50px;">
 
-                                    Value
+                                    Valor
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                     aria-label="Start date: activate to sort column ascending"
                                     style="width: 187px;">
 
-                                    Origin
+                                    Origem
                                 </th>
                             </tr>
                             </thead>

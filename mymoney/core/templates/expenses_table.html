@@ -7,7 +7,7 @@
             <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                        Waiting for Payment
+                        Aguardando Pagamento
                     </div>
                     <div class="row no-gutters align-items-center">
                         <div class="col-auto">
@@ -20,7 +20,7 @@
             <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                        Not Recurrent
+                        Não Recorrente
                     </div>
                     <div class="row no-gutters align-items-center">
                         <div class="col-auto">
@@ -34,14 +34,14 @@
                 {% if monthly_summary and pending_recurrences %}
                     <a href="javascript:onRecurrencyCheck('{% url 'api.expenses.fill_recurrences' month=month year=year %}');"
                        role="button" aria-expanded="false" class="btn btn-info btn btn-sm btn-primary">
-                        <i class="fas fa-redo-alt fa-sm text-white-50"></i> Fill Recurrency
+                        <i class="fas fa-redo-alt fa-sm text-white-50"></i> Preencher Recorrências
                     </a>
                 {% endif %}
 
                 <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="false"
                    class="btn btn-primary dropdown-toggle d-none d-sm-inline-block btn btn-sm btn-primary">
-                    <i class="fas fa-plus-circle fa-sm text-white-50"></i> New Expense
+                    <i class="fas fa-plus-circle fa-sm text-white-50"></i> Novo
                 </a>
 
                 <div class="dropdown-menu">
@@ -56,14 +56,14 @@
                         <div class="form-group">
                             <label for="expense_description">Description</label>
                             <input type="text" class="form-control" id="expense_description"
-                                   name="description" placeholder="Description...">
+                                   name="description" placeholder="Descrição...">
                         </div>
                         <div class="form-group">
                             <label for="expense_value">Value</label>
                             <input type="number" class="form-control" id="expense_value"
                                    name="value" placeholder="R$ 0,00" step="any">
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
                     </form>
                 </div>
             </div>
@@ -83,37 +83,37 @@
                                     colspan="1" aria-sort="ascending"
                                     aria-label="Name: activate to sort column descending" style="width: 170px;">
 
-                                    Date
+                                    Data
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                     aria-label="Position: activate to sort column ascending">
 
-                                    Description
+                                    Descrição
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                     aria-label="Office: activate to sort column ascending" style="width: 40px;">
 
-                                    Value
+                                    Valor
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                     aria-label="Office: activate to sort column ascending" style="width: 40px;">
 
-                                    Bank
+                                    Banco
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                     aria-label="Office: activate to sort column ascending" style="width: 40px;">
 
-                                    Scheduled
+                                    Agendado
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                     aria-label="Office: activate to sort column ascending" style="width: 40px;">
 
-                                    Paid
+                                    Pago
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                     aria-label="Office: activate to sort column ascending" style="width: 40px;">
 
-                                    Recurrent
+                                    Recorrente
                                 </th>
                             </tr>
                             </thead>

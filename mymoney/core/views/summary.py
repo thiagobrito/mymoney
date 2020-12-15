@@ -29,7 +29,7 @@ def view(request, month=None, year=datetime.now().year):
         credit_card_daily_estimate = good_daily_estimate(credit_card, charged_sum)
         credit_card_month_daily_expenses = month_daily_estimate(credit_card, charged_sum)
         credit_card_daily_expenses_green = credit_card_month_daily_expenses <= credit_card_daily_estimate
-        pie_chart_title = 'Credit Card Categories'
+        pie_chart_title = 'Categorias dos Gastos de Cartão de Crédito'
         pending_recurrences = has_pending_recurrences(month, year)
 
         months = ['', 'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
@@ -51,7 +51,7 @@ def view(request, month=None, year=datetime.now().year):
 
     main_chart_title = 'Earnings/Expenses Overview'
     if month:
-        main_chart_title = 'Credit Card Burndown Chart'
+        main_chart_title = 'Grafico Burndown (Cartão de Crédito)'
 
     return render(request, 'index.html',
                   context={
