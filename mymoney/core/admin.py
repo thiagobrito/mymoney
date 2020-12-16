@@ -25,7 +25,7 @@ class LabelAdmin(admin.ModelAdmin):
 
 
 class EarningsAdmin(admin.ModelAdmin):
-    list_display = ('date', 'description', 'origin', 'value', 'received')
+    list_display = ('date', 'description', 'origin', 'value', 'received', 'transaction_id')
 
 
 class FundsAdmin(admin.ModelAdmin):
@@ -43,7 +43,7 @@ class ExpensesForm(forms.ModelForm):
 
 class ExpensesAdmin(admin.ModelAdmin):
     form = ExpensesForm
-    list_display = ('date', 'description', 'value', 'scheduled', 'paid', 'bank_account')
+    list_display = ('date', 'description', 'value', 'scheduled', 'paid', 'bank_account', 'transaction_id')
 
     def save_model(self, request, obj, form, change):
         number_of_payments = int(form.data['number_of_payments'])
