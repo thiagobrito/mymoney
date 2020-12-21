@@ -34,11 +34,14 @@ def authenticate_and_process(request):
     password = request.session.get('password', default=None)
 
     if uuid and login and password:
-        worker = nubank.authenticate(login, password, uuid)
-        nubank.add_to_queue(uuid, worker)
+        try:
+            worker = nubank.authenticate(login, password, uuid)
+            nubank.add_to_queue(uuid, worker)
 
-        del request.session['password']
-        return HttpResponse('Processing data, you will be redirected soon...')
+            del request.session['password']
+            return HttpResponse('Processando dados, você será redirecionado em breve...')
+        except NuRequestException:
+            return HttpResponse('Senha invalida ou não foi liberado o QRCode ainda...')
 
     return HttpResponse(status=401)
 

@@ -1,31 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block page_content %}
-    <div class="container">
-        <div class="row h-100">
-            <div class="col">
-            </div>
-
-            <div class="col align-self-center" style="text-align: center;">
-                <h4 class="m-0 font-weight-bold text-dark">Open NuBank App and Scan this QRCode to Sync Your Data</h4>
-                <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={{ uuid }}&choe=UTF-8"/>
-                <p id="update_status_text">
-                    <img src="{% static 'imgs/loading.gif' %}" onload="setTimeout(authentication_check, 10000);"/>
-                    Waiting for autorization to update data...
-                </p>
-                <a id="skip_text" href="{% url 'nubank.summary' %}">Skip this step... I want to see the data that I
-                    have!</a>
-            </div>
-
-            <div class="col">
-            </div>
-        </div>
-
-    </div>
-{% endblock %}
-
-{% block end_content %}
+{% block head_content %}
 
     <script>
         function processing_check() {
@@ -56,7 +32,7 @@
         var auth_check_timer = null;
 
         function authentication_check() {
-            console.log('sending...');
+            console.log('Autenticando...');
             $.ajax({
                 url: "{% url 'nubank.authenticate' %}",
                 method: "GET",
@@ -74,6 +50,37 @@
                 }
             });
         }
+
+        function startAuthenticationCheck() {
+            setTimeout(authentication_check, 10000);
+            document.getElementById("update_status_text").textContent = "Aguardando autenticação...";
+        }
+
     </script>
 
+{% endblock %}
+
+{% block page_content %}
+    <div class="container">
+        <div class="row h-100">
+            <div class="col">
+            </div>
+
+            <div class="col align-self-center" style="text-align: center;">
+                <h4 class="m-0 font-weight-bold text-dark">Abra o aplicativo do Nubank e use este QRCode para sincronizar seus dados</h4>
+                <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={{ uuid }}&choe=UTF-8"/>
+                <p id="update_status_text">
+                    <img src="{% static 'imgs/loading.gif' %}" onload="startAuthenticationCheck();"/>
+                    Aguardando carregamento do QRCode...
+                </p>
+            </div>
+
+            <div class="col">
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block end_content %}
 {% endblock %}
