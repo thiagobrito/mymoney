@@ -100,7 +100,7 @@ def authenticate(login, password, uuid):
     nubank.authenticate_with_qr_code(login, password, uuid)
 
     nucard_transactions = NubankCardTransactions(nubank=nubank)
-    nuconta_transactions = NuContaTransactions(nubank=nubank)
+    nuconta_transactions = NuContaTransactions(nubank=nubank, account=login)
 
     return NubankWorker(login, card_transactions=nucard_transactions, conta_transactions=nuconta_transactions)
 
