@@ -28,5 +28,5 @@ jobs:
             CC_TEST_REPORTER_ID: abe6ee3017ce6751ed5e0e6bc13e50e72bfa0355bd2ddbd801bc1703f154e011
             SECRET_KEY: test_secret_key
           with:
-            coverageCommand: coverage
+            coverageCommand: coverage xml
             debug: true

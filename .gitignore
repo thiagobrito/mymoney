@@ -10,3 +10,5 @@ __pycache__
 /staticfiles/
 /data/*.json
 /data_
+/.coverage
+/.coverage.xml
