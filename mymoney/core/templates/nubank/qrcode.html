@@ -15,10 +15,8 @@
                             document.getElementById("update_status_text").textContent = response;
                             window.location.href = "{% url 'summary' month=current_month year=current_year %}";
                         } else {
-                            if (parseFloat(response.progress) > 0) {
-                                document.getElementById("update_status_text").textContent = "Processing " + parseFloat(response.progress).toFixed(2) + "% concluded...";
-                            }
-                            setTimeout(processing_check, 200);
+                            document.getElementById("update_status_text").textContent = "Processando transações. Você será redirecionado em breve...";
+                            setTimeout(processing_check, 1000);
                         }
                     }
                 },

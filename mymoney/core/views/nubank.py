@@ -40,8 +40,9 @@ def authenticate_and_process(request):
 
             del request.session['password']
             return HttpResponse('Processando dados, você será redirecionado em breve...')
+
         except NuRequestException:
-            return HttpResponse('Senha invalida ou não foi liberado o QRCode ainda...')
+            pass
 
     return HttpResponse(status=401)
 
