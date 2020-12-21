@@ -1,10 +1,10 @@
 from django.test import TestCase
 from pynubank import Nubank, MockHttpClient
-from mymoney.core.tests.data import account_statements
 
 from mymoney.core.models.expenses import Expenses
 from mymoney.core.models.earnings import Earnings
 
+from mymoney.core.util import str_to_datetime
 from mymoney.core.services.nuconta_transactions import NuContaTransactions
 
 
@@ -74,6 +74,9 @@ class TestNubankTransactions(TestCase):
         self.assertTrue(expense.paid)
 
     def test_process_transactions_BillPaymentEvent_save_as_expense(self):
+        Expenses.objects.create(date=str_to_datetime('2020-11-26'), description='Cartão de Crédito (Thiago Brito)',
+                                value=7554.78, recurrent=True, transaction_id='test.account')
+
         transaction = [{
             "id": "5fb59b58-2eaa-459d-9c22-f6d0546b5c64",
             "__typename": "BillPaymentEvent",
@@ -87,7 +90,7 @@ class TestNubankTransactions(TestCase):
         expense = Expenses.objects.first()
 
         self.assertEqual(1, Expenses.objects.count())
-        self.assertEqual('Pagamento da fatura', expense.description)
+        self.assertEqual('Pagamento da fatura (test.account)', expense.description)
         self.assertEqual('R$100.00', str(expense.value))
         self.assertEqual('NUB', expense.bank_account)
         self.assertTrue(expense.scheduled)

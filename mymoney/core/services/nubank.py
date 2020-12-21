@@ -30,7 +30,6 @@ class NubankWorker(WorkerBase):
         CreditCardBills.objects.filter(account=self._account).delete()
 
         self._save_all_transactions()
-        self._save_expenses_table_bill_record()
 
         self._status['ready'] = True
 
@@ -41,6 +40,7 @@ class NubankWorker(WorkerBase):
         for transaction in self._card_transactions.transactions():
             self._save_single_transaction(transaction['bill'], transaction['transaction'])
 
+        self._save_expenses_table_bill_record()
         self._conta_transactions.load_all_transactions()
 
     def _save_single_transaction(self, bill, transaction):

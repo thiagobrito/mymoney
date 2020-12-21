@@ -83,8 +83,8 @@ class NuContaTransactions:
 
             transaction_date = str_to_datetime(transaction['postDate'])
             Expenses.objects.create(transaction_id=transaction['id'],
-                                    date=transaction_date, description='Pagamento da fatura', value=amount,
-                                    scheduled=True, paid=True, bank_account='NUB')
+                                    date=transaction_date, description='Pagamento da fatura (%s)' % account,
+                                    value=amount, scheduled=True, paid=True, bank_account='NUB')
 
             Expenses.objects.filter(transaction_id=account, date__month=transaction_date.month).delete()
 
