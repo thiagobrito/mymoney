@@ -12,7 +12,7 @@ class CreditCardCategoryUpdate(models.Model):
 class CreditCardDateUpdate(models.Model):
     id = models.AutoField(primary_key=True)
     transaction_id = models.TextField()
-    orig_transaction_time = models.DateTimeField()
+    orig_transaction_time = models.DateField()
     orig_payment_date = models.DateField(default=datetime.datetime.now, blank=True)
     new_payment_date = models.DateField()
     new_closing_date = models.DateField()
