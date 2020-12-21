@@ -86,7 +86,8 @@ class NuContaTransactions:
                                     date=transaction_date, description='Pagamento da fatura (%s)' % account,
                                     value=amount, scheduled=True, paid=True, bank_account='NUB')
 
-            Expenses.objects.filter(transaction_id=account, date__month=transaction_date.month).delete()
+            Expenses.objects.filter(transaction_id=account,
+                                    date__month=transaction_date.month, date__year=transaction_date.year).delete()
 
     @staticmethod
     def _barcode_payment_event(transaction, account):
