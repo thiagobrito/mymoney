@@ -74,9 +74,6 @@ class TestNubankTransactions(TestCase):
         self.assertTrue(expense.paid)
 
     def test_process_transactions_BillPaymentEvent_save_as_expense(self):
-        Expenses.objects.create(date=str_to_datetime('2020-11-26'), description='Cartão de Crédito (Thiago Brito)',
-                                value=7554.78, recurrent=True, transaction_id='test.account')
-
         transaction = [{
             "id": "5fb59b58-2eaa-459d-9c22-f6d0546b5c64",
             "__typename": "BillPaymentEvent",

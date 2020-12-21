@@ -40,7 +40,6 @@ class NubankWorker(WorkerBase):
         for transaction in self._card_transactions.transactions():
             self._save_single_transaction(transaction['bill'], transaction['transaction'])
 
-        self._save_expenses_table_bill_record()
         self._conta_transactions.load_all_transactions()
 
     def _save_single_transaction(self, bill, transaction):
@@ -71,28 +70,6 @@ class NubankWorker(WorkerBase):
             return CreditCardCategoryUpdate.objects.get(transaction_id=transaction['id']).category
         except ObjectDoesNotExist:
             return transaction['category']
-
-    @staticmethod
-    def _save_expenses_table_bill_record():
-        bills = CreditCardBills.objects.filter(payment_date__year=datetime.datetime.now().year) \
-            .values('payment_date') \
-            .annotate(total=Sum('value')) \
-            .values('account', 'payment_date', 'total') \
-            .order_by('payment_date')
-
-        for bill in bills:
-            try:
-                obj = Expenses.objects.get(transaction_id=bill['account'], date=bill['payment_date'])
-                obj.value = bill['total']
-                obj.save()
-
-            except ObjectDoesNotExist:
-                obj = Expenses(date=bill['payment_date'],
-                               description='Credit Card (%s)' % bill['account'],
-                               value=bill['total'],
-                               transaction_id=bill['account'],
-                               bank_account='BRD')
-                obj.save()
 
 
 def authenticate(login, password, uuid):
