@@ -22,11 +22,3 @@ jobs:
           env:
             SECRET_KEY: test_secret_key
 
-        - name: Execute Unit Tests and Publish Code Coverage
-          uses: paambaati/codeclimate-action@v2.7.5
-          env:
-            CC_TEST_REPORTER_ID: abe6ee3017ce6751ed5e0e6bc13e50e72bfa0355bd2ddbd801bc1703f154e011
-            SECRET_KEY: test_secret_key
-          with:
-            coverageCommand: coverage xml
-            debug: true
