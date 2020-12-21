@@ -34,20 +34,11 @@ def authenticate_and_process(request):
     password = request.session.get('password', default=None)
 
     if uuid and login and password:
-        try:
-            if request.session.get('authenticated_uuid_failed', None) != uuid:
-                worker = nubank.authenticate(login, password, uuid)
-                nubank.add_to_queue(uuid, worker)
+        worker = nubank.authenticate(login, password, uuid)
+        nubank.add_to_queue(uuid, worker)
 
-                del request.session['password']
-                return HttpResponse('Processing data, you will be redirected soon...')
-
-        except NuRequestException:
-            session = request.session
-            session['authenticated_uuid_failed'] = uuid
-            session.save()
-
-            return HttpResponse('Failed to authenticate in Nubank (probably wrong password)...')
+        del request.session['password']
+        return HttpResponse('Processing data, you will be redirected soon...')
 
     return HttpResponse(status=401)
 
