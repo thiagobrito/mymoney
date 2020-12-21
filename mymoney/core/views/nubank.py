@@ -2,6 +2,8 @@ import datetime
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
+from pynubank.exception import NuRequestException
+
 from mymoney.core.services import nubank
 from mymoney.core.models.credit_card import CreditCardBills
 
@@ -32,11 +34,20 @@ def authenticate_and_process(request):
     password = request.session.get('password', default=None)
 
     if uuid and login and password:
-        worker = nubank.authenticate(login, password, uuid)
-        nubank.add_to_queue(uuid, worker)
+        try:
+            if request.session.get('authenticated_uuid_failed', None) != uuid:
+                worker = nubank.authenticate(login, password, uuid)
+                nubank.add_to_queue(uuid, worker)
 
-        del request.session['password']
-        return HttpResponse('Processing data, you will be redirected soon...')
+                del request.session['password']
+                return HttpResponse('Processing data, you will be redirected soon...')
+
+        except NuRequestException:
+            session = request.session
+            session['authenticated_uuid_failed'] = uuid
+            session.save()
+
+            return HttpResponse('Failed to authenticate in Nubank (probably wrong password)...')
 
     return HttpResponse(status=401)
 
