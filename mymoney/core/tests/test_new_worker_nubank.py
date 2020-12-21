@@ -12,7 +12,7 @@ class TestNewWorkerNubank(TestCase):
         nubank.authenticate_with_qr_code('cpf', 'pass', 'uuid')
 
         card_transactions = NubankCardTransactions(nubank=nubank)
-        conta_transactions = NuContaTransactions(nubank=nubank)
+        conta_transactions = NuContaTransactions(nubank=nubank, account='test_account')
         self.worker = NubankWorker('test.account.worker', card_transactions=card_transactions,
                                    conta_transactions=conta_transactions)
         self.worker.work()

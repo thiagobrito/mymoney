@@ -5,8 +5,9 @@ from mymoney.core.util import str_to_datetime, format_money, format_money_from_d
 
 
 class NuContaTransactions:
-    def __init__(self, nubank=None):
+    def __init__(self, account, nubank=None):
         self._nubank = nubank
+        self._account = account
 
     def load_all_transactions(self):
         return self.load(self._nubank.get_account_statements())
@@ -23,10 +24,10 @@ class NuContaTransactions:
                      'DebitWithdrawalEvent': self._debit_withdrawal_event}
 
         for transaction in transactions:
-            functions[transaction['__typename']](transaction)
+            functions[transaction['__typename']](transaction, self._account)
 
     @staticmethod
-    def _transfer_in_event(transaction):
+    def _transfer_in_event(transaction, account):
         if Earnings.objects.filter(transaction_id=transaction['id']).count() == 0:
             Earnings.objects.create(transaction_id=transaction['id'],
                                     description='TED/DOC recebido (%s)' % transaction['originAccount']['name'],
@@ -34,7 +35,7 @@ class NuContaTransactions:
                                     received=True, origin='Nubank')
 
     @staticmethod
-    def _transfer_out_reversal_event(transaction):
+    def _transfer_out_reversal_event(transaction, account):
         if Earnings.objects.filter(transaction_id=transaction['id']).count() == 0:
             name = transaction['detail'].split('-')[0].strip()
             amount = transaction.get('amount', format_money_from_description(transaction['detail']))
@@ -45,7 +46,7 @@ class NuContaTransactions:
                                     value=amount, received=True, origin='Nubank')
 
     @staticmethod
-    def _debit_reversal_event(transaction):
+    def _debit_reversal_event(transaction, account):
         if Earnings.objects.filter(transaction_id=transaction['id']).count() == 0:
             amount = transaction.get('amount', format_money_from_description(transaction['detail']))
 
@@ -55,7 +56,7 @@ class NuContaTransactions:
                                     value=amount, received=True, origin='Nubank')
 
     @staticmethod
-    def _transfer_out_event(transaction):
+    def _transfer_out_event(transaction, account):
         if Expenses.objects.filter(transaction_id=transaction['id']).count() == 0:
             Expenses.objects.create(transaction_id=transaction['id'],
                                     date=str_to_datetime(transaction['postDate']),
@@ -66,7 +67,7 @@ class NuContaTransactions:
                                     scheduled=True, paid=True, bank_account='NUB')
 
     @staticmethod
-    def _debit_event(transaction):
+    def _debit_event(transaction, account):
         if Expenses.objects.filter(transaction_id=transaction['id']).count() == 0:
             title = transaction['detail'].split('-')[0].strip()
 
@@ -76,17 +77,19 @@ class NuContaTransactions:
                                     scheduled=True, paid=True, bank_account='NUB')
 
     @staticmethod
-    def _bill_payment_event(transaction):
+    def _bill_payment_event(transaction, account):
         if Expenses.objects.filter(transaction_id=transaction['id']).count() == 0:
             amount = format_money_from_description(transaction['detail'])
 
+            transaction_date = str_to_datetime(transaction['postDate'])
             Expenses.objects.create(transaction_id=transaction['id'],
-                                    date=str_to_datetime(transaction['postDate']),
-                                    description='Pagamento da fatura', value=amount,
+                                    date=transaction_date, description='Pagamento da fatura', value=amount,
                                     scheduled=True, paid=True, bank_account='NUB')
 
+            Expenses.objects.filter(transaction_id=account, date__month=transaction_date.month).delete()
+
     @staticmethod
-    def _barcode_payment_event(transaction):
+    def _barcode_payment_event(transaction, account):
         if Expenses.objects.filter(transaction_id=transaction['id']).count() == 0:
             Expenses.objects.create(transaction_id=transaction['id'],
                                     date=str_to_datetime(transaction['postDate']),
@@ -95,7 +98,7 @@ class NuContaTransactions:
                                     scheduled=True, paid=True, bank_account='NUB')
 
     @staticmethod
-    def _debit_withdrawalfee_event(transaction):
+    def _debit_withdrawalfee_event(transaction, account):
         if Expenses.objects.filter(transaction_id=transaction['id']).count() == 0:
             location = transaction['detail'].split('-')[0].strip()
 
@@ -106,7 +109,7 @@ class NuContaTransactions:
                                     scheduled=True, paid=True, bank_account='NUB')
 
     @staticmethod
-    def _debit_withdrawal_event(transaction):
+    def _debit_withdrawal_event(transaction, account):
         if Expenses.objects.filter(transaction_id=transaction['id']).count() == 0:
             location = transaction['detail'].split('-')[0].strip()
 

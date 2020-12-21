@@ -13,7 +13,7 @@ class TestNubankTransactions(TestCase):
         self.mocked_nu = Nubank(MockHttpClient())
         self.mocked_nu.authenticate_with_qr_code('34026454835', 'Aut55165??', 'uuid')
 
-        self.nu_conta = NuContaTransactions()
+        self.nu_conta = NuContaTransactions(account='test.account')
 
     def test_process_transactions_TransferOutEvent_save_as_expense(self):
         transaction = [{

@@ -21,7 +21,7 @@ class NubankWorker(WorkerBase):
         super(NubankWorker, self).__init__()
 
         self._card_transactions = card_transactions or NubankCardTransactions()
-        self._conta_transactions = conta_transactions or NuContaTransactions()
+        self._conta_transactions = conta_transactions or NuContaTransactions(account)
         self.uuid = self._card_transactions.uuid
         self._account = account
         self._status = {'ready': False, 'progress': 0, 'exception': False}
