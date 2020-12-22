@@ -24,7 +24,11 @@ def format_money(value):
 
 
 def format_money_from_description(value):
-    return format_money(float(value.split('-')[1].replace('R$', '').replace(',', '').replace('.', '').strip()))
+    if '-' in value:
+        base = value.split('-')[1]
+    else:
+        base = value.strip()
+    return format_money(float(base.replace('R$', '').replace(',', '').replace('.', '').strip()))
 
 
 def label_colors(number_of_colors):

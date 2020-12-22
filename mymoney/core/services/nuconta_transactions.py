@@ -21,7 +21,10 @@ class NuContaTransactions:
                      'DebitPurchaseReversalEvent': self._debit_reversal_event,
                      'BarcodePaymentEvent': self._barcode_payment_event,
                      'DebitWithdrawalFeeEvent': self._debit_withdrawalfee_event,
-                     'DebitWithdrawalEvent': self._debit_withdrawal_event}
+                     'DebitWithdrawalEvent': self._debit_withdrawal_event,
+                     'AddToReserveEvent': self._add_reserve_event,
+                     'RemoveFromReserveEvent': self._remove_reserve_event,
+                     'GenericFeedEvent': self._generic_feed_event}
 
         for transaction in transactions:
             functions[transaction['__typename']](transaction, self._account)
@@ -115,3 +118,35 @@ class NuContaTransactions:
                                     date=str_to_datetime(transaction['postDate']),
                                     description='Saque (%s)' % location, value=transaction['amount'],
                                     scheduled=True, paid=True, bank_account='NUB')
+
+    @staticmethod
+    def _add_reserve_event(transaction, account):
+        if Expenses.objects.filter(transaction_id=transaction['id']).count() == 0:
+            amount = format_money_from_description(transaction['detail'])
+
+            Expenses.objects.create(transaction_id=transaction['id'],
+                                    date=str_to_datetime(transaction['postDate']),
+                                    description='Dinheiro Guardado', value=amount,
+                                    scheduled=True, paid=True, bank_account='NUB')
+
+    @staticmethod
+    def _remove_reserve_event(transaction, account):
+        if Earnings.objects.filter(transaction_id=transaction['id']).count() == 0:
+            amount = transaction.get('amount', format_money_from_description(transaction['detail']))
+
+            Earnings.objects.create(transaction_id=transaction['id'],
+                                    date=str_to_datetime(transaction['postDate']),
+                                    description='Dinheiro da reserva resgatado',
+                                    value=amount, received=True, origin='Nubank')
+
+    @staticmethod
+    def _generic_feed_event(transaction, account):
+        if Expenses.objects.filter(transaction_id=transaction['id']).count() == 0:
+            name = transaction['detail'].split('\n')[0].title()
+            amount = format_money_from_description(transaction['detail'].split('\n')[1])
+
+            Expenses.objects.create(transaction_id=transaction['id'],
+                                    date=str_to_datetime(transaction['postDate']),
+                                    description='Transferencia (%s)' % name, value=amount,
+                                    scheduled=True, paid=True, bank_account='NUB')
+

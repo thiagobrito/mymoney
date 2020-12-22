@@ -186,3 +186,62 @@ class TestNubankTransactions(TestCase):
         self.assertEqual('NUB', expense.bank_account)
         self.assertTrue(expense.scheduled)
         self.assertTrue(expense.paid)
+
+    def test_process_transactions_GenericFeedEvent_save_as_expense(self):
+        transaction = [{
+            "id": "5fe126e5-cb60-42a2-85a7-bc0628e2a02a",
+            "__typename": "GenericFeedEvent",
+            "title": "Transferência enviada",
+            "detail": "ANDERSON GOMES DUTRA\nR$ 340,00",
+            "postDate": "2020-12-21"
+        }]
+
+        self.nu_conta.load(transaction)
+
+        expense = Expenses.objects.first()
+
+        self.assertEqual(1, Expenses.objects.count())
+        self.assertEqual('Transferencia (Anderson Gomes Dutra)', expense.description)
+        self.assertEqual('R$340.00', str(expense.value))
+        self.assertEqual('NUB', expense.bank_account)
+        self.assertTrue(expense.scheduled)
+        self.assertTrue(expense.paid)
+
+    def test_process_transactions_RemoveFromReserveEvent_save_as_expense(self):
+        transaction = [{
+            "id": "5fe0eac4-c2fc-4ad3-af9f-497abffd90fe",
+            "__typename": "RemoveFromReserveEvent",
+            "title": "Reserva resgatada",
+            "detail": "R$ 5.000,00",
+            "postDate": "2020-12-21"
+        }]
+
+        self.nu_conta.load(transaction)
+
+        earning = Earnings.objects.first()
+
+        self.assertEqual(1, Earnings.objects.count())
+        self.assertEqual('Dinheiro da reserva resgatado', earning.description)
+        self.assertEqual('R$5,000.00', str(earning.value))
+        self.assertTrue(earning.received)
+        self.assertEqual('Nubank', earning.origin)
+
+    def test_process_transactions_AddToReserveEvent_save_as_expense(self):
+        transaction = [{
+            "id": "5f63464d-6bd0-4dbe-b28e-7552f103a085",
+            "__typename": "AddToReserveEvent",
+            "title": "Dinheiro guardado",
+            "detail": "R$ 70.000,00",
+            "postDate": "2020-09-17"
+        }]
+
+        self.nu_conta.load(transaction)
+
+        expense = Expenses.objects.first()
+
+        self.assertEqual(1, Expenses.objects.count())
+        self.assertEqual('Dinheiro Guardado', expense.description)
+        self.assertEqual('R$70,000.00', str(expense.value))
+        self.assertEqual('NUB', expense.bank_account)
+        self.assertTrue(expense.scheduled)
+        self.assertTrue(expense.paid)
