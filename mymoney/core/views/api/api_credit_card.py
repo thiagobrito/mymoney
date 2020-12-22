@@ -11,8 +11,8 @@ from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate, Cr
 from mymoney.core import util
 
 
-def burndown_chart(request, month):
-    credit_card = CreditCardBills.objects.filter(payment_date__year=datetime.now().year).order_by('-transaction_time')
+def burndown_chart(request, month, year):
+    credit_card = CreditCardBills.objects.filter(payment_date__year=year).order_by('-transaction_time')
     credit_card = credit_card.filter(payment_date__month=month)
     if len(credit_card):
         charged_sum = credit_card.filter(charge_count__gt=1).aggregate(Sum('value'))['value__sum'] or 0
@@ -53,8 +53,8 @@ def burndown_chart(request, month):
     return HttpResponseBadRequest()
 
 
-def category_chart(request, month):
-    credit_card = CreditCardBills.objects.filter(payment_date__year=datetime.now().year).order_by('-transaction_time')
+def category_chart(request, month, year):
+    credit_card = CreditCardBills.objects.filter(payment_date__year=year).order_by('-transaction_time')
     credit_card = credit_card.filter(payment_date__month=month)
     report = credit_card.values('category').annotate(Sum('value')).order_by('category')
 

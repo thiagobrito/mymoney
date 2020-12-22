@@ -1,31 +1,38 @@
+from datetime import datetime
 from mymoney.core.models.expenses import Expenses
+
+from mymoney.core.util import add_months
 
 
 def has_pending_recurrences(month, year):
-    previous_month_expenses = Expenses.objects.filter(date__year=year, date__month=month - 1, transaction_id='',
-                                                      recurrent=True)
+    previous_month = add_months(datetime(year=year, month=month, day=1), -1)
+
+    previous_month_expenses = Expenses.objects.filter(date__year=previous_month.year, date__month=previous_month.month,
+                                                      transaction_id='', recurrent=True)
     current_month_expenses = Expenses.objects.filter(date__year=year, date__month=month)
 
     for prev_expense in previous_month_expenses:
         prev_description, should_create = _check_description(prev_expense.description)
+        if should_create:
+            found = False
+            for curr_expense in current_month_expenses:
+                curr_description, _ = _check_description(curr_expense.description)
 
-        found = False
-        for curr_expense in current_month_expenses:
-            curr_description, _ = _check_description(curr_expense.description)
+                if curr_description == prev_description:
+                    found = True
+                    break
 
-            if curr_description == prev_description:
-                found = True
-                break
-
-        if not found and should_create:
-            return True
+            if not found:
+                return True
 
     return False
 
 
 def fill_pending_recurrences(month, year):
-    previous_month_expenses = Expenses.objects.filter(date__year=year, date__month=month - 1, transaction_id='',
-                                                      recurrent=True)
+    previous_month = add_months(datetime(year=year, month=month, day=1), -1)
+    previous_month_expenses = Expenses.objects.filter(date__year=previous_month.year, date__month=previous_month.month,
+                                                      transaction_id='', recurrent=True)
+
     current_month_expenses = Expenses.objects.filter(date__year=year, date__month=month)
 
     for prev_expense in previous_month_expenses:
@@ -43,8 +50,8 @@ def fill_pending_recurrences(month, year):
                 break
 
         if not found and should_create:
-            Expenses(date=prev_expense.date.replace(month=prev_expense.date.month + 1),
-                     description=prev_expense.description, value=prev_expense.value, recurrent=True).save()
+            Expenses(date=add_months(prev_expense.date, 1), description=prev_expense.description,
+                     value=prev_expense.value, recurrent=True).save()
 
 
 def _check_description(description):

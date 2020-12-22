@@ -148,7 +148,7 @@
                     <div class="chart-area">
                         {% if monthly_summary %}
                             <canvas id="CreditCardBurndownChart"
-                                    data-url="{% url 'api.credit_card.burndown_chart' month=month %}"></canvas>
+                                    data-url="{% url 'api.credit_card.burndown_chart' month=month year=year %}"></canvas>
                         {% else %}
                             <canvas id="EarningsExpensesChart" data-url="{% url 'api.earnings.month_chart' %}"></canvas>
                         {% endif %}
@@ -182,7 +182,7 @@
                 <div class="card-body">
                     <div class="chart-pie">
                         {% if monthly_summary %}
-                            <canvas id="myPieChart" data-url="{% url 'api.credit_card.category_chart' month=month %}"></canvas>
+                            <canvas id="myPieChart" data-url="{% url 'api.credit_card.category_chart' month=month year=year %}"></canvas>
                         {% else %}
                             <canvas id="myPieChart" data-url="{% url 'api.earnings.sources_chart' %}"></canvas>
                         {% endif %}

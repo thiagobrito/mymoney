@@ -11,23 +11,23 @@ from mymoney.core.util import add_months
 class BurndownChartTests(TestCase):
     def test_charged_sum_zero(self):
         create_credit_card_bill({'account': '456'})
-        self.response = self.client.get(r('api.credit_card.burndown_chart', datetime.now().month))
+        self.response = self.client.get(r('api.credit_card.burndown_chart', datetime.now().month, datetime.now().year))
         self.assertEqual(200, self.response.status_code)
 
     def test_invalid_month(self):
-        self.response = self.client.get(r('api.credit_card.burndown_chart', 15))
+        self.response = self.client.get(r('api.credit_card.burndown_chart', 15, 2020))
         self.assertEqual(400, self.response.status_code)
 
 
 class CategoryChartTests(TestCase):
     def test_nodata_request(self):
-        self.response = self.client.get(r('api.credit_card.category_chart', datetime.now().month))
+        self.response = self.client.get(r('api.credit_card.category_chart', datetime.now().month, datetime.now().year))
         self.assertEqual(200, self.response.status_code)
 
     def test_single_bill(self):
         create_credit_card_bill({'category': 'casa'})
 
-        self.response = self.client.get(r('api.credit_card.category_chart', datetime.now().month))
+        self.response = self.client.get(r('api.credit_card.category_chart', datetime.now().month, datetime.now().year))
 
         self.assertEqual(self.response.content.decode(),
                          '{"labels": ["Casa"], "data": ["10"], "colors": ["#e74a3bbf"]}')
@@ -36,7 +36,7 @@ class CategoryChartTests(TestCase):
         create_credit_card_bill({'id': 123, 'category': 'casa', 'value': 10})
         create_credit_card_bill({'id': 456, 'category': 'estudos', 'value': 20})
 
-        self.response = self.client.get(r('api.credit_card.category_chart', datetime.now().month))
+        self.response = self.client.get(r('api.credit_card.category_chart', datetime.now().month, datetime.now().year))
 
         self.assertEqual(self.response.content.decode(),
                          '{"labels": ["Estudos", "Casa"], "data": ["20", "10"], "colors": ["#e74a3bbf", "#4e73dfbf"]}')
