@@ -13,3 +13,7 @@ class RecurrencesTests(TestCase):
         self.assertEqual('Teste (7/10)', _update_portion_payment('Teste (6/10)'))
         self.assertEqual('Teste (10/10)', _update_portion_payment('Teste (9/10)'))
         self.assertEqual('Teste (11/20)', _update_portion_payment('Teste (10/20)'))
+
+    def test_crash_description(self):
+        self.assertEqual('Carro - Kicks (Financiamento) (37/37)',
+                         _update_portion_payment('Carro - Kicks (Financiamento) (36/37)'))

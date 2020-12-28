@@ -1,3 +1,4 @@
+import re
 from datetime import datetime
 from mymoney.core.models.expenses import Expenses
 
@@ -56,26 +57,25 @@ def fill_pending_recurrences(month, year):
 
 
 def _check_description(description):
-    clean_description = description
+    cleaned_description = description
 
     has_future_payment = True
     if '(' in description and '/' in description:
-        pos = description.find('(')
-        clean_description = description[:pos].strip()
+        m = re.search(r'(\d+)/(\d+)', description)
 
-        payments = description[pos:].replace('(', '').replace(')', '').split('/')
-        if payments[0] == payments[1]:
+        cleaned_description = description.replace('(%s/%s)' % (m.group(1), m.group(2)), '').strip()
+        if m.group(1) == m.group(2):
             has_future_payment = False
 
-    return clean_description, has_future_payment
+    return cleaned_description, has_future_payment
 
 
 def _update_portion_payment(description):
     if '(' in description and '/' in description:
-        pos = description.find('(')
-        cleaned_description = description[:pos].strip()
+        m = re.search(r'(\d+)/(\d+)', description)
 
-        payments = description[pos:].replace('(', '').replace(')', '').split('/')
-        return '%s (%d/%d)' % (cleaned_description, int(payments[0]) + 1, int(payments[1]))
+        cleaned_description = description.replace('(%s/%s)' % (m.group(1), m.group(2)), '').strip()
+
+        return '%s (%d/%d)' % (cleaned_description, int(m.group(1)) + 1, int(m.group(2)))
 
     return description
