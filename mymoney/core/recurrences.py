@@ -12,8 +12,8 @@ def has_pending_recurrences(month, year):
     current_month_expenses = Expenses.objects.filter(date__year=year, date__month=month)
 
     for prev_expense in previous_month_expenses:
-        prev_description, should_create = _check_description(prev_expense.description)
-        if should_create:
+        prev_description, has_future_payment = _check_description(prev_expense.description)
+        if has_future_payment:
             found = False
             for curr_expense in current_month_expenses:
                 curr_description, _ = _check_description(curr_expense.description)
@@ -36,29 +36,46 @@ def fill_pending_recurrences(month, year):
     current_month_expenses = Expenses.objects.filter(date__year=year, date__month=month)
 
     for prev_expense in previous_month_expenses:
-        prev_description, should_create = _check_description(prev_expense.description)
+        prev_description, has_future_payment = _check_description(prev_expense.description)
+        if has_future_payment:
+            found = False
+            for curr_expense in current_month_expenses:
+                curr_description, _ = _check_description(curr_expense.description)
 
-        found = False
-        for curr_expense in current_month_expenses:
-            curr_description, _ = _check_description(curr_expense.description)
+                if curr_description == prev_description:
+                    curr_expense.recurrent = True
+                    curr_expense.save()
 
-            if curr_description == prev_description:
-                curr_expense.recurrent = True
-                curr_expense.save()
+                    found = True
+                    break
 
-                found = True
-                break
-
-        if not found and should_create:
-            Expenses(date=add_months(prev_expense.date, 1), description=prev_expense.description,
-                     value=prev_expense.value, recurrent=True).save()
+            if not found:
+                Expenses(date=add_months(prev_expense.date, 1),
+                         description=_update_portion_payment(prev_expense.description), value=prev_expense.value,
+                         recurrent=True).save()
 
 
 def _check_description(description):
-    should_create = True
+    clean_description = description
+
+    has_future_payment = True
     if '(' in description and '/' in description:
         pos = description.find('(')
-        description = description[:pos].strip()
-        should_create = False
+        clean_description = description[:pos].strip()
 
-    return description, should_create
+        payments = description[pos:].replace('(', '').replace(')', '').split('/')
+        if payments[0] == payments[1]:
+            has_future_payment = False
+
+    return clean_description, has_future_payment
+
+
+def _update_portion_payment(description):
+    if '(' in description and '/' in description:
+        pos = description.find('(')
+        cleaned_description = description[:pos].strip()
+
+        payments = description[pos:].replace('(', '').replace(')', '').split('/')
+        return '%s (%d/%d)' % (cleaned_description, int(payments[0]) + 1, int(payments[1]))
+
+    return description
