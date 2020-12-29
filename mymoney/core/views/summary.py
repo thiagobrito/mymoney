@@ -32,8 +32,8 @@ def view(request, month=None, year=datetime.now().year):
         pie_chart_title = 'Categorias dos Gastos de Cartão de Crédito'
         pending_recurrences = has_pending_recurrences(month, year)
 
-        months = ['', 'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
-                  'November', 'December']
+        months = ['', 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
+                  'Outubro', 'Novembro', 'Dezembro']
         period_title = months[month] + ' (%s)' % year
 
     else:
