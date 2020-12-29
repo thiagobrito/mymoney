@@ -62,9 +62,11 @@ def _check_description(description):
     has_future_payment = True
     if '(' in description and '/' in description:
         m = re.search(r'(\d+)/(\d+)', description)
-
-        cleaned_description = description.replace('(%s/%s)' % (m.group(1), m.group(2)), '').strip()
-        if m.group(1) == m.group(2):
+        if m:
+            cleaned_description = description.replace('(%s/%s)' % (m.group(1), m.group(2)), '').strip()
+            if m.group(1) == m.group(2):
+                has_future_payment = False
+        else:
             has_future_payment = False
 
     return cleaned_description, has_future_payment
@@ -73,9 +75,9 @@ def _check_description(description):
 def _update_portion_payment(description):
     if '(' in description and '/' in description:
         m = re.search(r'(\d+)/(\d+)', description)
+        if m:
+            cleaned_description = description.replace('(%s/%s)' % (m.group(1), m.group(2)), '').strip()
 
-        cleaned_description = description.replace('(%s/%s)' % (m.group(1), m.group(2)), '').strip()
-
-        return '%s (%d/%d)' % (cleaned_description, int(m.group(1)) + 1, int(m.group(2)))
+            return '%s (%d/%d)' % (cleaned_description, int(m.group(1)) + 1, int(m.group(2)))
 
     return description
