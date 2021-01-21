@@ -6,8 +6,12 @@ from djmoney.money import Money
 from mymoney.core import util
 
 
-def good_daily_estimate(credit_card, month_charged_sum, goal=4000):
+def good_daily_estimate(credit_card, month_charged_sum):
     if credit_card:
+        goals = {2021: {1: 5000, 2: 5000, 3: 4500, 4: 4500, 5: 4000, 6: 4000,
+                        7: 4000, 8: 4000, 9: 4000, 10: 4000, 11: 4000, 12: 4000}}
+        goal = goals[credit_card[0].closing_date.year][credit_card[0].closing_date.month]
+
         start = util.add_months(credit_card[0].closing_date, -1)
         end = credit_card[0].closing_date
 
