@@ -3,6 +3,7 @@ from django.shortcuts import resolve_url as r
 from django.test import TestCase
 
 from mymoney.core.models.expenses import Expenses
+from mymoney.core.util import add_months
 
 
 class IndexTest(TestCase):
@@ -10,7 +11,7 @@ class IndexTest(TestCase):
         self._month = datetime.date.today().month
         self._year = datetime.date.today().year
         self._current_date = datetime.date.today()
-        self._previous_month = datetime.date.today().replace(month=datetime.date.today().month - 1)
+        self._previous_month = add_months(datetime.date.today(), -1)
 
     def test_prestacao_dont_create_new_expense(self):
         Expenses(date=self._previous_month, description='prestacao (1/10)', value=124, recurrent=True).save()

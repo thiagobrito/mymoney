@@ -8,6 +8,7 @@ from mymoney.core.models.credit_card_updates import CreditCardCategoryUpdate, Cr
 from mymoney.core.models.credit_card import CreditCardBills
 from mymoney.core.util import add_months
 
+
 class BurndownChartTests(TestCase):
     def test_charged_sum_zero(self):
         create_credit_card_bill({'account': '456'})
@@ -100,7 +101,7 @@ class UpdatePaymentDateTests(TestCase):
         create_credit_card_bill({'id': 123, 'transaction_id': 'transaction',
                                  'transaction_time': datetime.now()})
 
-        expected_date = datetime.now().replace(month=datetime.now().month - 1).date()
+        expected_date = add_months(datetime.now(), -1)
 
         self.response = self.client.post(r('api.credit_card.update_payment_date'), data={'name': 'payment_date',
                                                                                          'pk': 123, 'value': 0})
